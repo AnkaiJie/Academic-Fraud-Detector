@@ -11,7 +11,7 @@ from urllib.request import Request, urlopen
 import requests
 import lxml
 import PyPDF2
-from _io import BytesIO
+from _io import BytesIO, BufferedWriter
 
 
 class Paper:
@@ -115,24 +115,26 @@ class PaperReferenceProcessor:
     def __init__ (self):
         self.references = []
         
-    def getReferences (self):
+    def getPdfContent (self, pdfUrl):
         
-        writer = PyPDF2.PdfFileWriter()
-        remoteFile = urlopen(Request('http://uni-obuda.hu/journal/Baranyi_Csapo_33.pdf')).read()
+        content =""
+        remoteFile = urlopen(Request(pdfUrl)).read()
         localFile = BytesIO(remoteFile)
 
         pdf = PyPDF2.PdfFileReader(localFile)
-        print(pdf)
         
         for pageNum in range(pdf.getNumPages()):
-            currentPage = pdf.getPage(pageNum)
-            print(pageNum)
-            writer.addPage(currentPage)
-        
+            content+= pdf.getPage(pageNum).extractText()
+            
+        content = content.replace(u"/xao", " ")
+        return content
+    
+    def getCitesToAuthor (self, author):
+        return 1
         
         
 p = PaperReferenceProcessor()
-p.getReferences()
+print (p.getPdfContent('https://bbcr.uwaterloo.ca/papers/LLLS11.pdf'))
         
 
 
