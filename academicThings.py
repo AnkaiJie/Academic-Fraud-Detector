@@ -1,5 +1,5 @@
 '''
-Created on Jan 17, 2016
+Created on Jan 05, 2016
 
 @author: Ankai
 '''
@@ -7,19 +7,21 @@ import urllib.request
 import urllib.parse
 from bs4 import BeautifulSoup
 from bs4 import UnicodeDammit
-from urllib.request import Request
+from urllib.request import Request, urlopen
 import requests
-import lxml 
+import lxml
+import PyPDF2
+from _io import BytesIO
 
 
 class Paper:
     def __init__ (self, link):
         self.__url = link
         self.__pap_info = {}
+        self.__citersUrl = "none"
         
         session = requests.session()
         response = session.get(self.__url)
-        
         soup = BeautifulSoup(response.content, 'lxml')
 
         self.__pap_info['Title'] = soup.find('a', attrs={'class': 'gsc_title_link'}).text
@@ -29,12 +31,21 @@ class Paper:
         
         for field in div_fields:
             fieldName = field.find('div', attrs={'class':'gsc_field'}).text
-            if (fieldName=="Description"):
+            if (fieldName == "Description"):
+                continue
+            if (fieldName == "Total citations"):
+                citedBy = field.find('div', attrs={'style':'margin-bottom:1em'}).find('a')
+                self.__pap_info['Citations'] = citedBy.text.replace("Cited by ", "")
+                self.__citersUrl = citedBy['href']
                 break
+
             self.__pap_info[fieldName] = field.find('div', attrs={'class':'gsc_value'}).text
         
     def getUrl(self):
         return self.__url
+    
+    def getCitersUrl(self):
+        return self.__citersUrl 
         
     def getInfo (self):
         return self.__pap_info
@@ -46,6 +57,7 @@ class AcademicPublisher:
         
         self.name = name
         self.url = mainUrl        
+        self.__paper_list = []
         '''self.url = self.url + '&cstart=0&pagesize=' + str(numResults)
         values = {'s':'basics',
                   'submit':'search'}
@@ -62,13 +74,67 @@ class AcademicPublisher:
         response = session.get(self.url + '&cstart=0&pagesize=' + str(numResults))
         
         soup = BeautifulSoup(response.content, "lxml")
+        print(soup)
         
-        paper_list = []
         for one_url in soup.findAll('a', attrs={'class':'gsc_a_at'}, href=True):
-            paper_list.append(Paper('https://scholar.google.ca' + one_url['href']))
-            
+            self.__paper_list.append(Paper('https://scholar.google.ca' + one_url['href']))
     
-            
-        return paper_list
+        return self.__paper_list
+    
+    def getPaperCitationsByIndex(self, index):
+        return self.__paper_list[index].getCitersUrl()
+    
+class GscPdfExtractor:
+    
+    def __init__ (self, url):
+        self.url = url
+        self.__pdfUrls = []
+    
+    def findPaperUrls(self):
+        session = requests.session()
+        response = session.get(self.url)
+        soup = BeautifulSoup(response.content, 'lxml')
         
+        linkExtracts = soup.findAll('div', attrs={'class':'gs_md_wp gs_ttss'})
+        
+        for extract in linkExtracts:
+            #this code will skip links with [HTML] tag and throw error for links that are only "Get it at UWaterloo"
+            try:
+                if extract.find('span', attrs={'class':'gs_ctg2'}).text == "[PDF]":
+                    self.__pdfUrls.append(extract.find('a')['href'])
+                else:
+                    print(extract.find('span', attrs={'class':'gs_ctg2'}).text+" tag process will be coded later")
+            except:
+                print('No tag, "Get it at waterloo" part.. to be coded later')
+            
+        return self.__pdfUrls
+        
+class PaperReferenceProcessor:
+    
+    #assuming type is PDF
+    def __init__ (self):
+        self.references = []
+        
+    def getReferences (self):
+        
+        writer = PyPDF2.PdfFileWriter()
+        remoteFile = urlopen(Request('http://uni-obuda.hu/journal/Baranyi_Csapo_33.pdf')).read()
+        localFile = BytesIO(remoteFile)
+
+        pdf = PyPDF2.PdfFileReader(localFile)
+        print(pdf)
+        
+        for pageNum in range(pdf.getNumPages()):
+            currentPage = pdf.getPage(pageNum)
+            print(pageNum)
+            writer.addPage(currentPage)
+        
+        
+        
+p = PaperReferenceProcessor()
+p.getReferences()
+        
+
+
+    
         
