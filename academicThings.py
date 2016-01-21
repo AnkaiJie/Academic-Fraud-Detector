@@ -129,12 +129,30 @@ class PaperReferenceProcessor:
         content = content.replace(u"/xao", " ")
         return content
     
-    def getCitesToAuthor (self, author):
-        return 1
+    def getCitesToAuthor (self, author, pdfContent):
         
+        index = pdfContent.find("References")
+        if (index==-1):
+            index = pdfContent.find("REFERENCES")
+        if (index==-1):
+            index = pdfContent.find("R\nEFERENCES")
+        if (index==-1):
+            print("can't find reference sections")
+            return -1
         
+        refContent = pdfContent[index:]
+        
+        counter = 0
+        while (refContent.find(author)!=-1):
+            refIndex = refContent.find(author)
+            counter+=1
+            refContent = refContent[refIndex+len(author):]
+        
+        print (counter)
+        return counter
+    
 p = PaperReferenceProcessor()
-print (p.getPdfContent('https://bbcr.uwaterloo.ca/papers/LLLS11.pdf'))
+p.getCitesToAuthor("Gonzalez", p.getPdfContent('http://arxiv.org/pdf/1102.4106.pdf'))
         
 
 
