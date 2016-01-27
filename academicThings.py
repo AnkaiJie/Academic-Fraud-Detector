@@ -15,8 +15,9 @@ from _io import BytesIO, BufferedWriter
 
 
 class Paper:
-    def __init__ (self, link):
+    def __init__ (self, link, pdfUrl):
         self.__url = link
+        self.__pdfUrl= ""
         self.__pap_info = {}
         self.__citersUrl = "none"
         
@@ -31,8 +32,10 @@ class Paper:
         
         for field in div_fields:
             fieldName = field.find('div', attrs={'class':'gsc_field'}).text
+            #don't need the description
             if (fieldName == "Description"):
                 continue
+            #stores both number of citations and link to citers page as a field
             if (fieldName == "Total citations"):
                 citedBy = field.find('div', attrs={'style':'margin-bottom:1em'}).find('a')
                 self.__pap_info['Citations'] = citedBy.text.replace("Cited by ", "")
@@ -40,7 +43,7 @@ class Paper:
                 break
 
             self.__pap_info[fieldName] = field.find('div', attrs={'class':'gsc_value'}).text
-        
+    
     def getUrl(self):
         return self.__url
     
@@ -49,38 +52,46 @@ class Paper:
         
     def getInfo (self):
         return self.__pap_info
-        
+    
+    def getCitesToAuthor(self, last_name):
+        p = PaperReferenceProcessor()
+        p.getCitesToAuthor(last_name, p.getPdfContent('http://www.diva-portal.org/smash/get/diva2:517321/FULLTEXT02'))
+    
         
 class AcademicPublisher:
-
-    def __init__ (self, name, mainUrl):
+    
+    
+    def __init__ (self, mainUrl, numPapers):
         
-        self.name = name
+        self.first_name = None
+        self.last_name = None
         self.url = mainUrl        
         self.__paper_list = []
-        '''self.url = self.url + '&cstart=0&pagesize=' + str(numResults)
-        values = {'s':'basics',
-                  'submit':'search'}
-        data = urllib.parse.urlencode(values)
-        self.data = data.encode(encoding='utf-8')
-        req = urllib.request.Request(self.url, self.data)
-        resp = urllib.request.urlopen(req)
-        self.respData = resp.read()
-        #print(self.respData)
-        print(self.getWorksListOnPage(self.respData))'''
-    
-    def getPapers(self, numResults):
-        session = requests.Session()
-        response = session.get(self.url + '&cstart=0&pagesize=' + str(numResults))
         
+        session = requests.Session()
+        response = session.get(self.url + '&cstart=0&pagesize=' + str(numPapers))
         soup = BeautifulSoup(response.content, "lxml")
         print(soup)
+       
+        full_name = soup.find('div', attrs={'id': 'gsc_prf_in'}).text.lower().split()
+        print(full_name)
         
+        #stores the lowercase first and last names
+        self.first_name=full_name[0]
+        self.last_name=full_name[1]
+        print(self.last_name)
+       
+       #appends all papers to paperlist
         for one_url in soup.findAll('a', attrs={'class':'gsc_a_at'}, href=True):
+            #one_url['href'] finds the link to the paper page
             self.__paper_list.append(Paper('https://scholar.google.ca' + one_url['href']))
-    
+       
+       
+    def getPapers(self, numResults): 
+        #returns a list of Papers
         return self.__paper_list
     
+    # returners the link to the page with all the citers of a paper with specified index
     def getPaperCitationsByIndex(self, index):
         return self.__paper_list[index].getCitersUrl()
     
@@ -126,16 +137,11 @@ class PaperReferenceProcessor:
         for pageNum in range(pdf.getNumPages()):
             content+= pdf.getPage(pageNum).extractText()
             
-        content = content.replace(u"/xao", " ")
-        return content
+        return self.standardize(content)
     
     def getCitesToAuthor (self, author, pdfContent):
         
-        index = pdfContent.find("References")
-        if (index==-1):
-            index = pdfContent.find("REFERENCES")
-        if (index==-1):
-            index = pdfContent.find("R\nEFERENCES")
+        index = pdfContent.find("references")
         if (index==-1):
             print("can't find reference sections")
             return -1
@@ -148,12 +154,21 @@ class PaperReferenceProcessor:
             counter+=1
             refContent = refContent[refIndex+len(author):]
         
-        print (counter)
         return counter
     
+    def standardize(self, str):
+        return str.replace("\n", "").replace(" ", "").lower()
+
+
+
+#vas = AcademicPublisher('https://scholar.google.ca/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 10)
+#print(vas.getPaperCitationsByIndex(1))
+
+extractor = GscPdfExtractor('https://scholar.google.ca/scholar?oi=bibs&hl=en&oe=ASCII&cites=2412871699215781213&as_sdt=5')
+print(extractor.findPaperUrls())
+
 p = PaperReferenceProcessor()
-p.getCitesToAuthor("Gonzalez", p.getPdfContent('http://arxiv.org/pdf/1102.4106.pdf'))
-        
+print(p.getCitesToAuthor('vasilakos', p.getPdfContent('http://www.diva-portal.org/smash/get/diva2:517321/FULLTEXT02')))
 
 
     
