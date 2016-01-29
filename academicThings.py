@@ -248,18 +248,20 @@ class PaperReferenceProcessor:
             index = pdfContent.find("references")
         
         
-        
         return pdfContent
     
     def getCitesToAuthor (self, last_name, pdfContent):
 
         index = pdfContent.find("references")
-        if (index==-1):
+        if (index is None):
             print("can't find reference sections")
             return -1
         
-        
-        refContent = pdfContent[index:]
+        while (index!=-1):
+            pdfContent = pdfContent[index +10:]
+            index = pdfContent.find("references")
+            
+        refContent = pdfContent
         
         counter = 0
         while (refContent.find(last_name)!=-1):
@@ -270,9 +272,10 @@ class PaperReferenceProcessor:
         return counter
 
     #removes line breaks, white space, and puts it to lower case
-    def standardize(self, str):
-        return str.replace("\n", "").replace(" ", "").lower()
-
+    def standardize(self, thing):
+        thing = thing.replace("\n", "").replace(" ","").lower()
+        thing = thing.replace("ﬁ", "\"").replace("ﬂ", "\"").replace("™", "\'").replace("œ", "-")
+        return thing
 
 
 #vas = AcademicPublisher('https://scholar.google.ca/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 2)
@@ -290,7 +293,8 @@ print(extractor.findPaperUrls())'''
 
 
 p = PaperReferenceProcessor()
-print(p.getReferencesContent("http://dro.dur.ac.uk/6128/1/6128.pdf"))
+k = p.getReferencesContent("http://uni-obuda.hu/journal/Baranyi_Csapo_33.pdf")
+print(k)
 #print(p.getCitesToAuthor(vas, p.getPdfContent('http://www.diva-portal.org/smash/get/diva2:517321/FULLTEXT02')))
 
 
