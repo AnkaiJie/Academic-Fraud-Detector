@@ -20,6 +20,7 @@ class Paper:
         self.__pdfUrl= None
         self.__pap_info = {}
         self.__citersUrl = None
+        self.__allAuthors = None #need to write method to find this
         
         session = requests.session()
         response = session.get(self.__url)
@@ -62,6 +63,41 @@ class Paper:
     def findPdfUrlOnPage(self):
         extractor = GscPdfExtractor()
         return extractor.findPdfUrlFromInfo(self.__url)
+
+
+    def findAllAuthors(self, testData):
+        #authors = self.pap_info['Authors']
+        authors = testData
+        authors = authors.split(",")
+        authorList = []
+
+        session = requests.session()
+
+        for author in authors:
+            authorFields = author.split()
+
+            authorQuery = ""
+
+            #must get query into the rightform as noted by GS link first+middle+last
+            for i in range(len(authorFields)):
+                if (i == len(authorFields)-1):
+                    authorQuery += authorFields[i]
+                else:
+                    authorQuery = authorQuery+authorFields[i]+"+"
+
+            response = session.get('https://scholar.google.ca/scholar?q='+authorQuery+'&btnG=&hl=en&as_sdt=0%2C5')
+            soup = BeautifulSoup(response.content, 'lxml')
+            print(soup)
+
+            tdata = soup.find('td', attrs={'valign': 'top'})
+            link = tdata.find('a')['href']
+
+            thisAuthor = AcademicPublisher('https://scholar.google.ca' + link, 1)
+            authorList.append(thisAuthor)
+
+        return authorList
+
+
 
     '''#returns number of citations this paper makes to the specified author
     def getCitesToAuthor(self, last_name):
@@ -207,11 +243,15 @@ class PaperReferenceProcessor:
 
 
 
-vas = AcademicPublisher('https://scholar.google.ca/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 2)
+#vas = AcademicPublisher('https://scholar.google.ca/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 2)
 #print(vas.getPaperCitationsByIndex(1))
-print (vas.getPapers())
-print (vas.getNumCitesByPaper(0, 0))
+#print (vas.getPapers())
+#print (vas.getNumCitesByPaper(0, 0))
 
+
+paper = Paper("https://scholar.google.ca/citations?view_op=view_citation&hl=en&user=ajvCoo4AAAAJ&citation_for_view=ajvCoo4AAAAJ:9yKSN-GCB0IC")
+
+print (paper.findAllAuthors('Min Chen, Sergio Gonzalez, Athanasios Vasilakos, Huasong Cao, Victor C Leung'))
 
 '''extractor = GscPdfExtractor('https://scholar.google.ca/scholar?oi=bibs&hl=en&oe=ASCII&cites=2412871699215781213&as_sdt=5')
 print(extractor.findPaperUrls())'''
