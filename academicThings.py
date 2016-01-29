@@ -3,15 +3,13 @@ Created on Jan 05, 2016
 
 @author: Ankai
 '''
-import urllib.request
-import urllib.parse
 from bs4 import BeautifulSoup
-from bs4 import UnicodeDammit
 from urllib.request import Request, urlopen
 import requests
 import lxml
+import re
 import PyPDF2
-from _io import BytesIO, BufferedWriter
+from _io import BytesIO
 
 
 class Paper:
@@ -19,8 +17,8 @@ class Paper:
         self.__url = link
         self.__pdfUrl= None
         self.__pap_info = {}
-        self.__citersUrl = None
-        self.__allAuthors = None #need to write method to find this
+        self.__citedByUrl = None
+        self.__allAuthors = None 
         
         session = requests.session()
         response = session.get(self.__url)
@@ -40,19 +38,17 @@ class Paper:
             if (fieldName == "Total citations"):
                 citedBy = field.find('div', attrs={'style':'margin-bottom:1em'}).find('a')
                 self.__pap_info['Citations'] = citedBy.text.replace("Cited by ", "")
-                self.__citersUrl = citedBy['href']
+                self.__citedByUrl = citedBy['href']
                 break
-
+            
             self.__pap_info[fieldName] = field.find('div', attrs={'class':'gsc_value'}).text
 
-
-        self.__pdfUrl = self.findPdfUrlOnPage()
 
     def getUrl(self):
         return self.__url
     
-    def getCitersUrl(self):
-        return self.__citersUrl 
+    def getCitedByUrl(self):
+        return self.__citedByUrl 
         
     def getInfo (self):
         return self.__pap_info
@@ -64,40 +60,53 @@ class Paper:
         extractor = GscPdfExtractor()
         return extractor.findPdfUrlFromInfo(self.__url)
 
+    
+    # returns a list of author objects - all the authors that collaborated on this paper
+    def findAllAuthors(self):
+        authors = self.pap_info['Authors']
+        paperName = self.pap_info['Title']
 
-    def findAllAuthors(self, testData):
-        #authors = self.pap_info['Authors']
-        authors = testData
+        # taking out any special characters in paper name
+        paperName = re.sub(r'\W+', ' ', paperName)
+        paperName = "+".join(paperName.split())
         authors = authors.split(",")
+        print (authors)
         authorList = []
 
         session = requests.session()
-
+        
+        # appends a new authors object as found from the name into the list
         for author in authors:
             authorFields = author.split()
+            lastName = authorFields[len(authorFields)-1]
+            
+            #must get query into the right form as noted by GS link first+middle+last
+            query = "+".join(authorFields)+"+"+paperName
 
-            authorQuery = ""
-
-            #must get query into the rightform as noted by GS link first+middle+last
-            for i in range(len(authorFields)):
-                if (i == len(authorFields)-1):
-                    authorQuery += authorFields[i]
-                else:
-                    authorQuery = authorQuery+authorFields[i]+"+"
-
-            response = session.get('https://scholar.google.ca/scholar?q='+authorQuery+'&btnG=&hl=en&as_sdt=0%2C5')
+            
+            response = session.get('https://scholar.google.ca/scholar?q='+query+'&btnG=&hl=en&as_sdt=0%2C5')
             soup = BeautifulSoup(response.content, 'lxml')
-            print(soup)
 
-            tdata = soup.find('td', attrs={'valign': 'top'})
-            link = tdata.find('a')['href']
-
-            thisAuthor = AcademicPublisher('https://scholar.google.ca' + link, 1)
-            authorList.append(thisAuthor)
-
+            authorsData = soup.find('div', attrs={'class': 'gs_a'}).findAll('a')
+            print (authorsData)
+            
+            foundAuthor = False
+            for anAuthor in authorsData:
+                if (anAuthor.text.find(lastName) !=-1):
+                    link = anAuthor['href']
+                    #default number of paper loads and corresponding paper objects stored for author is set to 1
+                    thisAuthor = AcademicPublisher('https://scholar.google.ca' + link, 1)
+                    authorList.append(thisAuthor)
+                    foundAuthor = True
+                    break;
+                
+            if(foundAuthor is False):
+                print("cannot find author "+ author)
+                authorList.append(lastName+" does not exist in GS database")
+        
+        # list of all authors of the paper (if they exist on google scholar) 
+        # if they don't exist, they are stored as a string saying they don't exist
         return authorList
-
-
 
     '''#returns number of citations this paper makes to the specified author
     def getCitesToAuthor(self, last_name):
@@ -117,7 +126,6 @@ class AcademicPublisher:
         session = requests.Session()
         response = session.get(self.url + '&cstart=0&pagesize=' + str(numPapers))
         soup = BeautifulSoup(response.content, "lxml")
-        print(soup)
        
         full_name = soup.find('div', attrs={'id': 'gsc_prf_in'}).text.lower().split()
         print(full_name)
@@ -128,7 +136,7 @@ class AcademicPublisher:
         print(self.last_name)
 
 
-       #appends all papers to paperlist
+        #appends all papers to paperlist
         for one_url in soup.findAll('a', attrs={'class':'gsc_a_at'}, href=True):
             #one_url['href'] finds the link to the paper page
             self.__paper_list.append(Paper('https://scholar.google.ca' + one_url['href']))
@@ -143,7 +151,7 @@ class AcademicPublisher:
     def getNumCitesByPaper(self, indexPaper, indexCiter):
         pdfExtractor = GscPdfExtractor()
         paper = self.__paper_list[indexPaper]
-        pdfUrls = pdfExtractor.findPapersFromCitations(paper.getCitersUrl())
+        pdfUrls = pdfExtractor.findPapersFromCitations(paper.getCitedByUrl())
 
         analyzer = PaperReferenceProcessor()
         content = analyzer.getPdfContent(pdfUrls[indexCiter])
@@ -158,7 +166,8 @@ class AcademicPublisher:
         return self.last_name
     
 class GscPdfExtractor:
-
+    
+    #returns the list of pdf urls from the first page of citations on Google Scholar
     def findPapersFromCitations(self, citationsUrl):
         session = requests.session()
         response = session.get(citationsUrl)
@@ -201,12 +210,18 @@ class GscPdfExtractor:
                 return None
 
 
+class Citation:
+    def __init__(self):
+        self.k = None
+        
+        
+        
+        
 class PaperReferenceProcessor:
-    
     #assuming type is PDF
     def __init__ (self):
         self.references = []
-        
+            
     def getPdfContent (self, pdfUrl):
         
         content =""
@@ -220,12 +235,29 @@ class PaperReferenceProcessor:
             
         return self.standardize(content)
     
+    def getReferencesContent(self, pdfUrl):
+        
+        pdfContent = self.getPdfContent(pdfUrl)
+        index = pdfContent.find("references")
+        if (index is None):
+            print("can't find reference sections")
+            return -1
+        
+        while (index!=-1):
+            pdfContent = pdfContent[index +10:]
+            index = pdfContent.find("references")
+        
+        
+        
+        return pdfContent
+    
     def getCitesToAuthor (self, last_name, pdfContent):
 
         index = pdfContent.find("references")
         if (index==-1):
             print("can't find reference sections")
             return -1
+        
         
         refContent = pdfContent[index:]
         
@@ -249,23 +281,25 @@ class PaperReferenceProcessor:
 #print (vas.getNumCitesByPaper(0, 0))
 
 
-paper = Paper("https://scholar.google.ca/citations?view_op=view_citation&hl=en&user=ajvCoo4AAAAJ&citation_for_view=ajvCoo4AAAAJ:9yKSN-GCB0IC")
+'''paper = Paper("https://scholar.google.ca/citations?view_op=view_citation&hl=en&user=ajvCoo4AAAAJ&citation_for_view=ajvCoo4AAAAJ:9yKSN-GCB0IC")
+print (paper.findAllAuthors('Min Chen, Sergio Gonzalez, Anthonasias Vasilakos', "Body Area Networks: A Survey"))'''
 
-print (paper.findAllAuthors('Min Chen, Sergio Gonzalez, Athanasios Vasilakos, Huasong Cao, Victor C Leung'))
 
 '''extractor = GscPdfExtractor('https://scholar.google.ca/scholar?oi=bibs&hl=en&oe=ASCII&cites=2412871699215781213&as_sdt=5')
 print(extractor.findPaperUrls())'''
 
 
-#p = PaperReferenceProcessor()
+p = PaperReferenceProcessor()
+print(p.getReferencesContent("http://dro.dur.ac.uk/6128/1/6128.pdf"))
 #print(p.getCitesToAuthor(vas, p.getPdfContent('http://www.diva-portal.org/smash/get/diva2:517321/FULLTEXT02')))
+
 
 #g = GscPdfExtractor()
 #print(g.findPdfUrlFromInfo('https://scholar.google.ca/citations?view_op=view_citation&hl=en&user=_yWPQWoAAAAJ&citation_for_view=_yWPQWoAAAAJ:_xSYboBqXhAC'))
 
 #test_paper = Paper('https://scholar.google.ca/citations?view_op=view_citation&hl=en&user=_yWPQWoAAAAJ&citation_for_view=_yWPQWoAAAAJ:_xSYboBqXhAC')
 #print(test_paper.getPdfUrl())
-#print(test_paper.getCitersUrl())
+#print(test_paper.getcitedByUrl())
 #print(test_paper.getInfo())
 
 
