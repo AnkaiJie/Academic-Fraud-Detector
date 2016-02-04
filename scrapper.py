@@ -4,8 +4,8 @@ Created on Jan 7, 2016
 @author: Ankai
 '''
 
-from AcademicThings import AcademicPublisher
-from AcademicThings import GscPdfExtractor
+from academicThings import AcademicPublisher
+from academicThings import GscPdfExtractor
  
 
 

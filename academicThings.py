@@ -10,7 +10,8 @@ import lxml
 import re
 import PyPDF2
 from _io import BytesIO
-
+from ReferenceParser import bulkSplit, citeSplit
+from WordInference import inferSpaces
 
 class Paper:
     def __init__ (self, link):
@@ -141,7 +142,7 @@ class AcademicPublisher:
             #one_url['href'] finds the link to the paper page
             self.__paper_list.append(Paper('https://scholar.google.ca' + one_url['href']))
        
-       
+    
     def getPapers(self):
         #returns a list of Papers
         return self.__paper_list
@@ -250,6 +251,10 @@ class PaperReferenceProcessor:
         
         return pdfContent
     
+    #def parseNoSpaces(self, content):
+        
+        
+    
     def getCitesToAuthor (self, last_name, pdfContent):
 
         index = pdfContent.find("references")
@@ -273,7 +278,7 @@ class PaperReferenceProcessor:
 
     #removes line breaks, white space, and puts it to lower case
     def standardize(self, thing):
-        thing = thing.replace("\n", "").replace(" ","").lower()
+        thing = thing.replace("-\n", "").replace("\n", "").replace(" ","").lower()
         thing = thing.replace("ﬁ", "\"").replace("ﬂ", "\"").replace("™", "\'").replace("œ", "-")
         return thing
 
@@ -292,9 +297,14 @@ print (paper.findAllAuthors('Min Chen, Sergio Gonzalez, Anthonasias Vasilakos', 
 print(extractor.findPaperUrls())'''
 
 
-p = PaperReferenceProcessor()
+''''p = PaperReferenceProcessor()
 k = p.getReferencesContent("http://uni-obuda.hu/journal/Baranyi_Csapo_33.pdf")
 print(k)
+lst = bulkSplit(k)
+#print (citeSplit(lst[10]))
+
+for j in lst:
+    print(citeSplit(j))'''
 #print(p.getCitesToAuthor(vas, p.getPdfContent('http://www.diva-portal.org/smash/get/diva2:517321/FULLTEXT02')))
 
 
