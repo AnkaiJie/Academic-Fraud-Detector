@@ -49,35 +49,22 @@ class PaperReferenceExtractor:
     
     #def parseNoSpaces(self, content):
     
-    def getCitesToAuthor (self, last_name, pdfContent):
+    
+    # takes in a keyword that symbolizes the author in the PDF, and determines the number of instances of that keyword in the pdf
+    def getCitesToAuthor (self, author_key_word, refContent):
 
-        index = pdfContent.find("References")
-        if (index==-1):
-            index = pdfContent.find("REFERENCES")
-            if (index==-1):
-                print("can't find reference sections")
-                return -1
-        
-        while (index!=-1):
-            pdfContent = pdfContent[index +10:]
-            index = pdfContent.find("References")
-            if (index==-1):
-                index = pdfContent.find("REFERENCES")
-            
-        refContent = pdfContent
-        
         counter = 0
-        while (refContent.find(last_name)!=-1):
-            refIndex = refContent.find(last_name)
+        while (refContent.find(author_key_word)!=-1):
+            refIndex = refContent.find(author_key_word)
             counter+=1
-            refContent = refContent[refIndex+len(last_name):]
+            refContent = refContent[refIndex+len(author_key_word):]
         
         return counter
 
     #removes line breaks, white space, and puts it to lower case
     def standardize(self, thing):
         thing = thing.replace("-\n", "").replace("\n", "").replace(" ","")
-        thing = thing.replace("ﬁ", "\"").replace("ﬂ", "\"").replace("™", "\'").replace("œ", "-")
+        thing = thing.replace("ﬁ", "\"").replace("ﬂ", "\"").replace("™", "\'").replace("œ", "-").replace("Š","-")
         return thing
 
 class IeeeReferenceParser:
@@ -205,7 +192,7 @@ class SpringerReferenceParser:
                     if (i<-3):
                         break
                     
-                element = element[i + 1:] + ' ' + element[:i + 1]  
+                element = (element[i + 1:] + ' ' + element[:i + 1])
                 author_arr.append(element)
             
         infoDict = {'authors': author_arr, 'title': title.strip(), 'year': year}
@@ -223,11 +210,10 @@ class SpringerReferenceParser:
         return cite_list
             
 
-''''p = PaperReferenceExtractor()
-k = p.getReferencesContent("http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.329.7097&rep=rep1&type=pdf")
-print(k)
-parser = SpringerReferenceParser()
-print(parser.citeParse(k))'''
+'''p = PaperReferenceExtractor()
+k = p.getReferencesContent("http://phys.xmu.edu.cn/shuaiweb/ShuaiPub/IEEETN11_135.pdf")
+print(k)'''
+
 
         
 

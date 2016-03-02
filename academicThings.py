@@ -170,10 +170,10 @@ class AcademicPublisher:
         self.url = mainUrl        
         self.__paper_list = []
         
-        self.loadPapers(mainUrl, numPapers)
+        self.loadPapers(numPapers)
         
        
-    def loadPapers(self, mainUrl, numPapers):
+    def loadPapers(self, numPapers):
         session = requests.Session()
         response = session.get(self.url + '&cstart=0&pagesize=' + str(numPapers))
         soup = BeautifulSoup(response.content, "lxml")
@@ -183,9 +183,12 @@ class AcademicPublisher:
         print(full_name)
         
         #stores the lowercase first and last names
+        
+
+        
         self.first_name=full_name[0]
         self.last_name=full_name[1]
-        print(self.last_name)
+        #print(self.last_name)
 
 
         #appends all papers to paperlist
