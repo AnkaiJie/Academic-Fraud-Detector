@@ -71,56 +71,29 @@ class Paper:
     
     
     # returns a list of author objects - all the authors that collaborated on this paper
+    # NOTE: only includes authors that have a google scholar profile!! those that do not are completely omitted
     def findAllAuthors(self):
-        authors = self.pap_info['Authors']
-        paperName = self.pap_info['Title']
+        authors = self.__pap_info['Authors']
+        paperName = self.__pap_info['Title']
 
-        # taking out any special characters in paper name
-        paperName = re.sub(r'\W+', ' ', paperName)
-        paperName = "+".join(paperName.split())
+        
         authors = authors.split(",")
-        print (authors)
+        #print (authors)
         authorList = []
 
-        session = requests.session()
+        gsc_bot = GscHtmlFunctions()
         
         # appends a new authors object as found from the name into the list
         for author in authors:
-            authorFields = author.split()
-            lastName = authorFields[len(authorFields)-1]
-            
-            #must get query into the right form as noted by GS link first+middle+last
-            query = "+".join(authorFields)+"+"+paperName
-
-            
-            response = session.get('https://scholar.google.ca/scholar?q='+query+'&btnG=&hl=en&as_sdt=0%2C5')
-            soup = BeautifulSoup(response.content, 'lxml')
-
-            authorsData = soup.find('div', attrs={'class': 'gs_a'}).findAll('a')
-            #print (authorsData)
-            
-            foundAuthor = False
-            for anAuthor in authorsData:
-                if (anAuthor.text.find(lastName) !=-1):
-                    link = anAuthor['href']
-                    #default number of paper loads and corresponding paper objects stored for author is set to 1
-                    thisAuthor = AcademicPublisher('https://scholar.google.ca' + link, 1)
-                    authorList.append(thisAuthor)
-                    foundAuthor = True
-                    break;
-                
-            if(foundAuthor is False):
-                print("cannot find author "+ author)
-                authorList.append(lastName+" does not exist in GS database")
+            return_author  =gsc_bot.get_author_from_search(author, paperName)
+            if return_author is not -1:
+                authorList.append(gsc_bot.get_author_from_search(author, paperName))
         
         # list of all authors of the paper (if they exist on google scholar) 
         # if they don't exist, they are stored as a string saying they don't exist
         return authorList
 
-        '''#returns number of citations this paper makes to the specified author
-        def getCitesToAuthor(self, last_name):
-        p = PaperReferenceProcessor()
-        p.getCitesToAuthor(last_name, p.getPdfContent(self.__pdfUrl))'''
+
    
     #returns a list of citation objects for this paper
     def findAllCitations(self):
@@ -167,10 +140,12 @@ class AcademicPublisher:
         
         self.first_name = None
         self.last_name = None
-        self.url = mainUrl        
+        self.url = None
         self.__paper_list = []
         
-        self.loadPapers(numPapers)
+        if (mainUrl is not None):
+            self.url = mainUrl     
+            self.loadPapers(numPapers)
         
        
     def loadPapers(self, numPapers):
@@ -180,16 +155,12 @@ class AcademicPublisher:
 
        
         full_name = soup.find('div', attrs={'id': 'gsc_prf_in'}).text.lower().split()
-        print(full_name)
+        #print(full_name)
         
         #stores the lowercase first and last names
-        
-
-        
         self.first_name=full_name[0]
         self.last_name=full_name[1]
         #print(self.last_name)
-
 
         #appends all papers to paperlist
         for one_url in soup.findAll('a', attrs={'class':'gsc_a_at'}, href=True):
@@ -268,7 +239,34 @@ class GscPdfExtractor:
                 print ("get it at waterloo link, will figure out later")
                 return None
 
+class GscHtmlFunctions:
+    def get_author_from_search(self, auth_name, paper_name):
+        # taking out any special characters in paper name
+        paper_name = re.sub(r'\W+', ' ', paper_name)
+        paper_name = "+".join(paper_name.split())
+        
+        authorFields = auth_name.split()
+        lastName = authorFields[len(authorFields)-1]
+           
+        #must get query into the right form as noted by GS link first+middle+last
+        query = "+".join(authorFields)+"+"+paper_name
 
+        session = requests.session()
+        response = session.get('https://scholar.google.ca/scholar?q='+query+'&btnG=&hl=en&as_sdt=0%2C5')
+        soup = BeautifulSoup(response.content, 'lxml')
+
+        authorsData = soup.find('div', attrs={'class': 'gs_a'}).findAll('a')
+        #print (authorsData)
+            
+        for anAuthor in authorsData:
+            if (anAuthor.text.find(lastName) !=-1):
+                link = anAuthor['href']
+                #default number of paper loads and corresponding paper objects stored for author is set to 1
+                thisAuthor = AcademicPublisher('https://scholar.google.ca' + link, 1)
+                return thisAuthor
+
+        print("cannot find author "+ auth_name)
+        return -1
         
 
 
@@ -277,9 +275,6 @@ class GscPdfExtractor:
 for paper in vas.getPapers():
     print (paper.getInfo())'''
 '''paper1 = Paper('https://scholar.google.ca/citations?view_op=view_citation&hl=en&user=_yWPQWoAAAAJ&citation_for_view=_yWPQWoAAAAJ:u5HHmVD_uO8C')
-cite_list = paper1.findAllCitations()
-
-for citation in cite_list:
-    print(citation.getInfo())'''
-
-
+lst = paper1.findAllAuthors()
+for author in lst:
+    print(author.getFirstName() + ' ' + author.getLastName())'''

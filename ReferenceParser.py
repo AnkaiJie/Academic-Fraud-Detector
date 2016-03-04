@@ -64,7 +64,7 @@ class PaperReferenceExtractor:
     #removes line breaks, white space, and puts it to lower case
     def standardize(self, thing):
         thing = thing.replace("-\n", "").replace("\n", "").replace(" ","")
-        thing = thing.replace("ﬁ", "\"").replace("ﬂ", "\"").replace("™", "\'").replace("œ", "-").replace("Š","-")
+        thing = thing.replace("ﬁ", "\"").replace("ﬂ", "\"").replace("™", "\'").replace("œ", "-").replace("Š","-").replace('˚', 'fi')
         return thing
 
 class IeeeReferenceParser:
@@ -132,7 +132,7 @@ class IeeeReferenceParser:
         
         #puts author names to standard format
         for idx, auth in enumerate(authorArray):
-            authorArray[idx] = auth.lower().replace('. ', ' ').replace('.', ' ')
+            authorArray[idx] = auth.replace('. ', ' ').replace('.', ' ')
             
         infoDict = {'authors': authorArray, 'title': title.strip(), 'year': year}
         return infoDict    
@@ -177,7 +177,10 @@ class SpringerReferenceParser:
         for idx, element in enumerate(ref):
             if (element.isdigit()):
                 year = element
-                title = WordInference.inferSpaces(ref[idx + 1].lower())
+                raw_title = ref[idx + 1].lower()
+                #title = re.sub(r'\W+', ' ', raw_title)
+                #title = "+".join(title.split())
+                title = WordInference.inferSpaces(raw_title)
                 break
             else: 
                 i = -1
@@ -209,10 +212,13 @@ class SpringerReferenceParser:
         
         return cite_list
             
-
-'''p = PaperReferenceExtractor()
+p = PaperReferenceExtractor()
 k = p.getReferencesContent("http://phys.xmu.edu.cn/shuaiweb/ShuaiPub/IEEETN11_135.pdf")
-print(k)'''
+k2 = p.getReferencesContent("http://140.123.102.14:8080/reportSys/file/paper/cktsung/cktsung_39_paper.pdf")
+parser = IeeeReferenceParser()
+parser2 = SpringerReferenceParser()
+print(parser.citeParse(k))
+print(parser2.citeParse(k2))
 
 
         
