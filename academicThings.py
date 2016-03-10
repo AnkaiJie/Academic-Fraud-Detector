@@ -8,12 +8,14 @@ import requests
 import lxml
 import re
 from ReferenceParser import IeeeReferenceParser, SpringerReferenceParser, PaperReferenceExtractor
+import time
 
 class Paper:
     def __init__ (self, link):
         self.__url = link
         self.__pdfUrl= None
         self.__pap_info = {}
+        self.__pap_info['Publisher'] = ''
         self.__citedByUrl = None
         self.__allAuthors = None 
         
@@ -155,13 +157,16 @@ class AcademicPublisher:
 
        
         full_name = soup.find('div', attrs={'id': 'gsc_prf_in'}).text.lower().split()
-        #print(full_name)
         
         #stores the lowercase first and last names
         self.first_name=full_name[0]
         self.last_name=full_name[1]
         #print(self.last_name)
-
+        
+        print('In loadPapers function for ' + self.first_name+' ' + self.last_name +'. Num papers: '+ str(numPapers))    
+        
+        self.__paper_list=[]
+        
         #appends all papers to paperlist
         for one_url in soup.findAll('a', attrs={'class':'gsc_a_at'}, href=True):
             #one_url['href'] finds the link to the paper page

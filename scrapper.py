@@ -12,6 +12,8 @@ from ReferenceParser import PaperReferenceExtractor, SpringerReferenceParser,Iee
 from bs4 import BeautifulSoup
 import requests
 from collections import Counter
+import time
+import PyPDF2
 
 #these two functions take and authors first name and last name, and convert them to how it would appear in the references
 # section of a paper from the specified publisher
@@ -121,8 +123,11 @@ def count_journal_frequency (author, index):
 # given an author, takes x_most_rel number of papers and finds the top_x most cited authors, with total citation count
 # then, takes each of those authors, and determines how many times they cite the given author in their x_most_rel number of papers
 def count_cross_cites (author, x_most_rel, top_x):
-    paper_list = author.loadPapers(x_most_rel)
-    print("Total number of valid GSC papers: " + len(paper_list))
+    author.loadPapers(x_most_rel)
+    paper_list = author.getPapers()
+    ORIG_FNAME = author.getFirstName()
+    ORIG_LNAME = author.getLastName()
+    print("Total number of valid GSC papers: " + str(len(paper_list)))
     citation_list= []
     
     ref_processor = PaperReferenceExtractor()
@@ -133,6 +138,9 @@ def count_cross_cites (author, x_most_rel, top_x):
     for paper in paper_list:
         pub = paper.getInfo()['Publisher']
         pdfurl = paper.getPdfUrl()
+        if (pdfurl is None):
+            continue
+        print('pdfUrl ' + pdfurl)
         ref_content = ref_processor.getReferencesContent(pdfurl)
         
         if (pub=='IEEE'):
@@ -145,6 +153,8 @@ def count_cross_cites (author, x_most_rel, top_x):
         
         citation_list += citations  
     
+    print('From the valid top '+ str(top_x) +' papers, all the citations found: '+ str(citation_list))
+    
     
     author_dist = {}
     
@@ -152,28 +162,32 @@ def count_cross_cites (author, x_most_rel, top_x):
     # end results: {'author': {'freq': int frequency original author cites him, 'paper': [array of paper titles in which the cited author is cited]}, 
     for citation in citation_list:
         title = citation['title']
-        for author in citation['authors']:
-            if author in author_dist:
-                author_dist[author]['freq'] += 1
-                if title not in author_dist[author]['papers']:
-                    author_dist[author]['papers'].append(title)
+        for cited_author in citation['authors']:
+            if cited_author in author_dist:
+                author_dist[cited_author]['freq'] += 1
+                if title not in author_dist[cited_author]['papers']:
+                    author_dist[cited_author]['papers'].append(title)
             else:
-                author_dist[author]['freq'] = 1
-                author_dist[author]['papers'] = [title]
+                author_dist[cited_author] = {}
+                author_dist[cited_author]['freq'] = 1
+                author_dist[cited_author]['papers'] = [title] 
     
-    print('unsorted author list: ' + author_dist)
+    print('unsorted author list: ' + str(author_dist))
     
     #sorts the dictionary - now an array of tuples that are sorted by frequency
     #author_dist should be in the form [('author', {'freq': 5, 'papers':[]}), ...]
     author_dist = list(reversed(sorted(author_dist.items(), key=lambda x: x[1]['freq'])))
     
-    print('sorted author list in tuples: ' + author_dist) 
+    print('sorted author list in tuples: ' + str(author_dist)) 
     
     gsc_bot = GscHtmlFunctions()
     top_x_authors = []
     
     #this part will create valid author objects for each of the top cited authors and append it to a list
     for index, author_info in enumerate (author_dist):
+        
+        time.sleep(5)
+        
         if (index>top_x-1):
             break
         
@@ -187,7 +201,7 @@ def count_cross_cites (author, x_most_rel, top_x):
             top_x +=1
         else:
             #each value is an array of two values: author object, and frequency cited
-            top_x_authors.append([returned_author, frequency])
+            top_x_authors.append([returned_author, returned_author.getFirstName(), returned_author.getLastName(), frequency])
             
     print('Top citing authors: ')
     print(top_x_authors)
@@ -197,42 +211,53 @@ def count_cross_cites (author, x_most_rel, top_x):
     # array to store another array of author, and how many times they cite the original author
     cited_author_info_arr = []
     
-    for cited_author in top_x_authors:
-        cited_author.loadPapers(x_most_rel)
-        temp_paper_lst = cited_author.getPapers()
+    for cited_author_freq_arr in top_x_authors:
+        time.sleep(5)   
+        top_cited_author = cited_author_freq_arr[0]
+        top_cited_author.loadPapers(x_most_rel)
+        
+        cited_fname = top_cited_author.getFirstName()
+        cited_lname = top_cited_author.getLastName()
+        
+        temp_paper_lst = top_cited_author.getPapers()
         total_cites = 0
         
         #determines number of times the paper cites the original author
         for paper in temp_paper_lst:
+            if (paper.getPdfUrl() is None):
+                continue
             analyzer = PaperReferenceExtractor()
-            content = analyzer.getReferencesContent(paper.getPdfUrl())
-            auth_word = get_ref_author_format(author.getFirstName(), author.getLastName(), paper.getInfo()['Publisher'])
+            try:
+                content = analyzer.getReferencesContent(paper.getPdfUrl())
+            except TypeError as e:
+                print('weird ord() error: ')
+                print(e)
+                continue
+            except PyPDF2.utils.PdfReadError as e:
+                print(e)
+                continue
+            
+            #handles cases where reference section not found (usually when the paper is scanned)
+            if(content==-1):
+                continue
+            
+            auth_word = get_ref_author_format(cited_fname, cited_lname, paper.getInfo()['Publisher'])
             total_cites += analyzer.getCitesToAuthor(auth_word, content)
             
-        cited_author_info_arr.append([cited_author, total_cites])
+        cited_author_info_arr.append([top_cited_author, cited_fname, cited_lname, total_cites])
     
-    print('cited_author_info_arr: '+cited_author_info_arr)
+    print('cited_author_info_arr: '+ str(cited_author_info_arr))
     
     #compilation of all the information
-    final_info_dict = {'First Name': author.getFirstName(),'Last Name': author.getLastName(), 'Author_citation_frequency': top_x_authors, 'Cited_authors_overcite_frequency':cited_author_info_arr}
+    final_info_dict = {'First Name': ORIG_FNAME,'Last Name': ORIG_LNAME, 'Author_citation_frequency': top_x_authors, 'Cited_authors_overcite_frequency':cited_author_info_arr}
     
     return final_info_dict
     
         
     
-
-
 vas = AcademicPublisher('https://scholar.google.ca/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 1)
-#p = Paper('https://scholar.google.ca/citations?view_op=view_citation&hl=en&user=_yWPQWoAAAAJ&citation_for_view=_yWPQWoAAAAJ:u5HHmVD_uO8C')
-
-#print(str(count_overcites_by_index(p, 0, vas)))
-
-count_self_cites(vas, Paper('https://scholar.google.ca/citations?view_op=view_citation&hl=en&user=_yWPQWoAAAAJ&citation_for_view=_yWPQWoAAAAJ:2osOgNQ5qMEC'))
-
-'''smeaton = AcademicPublisher('https://scholar.google.ca/citations?user=o7xnW2MAAAAJ&hl=en&oi=ao', 1)
-print(smeaton.getFirstName() + ' ' + smeaton.getLastName())'''
-
-#print(count_journal_frequency(vas, 0))
+time.sleep(5)
+print('FINAL RESULT: ' + str(count_cross_cites(vas, 10, 5)))
 
 
 

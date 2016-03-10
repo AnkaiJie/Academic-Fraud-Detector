@@ -6,10 +6,12 @@ Created on Feb 1, 2016
 
 import re
 from urllib.request import Request, urlopen
+import urllib
 import PyPDF2
 from _io import BytesIO
 from WordInference import inferSpaces
 import WordInference
+from math import log
 
 class PaperReferenceExtractor:
     #assuming type is PDF
@@ -18,6 +20,7 @@ class PaperReferenceExtractor:
             
     def getPdfContent (self, pdfUrl):
         content =""
+        print(pdfUrl)
         remoteFile = urlopen(Request(pdfUrl)).read()
         localFile = BytesIO(remoteFile)
             
@@ -30,7 +33,12 @@ class PaperReferenceExtractor:
     
     def getReferencesContent(self, pdfUrl):
         
-        pdfContent = self.getPdfContent(pdfUrl)
+        try:
+            pdfContent = self.getPdfContent(pdfUrl)
+        except urllib.error.URLError as e:
+            print('ERROR OPENING PDF WITH URLLIB: '+e)
+            
+            
         index = pdfContent.find("References")
         if (index==-1):
             index = pdfContent.find("REFERENCES")
@@ -43,7 +51,10 @@ class PaperReferenceExtractor:
             index = pdfContent.find("References")
             if (index==-1):
                 index = pdfContent.find("REFERENCES")
-        
+                
+        app_index = pdfContent.lower().find('appendix')
+        if (app_index!=-1):
+            pdfContent = pdfContent[:app_index]        
         
         return pdfContent
     
@@ -70,81 +81,81 @@ class PaperReferenceExtractor:
 class IeeeReferenceParser:
     # splits whole reference string into individual reference strings
     def splitRefSection(self, section):
-        bracket_form = re.compile(r'\[.*?\]')    
+        bracket_form = re.compile(r'\[.*?\]')
+        section = section.replace('"', '')
         out = [x for x in bracket_form.split(section) if x]
         
         return out
 
     # splits a single citation into its components and returns a citation object
     def stringToCitation(self, citation):
-        firstSplit = citation.replace("and", " LAST_AUTHOR: ", 1).replace(',', ' ').replace('.', ' ').replace('\"', '')
-        firstSplit = firstSplit.split()
-        # print(firstSplit)
         
+        author_and_index = citation.find('and')
+        multiple_authors = False
+        if (citation[author_and_index+3].isupper() and citation[author_and_index+4]=='.'):
+            #this indicates where the last listed author in the reference is 
+            citation = citation.replace('and', 'LAST_AUTHOR',1)
+            multiple_authors = True
         
-        # variables to keep track of where we are in the loop
-        finishedAuthors = 0
-        finishedTitle = 0
-        lastAuthor = 0
+        citation = citation.split(',')
+        if(len(citation)<3):
+            return None
         
-        # tempVariables to be modified
-        tempInitial = ""
         authorArray = []
+        title = ''
         year = 0
-        title = ""
         
-        for idx, el in enumerate(firstSplit):
-            # parses the author section
-            if (finishedAuthors is 0):
-                if (el == "LAST_AUTHOR:"):
-                    lastAuthor = 1
-                    continue
-                elif (len(el) is 1):
-                    tempInitial += el + '.'  
-                elif (tempInitial == ""):
-                    finishedAuthors = 1
-                elif (tempInitial != ""):
-                    tempInitial += ' '
-                    author = tempInitial + el
-                    tempInitial = ""
-                    authorArray.append(author)
-                    if (lastAuthor is 1):
-                        finishedAuthors = 1
+        authors_just_done = False
+        title_done = False
+        for idx, element in enumerate (citation):
+            #for the last author following the and
+            if(element.find('LAST_AUTHOR')!=-1):
+                element = element.split('LAST_AUTHOR')
+                for author in element:
+                    if(author!=''):
+                        author = ' '.join(author.split('.'))
+                        authorArray.append(author)
+                authors_just_done = True
+            #for all authors before the last one
+            elif (element[0].isupper() and element[1]=='.' and authors_just_done is False):
+                author = ' '.join(element.split('.'))
+                authorArray.append(author)
+                if (multiple_authors is False):
+                    authors_just_done = True
+            #title after authors are finished
+            elif(authors_just_done):
+                title = WordInference.inferSpaces(element.lower())
+                authors_just_done = False
+                title_done = True
+            #year after title is finished
+            elif(title_done):
+                i = 1
+                for thing in reversed(citation):
+                    yr = thing       
+                    yr = re.sub('[^0-9]','', yr)
+                    try: 
+                        year = int(yr)
+                    except ValueError:
                         continue
-            # gets the year and the title, assuming they come after the author
-            if (finishedTitle is 0 and finishedAuthors is 1):
-                possibleYr = el.replace('(', '').replace(')', '')
-                if (el == 'LAST_AUTHOR:'):
-                    continue
-                if (possibleYr.isdigit()):
-                    # print('in if ' + el)
-                    year = int(possibleYr)
-                    
-                else:
-                    # print('in else ' + el)
-                    title += inferSpaces(el.lower()) + ' '
-                    if (firstSplit[idx + 1] != 'LAST_AUTHOR:'):
-                        finishedTitle = 1
+                    if(int(log(year+1, 10)) + 1!=4 or year > 2016):
+                        continue
+                    break
+                
+                break
         
-        # if year was not before the title, it is usually put at the end
-        if (year == 0):
-            year = firstSplit[-1]
         
-        #puts author names to standard format
-        for idx, auth in enumerate(authorArray):
-            authorArray[idx] = auth.replace('. ', ' ').replace('.', ' ')
-            
         infoDict = {'authors': authorArray, 'title': title.strip(), 'year': year}
-        return infoDict    
+        return infoDict
     
     #wrapper function; given a citation sections, returns array of dictionaries showing data in each citation
     def citeParse(self, ref_section):
         cite_list = self.splitRefSection(ref_section)
         ref_list = []
-        
+
         for ref in cite_list:
             ref = self.stringToCitation(ref)
-            ref_list.append(ref)
+            if (ref!=None):
+                ref_list.append(ref)
         
         return ref_list
 
@@ -197,29 +208,31 @@ class SpringerReferenceParser:
                     
                 element = (element[i + 1:] + ' ' + element[:i + 1])
                 author_arr.append(element)
+        
+        if (year==0 or title==''):
+            return None
             
         infoDict = {'authors': author_arr, 'title': title.strip(), 'year': year}
         return infoDict
         
     #given reference section of pdf, returns an array of dictionarys containing author, title, and year info for each reference    
     def citeParse(self, references):
-        ref_list = self.splitRefSection(references)
-        cite_list = []
+        cite_list = self.splitRefSection(references)
+        ref_list = []
         
-        for idx, ref in enumerate(ref_list):
+        for idx, ref in enumerate(cite_list):
             ref = self.stringToCitation(ref)
-            cite_list.append(ref)
+            if (ref!=None):
+                ref_list.append(ref)
         
-        return cite_list
-            
-p = PaperReferenceExtractor()
-k = p.getReferencesContent("http://phys.xmu.edu.cn/shuaiweb/ShuaiPub/IEEETN11_135.pdf")
-k2 = p.getReferencesContent("http://140.123.102.14:8080/reportSys/file/paper/cktsung/cktsung_39_paper.pdf")
-parser = IeeeReferenceParser()
-parser2 = SpringerReferenceParser()
-print(parser.citeParse(k))
-print(parser2.citeParse(k2))
+        return ref_list
 
 
-        
+'''p1 = IeeeReferenceParser()
+p2 = SpringerReferenceParser()
+prp = PaperReferenceExtractor()
+print (p2.citeParse(prp.getReferencesContent('https://www.researchgate.net/profile/Jun_Luo4/publication/220866049_Compressed_Data_Aggregation_for_Energy_Efficient_Wireless_Sensor_Networks/links/0deec52269881dcd2c000000.pdf')))
+print(p1.citeParse(prp.getReferencesContent('https://www.researchgate.net/profile/Tatsuya_Suda/publication/3234013_An_adaptive_bandwidth_reservation_scheme_for_high-speed_multimedia_wireless_networks/links/00b49520d3acb8e89a000000.pdf')))'''
+
+
 

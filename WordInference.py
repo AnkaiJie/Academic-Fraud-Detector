@@ -43,7 +43,7 @@ def inferSpaces(s):
     #return list(reversed(out))
 
 def formatSymbols(thing):
-        thing = thing.replace(" - ", "-").replace(" : ",": ").replace(" , ", ", ")\
+        thing = thing.replace(" - ", "-").replace(" : ",": ").replace(" , ", ", ").replace(" ? ", "? ")\
         .replace(" \' ", "\'").replace(" . ", ". ").replace(" ( ", " (").replace(" ) ", ") ").replace(" ) ", ") ").replace(" / ", "/")
         return thing
 
