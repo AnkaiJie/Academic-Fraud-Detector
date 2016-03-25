@@ -14,6 +14,7 @@ import requests
 from collections import Counter
 import time
 import PyPDF2
+from _csv import Error
 
 #these two functions take and authors first name and last name, and convert them to how it would appear in the references
 # section of a paper from the specified publisher
@@ -28,24 +29,32 @@ def ieee_author_keyword_converter (fname, lname):
     return  fname_letter+'.'+last_name
 
 
-# given paper and author, and index number, returns number of times a citing paper of index idx 
-# also cites the same author
-def count_overcites_by_index (paper, idx, author):
+# given paper and author, and index number, returns number of times a each
+# citing paper on the first page of citing papers also cites the same author
+def count_overcites (paper, author):
+    time.sleep(10)
     pdfExtractor = GscPdfExtractor()
     pdfUrls = pdfExtractor.findPapersFromCitations(paper.getCitedByUrl())
     # print(pdfUrls)
-
     analyzer = PaperReferenceExtractor()
-    content = analyzer.getReferencesContent(pdfUrls[idx])
-    # print(content)
+    overcites_info = []
     
-    lname = author.getLastName().title()
+    for idx, pdf in enumerate(pdfUrls):
+        content = analyzer.getReferencesContent(pdf)
+        
+        if (content is None):
+            continue
+        
+        # print(content)
+        lname = author.getLastName().title()
+        numCites = analyzer.getCitesToAuthor(lname, content)
+        print("Citing paper number  " + str(idx+1) + " cites " + lname + " " + str(numCites) + " times.")
+        info_dict = {}
+        info_dict['Citing Paper Number'] = idx+1
+        info_dict['Over-cite Count'] = numCites
+        overcites_info.append(info_dict)
     
-    numCites = analyzer.getCitesToAuthor(lname, content)
-    
-    print("Citing paper number  " + str(idx+1) + " cites " + lname + " " + str(numCites) + " times.")
-    
-    return numCites
+    return overcites_info
 
 # given first name, last name, publisher of paper, returns how their name would show in a paper
 # published by the given publisher in references section
@@ -84,10 +93,17 @@ def count_self_cites(author, paper):
     auth_word = get_ref_author_format(fname, lname, paper.getInfo()['Publisher'])
     
     analyzer = PaperReferenceExtractor()
-    numCites = analyzer.getCitesToAuthor(auth_word, analyzer.getReferencesContent(paper.getPdfUrl()))
-    print (fname+ ' '+lname+ ' has '+str(numCites)+' number of self-cites in paper: '+ paper.getInfo()['Title'])
     
-    return numCites
+    pdfUrl = paper.getPdfUrl()
+    
+    if (pdfUrl is not None):
+        numCites = analyzer.getCitesToAuthor(auth_word, analyzer.getReferencesContent(paper.getPdfUrl()))
+        #print (fname+ ' '+lname+ ' has '+str(numCites)+' number of self-cites in paper: '+ paper.getInfo()['Title'])
+        self_cites_info = {'Paper Title': paper.getInfo()['Title'], 'Self Cites': numCites}
+        return self_cites_info
+    else:
+        self_cites_info = {'Paper Title': paper.getInfo()['Title'], 'Self Cites': 'No Valid PDF URL in GSC'}
+        return self_cites_info
 
 
 #given an author, and an index of one of their papers, returns the journal frequency list of the first ten
@@ -141,7 +157,17 @@ def count_cross_cites (author, x_most_rel, top_x):
         if (pdfurl is None):
             continue
         print('pdfUrl ' + pdfurl)
-        ref_content = ref_processor.getReferencesContent(pdfurl)
+        
+        try:
+            ref_content = ref_processor.getReferencesContent(pdfurl)
+        except TypeError as e:
+            print('weird ord() error: ')
+            print(e)
+            continue
+        except PyPDF2.utils.PdfReadError as e:
+            print(e)
+            continue
+        
         
         if (pub=='IEEE'):
             citations = ieee_bot.citeParse(ref_content)
@@ -252,14 +278,39 @@ def count_cross_cites (author, x_most_rel, top_x):
     final_info_dict = {'First Name': ORIG_FNAME,'Last Name': ORIG_LNAME, 'Author_citation_frequency': top_x_authors, 'Cited_authors_overcite_frequency':cited_author_info_arr}
     
     return final_info_dict
-    
-        
-    
-vas = AcademicPublisher('https://scholar.google.ca/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 1)
-time.sleep(5)
-print('FINAL RESULT: ' + str(count_cross_cites(vas, 10, 5)))
 
 
+'''    
+try:
+    vas = AcademicPublisher('https://scholar.google.ca/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 1)
+    time.sleep(5)
+    print('FINAL RESULT: ' + str(count_cross_cites(vas, 10, 5)))
+except AttributeError as e:
+    print('google scholar has blocked you.')
+    print(e)
+except Error as e:
+    print(e)
+except Exception as e:
+    print(e)
+'''
+'''
+#Self cites script for top 15 papers of vasilakos
+vas = AcademicPublisher('https://scholar.google.ca/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 15)
+for paper in vas.getPapers():
+    print(count_self_cites(vas, paper))
+'''
+#Over cites script for top 15 papers of vasilakos
+try:
+    vas = AcademicPublisher('https://scholar.google.ca/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 15)
+    time.sleep(10)
+    for paper in vas.getPapers():
+        arr = count_overcites(paper, vas)
+        k = "Paper Title: " + paper.getInfo()['Title']
+        arr.append(k)
+        print(arr)
+except AttributeError as e:
+    print('google scholar has blocked you.')
+    print(e)
 
 
 

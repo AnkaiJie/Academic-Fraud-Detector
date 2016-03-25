@@ -36,27 +36,30 @@ class PaperReferenceExtractor:
         try:
             pdfContent = self.getPdfContent(pdfUrl)
         except urllib.error.URLError as e:
-            print('ERROR OPENING PDF WITH URLLIB: '+e)
-            
-            
-        index = pdfContent.find("References")
-        if (index==-1):
-            index = pdfContent.find("REFERENCES")
-            if (index==-1):
-                print("can't find reference sections")
-                return -1
-        
-        while (index!=-1):
-            pdfContent = pdfContent[index +10:]
+            print('ERROR OPENING PDF WITH URLLIB: '+ str(e))
+            return None
+        except PyPDF2.utils.PdfReadError as e:
+            print('EOF MARKER NOT FOUND' + str(e))
+            return None
+        else:    
             index = pdfContent.find("References")
             if (index==-1):
                 index = pdfContent.find("REFERENCES")
-                
-        app_index = pdfContent.lower().find('appendix')
-        if (app_index!=-1):
-            pdfContent = pdfContent[:app_index]        
-        
-        return pdfContent
+                if (index==-1):
+                    print("can't find reference sections")
+                    return -1
+            
+            while (index!=-1):
+                pdfContent = pdfContent[index +10:]
+                index = pdfContent.find("References")
+                if (index==-1):
+                    index = pdfContent.find("REFERENCES")
+                    
+            app_index = pdfContent.lower().find('appendix')
+            if (app_index!=-1):
+                pdfContent = pdfContent[:app_index]        
+            
+            return pdfContent
     
     #def parseNoSpaces(self, content):
     
@@ -228,7 +231,11 @@ class SpringerReferenceParser:
         return ref_list
 
 
+
 '''p1 = IeeeReferenceParser()
+prp = PaperReferenceExtractor()
+print(p1.citeParse(prp.getReferencesContent('http://phys.xmu.edu.cn/shuaiweb/ShuaiPub/IEEETN11_135.pdf')))'''
+'''
 p2 = SpringerReferenceParser()
 prp = PaperReferenceExtractor()
 print (p2.citeParse(prp.getReferencesContent('https://www.researchgate.net/profile/Jun_Luo4/publication/220866049_Compressed_Data_Aggregation_for_Energy_Efficient_Wireless_Sensor_Networks/links/0deec52269881dcd2c000000.pdf')))

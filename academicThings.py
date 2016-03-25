@@ -183,7 +183,7 @@ class AcademicPublisher:
     
     # returns number of times a paper that cited a paper from this author cited the author in total
     # takes the index of the paper in papers list and index of a citer in that paper object
-    def getNumCitesByPaper(self, indexPaper, indexCiter):
+    '''def getNumCitesByPaper(self, indexPaper, indexCiter):
         pdfExtractor = GscPdfExtractor()
         paper = self.__paper_list[indexPaper]
         pdfUrls = pdfExtractor.findPapersFromCitations(paper.getCitedByUrl())
@@ -192,7 +192,7 @@ class AcademicPublisher:
         content = analyzer.getPdfContent(pdfUrls[indexCiter])
         numCites = analyzer.getCitesToAuthor(self.getLastName(), content)
 
-        return numCites
+        return numCites'''
 
     def getFirstName(self):
         return self.first_name
