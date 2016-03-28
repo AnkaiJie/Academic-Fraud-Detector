@@ -45,9 +45,13 @@ class PaperReferenceExtractor:
             index = pdfContent.find("References")
             if (index==-1):
                 index = pdfContent.find("REFERENCES")
-                if (index==-1):
-                    print("can't find reference sections")
-                    return -1
+            if (index==-1):
+                index = pdfContent.find("Bibliography")
+            if (index==-1):
+                index = pdfContent.find("BIBLIOGRAPHY")
+            if (index==-1):
+                print("can't find reference sections")
+                return None
             
             while (index!=-1):
                 pdfContent = pdfContent[index +10:]

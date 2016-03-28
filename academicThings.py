@@ -24,7 +24,8 @@ class Paper:
     
     def loadFromGoogleScholar(self):
         session = requests.session()
-        response = session.get(self.__url)
+        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36'}  
+        response = session.get(self.__url, headers=headers)
         soup = BeautifulSoup(response.content, 'lxml')
         #print(soup)
        
@@ -152,7 +153,8 @@ class AcademicPublisher:
        
     def loadPapers(self, numPapers):
         session = requests.Session()
-        response = session.get(self.url + '&cstart=0&pagesize=' + str(numPapers))
+        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36'}  
+        response = session.get(self.url + '&cstart=0&pagesize=' + str(numPapers), headers=headers)
         soup = BeautifulSoup(response.content, "lxml")
 
        
@@ -205,7 +207,8 @@ class GscPdfExtractor:
     #returns the list of pdf urls from the first page of citations on Google Scholar
     def findPapersFromCitations(self, citationsUrl):
         session = requests.session()
-        response = session.get(citationsUrl)
+        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36'}  
+        response = session.get(citationsUrl, headers=headers)
         soup = BeautifulSoup(response.content, 'lxml')
         
         linkExtracts = soup.findAll('div', attrs={'class':'gs_md_wp gs_ttss'})
@@ -227,7 +230,8 @@ class GscPdfExtractor:
     def findPdfUrlFromInfo(self, infoPageUrl):
 
         session = requests.session()
-        response = session.get(infoPageUrl)
+        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36'}  
+        response = session.get(infoPageUrl, headers=headers)
         soup = BeautifulSoup(response.content, 'lxml')
 
         linkExtracts = soup.findAll('div', attrs={'class':'gsc_title_ggi'})
@@ -257,7 +261,8 @@ class GscHtmlFunctions:
         query = "+".join(authorFields)+"+"+paper_name
 
         session = requests.session()
-        response = session.get('https://scholar.google.ca/scholar?q='+query+'&btnG=&hl=en&as_sdt=0%2C5')
+        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36'}  
+        response = session.get('https://scholar.google.ca/scholar?q='+query+'&btnG=&hl=en&as_sdt=0%2C5', headers=headers)
         soup = BeautifulSoup(response.content, 'lxml')
 
         authorsData = soup.find('div', attrs={'class': 'gs_a'}).findAll('a')

@@ -302,8 +302,9 @@ for paper in vas.getPapers():
 #Over cites script for top 15 papers of vasilakos
 try:
     vas = AcademicPublisher('https://scholar.google.ca/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 15)
+    print(str(len(vas.getPapers())))
     time.sleep(10)
-    for paper in vas.getPapers():
+    for paper in vas.getPapers()[8:]:
         arr = count_overcites(paper, vas)
         k = "Paper Title: " + paper.getInfo()['Title']
         arr.append(k)
