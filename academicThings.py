@@ -281,9 +281,8 @@ class GscHtmlFunctions:
 
 
 
-'''vas = AcademicPublisher('https://scholar.google.ca/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 1)
-for paper in vas.getPapers():
-    print (paper.getInfo())'''
+#ozbur = AcademicPublisher('https://scholar.google.ca/citations?user=H1dTZckAAAAJ&hl=en&oi=ao', 8)
+
 '''paper1 = Paper('https://scholar.google.ca/citations?view_op=view_citation&hl=en&user=_yWPQWoAAAAJ&citation_for_view=_yWPQWoAAAAJ:u5HHmVD_uO8C')
 lst = paper1.findAllAuthors()
 for author in lst:

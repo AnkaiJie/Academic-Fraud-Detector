@@ -15,6 +15,7 @@ from collections import Counter
 import time
 import PyPDF2
 from _csv import Error
+import traceback
 
 #these two functions take and authors first name and last name, and convert them to how it would appear in the references
 # section of a paper from the specified publisher
@@ -95,9 +96,11 @@ def count_self_cites(author, paper):
     analyzer = PaperReferenceExtractor()
     
     pdfUrl = paper.getPdfUrl()
+    refContent = analyzer.getReferencesContent(pdfUrl)
     
-    if (pdfUrl is not None):
-        numCites = analyzer.getCitesToAuthor(auth_word, analyzer.getReferencesContent(paper.getPdfUrl()))
+    if (pdfUrl is not None and refContent is not None):
+        
+        numCites = analyzer.getCitesToAuthor(auth_word, refContent)
         #print (fname+ ' '+lname+ ' has '+str(numCites)+' number of self-cites in paper: '+ paper.getInfo()['Title'])
         self_cites_info = {'Paper Title': paper.getInfo()['Title'], 'Self Cites': numCites}
         return self_cites_info
@@ -106,35 +109,49 @@ def count_self_cites(author, paper):
         return self_cites_info
 
 
-#given an author, and an index of one of their papers, returns the journal frequency list of the first ten
-# citing papers
-def count_journal_frequency (author, index):
+#given an author, and a number of papers, returns the journal frequency list of the first 30 citing papers
+def count_journal_frequency (author, num_papers):
 
-    author.loadPapers(index+1);
-    cited_by_url = author.getPapers()[index].getCitedByUrl()
+    author.loadPapers(num_papers);
+    pap_arr = []
     
-    
-    session = requests.Session()
-    response = session.get(cited_by_url)
-    soup = BeautifulSoup(response.content, "lxml")
-    
-    info_list = soup.findAll('div', attrs={'class':'gs_a'})
-    
-    journal_dict = {}
+    for paper in author.getPapers():
+        info_list = []
+        one_pap_arr = []
+        cited_by_url = paper.getCitedByUrl()
+        session = requests.Session()
         
-    for info_str in info_list:
-        info_str = info_str.text
-        info_str = info_str.split('-')[1].split(',')[0]
-        #print('final info string: ' + info_str)
+        url_part_one = 'https://scholar.google.ca/scholar?start='
+        url_part_two = '&hl=en&as_sdt=0,5&sciodt=0,5&cites='
+        cited_by_url = cited_by_url[:cited_by_url.rfind('&')]
+        paper_code = cited_by_url[cited_by_url.rfind('=')+1:]
         
-        if (info_str in journal_dict):
-            journal_dict[info_str]+=1
-        else:
-            journal_dict[info_str] = 1
+        for i in range(10, 31, 10):
+            time.sleep(10)
+            final_url = url_part_one+str(i)+url_part_two+paper_code
+            response = session.get(final_url)
+            soup = BeautifulSoup(response.content, "lxml")
+            info_list += soup.findAll('div', attrs={'class':'gs_a'})
         
+        
+        journal_dict = {}
+            
+        for info_str in info_list:
+            info_str = info_str.text
+            info_str = info_str.split('-')[1].split(',')[0]
+            #print('final info string: ' + info_str)
+            
+            if (info_str in journal_dict):
+                journal_dict[info_str]+=1
+            else:
+                journal_dict[info_str] = 1
+        
+        one_pap_arr.append(paper.getInfo()['Title']) 
+        one_pap_arr.append(journal_dict)
+        print(one_pap_arr)
+        pap_arr.append(one_pap_arr)
     
-    return journal_dict
-
+    return pap_arr
 
 # given an author, takes x_most_rel number of papers and finds the top_x most cited authors, with total citation count
 # then, takes each of those authors, and determines how many times they cite the given author in their x_most_rel number of papers
@@ -160,6 +177,8 @@ def count_cross_cites (author, x_most_rel, top_x):
         
         try:
             ref_content = ref_processor.getReferencesContent(pdfurl)
+            if (ref_content is None):
+                continue
         except TypeError as e:
             print('weird ord() error: ')
             print(e)
@@ -238,7 +257,7 @@ def count_cross_cites (author, x_most_rel, top_x):
     cited_author_info_arr = []
     
     for cited_author_freq_arr in top_x_authors:
-        time.sleep(5)   
+        time.sleep(5)
         top_cited_author = cited_author_freq_arr[0]
         top_cited_author.loadPapers(x_most_rel)
         
@@ -255,6 +274,8 @@ def count_cross_cites (author, x_most_rel, top_x):
             analyzer = PaperReferenceExtractor()
             try:
                 content = analyzer.getReferencesContent(paper.getPdfUrl())
+                if (content is None):
+                    continue
             except TypeError as e:
                 print('weird ord() error: ')
                 print(e)
@@ -263,9 +284,6 @@ def count_cross_cites (author, x_most_rel, top_x):
                 print(e)
                 continue
             
-            #handles cases where reference section not found (usually when the paper is scanned)
-            if(content==-1):
-                continue
             
             auth_word = get_ref_author_format(cited_fname, cited_lname, paper.getInfo()['Publisher'])
             total_cites += analyzer.getCitesToAuthor(auth_word, content)
@@ -279,25 +297,28 @@ def count_cross_cites (author, x_most_rel, top_x):
     
     return final_info_dict
 
-
-'''    
+'''
+#Cross_cites script for top 10 papers for Vasilakos 
 try:
     vas = AcademicPublisher('https://scholar.google.ca/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 1)
     time.sleep(5)
     print('FINAL RESULT: ' + str(count_cross_cites(vas, 10, 5)))
-except AttributeError as e:
-    print('google scholar has blocked you.')
-    print(e)
 except Error as e:
     print(e)
 except Exception as e:
     print(e)
+except AttributeError as e:
+    print(e)
+    traceback.print_exc()
 '''
+
 '''
 #Self cites script for top 15 papers of vasilakos
 vas = AcademicPublisher('https://scholar.google.ca/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 15)
 for paper in vas.getPapers():
     print(count_self_cites(vas, paper))
+'''
+
 '''
 #Over cites script for top 15 papers of vasilakos
 try:
@@ -312,7 +333,15 @@ try:
 except AttributeError as e:
     print('google scholar has blocked you.')
     print(e)
+'''
 
+try:
+    vas = AcademicPublisher('https://scholar.google.ca/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 1)
+    time.sleep(5)
+    print('Journal Dict array ' + str(count_journal_frequency(vas, 15)))
+except AttributeError as e:
+    print(e)
+    traceback.print_exc()
 
 
 
