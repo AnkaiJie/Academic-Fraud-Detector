@@ -334,7 +334,7 @@ except AttributeError as e:
     print('google scholar has blocked you.')
     print(e)
 '''
-
+'''
 try:
     vas = AcademicPublisher('https://scholar.google.ca/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 1)
     time.sleep(5)
@@ -342,8 +342,13 @@ try:
 except AttributeError as e:
     print(e)
     traceback.print_exc()
+'''
 
 
+#Self cites script for top 15 papers of Nakano
+nak = AcademicPublisher('https://scholar.google.ca/citations?user=-gzOQnYAAAAJ&hl=en', 15)
+for paper in nak.getPapers():
+    print(count_self_cites(nak, paper))
 
 
 
