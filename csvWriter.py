@@ -85,32 +85,15 @@ with open('self_cites.csv', 'w') as output_file:
 '''
 
 
-'''
-over_cite_arr = [[{'Citing Paper Number': 1, 'Over-cite Count': 1}, {'Citing Paper Number': 2, 'Over-cite Count': 1}, {'Citing Paper Number': 3, 'Over-cite Count': 1}, {'Citing Paper Number': 4, 'Over-cite Count': 4}, {'Citing Paper Number': 5, 'Over-cite Count': 1}, {'Citing Paper Number': 6, 'Over-cite Count': 1}, {'Citing Paper Number': 7, 'Over-cite Count': 0}, {'Citing Paper Number': 8, 'Over-cite Count': 4}, {'Citing Paper Number': 9, 'Over-cite Count': 1}, 'Paper Title: Body area networks: A survey'],
 
-[{'Citing Paper Number': 1, 'Over-cite Count': 1}, {'Citing Paper Number': 2, 'Over-cite Count': 7}, {'Citing Paper Number': 3, 'Over-cite Count': 1}, {'Citing Paper Number': 4, 'Over-cite Count': 1}, {'Citing Paper Number': 5, 'Over-cite Count': 1}, {'Citing Paper Number': 6, 'Over-cite Count': 1}, {'Citing Paper Number': 8, 'Over-cite Count': 1}, {'Citing Paper Number': 9, 'Over-cite Count': 1}, 'Paper Title: A game-theoretic method of fair resource allocation for cloud computing services'],
-
-[{'Citing Paper Number': 1, 'Over-cite Count': 1}, {'Citing Paper Number': 2, 'Over-cite Count': 4}, {'Citing Paper Number': 3, 'Over-cite Count': 1}, {'Citing Paper Number': 4, 'Over-cite Count': 2}, {'Citing Paper Number': 5, 'Over-cite Count': 2}, {'Citing Paper Number': 6, 'Over-cite Count': 1}, {'Citing Paper Number': 7, 'Over-cite Count': 0}, {'Citing Paper Number': 8, 'Over-cite Count': 1}, 'Paper Title: Compressed data aggregation for energy efficient wireless sensor networks'],
-
-[{'Citing Paper Number': 2, 'Over-cite Count': 0}, {'Citing Paper Number': 3, 'Over-cite Count': 1}, {'Citing Paper Number': 4, 'Over-cite Count': 2}, {'Citing Paper Number': 5, 'Over-cite Count': 1}, {'Citing Paper Number': 6, 'Over-cite Count': 1}, 'Paper Title: A survey of green mobile networks: Opportunities and challenges'],
-
-[{'Citing Paper Number': 1, 'Over-cite Count': 4}, {'Citing Paper Number': 2, 'Over-cite Count': 5}, {'Citing Paper Number': 3, 'Over-cite Count': 0}, {'Citing Paper Number': 4, 'Over-cite Count': 4}, {'Citing Paper Number': 5, 'Over-cite Count': 7}, {'Citing Paper Number': 6, 'Over-cite Count': 13}, 'Paper Title: Directional routing and scheduling for green vehicular delay tolerant networks'],
+over_cite_arr = [[{'Over-cite Count': 28, 'Citing Paper Number': 1}, 'Paper Title: Spatial reusability-aware routing in multi-hop wireless networks'],
+ [{'Over-cite Count': 7, 'Citing Paper Number': 1}, {'Over-cite Count': 4, 'Citing Paper Number': 2}, 'Paper Title: CDC: Compressive data collection for wireless sensor networks'],
+ [{'Over-cite Count': 13, 'Citing Paper Number': 1}, {'Over-cite Count': 0, 'Citing Paper Number': 2}, {'Over-cite Count': 8, 'Citing Paper Number': 3}, 'Paper Title: EDAL: An energy-efficient, delay-aware, and lifetime-balancing data collection protocol for heterogeneous wireless sensor networks'],
+ [{'Over-cite Count': 1, 'Citing Paper Number': 1}, 'Paper Title: Interference-based topology control algorithm for delay-constrained mobile ad hoc networks'],
+ [{'Over-cite Count': 0, 'Citing Paper Number': 1}, {'Over-cite Count': 1, 'Citing Paper Number': 2}, 'Paper Title: Physarum optimization: A biology-inspired algorithm for the steiner tree problem in networks']]
 
 
-[{'Citing Paper Number': 1, 'Over-cite Count': 3}, {'Citing Paper Number': 2, 'Over-cite Count': 2}, {'Citing Paper Number': 3, 'Over-cite Count': 1}, {'Citing Paper Number': 4, 'Over-cite Count': 1}, {'Citing Paper Number': 6, 'Over-cite Count': 1}, {'Citing Paper Number': 7, 'Over-cite Count': 1}, 'Paper Title: Routing for disruption tolerant networks: taxonomy and design'],
-
-[{'Over-cite Count': 2, 'Citing Paper Number': 1}, {'Over-cite Count': 1, 'Citing Paper Number': 3}, {'Over-cite Count': 1, 'Citing Paper Number': 4}, {'Over-cite Count': 3, 'Citing Paper Number': 5}, {'Over-cite Count': 1, 'Citing Paper Number': 6}, 'Paper Title: Molecular communication and networking: Opportunities and challenges'],
-[{'Citing Paper Number': 1, 'Over-cite Count': 0}, {'Citing Paper Number': 2, 'Over-cite Count': 1}, {'Citing Paper Number': 3, 'Over-cite Count': 1}, {'Citing Paper Number': 4, 'Over-cite Count': 0}, {'Citing Paper Number': 5, 'Over-cite Count': 13}, 'Paper Title: Routing metrics of cognitive radio networks: A survey'],
-
-[{'Citing Paper Number': 1, 'Over-cite Count': 3}, {'Citing Paper Number': 2, 'Over-cite Count': 1}, {'Citing Paper Number': 3, 'Over-cite Count': 0}, {'Citing Paper Number': 4, 'Over-cite Count': 1}, {'Citing Paper Number': 5, 'Over-cite Count': 2}, {'Citing Paper Number': 6, 'Over-cite Count': 2}, {'Citing Paper Number': 7, 'Over-cite Count': 1}, {'Citing Paper Number': 8, 'Over-cite Count': 3}, {'Citing Paper Number': 9, 'Over-cite Count': 2}, 'Paper Title: An adaptive geometry-based stochastic model for non-isotropic MIMO mobile-to-mobile channels'],
-
-[{'Citing Paper Number': 1, 'Over-cite Count': 13}, {'Citing Paper Number': 2, 'Over-cite Count': 0}, {'Citing Paper Number': 3, 'Over-cite Count': 8}, 'Paper Title: EDAL: An energy-efficient, delay-aware, and lifetime-balancing data collection protocol for heterogeneous wireless sensor networks'],
-
-[{'Citing Paper Number': 1, 'Over-cite Count': 5}, {'Citing Paper Number': 2, 'Over-cite Count': 9}, {'Citing Paper Number': 3, 'Over-cite Count': 7}, {'Citing Paper Number': 4, 'Over-cite Count': 13}, {'Citing Paper Number': 5, 'Over-cite Count': 0}, 'Paper Title: A survey on topology control in wireless sensor networks: Taxonomy, comparative study, and open issues'],
-
-[{'Citing Paper Number': 2, 'Over-cite Count': 9}, {'Citing Paper Number': 4, 'Over-cite Count': 0}, {'Citing Paper Number': 5, 'Over-cite Count': 1}, {'Citing Paper Number': 6, 'Over-cite Count': 0}, {'Citing Paper Number': 7, 'Over-cite Count': 1}, 'Paper Title: A survey on the ietf protocol suite for the internet of things: Standards, challenges, and opportunities']]
-
-writer = csv.writer(open('over_cites.csv', 'w'), lineterminator='\n')
+writer = csv.writer(open('over_cites2.csv', 'w'), lineterminator='\n')
 for paper in over_cite_arr:
     
     writer.writerow([paper[-1]])
@@ -124,6 +107,6 @@ for paper in over_cite_arr:
         total+=dict_item['Over-cite Count']
     writer.writerow(['Total', total])
     writer.writerow(['\n'])
-'''
+
     
 

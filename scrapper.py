@@ -344,11 +344,18 @@ except AttributeError as e:
     traceback.print_exc()
 '''
 
+#getting more recent papers from vasilakos over cite data
 
-#Self cites script for top 15 papers of Nakano
-nak = AcademicPublisher('https://scholar.google.ca/citations?user=-gzOQnYAAAAJ&hl=en', 15)
-for paper in nak.getPapers():
-    print(count_self_cites(nak, paper))
-
-
+try:
+    vas = AcademicPublisher('https://scholar.google.ca/citations?hl=en&user=_yWPQWoAAAAJ&view_op=list_works&sortby=pubdate', 80)
+    time.sleep(10)
+    for paper in vas.getPapers():
+        if (paper.getCitedByUrl() is not None and paper.getCitedByNum()>=50):
+            arr = count_overcites(paper, vas)
+            k = "Paper Title: " + paper.getInfo()['Title']
+            arr.append(k)
+            print(arr)
+except AttributeError as e:
+    print('google scholar has blocked you.')
+    print(e)
 

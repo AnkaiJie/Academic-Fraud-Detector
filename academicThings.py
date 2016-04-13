@@ -17,6 +17,7 @@ class Paper:
         self.__pap_info = {}
         self.__pap_info['Publisher'] = ''
         self.__citedByUrl = None
+        self.__citedByNum = 0
         self.__allAuthors = None 
         
         self.loadFromGoogleScholar()
@@ -44,6 +45,7 @@ class Paper:
                 citedBy = field.find('div', attrs={'style':'margin-bottom:1em'}).find('a')
                 self.__pap_info['Citations'] = citedBy.text.replace("Cited by ", "")
                 self.__citedByUrl = citedBy['href']
+                self.__citedByNum = int(citedBy.text.replace('Cited by ', '').strip())
                 break
             
             self.__pap_info[fieldName] = field.find('div', attrs={'class':'gsc_value'}).text
@@ -60,7 +62,9 @@ class Paper:
         return self.__url
     
     def getCitedByUrl(self):
-        return self.__citedByUrl 
+        return self.__citedByUrl
+    def getCitedByNum(self):
+        return self.__citedByNum 
         
     def getInfo (self):
         return self.__pap_info
@@ -172,7 +176,8 @@ class AcademicPublisher:
         #appends all papers to paperlist
         for one_url in soup.findAll('a', attrs={'class':'gsc_a_at'}, href=True):
             #one_url['href'] finds the link to the paper page
-            self.__paper_list.append(Paper('https://scholar.google.ca' + one_url['href']))
+            p = Paper('https://scholar.google.ca' + one_url['href'])
+            self.__paper_list.append(p)
             # takes out all papers not from IEEE or Springer US 
             self.filterByPublishers()
         
@@ -278,7 +283,6 @@ class GscHtmlFunctions:
         print("cannot find author "+ auth_name)
         return -1
         
-
 
 
 #ozbur = AcademicPublisher('https://scholar.google.ca/citations?user=H1dTZckAAAAJ&hl=en&oi=ao', 8)
