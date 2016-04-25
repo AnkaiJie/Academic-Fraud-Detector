@@ -321,7 +321,7 @@ while 1:
         entered_author.loadPapers(pap_num)
         self_cite_arr = count_self_cites(entered_author, pap_num)
         print(self_cite_arr)
-        if (csv_file_name is not 'n'):
+        if (csv_file_name != 'n'):
             self_cite_writer(self_cite_arr, csv_file_name)
 
     elif (function_select=='2'):
@@ -343,7 +343,7 @@ while 1:
             print('google scholar has blocked you.')
             print(e)
 
-        if (csv_file_name is not 'n'):
+        if (csv_file_name != 'n'):
             over_cite_writer(over_cite_arr, csv_file_name)
 
     elif (function_select=='3'):
@@ -372,7 +372,7 @@ while 1:
             print(e)
             traceback.print_exc()
 
-        if (csv_file_name is not 'n'):
+        if (csv_file_name != 'n'):
             jounal_dict_writer(journal_dict_arr, csv_file_name)
 
     else:
