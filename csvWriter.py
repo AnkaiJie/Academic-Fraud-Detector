@@ -51,6 +51,7 @@ indJournalArrays = [['Body area networks: A survey', {' …  Processing and thei
 ]
 '''
 
+
 def jounal_dict_writer(indJournalArrays, name):
     writer = csv.writer(open(name + '.csv', 'w'), lineterminator='\n')
     for paper in indJournalArrays:
@@ -78,6 +79,7 @@ self_cite_arr = [{'Paper Title': 'Body area networks: A survey', 'Self Cites': 1
 {'Paper Title': 'A survey on the ietf protocol suite for the internet of things: Standards, challenges, and opportunities', 'Self Cites': 'No Valid PDF URL in GSC'}]
 '''
 
+
 def self_cite_writer(self_cite_arr, name):
     keys = self_cite_arr[0].keys()
     with open(name + '.csv', 'w') as output_file:
@@ -94,6 +96,7 @@ over_cite_arr = [[{'Over-cite Count': 28, 'Citing Paper Number': 1}, 'Paper Titl
  [{'Over-cite Count': 1, 'Citing Paper Number': 1}, 'Paper Title: Interference-based topology control algorithm for delay-constrained mobile ad hoc networks'],
  [{'Over-cite Count': 0, 'Citing Paper Number': 1}, {'Over-cite Count': 1, 'Citing Paper Number': 2}, 'Paper Title: Physarum optimization: A biology-inspired algorithm for the steiner tree problem in networks']]
 '''
+
 
 def over_cite_writer(over_cite_arr, name):
 
