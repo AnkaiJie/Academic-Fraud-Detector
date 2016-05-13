@@ -2,10 +2,10 @@
 
 This respositoty examines the citing behaviours of authors on Google Scholar, as determined through their publicly published papers on Google scholar. Specifically, it looks relationships between those they cite and those who cite them. It does so through the following four automated functions.
 
-1. Self-cites: Given an author’s paper on Google Scholar, returns that number of times that the author cites him/herself in the paper.
+1. Self-cites: Given an authorâ€™s paper on Google Scholar, returns that number of times that the author cites him/herself in the paper.
  
-2. Over-cites: Given an author’s paper on Google Scholar, finds the first pages of papers that cite that paper, and determines the number of times each paper cites the original author in total
+2. Over-cites: Given an authorâ€™s paper on Google Scholar, finds papers that cite that paper, and determines the number of times each paper cites the original author in total
 
-3. Journal Frequency: Given an Author’s paper on Google Scholar, finds the top 30 most relevant papers that cite that paper on Google Scholar, and determines the frequency of the journals that those papers come from as listed in Google Scholar
+3. Journal Frequency: Given an Authorâ€™s paper on Google Scholar, finds its most relevant citers on Google Scholar, and determines the frequency of the journals that those papers come from as listed in Google Scholar
 
-4. Cross Cites: Given an author, first finds the top x number of relevant papers as seen on Google Scholar, and then determines the top y number of authors that the original author cites from those papers, determining as well the number of times the author cites each one. Then, looks at each of those authors, and their top x number of relevant papers on Google Scholar, and determines how many times they cite the original author in those papers.  
+4. Cross Cites: Given an author, determines other authors with whom the author has frequent citing relationships.
