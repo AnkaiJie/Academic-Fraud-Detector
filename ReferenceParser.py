@@ -13,29 +13,46 @@ from WordInference import inferSpaces
 import WordInference
 from math import log
 
+class PdfObj:
+    def __init__(self, fileType, pathOrUrl):
+        self.pathOrUrl = pathOrUrl
+        self.fileType = fileType
+
+    def getFileType():
+        return self.fileType
+
+    def getPathUrl():
+        return self.pathOrUrl
+
+    def getPdfContent():
+        content =""
+        if self.fileType == 'url'
+            remoteFile = urlopen(Request(pdfUrl)).read()
+            localFile = BytesIO(remoteFile)
+
+            pdf = PyPDF2.PdfFileReader(localFile)
+
+            for pageNum in range(pdf.getNumPages()):
+                content+= pdf.getPage(pageNum).extractText()
+            return content
+
+        else:
+            p = open(self.pathOrUrl, "rb")
+            pdf = PyPDF2.PdfFileReader(p)
+            num_pages = pdf.getNumPages()
+            for i in range(0, num_pages):
+                content += pdf.getPage(i).extractText()
+            return content 
 
 class PaperReferenceExtractor:
     #assuming type is PDF
     def __init__(self):
         self.references = []
 
-    def getPdfContent (self, pdfUrl):
-        content =""
-        print(pdfUrl)
-        remoteFile = urlopen(Request(pdfUrl)).read()
-        localFile = BytesIO(remoteFile)
-
-        pdf = PyPDF2.PdfFileReader(localFile)
-
-        for pageNum in range(pdf.getNumPages()):
-            content+= pdf.getPage(pageNum).extractText()
-
-        return self.standardize(content)
-
-    def getReferencesContent(self, pdfUrl):
+    def getReferencesContent(self, pdfObj):
 
         try:
-            pdfContent = self.getPdfContent(pdfUrl)
+            pdfContent = pdfObj.getPdfContent()
         except urllib.error.URLError as e:
             print('ERROR OPENING PDF WITH URLLIB: '+ str(e))
             return None

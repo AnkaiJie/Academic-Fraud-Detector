@@ -7,14 +7,14 @@ from bs4 import BeautifulSoup
 import requests
 import lxml
 import re
-from ReferenceParser import IeeeReferenceParser, SpringerReferenceParser, PaperReferenceExtractor
+from ReferenceParser import IeeeReferenceParser, SpringerReferenceParser, PaperReferenceExtractor, PdfObj
 import offCampusLogin
 
 
 class Paper:
     def __init__ (self, link):
         self.__url = link
-        self.__pdfUrl= None
+        self.__pdfObj= None
         self.__pap_info = {}
         self.__pap_info['Publisher'] = ''
         self.__citedByUrl = None
@@ -52,7 +52,7 @@ class Paper:
 
             self.__pap_info[fieldName] = field.find('div', attrs={'class': 'gsc_value'}).text
 
-        self.__pdfUrl = self.findPdfUrlOnPage()
+        self.__pdfObj = PdfObj(self.findPdfObjFromUrlOnPage())
 
     def loadFromSpringer(self):
         return
@@ -72,12 +72,12 @@ class Paper:
     def getInfo(self):
         return self.__pap_info
 
-    def getPdfUrl(self):
-        return self.__pdfUrl
+    def getPdfObj(self):
+        return self.__pdfObj
 
-    def findPdfUrlOnPage(self):
+    def findPdfObjFromUrlOnPage(self):
         extractor = GscPdfExtractor()
-        return extractor.findPdfUrlFromInfo(self.__url)
+        return extractor.findPdfFromInfo(self.__url)
 
 
     # returns a list of author objects - all the authors that collaborated on this paper
@@ -107,7 +107,7 @@ class Paper:
     def findAllCitations(self):
         ref_processor = PaperReferenceExtractor()
 
-        ref_content = ref_processor.getReferencesContent(self.__pdfUrl)
+        ref_content = ref_processor.getReferencesContent(self.__pdfObj)
 
         if (self.getInfo()['Publisher'] == 'Springer US'):
             parser = SpringerReferenceParser()
@@ -217,7 +217,7 @@ class GscPdfExtractor:
         self.session = offCampusLogin.getSesh()
         self.headers = offCampusLogin.getHeaders()
 
-    #returns the list of pdf urls from the first page of citations on Google Scholar
+    #returns the list of pdf objects from the first page of citations on Google Scholar
     def findPapersFromCitations(self, citationsUrl):
         response = self.session.get(citationsUrl, headers=self.headers)
         soup = BeautifulSoup(response.content, 'lxml')
@@ -225,26 +225,26 @@ class GscPdfExtractor:
         linkExtracts = soup.findAll('div', attrs={'class': 'gs_md_wp gs_ttss'})
         if linkExtracts is None:
             return None
-        pdfUrls = []
+        pdfList = []
 
         for extract in linkExtracts:
             #this code will skip links with [HTML] tag and throw error for links that are only "Get it at UWaterloo"
             tag = extract.find('span', attrs={'class': 'gs_ctg2'})
             if tag is not None and tag.text == "[PDF]":
-                print('pdf url')
-                pdfUrls.append(extract.find('a')['href'])
+                pdf = PdfObj('url', extract.find('a')['href'])
+                pdfList.append(pdf)
             elif tag is not None:
                 print('Non-PDF tag, using get it @ waterloo')
 
             potential_links = extract.findAll('a')
             for link in potential_links:
                 if link.text.strip() == "Get It!@Waterloo":
-                    pdfUrls.append(self.getWatPDF('https://scholar-google-ca.proxy.lib.uwaterloo.ca'+link['href']))
-        return pdfUrls
+                    pdfList.append(self.getWatPDF('https://scholar-google-ca.proxy.lib.uwaterloo.ca'+link['href']))
+        return pdfList
 
 
-    #getting PDF url from paper info page, different from citation list page
-    def findPdfUrlFromInfo(self, infoPageUrl):
+    #getting PDF ubject from url on paper info page, different from citation list page
+    def findPdfFromInfo(self, infoPageUrl):
         response = self.session.get(infoPageUrl, headers=self.headers)
         soup = BeautifulSoup(response.content, 'lxml')
 
@@ -256,7 +256,7 @@ class GscPdfExtractor:
         tag = extract.find('span', attrs={'class': 'gsc_title_ggt'})
         if tag is not None and tag.text == "[PDF]":
             print('pdf url')
-            return extract.find('a')['href']
+            return PdfObj('url', extract.find('a')['href'])
         elif tag is not None:
             print('Non-PDF tag, using get it @ waterloo')
 
@@ -272,6 +272,8 @@ class GscPdfExtractor:
     def getWatPDF(self, url):
         print(url)
         return 'lol'
+
+            
 
 
 class GscHtmlFunctions:
