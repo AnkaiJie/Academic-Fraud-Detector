@@ -239,7 +239,7 @@ class GscPdfExtractor:
             potential_links = extract.findAll('a')
             for link in potential_links:
                 if link.text.strip() == "Get It!@Waterloo":
-                    pdfList.append(self.getWatPDF('https://scholar-google-ca.proxy.lib.uwaterloo.ca'+link['href']))
+                    pdfList.append(self.getWatPDF(link['href']))
         return pdfList
 
 
@@ -268,7 +268,7 @@ class GscPdfExtractor:
         return None
 
 
-    # Parses page waterloo gives us to extract pdf link of paper
+    # Parses page waterloo gives us to extract pdf of paper
     def getWatPDF(self, url):
         print(url)
         return 'lol'

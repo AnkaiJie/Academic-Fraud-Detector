@@ -26,7 +26,7 @@ class PdfObj:
 
     def getPdfContent():
         content =""
-        if self.fileType == 'url'
+        if self.fileType == 'url':
             remoteFile = urlopen(Request(pdfUrl)).read()
             localFile = BytesIO(remoteFile)
 
