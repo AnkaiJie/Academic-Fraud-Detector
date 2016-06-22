@@ -12,19 +12,32 @@ from _io import BytesIO
 from WordInference import inferSpaces
 import WordInference
 from math import log
+import os
 
 class PdfObj:
     def __init__(self, fileType, pathOrUrl):
         self.pathOrUrl = pathOrUrl
         self.fileType = fileType
+        self.localPdfContent = ""
 
-    def getFileType():
+        if fileType=='local':
+            self.storePathPdfContent(pathOrUrl)
+
+    def getFileType(self):
         return self.fileType
 
-    def getPathUrl():
+    def getPathUrl(self):
         return self.pathOrUrl
 
-    def getPdfContent():
+    def storePathPdfContent(self, path):
+            p = open(self.pathOrUrl, "rb")
+            pdf = PyPDF2.PdfFileReader(p)
+            num_pages = pdf.getNumPages()
+            for i in range(0, num_pages):
+                self.localPdfContent += pdf.getPage(i).extractText()
+            #os.remove(path)
+
+    def getPdfContent(self):
         content =""
         if self.fileType == 'url':
             remoteFile = urlopen(Request(pdfUrl)).read()
@@ -35,14 +48,10 @@ class PdfObj:
             for pageNum in range(pdf.getNumPages()):
                 content+= pdf.getPage(pageNum).extractText()
             return content
-
+        elif self.localPdfContent is not None:
+            return self.localPdfContent
         else:
-            p = open(self.pathOrUrl, "rb")
-            pdf = PyPDF2.PdfFileReader(p)
-            num_pages = pdf.getNumPages()
-            for i in range(0, num_pages):
-                content += pdf.getPage(i).extractText()
-            return content 
+            return None
 
 class PaperReferenceExtractor:
     #assuming type is PDF
@@ -52,7 +61,7 @@ class PaperReferenceExtractor:
     def getReferencesContent(self, pdfObj):
 
         try:
-            pdfContent = pdfObj.getPdfContent()
+            pdfContent = pdfObj.getPdfContent().standardize()
         except urllib.error.URLError as e:
             print('ERROR OPENING PDF WITH URLLIB: '+ str(e))
             return None

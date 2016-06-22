@@ -87,9 +87,6 @@ def count_self_cites(author, num_load):
         fname = author.getFirstName()
         lname = author.getLastName()
 
-        '''fname = 'athanasios'
-        lname = 'vasilakos'''
-
         if (paper_authors.find(fname) == -1 or paper_authors.find(lname) == -1):
             print('Error: author: ' + fname + ' ' + lname + ' is not a valid author of this paper.')
             return -1
@@ -98,11 +95,11 @@ def count_self_cites(author, num_load):
 
         analyzer = PaperReferenceExtractor()
 
-        pdfUrl = paper.getPdfUrl()
-        if (pdfUrl is None):
-            print('No PDF url for this paper, skipping.')
+        pdf_paper = paper.getPdfObj()
+        if (pdf_paper is None):
+            print('No PDF object for this paper, skipping.')
             continue
-        refContent = analyzer.getReferencesContent(pdfUrl)
+        refContent = analyzer.getReferencesContent(pdf_paper)
 
         if (refContent is not None):
 
@@ -110,7 +107,7 @@ def count_self_cites(author, num_load):
             #print (fname+ ' '+lname+ ' has '+str(numCites)+' number of self-cites in paper: '+ paper.getInfo()['Title'])
             self_cites_info = {'Paper Title': paper.getInfo()['Title'], 'Self Cites': numCites}
         else:
-            self_cites_info = {'Paper Title': paper.getInfo()['Title'], 'Self Cites': 'No Valid PDF URL in GSC'}
+            self_cites_info = {'Paper Title': paper.getInfo()['Title'], 'Self Cites': 'No Valid PDF CONTENT in GSC'}
 
         print(self_cites_info)
         self_cite_arr.append(self_cites_info)
@@ -179,13 +176,12 @@ def count_cross_cites (author, x_most_rel, top_x):
     # gets all the citations from all the papers in the list
     for paper in paper_list:
         pub = paper.getInfo()['Publisher']
-        pdfurl = paper.getPdfUrl()
-        if (pdfurl is None):
+        pdf_paper = paper.getPdfObj()
+        if (pdf_paper is None):
             continue
-        print('pdfUrl ' + pdfurl)
 
         try:
-            ref_content = ref_processor.getReferencesContent(pdfurl)
+            ref_content = ref_processor.getReferencesContent(pdf_paper)
             if (ref_content is None):
                 continue
         except TypeError as e:
@@ -276,11 +272,12 @@ def count_cross_cites (author, x_most_rel, top_x):
 
         #determines number of times the paper cites the original author
         for paper in temp_paper_lst:
-            if (paper.getPdfUrl() is None):
+            pdf_paper = paper.getPdfObj()
+            if (pdf_paper is None):
                 continue
             analyzer = PaperReferenceExtractor()
             try:
-                content = analyzer.getReferencesContent(paper.getPdfUrl())
+                content = analyzer.getReferencesContent(pdf_paper)
                 if (content is None):
                     continue
             except TypeError as e:

@@ -9,6 +9,7 @@ import lxml
 import re
 from ReferenceParser import IeeeReferenceParser, SpringerReferenceParser, PaperReferenceExtractor, PdfObj
 import offCampusLogin
+import WatLibSeleniumParser
 
 
 class Paper:
@@ -52,7 +53,7 @@ class Paper:
 
             self.__pap_info[fieldName] = field.find('div', attrs={'class': 'gsc_value'}).text
 
-        self.__pdfObj = PdfObj(self.findPdfObjFromUrlOnPage())
+        self.__pdfObj = self.findPdfObjFromUrlOnPage()
 
     def loadFromSpringer(self):
         return
@@ -271,9 +272,10 @@ class GscPdfExtractor:
     # Parses page waterloo gives us to extract pdf of paper
     def getWatPDF(self, url):
         print(url)
-        return 'lol'
+        WatLibSeleniumParser.downloadFromWatLib(url, 'paper.pdf')
+        newPdf = PdfObj('local', 'paper.pdf')
+        return newPdf
 
-            
 
 
 class GscHtmlFunctions:
@@ -295,7 +297,7 @@ class GscHtmlFunctions:
         #must get query into the right form as noted by GS link first+middle+last
         query = "+".join(authorFields) + "+" + paper_name
 
-        response = self.session.get('https://scholar-google-ca.proxy.lib.uwaterloo.ca/scholar?q='+query+'&btnG=&hl=en&as_sdt=0%2C5', headers=self.headers)
+        response = self.session.get('https://scholar-google-ca.proxy.lib.uwaterloo.ca/scholar?q=' + query + '&btnG=&hl=en&as_sdt=0%2C5', headers=self.headers)
         soup = BeautifulSoup(response.content, 'lxml')
 
         authorsData = soup.find('div', attrs={'class': 'gs_a'}).findAll('a')
@@ -313,7 +315,8 @@ class GscHtmlFunctions:
 
 
 
-#vas = AcademicPublisher('https://scholar-google-ca.proxy.lib.uwaterloo.ca/citations?user=_yWPQWoAAAAJ', 10)
+vas = AcademicPublisher('https://scholar-google-ca.proxy.lib.uwaterloo.ca/citations?user=_yWPQWoAAAAJ', 10)
+print(vas.getPapers())
 
 #g = GscPdfExtractor()
 #g.findPapersFromCitations('https://scholar-google-ca.proxy.lib.uwaterloo.ca/scholar?start=90&hl=en&as_sdt=0,5&sciodt=0,5&cites=13991517909897415820&scipsc=https://scholar-google-ca.proxy.lib.uwaterloo.ca/scholar?start=90&hl=en&as_sdt=0,5&sciodt=0,5&cites=13991517909897415820&scipsc=')
@@ -322,7 +325,3 @@ class GscHtmlFunctions:
 lst = paper1.findAllAuthors()
 for author in lst:
     print(author.getFirstName() + ' ' + author.getLastName())'''
-
-ref_processor = PaperReferenceExtractor()
-ref_content = ref_processor.getReferencesContent('http://mmlab.snu.ac.kr/~mchen/min_paper/ROCHAS.pdf')
-print(ref_content)
