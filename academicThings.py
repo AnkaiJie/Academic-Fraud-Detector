@@ -237,10 +237,14 @@ class GscPdfExtractor:
             elif tag is not None:
                 print('Non-PDF tag, using get it @ waterloo')
 
-            potential_links = extract.findAll('a')
-            for link in potential_links:
-                if link.text.strip() == "Get It!@Waterloo":
-                    pdfList.append(self.getWatPDF(link['href']))
+                potential_links = extract.findAll('a')
+                for link in potential_links:
+                    if link.text.strip() == "Get It!@Waterloo":
+                        url = "https://scholar-google-ca.proxy.lib.uwaterloo.ca" + link['href']
+                        pdf_obj = self.getWatPDF(url)
+                        pdfList.append(pdf_obj)
+
+        pdfList = [p for p in pdfList if p is not None]
         return pdfList
 
 
@@ -256,7 +260,6 @@ class GscPdfExtractor:
         #find pdf url
         tag = extract.find('span', attrs={'class': 'gsc_title_ggt'})
         if tag is not None and tag.text == "[PDF]":
-            print('pdf url')
             return PdfObj('url', extract.find('a')['href'])
         elif tag is not None:
             print('Non-PDF tag, using get it @ waterloo')
@@ -265,16 +268,21 @@ class GscPdfExtractor:
         for div in potential_links:
             text =  div.text.strip()
             if text == 'Get It!@Waterloo':
-                return self.getWatPDF(div.find('a')['href'])
+                pdf_obj = self.getWatPDF(div.find('a')['href'])
+                if pdf_obj is not None:
+                    return pdf_obj
         return None
 
 
     # Parses page waterloo gives us to extract pdf of paper
     def getWatPDF(self, url):
         print(url)
-        WatLibSeleniumParser.downloadFromWatLib(url, 'paper.pdf')
-        newPdf = PdfObj('local', 'paper.pdf')
-        return newPdf
+        status = WatLibSeleniumParser.downloadFromWatLib(url, 'paper.pdf')
+        if status is None:
+            return None
+        else:
+            newPdf = PdfObj('local', 'paper.pdf')
+            return newPdf
 
 
 
@@ -314,9 +322,8 @@ class GscHtmlFunctions:
         return -1
 
 
-
-vas = AcademicPublisher('https://scholar-google-ca.proxy.lib.uwaterloo.ca/citations?user=_yWPQWoAAAAJ', 10)
-print(vas.getPapers())
+# vas = AcademicPublisher('https://scholar-google-ca.proxy.lib.uwaterloo.ca/citations?user=_yWPQWoAAAAJ', 10)
+# print(vas.getPapers())
 
 #g = GscPdfExtractor()
 #g.findPapersFromCitations('https://scholar-google-ca.proxy.lib.uwaterloo.ca/scholar?start=90&hl=en&as_sdt=0,5&sciodt=0,5&cites=13991517909897415820&scipsc=https://scholar-google-ca.proxy.lib.uwaterloo.ca/scholar?start=90&hl=en&as_sdt=0,5&sciodt=0,5&cites=13991517909897415820&scipsc=')

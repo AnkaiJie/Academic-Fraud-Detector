@@ -35,12 +35,12 @@ def ieee_author_keyword_converter (fname, lname):
 def count_overcites (paper, author):
     time.sleep(10)
     pdfExtractor = GscPdfExtractor()
-    pdfUrls = pdfExtractor.findPapersFromCitations(paper.getCitedByUrl())
+    pdfObjs = pdfExtractor.findPapersFromCitations(paper.getCitedByUrl())
     # print(pdfUrls)
     analyzer = PaperReferenceExtractor()
     overcites_info = []
 
-    for idx, pdf in enumerate(pdfUrls):
+    for idx, pdf in enumerate(pdfObjs):
         content = analyzer.getReferencesContent(pdf)
 
         if (content is None):
@@ -82,7 +82,9 @@ def get_ref_author_format(fname, lname, pub):
 def count_self_cites(author, num_load):
     author.loadPapers(num_load)
     self_cite_arr = []
-    for paper in author.getPapers():
+    print("Author fully loaded. Processing loaded papers...")
+
+    for idx, paper in enumerate(author.getPapers()):
         paper_authors = paper.getInfo()['Authors'].lower()
         fname = author.getFirstName()
         lname = author.getLastName()
@@ -109,6 +111,7 @@ def count_self_cites(author, num_load):
         else:
             self_cites_info = {'Paper Title': paper.getInfo()['Title'], 'Self Cites': 'No Valid PDF CONTENT in GSC'}
 
+        print('Paper ' + str(idx) + ' complete.')
         print(self_cites_info)
         self_cite_arr.append(self_cites_info)
 
@@ -118,10 +121,11 @@ def count_self_cites(author, num_load):
 #given an author, and a number of papers, returns the journal frequency list of the first 30 citing papers
 def count_journal_frequency (author, num_papers):
 
-    author.loadPapers(num_papers);
+    author.loadPapers(num_papers)
+    print("Author fully loaded. Processing loaded papers...")
     pap_arr = []
 
-    for paper in author.getPapers():
+    for idx, paper in enumerate(author.getPapers()):
         info_list = []
         one_pap_arr = []
         cited_by_url = paper.getCitedByUrl()
@@ -155,6 +159,7 @@ def count_journal_frequency (author, num_papers):
         one_pap_arr.append(journal_dict)
         print(one_pap_arr)
         pap_arr.append(one_pap_arr)
+        print('Paper ' + str(idx) + ' complete.')
 
     return pap_arr
 
@@ -419,17 +424,17 @@ except AttributeError as e:
 '''
 
 #getting more recent papers from vasilakos over cite data
-'''
-try:
-    vas = AcademicPublisher('https://scholar.google.ca/citations?hl=en&user=_yWPQWoAAAAJ&view_op=list_works&sortby=pubdate', 80)
-    time.sleep(10)
-    for paper in vas.getPapers():
-        if (paper.getCitedByUrl() is not None and paper.getCitedByNum()>=50):
-            arr = count_overcites(paper, vas)
-            k = "Paper Title: " + paper.getInfo()['Title']
-            arr.append(k)
-            print(arr)
-except AttributeError as e:
-    print('google scholar has blocked you.')
-    print(e)
-'''
+
+# try:
+#     vas = AcademicPublisher('https://scholar-google-ca.proxy.lib.uwaterloo.ca/citations?hl=en&user=_yWPQWoAAAAJ&view_op=list_works&sortby=pubdate', 80)
+#     time.sleep(10)
+#     for paper in vas.getPapers():
+#         if (paper.getCitedByUrl() is not None and paper.getCitedByNum()>=50):
+#             arr = count_overcites(paper, vas)
+#             k = "Paper Title: " + paper.getInfo()['Title']
+#             arr.append(k)
+#             print(arr)
+# except AttributeError as e:
+#     print('google scholar has blocked you.')
+#     print(e)
+

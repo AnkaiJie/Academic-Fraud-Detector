@@ -40,7 +40,7 @@ class PdfObj:
     def getPdfContent(self):
         content =""
         if self.fileType == 'url':
-            remoteFile = urlopen(Request(pdfUrl)).read()
+            remoteFile = urlopen(Request(self.pathOrUrl)).read()
             localFile = BytesIO(remoteFile)
 
             pdf = PyPDF2.PdfFileReader(localFile)
@@ -61,7 +61,7 @@ class PaperReferenceExtractor:
     def getReferencesContent(self, pdfObj):
 
         try:
-            pdfContent = pdfObj.getPdfContent().standardize()
+            pdfContent = self.standardize(pdfObj.getPdfContent())
         except urllib.error.URLError as e:
             print('ERROR OPENING PDF WITH URLLIB: '+ str(e))
             return None
@@ -263,6 +263,7 @@ class SpringerReferenceParser:
                 ref_list.append(ref)
 
         return ref_list
+
 
 
 
