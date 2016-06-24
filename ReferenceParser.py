@@ -264,17 +264,3 @@ class SpringerReferenceParser:
 
         return ref_list
 
-
-
-
-'''p1 = IeeeReferenceParser()
-prp = PaperReferenceExtractor()
-print(p1.citeParse(prp.getReferencesContent('http://phys.xmu.edu.cn/shuaiweb/ShuaiPub/IEEETN11_135.pdf')))'''
-'''
-p2 = SpringerReferenceParser()
-prp = PaperReferenceExtractor()
-print (p2.citeParse(prp.getReferencesContent('https://www.researchgate.net/profile/Jun_Luo4/publication/220866049_Compressed_Data_Aggregation_for_Energy_Efficient_Wireless_Sensor_Networks/links/0deec52269881dcd2c000000.pdf')))
-print(p1.citeParse(prp.getReferencesContent('https://www.researchgate.net/profile/Tatsuya_Suda/publication/3234013_An_adaptive_bandwidth_reservation_scheme_for_high-speed_multimedia_wireless_networks/links/00b49520d3acb8e89a000000.pdf')))'''
-
-
-

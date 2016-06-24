@@ -7,7 +7,7 @@ import time
 
 ch = webdriver.Chrome("./chromedriver")
 ch.get('https://login.proxy.lib.uwaterloo.ca/login')
-cookies = [{'domain': '.lib.uwaterloo.ca', 'httpOnly': False, 'value': 'PzAEP4RtVaa2Jux', 'name': 'ezproxy', 'path': '/', 'secure': False}, {'domain': '.uwaterloo.ca', 'httpOnly': False, 'value': '1', 'name': '_gat', 'path': '/', 'expiry': 1466652401, 'secure': False}, {'domain': '.uwaterloo.ca', 'httpOnly': False, 'value': 'GA1.2.1227558798.1466567220', 'name': '_ga', 'path': '/', 'expiry': 1529723801, 'secure': False}]
+cookies = [{'domain': '.lib.uwaterloo.ca', 'path': '/', 'httpOnly': False, 'secure': False, 'value': '4ruzfvMwNZ5eGMV', 'name': 'ezproxy'}, {'domain': '.uwaterloo.ca', 'expiry': 1466735554, 'path': '/', 'httpOnly': False, 'secure': False, 'value': '1', 'name': '_gat'}, {'domain': '.uwaterloo.ca', 'expiry': 1529806954, 'path': '/', 'httpOnly': False, 'secure': False, 'value': 'GA1.2.1227558798.1466567220', 'name': '_ga'}]
 
 for cookie in cookies:
     ch.add_cookie(cookie)
@@ -24,8 +24,12 @@ def downloadFromWatLib(url, path):
 
     href.click()
 
-    pdfxmllink = ch.find_element_by_xpath("//div[@class='download-btn']/a").get_attribute('href')
-
+    try:
+        pdfxmllink = ch.find_element_by_xpath("//div[@class='download-btn']/a").get_attribute('href')
+    except selenium.common.exceptions.NoSuchElementException:
+        print('Racer link only, no scholarsportal returning none...')
+        return None
+        
     print(pdfxmllink)
 
     session = offCampusLogin.getSesh()

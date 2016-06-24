@@ -13,9 +13,9 @@ import WatLibSeleniumParser
 
 
 class Paper:
-    def __init__ (self, link):
+    def __init__ (self, link, loadPdf = True):
         self.__url = link
-        self.__pdfObj= None
+        self.__pdfObj = None
         self.__pap_info = {}
         self.__pap_info['Publisher'] = ''
         self.__citedByUrl = None
@@ -26,9 +26,9 @@ class Paper:
         self.session = offCampusLogin.getSesh()
         self.headers = offCampusLogin.getHeaders()
 
-        self.loadFromGoogleScholar()
+        self.loadFromGoogleScholar(loadPdf)
 
-    def loadFromGoogleScholar(self):
+    def loadFromGoogleScholar(self, loadPdf):
         response = self.session.get(self.__url, headers=self.headers)
         soup = BeautifulSoup(response.content, 'lxml')
         #print(soup)
@@ -53,7 +53,8 @@ class Paper:
 
             self.__pap_info[fieldName] = field.find('div', attrs={'class': 'gsc_value'}).text
 
-        self.__pdfObj = self.findPdfObjFromUrlOnPage()
+        if loadPdf:
+            self.__pdfObj = self.findPdfObjFromUrlOnPage()
 
     def loadFromSpringer(self):
         return
@@ -75,6 +76,10 @@ class Paper:
 
     def getPdfObj(self):
         return self.__pdfObj
+
+    # Set the PDF object later on if you chose to not load it in the beginning
+    def setPdfObj(self):
+        self.__pdfObj = self.findPdfObjFromUrlOnPage()
 
     def findPdfObjFromUrlOnPage(self):
         extractor = GscPdfExtractor()
@@ -144,7 +149,7 @@ class Citation:
 
 class AcademicPublisher:
 
-    def __init__(self, mainUrl, numPapers):
+    def __init__(self, mainUrl, numPapers, loadPaperPDFs=True):
 
         self.first_name = None
         self.last_name = None
@@ -157,10 +162,10 @@ class AcademicPublisher:
 
         if (mainUrl is not None):
             self.url = mainUrl
-            self.loadPapers(numPapers)
+            self.loadPapers(numPapers, loadPaperPDFs)
 
 
-    def loadPapers(self, numPapers):
+    def loadPapers(self, numPapers, loadPaperPDFs):
         response = self.session.get(self.url + '&cstart=0&pagesize=' + str(numPapers), headers=self.headers)
         soup = BeautifulSoup(response.content, "lxml")
 
@@ -179,7 +184,7 @@ class AcademicPublisher:
         #appends all papers to paperlist
         for one_url in soup.findAll('a', attrs={'class': 'gsc_a_at'}, href=True):
             #one_url['href'] finds the link to the paper page
-            p = Paper('https://scholar-google-ca.proxy.lib.uwaterloo.ca' + one_url['href'])
+            p = Paper('https://scholar-google-ca.proxy.lib.uwaterloo.ca' + one_url['href'], loadPaperPDFs)
             self.__paper_list.append(p)
             # takes out all papers not from IEEE or Springer US 
             self.filterByPublishers()
@@ -233,16 +238,18 @@ class GscPdfExtractor:
             tag = extract.find('span', attrs={'class': 'gs_ctg2'})
             if tag is not None and tag.text == "[PDF]":
                 pdf = PdfObj('url', extract.find('a')['href'])
+                print('pdf url')
                 pdfList.append(pdf)
             elif tag is not None:
                 print('Non-PDF tag, using get it @ waterloo')
 
-                potential_links = extract.findAll('a')
-                for link in potential_links:
-                    if link.text.strip() == "Get It!@Waterloo":
-                        url = "https://scholar-google-ca.proxy.lib.uwaterloo.ca" + link['href']
-                        pdf_obj = self.getWatPDF(url)
-                        pdfList.append(pdf_obj)
+            potential_links = extract.findAll('a')
+            for link in potential_links:
+                if link.text.strip() == "Get It!@Waterloo":
+                    print('get at waterloo')
+                    url = "https://scholar-google-ca.proxy.lib.uwaterloo.ca" + link['href']
+                    pdf_obj = self.getWatPDF(url)
+                    pdfList.append(pdf_obj)
 
         pdfList = [p for p in pdfList if p is not None]
         return pdfList
@@ -321,14 +328,3 @@ class GscHtmlFunctions:
         print("cannot find author " + auth_name)
         return -1
 
-
-# vas = AcademicPublisher('https://scholar-google-ca.proxy.lib.uwaterloo.ca/citations?user=_yWPQWoAAAAJ', 10)
-# print(vas.getPapers())
-
-#g = GscPdfExtractor()
-#g.findPapersFromCitations('https://scholar-google-ca.proxy.lib.uwaterloo.ca/scholar?start=90&hl=en&as_sdt=0,5&sciodt=0,5&cites=13991517909897415820&scipsc=https://scholar-google-ca.proxy.lib.uwaterloo.ca/scholar?start=90&hl=en&as_sdt=0,5&sciodt=0,5&cites=13991517909897415820&scipsc=')
-
-'''paper1 = Paper('https://scholar-google-ca.proxy.lib.uwaterloo.ca/citations?view_op=view_citation&hl=en&user=_yWPQWoAAAAJ&citation_for_view=_yWPQWoAAAAJ:u5HHmVD_uO8C')
-lst = paper1.findAllAuthors()
-for author in lst:
-    print(author.getFirstName() + ' ' + author.getLastName())'''
