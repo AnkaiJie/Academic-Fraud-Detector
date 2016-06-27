@@ -5,8 +5,6 @@ Created on Feb 3, 2016
 '''
 
 import mysql.connector
-from academicThings import AcademicPublisher
-from academicThings import Paper
 
 class AuthorDbController:
         

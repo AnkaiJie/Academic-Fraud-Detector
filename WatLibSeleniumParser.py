@@ -1,16 +1,16 @@
 from selenium import webdriver
 import selenium
-import sys
-import offCampusLogin
+import SessionInitializer
 import shutil
-import time
 
 ch = webdriver.Chrome("./chromedriver")
-ch.get('https://login.proxy.lib.uwaterloo.ca/login')
-cookies = [{'domain': '.lib.uwaterloo.ca', 'path': '/', 'httpOnly': False, 'secure': False, 'value': '4ruzfvMwNZ5eGMV', 'name': 'ezproxy'}, {'domain': '.uwaterloo.ca', 'expiry': 1466735554, 'path': '/', 'httpOnly': False, 'secure': False, 'value': '1', 'name': '_gat'}, {'domain': '.uwaterloo.ca', 'expiry': 1529806954, 'path': '/', 'httpOnly': False, 'secure': False, 'value': 'GA1.2.1227558798.1466567220', 'name': '_ga'}]
 
-for cookie in cookies:
-    ch.add_cookie(cookie)
+if SessionInitializer.ROOT_URL == "https://scholar-google-ca.proxy.lib.uwaterloo.ca":
+    ch.get('https://login.proxy.lib.uwaterloo.ca/login')
+    cookies = [{'value': 'Sq6ezUjSocRuQKz', 'secure': False, 'httpOnly': False, 'name': 'ezproxy', 'domain': '.lib.uwaterloo.ca', 'path': '/'}, {'value': '1', 'secure': False, 'httpOnly': False, 'name': '_gat', 'domain': '.uwaterloo.ca', 'path': '/', 'expiry': 1466995932}, {'value': 'GA1.2.1227558798.1466567220', 'secure': False, 'httpOnly': False, 'name': '_ga', 'domain': '.uwaterloo.ca', 'path': '/', 'expiry': 1530067332}]
+
+    for cookie in cookies:
+        ch.add_cookie(cookie)
 
 def downloadFromWatLib(url, path):
     ch.get(url)
@@ -32,7 +32,7 @@ def downloadFromWatLib(url, path):
         
     print(pdfxmllink)
 
-    session = offCampusLogin.getSesh()
+    session = SessionInitializer.getSesh()
     r = session.get(pdfxmllink, stream=True)
 
     if r.status_code == 200:
@@ -53,7 +53,4 @@ def downloadFromWatLib(url, path):
 # barcode.send_keys('21187005749502')
 # form = ch.find_element_by_xpath('//input[@value = "Login"]')
 # form.click()
-
-
-
 # print(ch.get_cookies())

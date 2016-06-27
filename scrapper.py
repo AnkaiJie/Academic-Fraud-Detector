@@ -11,8 +11,6 @@ from bs4 import BeautifulSoup
 import requests
 import time
 import PyPDF2
-from _csv import Error
-import traceback
 from csvWriter import *
 
 
@@ -309,19 +307,19 @@ def count_cross_cites (author, x_most_rel, top_x):
 
 #getting more recent papers from vasilakos over cite data
 
-try:
-    vas = AcademicPublisher('https://scholar-google-ca.proxy.lib.uwaterloo.ca/citations?hl=en&user=_yWPQWoAAAAJ&view_op=list_works&sortby=pubdate', 200, loadPaperPDFs=False)
-    over_cite_arr = []
-    for paper in vas.getPapers():
-        if (paper.getCitedByUrl() is not None and paper.getCitedByNum()>=40):
-            paper.setPdfObj()
-            arr = count_overcites(paper, vas)
-            k = "Paper Title: " + paper.getInfo()['Title']
-            arr.append(k)
-            over_cite_arr.append(arr)
-            print(arr)
-    over_cite_writer(over_cite_arr, 'vas_most_recent_overcites')
-except AttributeError as e:
-    print('google scholar has blocked you.')
-    print(e)
+# try:
+#     vas = AcademicPublisher('https://scholar-google-ca.proxy.lib.uwaterloo.ca/citations?hl=en&user=_yWPQWoAAAAJ&view_op=list_works&sortby=pubdate', 80, loadPaperPDFs=False)
+#     over_cite_arr = []
+#     for paper in vas.getPapers():
+#         if (paper.getCitedByUrl() is not None and paper.getCitedByNum()>=40):
+#             paper.setPdfObj()
+#             arr = count_overcites(paper, vas)
+#             k = "Paper Title: " + paper.getInfo()['Title']
+#             arr.append(k)
+#             over_cite_arr.append(arr)
+#             print(arr)
+#     over_cite_writer(over_cite_arr, 'vas_most_recent_overcites')
+# except AttributeError as e:
+#     print('google scholar has blocked you.')
+#     print(e)
 

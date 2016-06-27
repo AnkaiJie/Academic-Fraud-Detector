@@ -9,10 +9,8 @@ from urllib.request import Request, urlopen
 import urllib
 import PyPDF2
 from _io import BytesIO
-from WordInference import inferSpaces
 import WordInference
 from math import log
-import os
 
 class PdfObj:
     def __init__(self, fileType, pathOrUrl):
