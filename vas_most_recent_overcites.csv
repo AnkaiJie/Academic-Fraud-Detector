@@ -11,7 +11,22 @@ Citing Paper Number,Over-cite Count
 11,2
 12,0
 13,1
-Total,16
+14,3
+16,6
+17,1
+18,1
+19,1
+20,2
+21,11
+22,1
+23,7
+24,0
+25,6
+26,7
+27,1
+28,1
+29,1
+Total,65
 "
 "
 Paper Title: Spatial reusability-aware routing in multi-hop wireless networks
@@ -22,7 +37,15 @@ Citing Paper Number,Over-cite Count
 4,25
 5,29
 6,27
-Total,140
+7,29
+8,10
+9,15
+10,27
+11,21
+12,2
+13,21
+14,20
+Total,285
 "
 "
 Paper Title: A survey of millimeter wave communications (mmWave) for 5G: opportunities and challenges
@@ -40,7 +63,18 @@ Citing Paper Number,Over-cite Count
 12,1
 13,2
 14,0
-Total,19
+15,2
+16,1
+17,0
+18,1
+22,0
+23,1
+24,12
+26,1
+27,1
+28,1
+29,1
+Total,40
 "
 "
 Paper Title: CDC: Compressive data collection for wireless sensor networks
@@ -53,27 +87,15 @@ Citing Paper Number,Over-cite Count
 6,12
 7,26
 8,29
-Total,137
-"
-"
-"Paper Title: EDAL: An energy-efficient, delay-aware, and lifetime-balancing data collection protocol for heterogeneous wireless sensor networks"
-Citing Paper Number,Over-cite Count
-1,17
-2,4
-3,2
-4,25
-5,15
-6,26
-7,11
-8,11
-Total,111
-"
-"
-Paper Title: Interference-based topology control algorithm for delay-constrained mobile ad hoc networks
-Citing Paper Number,Over-cite Count
-1,1
-2,29
-3,27
-Total,57
+9,11
+10,11
+11,4
+12,10
+13,7
+14,22
+15,21
+16,4
+18,20
+Total,247
 "
 "

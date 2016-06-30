@@ -11,6 +11,7 @@ from bs4 import BeautifulSoup
 import requests
 import time
 import PyPDF2
+import SessionInitializer
 from csvWriter import *
 
 
@@ -27,33 +28,6 @@ def ieee_author_keyword_converter (fname, lname):
     last_name = lname.title()
     return  fname_letter+'.'+last_name
 
-
-# given paper and author, and index number, returns number of times a each
-# citing paper on the first page of citing papers also cites the same author
-def count_overcites (paper, author):
-    time.sleep(10)
-    pdfExtractor = GscPdfExtractor()
-    pdfObjs = pdfExtractor.findPapersFromCitations(paper.getCitedByUrl())
-    # print(pdfUrls)
-    analyzer = PaperReferenceExtractor()
-    overcites_info = []
-
-    for idx, pdf in enumerate(pdfObjs):
-        content = analyzer.getReferencesContent(pdf)
-
-        if (content is None):
-            continue
-
-        # print(content)
-        lname = author.getLastName().title()
-        numCites = analyzer.getCitesToAuthor(lname, content)
-        print("Citing paper number  " + str(idx+1) + " cites " + lname + " " + str(numCites) + " times.")
-        info_dict = {}
-        info_dict['Citing Paper Number'] = idx+1
-        info_dict['Over-cite Count'] = numCites
-        overcites_info.append(info_dict)
-
-    return overcites_info
 
 
 # given first name, last name, publisher of paper, returns how their name would show in a paper
@@ -129,12 +103,12 @@ def count_journal_frequency (author, num_papers):
         cited_by_url = paper.getCitedByUrl()
         session = requests.Session()
 
-        url_part_one = 'https://scholar.google.ca/scholar?start='
+        url_part_one = SessionInitializer.ROOT_URL + '/scholar?start='
         url_part_two = '&hl=en&as_sdt=0,5&sciodt=0,5&cites='
         cited_by_url = cited_by_url[:cited_by_url.rfind('&')]
         paper_code = cited_by_url[cited_by_url.rfind('=')+1:]
 
-        for i in range(10, 31, 10):
+        for i in range(0, 30, 10):
             time.sleep(10)
             final_url = url_part_one+str(i)+url_part_two+paper_code
             response = session.get(final_url)
@@ -305,6 +279,71 @@ def count_cross_cites (author, x_most_rel, top_x):
 
 
 
+# given paper and author, and index number, returns number of times a each
+# citing paper on the first page of citing papers also cites the same author
+def count_overcites(author, auth_paper_num, cite_num_to_load=30):
+    over_cite_arr = []
+    author.loadPapers(auth_paper_num, loadPaperPDFs=False)
+    try:
+        for paper in vas.getPapers():
+            paper.setPdfObj()
+            k = "Paper Title: " + paper.getInfo()['Title']
+            print(k)
+            arr = count_overcites_paper(paper, vas, cite_num_to_load)
+            arr.append(k)
+            over_cite_arr.append(arr)
+            print(arr)
+    except AttributeError as e:
+        print('google scholar possibly has blocked you, sending back collected data...')
+        print(e)
+        return over_cite_arr
+
+    return over_cite_arr
+
+
+# this function takes a paper instead of an author, leaves the author implementation to the user
+# use case: allows used to only look at overcites for specific papers
+def count_overcites_paper(paper, author, cite_num_to_load=30):
+    pdfExtractor = GscPdfExtractor()
+
+    cited_by_url = paper.getCitedByUrl()
+    url_part_one = SessionInitializer.ROOT_URL + '/scholar?start='
+    url_part_two = '&hl=en&as_sdt=0,5&sciodt=0,5&cites='
+    cited_by_url = cited_by_url[:cited_by_url.rfind('&')]
+    paper_code = cited_by_url[cited_by_url.rfind('=')+1:]
+
+    all_pdfObjs = []
+
+    for i in range (0, 30, 10):
+        final_url = url_part_one+str(i)+url_part_two+paper_code
+        current_pdfObjs = pdfExtractor.findPapersFromCitations(final_url)
+        all_pdfObjs += current_pdfObjs
+
+    print('Loaded: ' + str(len(all_pdfObjs)) + ' pdf objects.')
+
+    analyzer = PaperReferenceExtractor()
+    overcites_info = []
+
+    for idx, pdf in enumerate(all_pdfObjs):
+        content = analyzer.getReferencesContent(pdf)
+
+        if (content is None):
+            continue
+
+        # print(content)
+        lname = author.getLastName().title()
+        numCites = analyzer.getCitesToAuthor(lname, content)
+        print("Citing paper number  " + str(idx+1) + " cites " + lname + " " + str(numCites) + " times.")
+        info_dict = {}
+        info_dict['Citing Paper Number'] = idx+1
+        info_dict['Over-cite Count'] = numCites
+        overcites_info.append(info_dict)
+
+    return overcites_info
+
+
+
+
 #getting more recent papers from vasilakos over cite data
 
 # try:
@@ -313,7 +352,7 @@ def count_cross_cites (author, x_most_rel, top_x):
 #     for paper in vas.getPapers():
 #         if (paper.getCitedByUrl() is not None and paper.getCitedByNum()>=40):
 #             paper.setPdfObj()
-#             arr = count_overcites(paper, vas)
+#             arr = count_overcites_paper(paper, vas)
 #             k = "Paper Title: " + paper.getInfo()['Title']
 #             arr.append(k)
 #             over_cite_arr.append(arr)
@@ -323,3 +362,7 @@ def count_cross_cites (author, x_most_rel, top_x):
 #     print('google scholar has blocked you.')
 #     print(e)
 
+# getting bare data from more relevant papers
+vas = AcademicPublisher('https://scholar-google-ca.proxy.lib.uwaterloo.ca/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 1, loadPaperPDFs=False)
+over_cite_arr = count_overcites(vas, 1)
+over_cite_writer(over_cite_arr, 'vas_top50_most_relevant_overcites')

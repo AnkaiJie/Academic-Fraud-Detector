@@ -2,7 +2,7 @@ import requests
 
 
 ROOT_URL = "https://scholar-google-ca.proxy.lib.uwaterloo.ca"
-# ROOT_URL = "https://scholar.google.ca/"
+# ROOT_URL = "https://scholar.google.ca"
 
 
 #Internet Setup
@@ -11,12 +11,12 @@ headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.3
 #login_page = session.get('https://scholar-google-ca.proxy.lib.uwaterloo.ca/', headers=headers)
 
 if ROOT_URL == "https://scholar-google-ca.proxy.lib.uwaterloo.ca":
-	data = {'url':'https://scholar.google.ca/', 'pass': 'jie', 'user': '21187005749502'}
-	session.post('https://login.proxy.lib.uwaterloo.ca/login', data)
+    data = {'url':'https://scholar.google.ca/', 'pass': 'jie', 'user': '21187005749502'}
+    session.post('https://login.proxy.lib.uwaterloo.ca/login', data)
 
 
 def getHeaders():
-	return headers
+    return headers
 
 def getSesh():
-	return session
+    return session

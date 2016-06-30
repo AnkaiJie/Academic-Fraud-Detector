@@ -32,6 +32,7 @@ class Paper:
         soup = BeautifulSoup(response.content, 'lxml')
         #print(soup)
 
+
         self.__pap_info['Title'] = soup.find('a', attrs={'class': 'gsc_title_link'}).text
 
         div_info_table = soup.find('div', attrs={'id': 'gsc_table'})
@@ -76,9 +77,11 @@ class Paper:
     def getPdfObj(self):
         return self.__pdfObj
 
-    # Set the PDF object later on if you chose to not load it in the beginning
+    # Set the PDF object later on if you chose to not load it in the beginning, only works
+    # if the pdf object is not already loaded
     def setPdfObj(self):
-        self.__pdfObj = self.findPdfObjFromUrlOnPage()
+        if self.__pdfObj is None:
+            self.__pdfObj = self.findPdfObjFromUrlOnPage()
 
     def findPdfObjFromUrlOnPage(self):
         extractor = GscPdfExtractor()
@@ -167,7 +170,6 @@ class AcademicPublisher:
     def loadPapers(self, numPapers, loadPaperPDFs):
         response = self.session.get(self.url + '&cstart=0&pagesize=' + str(numPapers), headers=self.headers)
         soup = BeautifulSoup(response.content, "lxml")
-
 
         full_name = soup.find('div', attrs={'id': 'gsc_prf_in'}).text.lower().split()
 
