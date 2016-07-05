@@ -6,6 +6,7 @@ Created on Jan 05, 2016
 from bs4 import BeautifulSoup
 import lxml
 import re
+import time
 from ReferenceParser import IeeeReferenceParser, SpringerReferenceParser, PaperReferenceExtractor, PdfObj
 import SessionInitializer
 import WatLibSeleniumParser
@@ -26,6 +27,7 @@ class Paper:
         self.headers = SessionInitializer.getHeaders()
 
         self.loadFromGoogleScholar(loadPdf)
+        
 
     def loadFromGoogleScholar(self, loadPdf):
         response = self.session.get(self.__url, headers=self.headers)
@@ -188,7 +190,7 @@ class AcademicPublisher:
             p = Paper(SessionInitializer.ROOT_URL + one_url['href'], loadPaperPDFs)
             self.__paper_list.append(p)
             # takes out all papers not from IEEE or Springer US 
-            self.filterByPublishers()
+            # self.filterByPublishers()
 
     def filterByPublishers(self):
         self.__paper_list = [x for x in self.__paper_list if x.getInfo()['Publisher']=='IEEE' or x.getInfo()['Publisher']=='Springer US']
@@ -285,6 +287,7 @@ class GscPdfExtractor:
     # Parses page waterloo gives us to extract pdf of paper
     def getWatPDF(self, url):
         print(url)
+        time.sleep(3)
         status = WatLibSeleniumParser.downloadFromWatLib(url, 'paper.pdf')
         if status is None:
             return None

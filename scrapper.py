@@ -286,6 +286,7 @@ def count_overcites(author, auth_paper_num, cite_num_to_load=30):
     author.loadPapers(auth_paper_num, loadPaperPDFs=False)
     try:
         for paper in vas.getPapers():
+            time.sleep(15)
             paper.setPdfObj()
             k = "Paper Title: " + paper.getInfo()['Title']
             print(k)
@@ -346,23 +347,21 @@ def count_overcites_paper(paper, author, cite_num_to_load=30):
 
 #getting more recent papers from vasilakos over cite data
 
-# try:
-#     vas = AcademicPublisher('https://scholar-google-ca.proxy.lib.uwaterloo.ca/citations?hl=en&user=_yWPQWoAAAAJ&view_op=list_works&sortby=pubdate', 80, loadPaperPDFs=False)
-#     over_cite_arr = []
-#     for paper in vas.getPapers():
-#         if (paper.getCitedByUrl() is not None and paper.getCitedByNum()>=40):
-#             paper.setPdfObj()
-#             arr = count_overcites_paper(paper, vas)
-#             k = "Paper Title: " + paper.getInfo()['Title']
-#             arr.append(k)
-#             over_cite_arr.append(arr)
-#             print(arr)
-#     over_cite_writer(over_cite_arr, 'vas_most_recent_overcites')
-# except AttributeError as e:
-#     print('google scholar has blocked you.')
-#     print(e)
+vas = AcademicPublisher('https://scholar-google-ca.proxy.lib.uwaterloo.ca/citations?hl=en&user=_yWPQWoAAAAJ&view_op=list_works&sortby=pubdate', 100, loadPaperPDFs=False)
+over_cite_arr = []
+for paper in vas.getPapers():
+    if (paper.getCitedByUrl() is not None and paper.getCitedByNum()>=25):
+        time.sleep(15)
+        paper.setPdfObj()
+        arr = count_overcites_paper(paper, vas)
+        k = "Paper Title: " + paper.getInfo()['Title']
+        arr.append(k)
+        over_cite_arr.append(arr)
+        print(arr)
+over_cite_writer(over_cite_arr, 'vas_most_recent_overcites3')
+
 
 # getting bare data from more relevant papers
-vas = AcademicPublisher('https://scholar-google-ca.proxy.lib.uwaterloo.ca/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 1, loadPaperPDFs=False)
-over_cite_arr = count_overcites(vas, 1)
-over_cite_writer(over_cite_arr, 'vas_top50_most_relevant_overcites')
+# vas = AcademicPublisher('https://scholar-google-ca.proxy.lib.uwaterloo.ca/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 1, loadPaperPDFs=False)
+# over_cite_arr = count_overcites(vas, 1)
+# over_cite_writer(over_cite_arr, 'vas_top50_most_relevant_overcites')
