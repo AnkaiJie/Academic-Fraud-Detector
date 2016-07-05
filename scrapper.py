@@ -298,7 +298,10 @@ def count_overcites(author, auth_paper_num, cite_num_to_load=30):
         print('google scholar possibly has blocked you, sending back collected data...')
         print(e)
         return over_cite_arr
-    
+    except Exception as e:
+        print('unknown exception ' + str(e))
+        return over_cite_arr
+
 
     return over_cite_arr
 
