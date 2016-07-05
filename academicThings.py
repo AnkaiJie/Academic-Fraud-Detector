@@ -241,7 +241,7 @@ class GscPdfExtractor:
             tag = extract.find('span', attrs={'class': 'gs_ctg2'})
             if tag is not None and tag.text == "[PDF]":
                 pdf = PdfObj('url', extract.find('a')['href'])
-                print('pdf url')
+                print('pdf url: ' + pdf.getPathUrl())
                 pdfList.append(pdf)
             elif tag is not None:
                 print('Non-PDF tag, using get it @ waterloo')

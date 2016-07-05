@@ -1,3 +1,4 @@
+
 '''
 Created on Feb 1, 2016
 
@@ -66,6 +67,8 @@ class PaperReferenceExtractor:
         except PyPDF2.utils.PdfReadError as e:
             print('EOF MARKER NOT FOUND' + str(e))
             return None
+        except ValueError as e:
+            print("ValueError " + str(e))
         else:    
             index = pdfContent.find("References")
             if (index==-1):

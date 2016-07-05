@@ -18,8 +18,8 @@ def downloadFromWatLib(url, path):
     try:
         #href = ch.find_element_by_link_text('Scholars Portal')
         href = ch.find_element_by_xpath('//a[@href="javascript:openWindow(this, \'basic1\');" and text()="Scholars Portal"]')
-    except selenium.common.exceptions.NoSuchElementException as e:
-        print('cannot find scholars portal link' + str(e))
+    except selenium.common.exceptions.NoSuchElementException:
+        print('cannot find scholars portal link on webpage')
         return None
 
     href.click()
