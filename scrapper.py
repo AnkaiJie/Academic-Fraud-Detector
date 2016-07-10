@@ -284,65 +284,75 @@ def count_cross_cites (author, x_most_rel, top_x):
 def count_overcites(author, auth_paper_num, cite_num_to_load=30):
     over_cite_arr = []
     author.loadPapers(auth_paper_num, loadPaperPDFs=False)
+    count = 0
     try:
         for paper in vas.getPapers():
+            if paper.getCitedByUrl() is None:
+                print("No cited by url for paper: " + paper.getInfo()['Title'] + "with link " + paper.getUrl() + ", loop continue called")
+                continue
             time.sleep(15)
             paper.setPdfObj()
             k = "Paper Title: " + paper.getInfo()['Title']
             print(k)
-            arr = count_overcites_paper(paper, vas, cite_num_to_load)
+            arr = count_overcites_paper(paper, vas, cite_num_to_load=cite_num_to_load)
             arr.append(k)
             over_cite_arr.append(arr)
             print(arr)
-    except AttributeError as e:
-        print('google scholar possibly has blocked you, sending back collected data...')
-        print(e)
-        return over_cite_arr
-    except Exception as e:
-        print('unknown exception ' + str(e))
-        return over_cite_arr
+            count+=1
+    except Exception:
+        print('returning back over_cite_arr')
 
-
+    print(str(count) + "number of papers analyzed")
+    print(over_cite_arr)
     return over_cite_arr
 
 
 # this function takes a paper instead of an author, leaves the author implementation to the user
 # use case: allows used to only look at overcites for specific papers
 def count_overcites_paper(paper, author, cite_num_to_load=30):
-    pdfExtractor = GscPdfExtractor()
+    try:
+        pdfExtractor = GscPdfExtractor()
 
-    cited_by_url = paper.getCitedByUrl()
-    url_part_one = SessionInitializer.ROOT_URL + '/scholar?start='
-    url_part_two = '&hl=en&as_sdt=0,5&sciodt=0,5&cites='
-    cited_by_url = cited_by_url[:cited_by_url.rfind('&')]
-    paper_code = cited_by_url[cited_by_url.rfind('=')+1:]
+        cited_by_url = paper.getCitedByUrl()
+        url_part_one = SessionInitializer.ROOT_URL + '/scholar?start='
+        url_part_two = '&hl=en&as_sdt=0,5&sciodt=0,5&cites='
+        cited_by_url = cited_by_url[:cited_by_url.rfind('&')]
+        paper_code = cited_by_url[cited_by_url.rfind('=')+1:]
 
-    all_pdfObjs = []
+        all_pdfObjs = []
 
-    for i in range (0, 30, 10):
-        final_url = url_part_one+str(i)+url_part_two+paper_code
-        current_pdfObjs = pdfExtractor.findPapersFromCitations(final_url)
-        all_pdfObjs += current_pdfObjs
+        for i in range (0, 30, 10):
+            final_url = url_part_one+str(i)+url_part_two+paper_code
+            current_pdfObjs = pdfExtractor.findPapersFromCitations(final_url)
+            all_pdfObjs += current_pdfObjs
 
-    print('Loaded: ' + str(len(all_pdfObjs)) + ' pdf objects.')
+        print('Loaded: ' + str(len(all_pdfObjs)) + ' pdf objects.')
 
-    analyzer = PaperReferenceExtractor()
-    overcites_info = []
+        analyzer = PaperReferenceExtractor()
+        overcites_info = []
 
-    for idx, pdf in enumerate(all_pdfObjs):
-        content = analyzer.getReferencesContent(pdf)
+        for idx, pdf in enumerate(all_pdfObjs):
+            content = analyzer.getReferencesContent(pdf)
 
-        if (content is None):
-            continue
+            if (content is None):
+                continue
+                
+            # print(content)
+            lname = author.getLastName().title()
+            numCites = analyzer.getCitesToAuthor(lname, content)
+            print("Citing paper number  " + str(idx+1) + " cites " + lname + " " + str(numCites) + " times.")
+            info_dict = {}
+            info_dict['Citing Paper Number'] = idx+1
+            info_dict['Over-cite Count'] = numCites
+            overcites_info.append(info_dict)
 
-        # print(content)
-        lname = author.getLastName().title()
-        numCites = analyzer.getCitesToAuthor(lname, content)
-        print("Citing paper number  " + str(idx+1) + " cites " + lname + " " + str(numCites) + " times.")
-        info_dict = {}
-        info_dict['Citing Paper Number'] = idx+1
-        info_dict['Over-cite Count'] = numCites
-        overcites_info.append(info_dict)
+    except AttributeError as e:
+        print('google scholar possibly has blocked you, sending back collected data...')
+        print(e)
+        return overcites_info
+    except Exception as e:
+        print('unknown exception ' + str(e))
+        return overcites_info
 
     return overcites_info
 
@@ -351,21 +361,23 @@ def count_overcites_paper(paper, author, cite_num_to_load=30):
 
 #getting more recent papers from vasilakos over cite data
 
-vas = AcademicPublisher('https://scholar-google-ca.proxy.lib.uwaterloo.ca/citations?hl=en&user=_yWPQWoAAAAJ&view_op=list_works&sortby=pubdate', 100, loadPaperPDFs=False)
-over_cite_arr = []
-for paper in vas.getPapers():
-    if (paper.getCitedByUrl() is not None and paper.getCitedByNum()>=25):
-        time.sleep(15)
-        paper.setPdfObj()
-        arr = count_overcites_paper(paper, vas)
-        k = "Paper Title: " + paper.getInfo()['Title']
-        arr.append(k)
-        over_cite_arr.append(arr)
-        print(arr)
-over_cite_writer(over_cite_arr, 'vas_most_recent_overcites3')
+# vas = AcademicPublisher(SessionInitializer.ROOT_URL + '/citations?hl=en&user=_yWPQWoAAAAJ&view_op=list_works&sortby=pubdate', 100, loadPaperPDFs=False)
+# over_cite_arr = []
+# for paper in vas.getPapers():
+#     if (paper.getCitedByUrl() is not None and paper.getCitedByNum()>=30):
+#         time.sleep(20)
+#         paper.setPdfObj()
+#         arr = count_overcites_paper(paper, vas)
+#         k = "Paper Title: " + paper.getInfo()['Title']
+#         arr.append(k)
+#         over_cite_arr.append(arr)
+#         print(arr)
+# over_cite_writer(over_cite_arr, 'vas_most_recent_overcites3')
 
 
 # getting bare data from more relevant papers
-# vas = AcademicPublisher('https://scholar-google-ca.proxy.lib.uwaterloo.ca/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 1, loadPaperPDFs=False)
-# over_cite_arr = count_overcites(vas, 1)
-# over_cite_writer(over_cite_arr, 'vas_top50_most_relevant_overcites')
+# vas = AcademicPublisher(SessionInitializer.ROOT_URL + '/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 1, loadPaperPDFs=False)
+# over_cite_arr = count_overcites(vas, 50)
+# over_cite_writer(over_cite_arr, 'test')
+
+

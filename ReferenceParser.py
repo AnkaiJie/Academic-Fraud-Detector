@@ -63,12 +63,20 @@ class PaperReferenceExtractor:
             pdfContent = self.standardize(pdfObj.getPdfContent())
         except urllib.error.URLError as e:
             print('ERROR OPENING PDF WITH URLLIB: '+ str(e))
+            print("EXCEPTION PDF URL: " + pdfObj.getPathUrl())
             return None
         except PyPDF2.utils.PdfReadError as e:
             print('EOF MARKER NOT FOUND' + str(e))
+            print("EXCEPTION PDF URL: " + pdfObj.getPathUrl())
             return None
         except ValueError as e:
             print("ValueError " + str(e))
+            print("EXCEPTION PDF URL: " + pdfObj.getPathUrl())
+            return None
+        except Exception as e:
+            print("UNKNOWN EXCEPTION " + str(e))
+            print("EXCEPTION PDF URL: " + pdfObj.getPathUrl())
+            return None
         else:    
             index = pdfContent.find("References")
             if (index==-1):

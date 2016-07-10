@@ -34,7 +34,6 @@ class Paper:
         soup = BeautifulSoup(response.content, 'lxml')
         #print(soup)
 
-
         self.__pap_info['Title'] = soup.find('a', attrs={'class': 'gsc_title_link'}).text
 
         div_info_table = soup.find('div', attrs={'id': 'gsc_table'})
@@ -287,7 +286,7 @@ class GscPdfExtractor:
     # Parses page waterloo gives us to extract pdf of paper
     def getWatPDF(self, url):
         print(url)
-        time.sleep(3)
+        time.sleep(10)
         status = WatLibSeleniumParser.downloadFromWatLib(url, 'paper.pdf')
         if status is None:
             return None
