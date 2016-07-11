@@ -290,7 +290,7 @@ def count_overcites(author, auth_paper_num, cite_num_to_load=30):
             if paper.getCitedByUrl() is None:
                 print("No cited by url for paper: " + paper.getInfo()['Title'] + "with link " + paper.getUrl() + ", loop continue called")
                 continue
-            time.sleep(15)
+            time.sleep(30)
             paper.setPdfObj()
             k = "Paper Title: " + paper.getInfo()['Title']
             print(k)
@@ -376,8 +376,8 @@ def count_overcites_paper(paper, author, cite_num_to_load=30):
 
 
 # getting bare data from more relevant papers
-# vas = AcademicPublisher(SessionInitializer.ROOT_URL + '/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 1, loadPaperPDFs=False)
-# over_cite_arr = count_overcites(vas, 50)
-# over_cite_writer(over_cite_arr, 'test')
+vas = AcademicPublisher(SessionInitializer.ROOT_URL + '/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 1, loadPaperPDFs=False)
+over_cite_arr = count_overcites(vas, 50)
+over_cite_writer(over_cite_arr, 'saph')
 
 

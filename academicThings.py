@@ -286,7 +286,7 @@ class GscPdfExtractor:
     # Parses page waterloo gives us to extract pdf of paper
     def getWatPDF(self, url):
         print(url)
-        time.sleep(10)
+        time.sleep(15)
         status = WatLibSeleniumParser.downloadFromWatLib(url, 'paper.pdf')
         if status is None:
             return None
