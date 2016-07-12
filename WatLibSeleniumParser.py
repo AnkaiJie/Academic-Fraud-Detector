@@ -7,7 +7,7 @@ ch = webdriver.Chrome("./chromedriver")
 
 if SessionInitializer.ROOT_URL == "https://scholar-google-ca.proxy.lib.uwaterloo.ca":
     ch.get('https://login.proxy.lib.uwaterloo.ca/login')
-    cookies = [{'path': '/', 'domain': '.lib.uwaterloo.ca', 'name': 'ezproxy', 'secure': False, 'value': 'MnKPFrIWDF2n59N', 'httpOnly': False}, {'path': '/', 'domain': '.uwaterloo.ca', 'name': '_gat', 'secure': False, 'value': '1', 'expiry': 1468098276, 'httpOnly': False}, {'path': '/', 'domain': '.uwaterloo.ca', 'name': '_ga', 'secure': False, 'value': 'GA1.2.1227558798.1466567220', 'expiry': 1531169676, 'httpOnly': False}]
+    cookies=[{'name': 'ezproxy', 'domain': '.lib.uwaterloo.ca', 'path': '/', 'secure': False, 'value': 'DMzBOaX829UW8XN', 'httpOnly': False}, {'name': '_gat', 'expiry': 1468286297, 'domain': '.uwaterloo.ca', 'secure': False, 'value': '1', 'path': '/', 'httpOnly': False}, {'name': '_ga', 'expiry': 1531357697, 'domain': '.uwaterloo.ca', 'secure': False, 'value': 'GA1.2.1227558798.1466567220', 'path': '/', 'httpOnly': False}]
     
     for cookie in cookies:
         ch.add_cookie(cookie)
@@ -25,11 +25,13 @@ def downloadFromWatLib(url, path):
     href.click()
 
     try:
-        pdfxmllink = ch.find_element_by_xpath("//div[@class='download-btn']/a").get_attribute('href')
+        pdfxmlTag = ch.find_element_by_xpath("//div[@class='download-btn' and text()='PDF Download']/a")
+        pdfxmllink = pdfxmlTag.get_attribute('href')
+
     except selenium.common.exceptions.NoSuchElementException:
         print('Racer link only, no scholarsportal returning none...')
         return None
-        
+
     print(pdfxmllink)
 
     session = SessionInitializer.getSesh()
@@ -54,3 +56,6 @@ def downloadFromWatLib(url, path):
 # form = ch.find_element_by_xpath('//input[@value = "Login"]')
 # form.click()
 # print(ch.get_cookies())
+
+# downloadFromWatLib('http://sfx.scholarsportal.info.proxy.lib.uwaterloo.ca/waterloo?url_ver=Z39.88-2004&rft.genre=article&rft.issn=2043-6386&rft.date=2014&rft.jtitle=IET%20Wireless%20Sensor%20Systems&rft.atitle=Optimal%20gateway%20selection%20in%20sensor-cloud%20framework%20for%20health%20monitoring&rft.volume=4&rft.issue=2&rft.spage=61&rfr_id=info:sid/OCUL:journals',
+#     'test.pdf')

@@ -332,3 +332,6 @@ class GscHtmlFunctions:
         print("cannot find author " + auth_name)
         return -1
 
+# g = GscPdfExtractor()
+# p = g.getWatPDF('https://scholar.google.ca/scholar?output=instlink&q=info:EKLzEe9riKIJ:scholar.google.com/&hl=en&as_sdt=0,5&sciodt=0,5&scillfp=14529131608300571187&oi=lle')
+# print(p.getPathUrl())

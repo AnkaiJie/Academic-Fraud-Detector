@@ -1,8 +1,8 @@
 import requests
 
 
-#ROOT_URL = "https://scholar-google-ca.proxy.lib.uwaterloo.ca"
-ROOT_URL = "https://scholar.google.ca"
+ROOT_URL = "https://scholar-google-ca.proxy.lib.uwaterloo.ca"
+#ROOT_URL = "https://scholar.google.ca"
 
 
 #Internet Setup
