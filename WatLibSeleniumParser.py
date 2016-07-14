@@ -7,8 +7,8 @@ ch = webdriver.Chrome("./chromedriver")
 
 if SessionInitializer.ROOT_URL == "https://scholar-google-ca.proxy.lib.uwaterloo.ca":
     ch.get('https://login.proxy.lib.uwaterloo.ca/login')
-    cookies=[{'name': 'ezproxy', 'domain': '.lib.uwaterloo.ca', 'path': '/', 'secure': False, 'value': 'DMzBOaX829UW8XN', 'httpOnly': False}, {'name': '_gat', 'expiry': 1468286297, 'domain': '.uwaterloo.ca', 'secure': False, 'value': '1', 'path': '/', 'httpOnly': False}, {'name': '_ga', 'expiry': 1531357697, 'domain': '.uwaterloo.ca', 'secure': False, 'value': 'GA1.2.1227558798.1466567220', 'path': '/', 'httpOnly': False}]
-    
+    cookies = [{'secure': False, 'domain': '.lib.uwaterloo.ca', 'value': 'MKxYoVARHbaFKqs', 'name': 'ezproxy', 'httpOnly': False, 'path': '/'}, {'domain': '.uwaterloo.ca', 'expiry': 1468458730, 'value': '1', 'secure': False, 'name': '_gat', 'httpOnly': False, 'path': '/'}, {'domain': '.uwaterloo.ca', 'expiry': 1531530130, 'value': 'GA1.2.1227558798.1466567220', 'secure': False, 'name': '_ga', 'httpOnly': False, 'path': '/'}]
+
     for cookie in cookies:
         ch.add_cookie(cookie)
 
@@ -25,11 +25,11 @@ def downloadFromWatLib(url, path):
     href.click()
 
     try:
-        pdfxmlTag = ch.find_element_by_xpath("//div[@class='download-btn' and text()='PDF Download']/a")
+        pdfxmlTag = ch.find_element_by_xpath("//div[@class='download-btn']/a[text()='PDF Download']")
         pdfxmllink = pdfxmlTag.get_attribute('href')
 
     except selenium.common.exceptions.NoSuchElementException:
-        print('Racer link only, no scholarsportal returning none...')
+        print('Racer or invalid link only, no scholarsportal returning none...')
         return None
 
     print(pdfxmllink)

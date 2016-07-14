@@ -12,14 +12,25 @@ import PyPDF2
 from _io import BytesIO
 import WordInference
 from math import log
+import sys
+
 
 class PdfObj:
-    def __init__(self, fileType, pathOrUrl):
+    def __init__(self, fileType, pathOrUrl='None'):
+        self.pathOrUrl = pathOrUrl
+        self.fileType = fileType
+        self.localPdfContent = ""
+        self.title = None
+
+        if fileType=='local' and pathOrUrl!='None':
+            self.storePathPdfContent(pathOrUrl)
+
+    def resetContent(self, fileType, pathOrUrl='None'):
         self.pathOrUrl = pathOrUrl
         self.fileType = fileType
         self.localPdfContent = ""
 
-        if fileType=='local':
+        if fileType=='local' and pathOrUrl!='None':
             self.storePathPdfContent(pathOrUrl)
 
     def getFileType(self):
@@ -27,6 +38,12 @@ class PdfObj:
 
     def getPathUrl(self):
         return self.pathOrUrl
+
+    def setTitle(self, t):
+        self.title = t
+
+    def getTitle(self):
+        return self.title
 
     def storePathPdfContent(self, path):
             p = open(self.pathOrUrl, "rb")
@@ -47,7 +64,7 @@ class PdfObj:
             for pageNum in range(pdf.getNumPages()):
                 content+= pdf.getPage(pageNum).extractText()
             return content
-        elif self.localPdfContent is not None:
+        elif self.localPdfContent!="":
             return self.localPdfContent
         else:
             return None
@@ -60,7 +77,11 @@ class PaperReferenceExtractor:
     def getReferencesContent(self, pdfObj):
 
         try:
-            pdfContent = self.standardize(pdfObj.getPdfContent())
+            pdfContent = pdfObj.getPdfContent()
+            if pdfContent is not None:
+                pdfContent = self.standardize(pdfObj.getPdfContent())
+            else:
+                return None
         except urllib.error.URLError as e:
             print('ERROR OPENING PDF WITH URLLIB: '+ str(e))
             print("EXCEPTION PDF URL: " + pdfObj.getPathUrl())
@@ -77,7 +98,9 @@ class PaperReferenceExtractor:
             print("UNKNOWN EXCEPTION " + str(e))
             print("EXCEPTION PDF URL: " + pdfObj.getPathUrl())
             return None
-        else:    
+        else:
+            if pdfContent=="":
+                return ""
             index = pdfContent.find("References")
             if (index==-1):
                 index = pdfContent.find("REFERENCES")
@@ -88,7 +111,6 @@ class PaperReferenceExtractor:
             if (index==-1):
                 print("can't find reference sections")
                 return None
-
             while (index!=-1):
                 pdfContent = pdfContent[index +10:]
                 index = pdfContent.find("References")

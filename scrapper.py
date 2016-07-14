@@ -290,7 +290,7 @@ def count_overcites(author, auth_paper_num, cite_num_to_load=30):
             if paper.getCitedByUrl() is None:
                 print("No cited by url for paper: " + paper.getInfo()['Title'] + "with link " + paper.getUrl() + ", loop continue called")
                 continue
-            time.sleep(30)
+            #time.sleep(30)
             paper.setPdfObj()
             k = "Paper Title: " + paper.getInfo()['Title']
             print(k)
@@ -321,10 +321,14 @@ def count_overcites_paper(paper, author, cite_num_to_load=30):
 
         all_pdfObjs = []
 
-        for i in range (0, 30, 10):
+        print('-----------------------------------LOADING CITING PAPERS-----------------------------------')
+        for i in range (0, cite_num_to_load, 10):
             final_url = url_part_one+str(i)+url_part_two+paper_code
+            print(final_url)
             current_pdfObjs = pdfExtractor.findPapersFromCitations(final_url)
             all_pdfObjs += current_pdfObjs
+
+        print('-----------------------------------DONE CITING PAPERS-------------------------------------')
 
         print('Loaded: ' + str(len(all_pdfObjs)) + ' pdf objects.')
 
@@ -333,16 +337,28 @@ def count_overcites_paper(paper, author, cite_num_to_load=30):
 
         for idx, pdf in enumerate(all_pdfObjs):
             content = analyzer.getReferencesContent(pdf)
-
-            if (content is None):
+            title = pdf.getTitle()
+            
+            if content is None and title is not None:
+                print("Citing paper number " + str(idx+1) + ": " + title + " had no PDF content found.")
+                info_dict = {}
+                info_dict['Citing Paper Number'] = idx+1
+                info_dict['Title'] = title
+                info_dict['Over-cite Count'] = "No PDF Found"
+                overcites_info.append(info_dict)
+                continue
+            elif content is None:
                 continue
                 
             # print(content)
             lname = author.getLastName().title()
             numCites = analyzer.getCitesToAuthor(lname, content)
-            print("Citing paper number  " + str(idx+1) + " cites " + lname + " " + str(numCites) + " times.")
+            if title is None:
+                title = 'Unknown Title'
+            print("Citing paper number " + str(idx+1) + ": " + title + " cites " + lname + " " + str(numCites) + " times.")
             info_dict = {}
             info_dict['Citing Paper Number'] = idx+1
+            info_dict['Title'] = title
             info_dict['Over-cite Count'] = numCites
             overcites_info.append(info_dict)
 
@@ -375,9 +391,7 @@ def count_overcites_paper(paper, author, cite_num_to_load=30):
 # over_cite_writer(over_cite_arr, 'vas_most_recent_overcites3')
 
 
-# getting bare data from more relevant papers
+#getting bare data from more relevant papers
 vas = AcademicPublisher(SessionInitializer.ROOT_URL + '/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 1, loadPaperPDFs=False)
 over_cite_arr = count_overcites(vas, 50)
-over_cite_writer(over_cite_arr, 'saph')
-
-
+over_cite_writer(over_cite_arr, 'test')

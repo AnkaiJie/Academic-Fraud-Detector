@@ -13,7 +13,7 @@ import WatLibSeleniumParser
 
 
 class Paper:
-    def __init__ (self, link, loadPdf = True):
+    def __init__ (self, link, loadPdf=True):
         self.__url = link
         self.__pdfObj = None
         self.__pap_info = {}
@@ -56,6 +56,8 @@ class Paper:
 
         if loadPdf:
             self.__pdfObj = self.findPdfObjFromUrlOnPage()
+            if self.__pdfObj is not None:
+                self.__pdfObj.setTitle(self.__pap_info['Title'])
 
     def loadFromSpringer(self):
         return
@@ -230,28 +232,57 @@ class GscPdfExtractor:
         response = self.session.get(citationsUrl, headers=self.headers)
         soup = BeautifulSoup(response.content, 'lxml')
 
-        linkExtracts = soup.findAll('div', attrs={'class': 'gs_md_wp gs_ttss'})
-        if linkExtracts is None:
-            return None
+        linkExtracts = soup.findAll('div', attrs={'class': 'gs_r'})
         pdfList = []
 
+        if linkExtracts is None:
+            return pdfList
+
+
         for extract in linkExtracts:
+            title = extract.find('h3', attrs={'class': 'gs_rt'}).text
+            if title is not None:
+                title = title.replace('[PDF]', '').replace('[HTML]', '')
+            extract = extract.find('div', attrs={'class': 'gs_md_wp gs_ttss'})
+            pdf_obj = PdfObj('local')
+            pdf_obj.setTitle(title)
+            print(pdf_obj.getTitle())
+
+            if extract is None:
+                print('Found PDF title but no PDF link. Returning only title: ' + + str(pdf_obj.getTitle()))
+                pdfList.append(pdf_obj)
+                continue
+
             #this code will skip links with [HTML] tag and throw error for links that are only "Get it at UWaterloo"
             tag = extract.find('span', attrs={'class': 'gs_ctg2'})
             if tag is not None and tag.text == "[PDF]":
-                pdf = PdfObj('url', extract.find('a')['href'])
-                print('pdf url: ' + pdf.getPathUrl())
-                pdfList.append(pdf)
+                pdf_obj.resetContent('url', extract.find('a')['href'])
+                print('pdf url: ' + pdf_obj.getPathUrl() + ' has title ' + str(pdf_obj.getTitle()))
+                pdfList.append(pdf_obj)
+                continue
             elif tag is not None:
                 print('Non-PDF tag, using get it @ waterloo')
 
             potential_links = extract.findAll('a')
+
+            notFound = True
             for link in potential_links:
                 if link.text.strip() == "Get It!@Waterloo":
-                    print('get at waterloo')
                     url = SessionInitializer.ROOT_URL + link['href']
                     pdf_obj = self.getWatPDF(url)
-                    pdfList.append(pdf_obj)
+                    if pdf_obj is not None:
+                        pdf_obj.setTitle(title)
+                        notFound = False
+                    else:
+                        pdf_obj = PdfObj('local')
+                        pdf_obj.setTitle(title)
+                    break                    
+
+            if notFound:
+                print('Found PDF title but no PDF content. Returning only title.' + str(pdf_obj.getTitle()))
+            pdfList.append(pdf_obj)
+
+
 
         pdfList = [p for p in pdfList if p is not None]
         return pdfList
@@ -284,7 +315,7 @@ class GscPdfExtractor:
 
 
     # Parses page waterloo gives us to extract pdf of paper
-    def getWatPDF(self, url):
+    def getWatPDF(self, url, title=None):
         print(url)
         time.sleep(15)
         status = WatLibSeleniumParser.downloadFromWatLib(url, 'paper.pdf')
@@ -333,5 +364,13 @@ class GscHtmlFunctions:
         return -1
 
 # g = GscPdfExtractor()
-# p = g.getWatPDF('https://scholar.google.ca/scholar?output=instlink&q=info:EKLzEe9riKIJ:scholar.google.com/&hl=en&as_sdt=0,5&sciodt=0,5&scillfp=14529131608300571187&oi=lle')
-# print(p.getPathUrl())
+# p = g.findPapersFromCitations('https://scholar.google.ca/scholar?start=15&hl=en&as_sdt=0,5&sciodt=0,5&cites=13991517909897415820&scipsc=')
+# print('-----------------------------------------------')
+# for paper in p[6:]:
+#     analyzer = PaperReferenceExtractor()
+#     content = analyzer.getReferencesContent(paper)
+#     if content is None and paper.getTitle() is not None:
+#         print('here2')
+#     else:
+#         print(paper.getTitle())
+#         print(paper.getPdfContent())
