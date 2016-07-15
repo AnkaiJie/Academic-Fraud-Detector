@@ -4,7 +4,7 @@ Created on Jan 7, 2016
 @author: Ankai
 '''
 
-from academicThings import AcademicPublisher, GscHtmlFunctions
+from academicThings import AcademicPublisher, GscHtmlFunctions, Paper
 from academicThings import GscPdfExtractor
 from ReferenceParser import PaperReferenceExtractor, SpringerReferenceParser, IeeeReferenceParser
 from bs4 import BeautifulSoup
@@ -290,7 +290,7 @@ def count_overcites(author, auth_paper_num, cite_num_to_load=30):
             if paper.getCitedByUrl() is None:
                 print("No cited by url for paper: " + paper.getInfo()['Title'] + "with link " + paper.getUrl() + ", loop continue called")
                 continue
-            #time.sleep(30)
+            time.sleep(30)
             paper.setPdfObj()
             k = "Paper Title: " + paper.getInfo()['Title']
             print(k)
@@ -320,9 +320,11 @@ def count_overcites_paper(paper, author, cite_num_to_load=30):
         paper_code = cited_by_url[cited_by_url.rfind('=')+1:]
 
         all_pdfObjs = []
+        overcites_info = []
 
         print('-----------------------------------LOADING CITING PAPERS-----------------------------------')
         for i in range (0, cite_num_to_load, 10):
+            time.sleep(10)
             final_url = url_part_one+str(i)+url_part_two+paper_code
             print(final_url)
             current_pdfObjs = pdfExtractor.findPapersFromCitations(final_url)
@@ -333,7 +335,6 @@ def count_overcites_paper(paper, author, cite_num_to_load=30):
         print('Loaded: ' + str(len(all_pdfObjs)) + ' pdf objects.')
 
         analyzer = PaperReferenceExtractor()
-        overcites_info = []
 
         for idx, pdf in enumerate(all_pdfObjs):
             content = analyzer.getReferencesContent(pdf)
@@ -392,6 +393,11 @@ def count_overcites_paper(paper, author, cite_num_to_load=30):
 
 
 #getting bare data from more relevant papers
+# vas = AcademicPublisher(SessionInitializer.ROOT_URL + '/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 1, loadPaperPDFs=False)
+# over_cite_arr = count_overcites(vas, 50)
+# over_cite_writer(over_cite_arr, 'test')
+
+
+p = Paper(SessionInitializer.ROOT_URL+'/citations?view_op=view_citation&hl=en&user=_yWPQWoAAAAJ&citation_for_view=_yWPQWoAAAAJ:Y0pCki6q_DkC')
 vas = AcademicPublisher(SessionInitializer.ROOT_URL + '/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 1, loadPaperPDFs=False)
-over_cite_arr = count_overcites(vas, 50)
-over_cite_writer(over_cite_arr, 'test')
+print(count_overcites_paper(p, vas, cite_num_to_load=30))

@@ -249,7 +249,7 @@ class GscPdfExtractor:
             print(pdf_obj.getTitle())
 
             if extract is None:
-                print('Found PDF title but no PDF link. Returning only title: ' + + str(pdf_obj.getTitle()))
+                print('Found PDF title but no PDF link. Returning only title: ' + str(pdf_obj.getTitle()))
                 pdfList.append(pdf_obj)
                 continue
 
