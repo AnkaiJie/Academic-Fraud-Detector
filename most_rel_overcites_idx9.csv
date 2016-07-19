@@ -1,0 +1,350 @@
+Paper Title: An adaptive geometry-based stochastic model for non-isotropic MIMO mobile-to-mobile channels
+Citing Paper Number,Paper Title,Over-cite Count
+1,"[BOOK][B] Cooperative communications: hardware, channel and PHY",3
+2,Impact of vehicles as obstacles in vehicular ad hoc networks,No PDF Found
+3,A survey on vehicle-to-vehicle propagation channels,No PDF Found
+4,Vehicular channel characterization and its implications for wireless system design and performance,1
+5,Vehicle-to-vehicle channel modeling and measurements: recent advances and future challenges,No PDF Found
+6,Cooperative MIMO channel modeling and multi-link spatial correlation properties,No PDF Found
+7,Wideband channel modeling and intercarrier interference cancellation for vehicle-to-vehicle communication systems,3
+8,Coalition formation games for distributed cooperation among roadside units in vehicular networks,2
+9,Analysis of access and connectivity probabilities in vehicular relay networks,No PDF Found
+10,Envelope level crossing rate and average fade duration of nonisotropic vehicle-to-vehicle Ricean fading channels,2
+11,Challenges toward wireless communications for high-speed railway,No PDF Found
+12,Two-stage cooperative multicast transmission with optimized power consumption and guaranteed coverage,1
+13,Electrified vehicles and the smart grid,2
+14,New deterministic and stochastic simulation models for non‐isotropic scattering mobile‐to‐mobile Rayleigh fading channels,No PDF Found
+15, An Improved Parameter Computation Method for a MIMO V2V Rayleigh Fading Channel Simulator Under Non-Isotropic Scattering Environments.,2
+16,Capacity of hybrid cognitive radio networks with distributed VAAs,1
+17,A non-stationary MIMO channel model for high-speed train communication systems,1
+18,Cross-layer routing using cooperative transmission in vehicular ad-hoc networks,No PDF Found
+19,Quality-of-service driven power and sub-carrier allocation policy for vehicular communication networks,1
+20,Communicating in the real world: 3D MIMO,No PDF Found
+21,D2D for intelligent transportation systems: A feasibility study,3
+22,Interference graph-based resource-sharing schemes for vehicular networks,No PDF Found
+23,Wideband measurement-based modeling of inter-vehicle channels in the 5-GHz band,No PDF Found
+24,Channel estimation schemes for IEEE 802.11 p standard,0
+25,Stochastic analysis of a single-hop communication link in vehicular ad hoc networks,1
+26,A non-stationary 3-D wideband twin-cluster model for 5G massive MIMO channels,0
+27,Data dissemination in VANETs: A scheduling approach,No PDF Found
+28,Energy efficiency analysis of MISO-OFDM communication systems considering power and capacity constraints,No PDF Found
+29,A geometry-based stochastic model for wideband MIMO mobile-to-mobile channels,3
+30,Novel 3D geometry-based stochastic models for non-isotropic MIMO vehicle-to-vehicle channels,2
+,Total,28
+"
+"
+"Paper Title: A survey on the ietf protocol suite for the internet of things: Standards, challenges, and opportunities"
+Citing Paper Number,Paper Title,Over-cite Count
+1,A survey on trust management for Internet of Things,No PDF Found
+2,"Internet of things: A survey on enabling technologies, protocols, and applications",0
+3,A survey of wireless technologies coexistence in WBAN: analysis and open research issues,9
+4,The emerging internet of things marketplace from an industrial perspective: A survey,No PDF Found
+5,Named data networking for IoT: an architectural perspective,0
+6,Multi-source data retrieval in IoT via named data networking,1
+7,Autonomic schemes for threat mitigation in Internet of Things,5
+8,Wireless energy harvesting for the Internet of Things,0
+9,Recent advances in industrial wireless sensor networks toward efficient management in IoT,No PDF Found
+10,A multi-hop broadcast protocol design for emergency warning notification in highway VANETs,No PDF Found
+11,Lightweight management of resource-constrained sensor devices in internet of things,0
+12,Internet of things (IoT): Present state and future prospects,No PDF Found
+13," Mobile M2M communication architectures, upcoming challenges, applications, and future directions",No PDF Found
+14,The Internet of Things: Challenges & security issues,No PDF Found
+15,Design and implementation of a sustainable wireless ban platform for remote monitoring of workers health care in harsh environments,1
+16,Information Centric Networking in IoT scenarios: The case of a smart home,No PDF Found
+17,Approximating geographic routing using coverage tree heuristics for wireless network,22
+18,An approach to rank reviews by fusing and mining opinions based on review pertinence,0
+19,Novel Quick Start (QS) method for optimization of TCP,3
+20,Vehicle authentication via monolithically certified public key and attributes,28
+21, A novel scheme for an energy efficient Internet of Things based on wireless sensor networks,No PDF Found
+22,Impact of static trajectories on localization in wireless sensor networks,No PDF Found
+23,SEPFL routing protocol based on fuzzy logic control to extend the lifetime and throughput of the wireless sensor network,4
+24,Towards a service centric contextualized vehicular cloud,0
+25,Information-centric networking for the internet of things: challenges and opportunities,0
+26,Neighbor Discovery for Opportunistic Networking in Internet of Things Scenarios: A Survey,No PDF Found
+27, Proportional throughput differentiationwith cognitive load-control on WSN channels,No PDF Found
+28,ACWSN: an adaptive cross layer framework for video transmission over wireless sensor networks,2
+29,Anycast tree-based routing in mobile wireless sensor networks with multiple sinks,25
+30,Robustness analysis for node multilateration localization in wireless sensor networks,12
+,Total,112
+"
+"
+"Paper Title: A survey on topology control in wireless sensor networks: Taxonomy, comparative study, and open issues"
+Citing Paper Number,Paper Title,Over-cite Count
+1,Security of the internet of things: Perspectives and challenges,No PDF Found
+2,An evolutionary multiobjective sleep-scheduling scheme for differentiated coverage in wireless sensor networks,4
+3,A survey of wireless technologies coexistence in WBAN: analysis and open research issues,9
+4,A distributed algorithm for energy efficient and fault tolerant routing in wireless sensor networks,0
+5,A multi-hop broadcast protocol design for emergency warning notification in highway VANETs,No PDF Found
+6,Fuzzy-based congestion control for wireless multimedia sensor networks,No PDF Found
+7,Routing protocol over lossy links for ISA100. 11a industrial wireless networks,9
+8,IM2PR: interference-minimized multipath routing protocol for wireless sensor networks,No PDF Found
+9,A survey on area coverage in wireless sensor networks,0
+10,Wireless sensor networks for agriculture: The state-of-the-art in practice and future challenges,3
+11,From MANET to people-centric networking: milestones and open research challenges,2
+12,Consensus of Euler–Lagrange systems networked by sampled-data information with probabilistic time delays,5
+13,Energy-efficient differentiated coverage of dynamic objects using an improved evolutionary multi-objective optimization algorithm with fuzzy-dominance,No PDF Found
+14, Transmission power control in wireless sensor networks under the minimum connected average node degree constraint,2
+15,Approximating geographic routing using coverage tree heuristics for wireless network,22
+16,A novel data fusion scheme using grey model and extreme learning machine in wireless sensor networks,1
+17,SOLOR: self-optimizing WLANs with legacy-compatible opportunistic relays,1
+18,High-throughput transmission-quality-aware broadcast routing in cognitive radio networks,No PDF Found
+19,1-bit compressive data gathering for wireless sensor networks,0
+20,SAW sensor read range limitations and perspectives,No PDF Found
+21,Impact of static trajectories on localization in wireless sensor networks,No PDF Found
+22,Distributed consensus of stochastic delayed multi-agent systems under asynchronous switching,7
+23,SEPFL routing protocol based on fuzzy logic control to extend the lifetime and throughput of the wireless sensor network,4
+24,Achieving asymmetric sensing coverage for duty cycled wireless sensor networks,1
+25,A virtual coordinate-based bypassing void routing for wireless sensor networks,1
+26, Sub-sampling framework comparison for low-power data gathering: A comparative analysis,No PDF Found
+27,A topology control algorithm for sensor networks based on robust optimization,0
+28, An energy-efficient distributed clustering algorithm for heterogeneous WSNs,No PDF Found
+29,Reconfigurable Wireless Networks,2
+30,ACWSN: an adaptive cross layer framework for video transmission over wireless sensor networks,2
+,Total,75
+"
+"
+Paper Title: Security and privacy for storage and computation in cloud computing
+Citing Paper Number,Paper Title,Over-cite Count
+1,Assessing the determinants of cloud computing adoption: An analysis of the manufacturing and services sectors,No PDF Found
+2,Security in cloud computing: Opportunities and challenges,7
+3,A review on remote data auditing in single cloud server: Taxonomy and open issues,No PDF Found
+4,Social choice considerations in cloud-assisted WBAN architecture for post-disaster healthcare: data aggregation and channelization,1
+5,Real-time query processing optimization for cloud-based wireless body area networks,No PDF Found
+6,Leveraging software-defined networking for security policy enforcement,2
+7,Autonomic schemes for threat mitigation in Internet of Things,5
+8,Enhanced privacy of a remote data integrity-checking protocol for secure cloud storage,1
+9,Resilience analysis of power grids under the sequential attack,3
+10,SeDaSC: secure data sharing in clouds,2
+11,"Remote data auditing in cloud computing environments: A survey, taxonomy, and open issues",1
+12,A scheme for data confidentiality in cloud-assisted wireless body area networks,No PDF Found
+13,Integration of logistics and cloud computing service providers: Cost and green benefits in the Chinese context,1
+14,Engineering searchable encryption of mobile cloud networks: when qoe meets qop,0
+15,"Securing software defined networks: taxonomy, requirements, and open issues",1
+16,"Achieving security, robust cheating resistance, and high-efficiency for outsourcing large matrix multiplication computation to a malicious cloud",No PDF Found
+17,An extended chaotic maps-based keyword search scheme over encrypted data resist outside and inside keyword guessing attacks in cloud storage services,1
+18,Speeding-up codon analysis on the cloud with local MapReduce aggregation,1
+19,Cloud computing in e-Science: research challenges and opportunities,No PDF Found
+20,From security to assurance in the cloud: a survey,1
+21,Imperialist competitive algorithm with PROCLUS classifier for service time optimization in cloud computing service composition,0
+22,User continuance intention to use cloud storage service,0
+23,Vehicle authentication via monolithically certified public key and attributes,28
+24,Towards continuous cloud service assurance for critical infrastructure IT,4
+25,Towards dynamic remote data auditing in computational clouds,0
+26,Recent developments in cloud based systems: state of art,1
+27,Scalable pCT image reconstruction delivered as a cloud service,No PDF Found
+28,Security-aware intermediate data placement strategy in scientific cloud workflows,0
+29,Secure authentication and integrity techniques for randomized secured routing in WSN,4
+30,Joint Resource Provisioning for Internet Datacenters with Diverse and Dynamic Traffic,7
+,Total,71
+"
+"
+Paper Title: Delay tolerant networks: Protocols and applications
+Citing Paper Number,Paper Title,Over-cite Count
+1,Secure and privacy preserving protocol for cloud-based vehicular DTNs,5
+2,Cedo: Content-centric dissemination algorithm for delay-tolerant networks,1
+3,Effect of traffic volume in real-time disaster evacuation guidance using opportunistic communications,No PDF Found
+4,Real-time disaster evacuation guidance using opportunistic communications,No PDF Found
+5,"Wireless contacts, Facebook friendships and interests: Analysis of a multi-layer social network in an academic environment",No PDF Found
+6,Routing protocol over lossy links for ISA100. 11a industrial wireless networks,9
+7,Survey on location information services for Vehicular Communication Networks,4
+8,Disaster evacuation guidance using opportunistic communication: The potential for opportunity-based service,2
+9,Homesick lévy walk and optimal forwarding criterion of utility-based routing under sequential encounters,1
+10,Fuzzy logic based unequal clustering for wireless sensor networks,17
+11,On storage dynamics of space delay/disruption tolerant network node,3
+12,Approximating geographic routing using coverage tree heuristics for wireless network,22
+13,Novel Quick Start (QS) method for optimization of TCP,3
+14,Vehicle authentication via monolithically certified public key and attributes,28
+15,High-throughput transmission-quality-aware broadcast routing in cognitive radio networks,No PDF Found
+16,Impact of static trajectories on localization in wireless sensor networks,No PDF Found
+17,SEPFL routing protocol based on fuzzy logic control to extend the lifetime and throughput of the wireless sensor network,4
+18,Visible light communications for entertainment networking,No PDF Found
+19,ACWSN: an adaptive cross layer framework for video transmission over wireless sensor networks,2
+20,A routing algorithm on delay-tolerant of wireless sensor network based on the node selfishness,No PDF Found
+21,Particle swarm optimization in intelligent routing of delay-tolerant network routing,No PDF Found
+22,Anycast tree-based routing in mobile wireless sensor networks with multiple sinks,25
+23,Multi-Spreader Routing for sparsely populated mobile ad hoc networks,4
+24,Path diversified multi-QoS optimization in multi-channel wireless mesh networks,No PDF Found
+25,Adaptive message forwarding for avoiding broadcast storm and guaranteeing delay in active safe driving VANET,14
+26,Securing data exchange in wireless multimedia sensor networks: perspectives and challenges,13
+27,Exploring an energy-efficient DTN framework supporting disaster management services in post disaster relief operation,7
+28,An adaptive load-aware routing algorithm for multi-interface wireless mesh networks,3
+29,Quality of service management for IPTV services support in VANETs: a performance evaluation study,No PDF Found
+30,Modeling and simulation of networked low-power embedded systems: a taxonomy,No PDF Found
+,Total,167
+"
+"
+Paper Title: A survey on ambient intelligence in healthcare
+Citing Paper Number,Paper Title,Over-cite Count
+1,A survey of wireless technologies coexistence in WBAN: analysis and open research issues,9
+2,Mobile crowd sensing and computing: The review of an emerging human-powered sensing paradigm,No PDF Found
+3,Bridging e-Health and the Internet of things: the SPHERE project,0
+4,"A smart phone-based pocket fall accident detection, positioning, and rescue system",1
+5,"Wearable wireless health monitoring: Current developments, challenges, and future trends",1
+6,Collaborative systems for smart environments: trends and challenges,No PDF Found
+7, Human mobility monitoring in very low resolution visual sensor network,No PDF Found
+8,UbiComp for animal welfare: envisioning smart environments for kenneled dogs,1
+9,An integrated system for voice command recognition and emergency detection based on audio signals,1
+10,Toward Automating Clinical Assessments: A Survey of the Timed Up and Go,1
+11,Behavior analysis of elderly using topic models,1
+12,A review of smart homes in healthcare,1
+13,Automated detection of activity transitions for prompting,1
+14, Design and implementation of a prototype with a standardized interface for transducers in ambient assisted living,No PDF Found
+15, Context modulation of sensor data applied to activity recognition in smart homes,1
+16,Modeling visit behaviour in smart homes using unsupervised learning,No PDF Found
+17, A Smart Range Helping Cognitively-Impaired Persons Cooking.,No PDF Found
+18,NFC based provisioning of instructional videos to assist with instrumental activities of daily living,No PDF Found
+19,Internet of vehicles for E-health applications in view of EMI on medical sensors,0
+20,A multi-agent system in ambient intelligence for the physical rehabilitation of older people,No PDF Found
+21,Pervasive healthcare-a comprehensive survey of tools and techniques,0
+22,Graceful Performance Modulation for Power-Neutral Transient Computing Systems,1
+23,Improving the Performance of an In-Home Acoustic Monitoring System by Integrating a Vocal Effort Classification Algorithm,No PDF Found
+24,Advanced integration of multimedia assistive technologies: A prospective outlook,No PDF Found
+25,ACWSN: an adaptive cross layer framework for video transmission over wireless sensor networks,2
+26, The Role of Ambient Intelligent Technology for Improving the Life Quality of Elderly,3
+27,QoE-based optimal resource allocation in wireless healthcare networks: opportunities and challenges,13
+28,Variable-rate transmission method with coordinator election for wireless body area networks,15
+29,Event-Aware Framework for Dynamic Services Discovery and Selection in the Context of Ambient Intelligence and Internet of Things,No PDF Found
+30,Statistical models for unobtrusively detecting abnormal periods of inactivity in older adults,1
+,Total,53
+"
+"
+Paper Title: Multi-layer clustering routing algorithm for wireless vehicular sensor networks
+Citing Paper Number,Paper Title,Over-cite Count
+1,A systematic review on clustering and routing techniques based upon LEACH protocol for wireless sensor networks,1
+2,Mobility-based clustering protocol for wireless sensor networks with mobile nodes,1
+3,Performance analysis of energy efficient clustering protocols for maximising lifetime of wireless sensor networks,No PDF Found
+4,K-means clustering in wireless sensor networks,1
+5,Multi-hop data communication algorithm for clustered wireless sensor networks,0
+6,A distributed algorithm for energy efficient and fault tolerant routing in wireless sensor networks,0
+7,A multi-hop broadcast protocol design for emergency warning notification in highway VANETs,No PDF Found
+8,Primate-inspired adaptive routing in intermittently connected mobile communication systems,4
+9,Fuzzy-based congestion control for wireless multimedia sensor networks,No PDF Found
+10,Passive cluster-based multipath routing protocol for wireless sensor networks,6
+11,Routing protocol over lossy links for ISA100. 11a industrial wireless networks,9
+12,IM2PR: interference-minimized multipath routing protocol for wireless sensor networks,No PDF Found
+13,Survey on location information services for Vehicular Communication Networks,4
+14,A hybrid memetic framework for coverage optimization in wireless sensor networks,0
+15,An hybrid clustering algorithm for optimal clusters in wireless sensor networks,No PDF Found
+16,Fuzzy logic based unequal clustering for wireless sensor networks,17
+17,Approximating geographic routing using coverage tree heuristics for wireless network,22
+18,Enhanced connectivity in vehicular ad-hoc networks via V2V communications,No PDF Found
+19,1-bit compressive data gathering for wireless sensor networks,0
+20,SAW sensor read range limitations and perspectives,No PDF Found
+21,PUAR: performance and usage aware routing algorithm for long and linear wireless sensor networks,0
+22,SEPFL routing protocol based on fuzzy logic control to extend the lifetime and throughput of the wireless sensor network,4
+23,Energy efficient clustering algorithm based on neighbors for wireless sensor networks,No PDF Found
+24,A Two-Level Routing Scheme for Wireless Sensor Network,1
+25,QoSMOS: cross-layer QoS architecture for wireless multimedia sensor networks,3
+26, EigenTrust-based non-cooperative game model assisting ACO look-ahead secure routing against selfishness,No PDF Found
+27, Dual-tree complex wavelet transform and image block residual-based multi-focus image fusion in visual sensor networks,No PDF Found
+28,Delay-sensitive content distribution via peer-to-peer collaboration in public safety vehicular ad-hoc networks,No PDF Found
+29,Anycast tree-based routing in mobile wireless sensor networks with multiple sinks,25
+30,Path diversified multi-QoS optimization in multi-channel wireless mesh networks,No PDF Found
+,Total,98
+"
+"
+Paper Title: CodePipe: An opportunistic feeding and routing protocol for reliable multicast with pipelined network coding
+Citing Paper Number,Paper Title,Over-cite Count
+1,Reliable multicast with pipelined network coding using opportunistic feeding and routing,No PDF Found
+2,A multi-hop broadcast protocol design for emergency warning notification in highway VANETs,No PDF Found
+3,Novel power-based routing metrics for multi-channel multi-interface wireless mesh networks,6
+4,Artificial intelligence based cognitive routing for cognitive radio networks,0
+5,IM2PR: interference-minimized multipath routing protocol for wireless sensor networks,No PDF Found
+6,Dominating set and network coding-based routing in wireless mesh networks,No PDF Found
+7,Channel allocation and multicast routing in cognitive radio networks,No PDF Found
+8,Approximating geographic routing using coverage tree heuristics for wireless network,22
+9,Novel Quick Start (QS) method for optimization of TCP,3
+10,Leverage parking cars in a two-tier data center,No PDF Found
+11,Vehicle authentication via monolithically certified public key and attributes,28
+12,High-throughput transmission-quality-aware broadcast routing in cognitive radio networks,No PDF Found
+13,SEPFL routing protocol based on fuzzy logic control to extend the lifetime and throughput of the wireless sensor network,4
+14, An improved multipath MANET routing using link estimation and swarm intelligence,No PDF Found
+15,EE-LEACH: development of energy-efficient LEACH Protocol for data gathering in WSN,No PDF Found
+16,Delay minimization for reliable data collection on overhead transmission lines in smart grid,No PDF Found
+17,Stochastic modeling and analysis of opportunistic computing in intermittent mobile cloud,1
+18,ACWSN: an adaptive cross layer framework for video transmission over wireless sensor networks,2
+19,QoE in video streaming over wireless networks: perspectives and research challenges,No PDF Found
+20,Anycast tree-based routing in mobile wireless sensor networks with multiple sinks,25
+21,Path diversified multi-QoS optimization in multi-channel wireless mesh networks,No PDF Found
+22,Secure transmission design for cognitive radio networks with Poisson distributed eavesdroppers,14
+23,Adaptive message forwarding for avoiding broadcast storm and guaranteeing delay in active safe driving VANET,14
+24,Comprehensive event based estimation of sensor node distribution strategies using classical flooding routing protocol in wireless sensor networks,0
+25,Collaborative-learning-automata-based channel assignment with topology preservation for wireless mesh networks under QoS constraints,6
+26,A sequence number based bait detection scheme to thwart grayhole attack in mobile ad hoc networks,15
+27,"Cooperative content delivery exploiting multiple wireless interfaces: methods, new technological developments, open research issues and a case study",No PDF Found
+28,An adaptive load-aware routing algorithm for multi-interface wireless mesh networks,3
+29,Quality of service management for IPTV services support in VANETs: a performance evaluation study,No PDF Found
+30,A comparative study of QoS performance for location based and corona based real-time routing protocol in mobile wireless sensor networks,3
+,Total,146
+"
+"
+Paper Title: A survey on trust management for Internet of Things
+Citing Paper Number,Paper Title,Over-cite Count
+1,Security in cloud computing: Opportunities and challenges,7
+2,"Security, privacy and trust in Internet of Things: The road ahead",1
+3,A gap analysis of Internet-of-Things platforms,1
+4,A security and trust framework for virtualized networks and software‐defined networking,7
+5,Autonomic schemes for threat mitigation in Internet of Things,5
+6,A trust-based probabilistic recommendation model for social networks,1
+7,Trust management for soa-based iot and its application to service composition,No PDF Found
+8,Energy-aware and quality-driven sensor management for green mobile crowd sensing,1
+9,Fuzzy logic based unequal clustering for wireless sensor networks,17
+10,Vehicle authentication via monolithically certified public key and attributes,28
+11,Internet connectivity for mobile ad hoc network: a survey based study,1
+12,An enhanced communication protocol for anonymity and location privacy in WSN,No PDF Found
+13,SecIoT: a security framework for the Internet of Things,No PDF Found
+14,A standardized approach to deal with firewall and mobility policies in the IoT,1
+15,Neighbor Discovery for Opportunistic Networking in Internet of Things Scenarios: A Survey,No PDF Found
+16,Protect pervasive social networking based on two-dimensional trust levels,No PDF Found
+17, Preserving Smart Objects Privacy through Anonymous and Accountable Access Control for a M2M-Enabled Internet of Things,No PDF Found
+18,Secure transmission design for cognitive radio networks with Poisson distributed eavesdroppers,14
+19,Securing data exchange in wireless multimedia sensor networks: perspectives and challenges,13
+20,Temporal privacy scheme for end-to-end location privacy in wireless sensor networks,2
+21,Object-Generated Content and Knowledge Sharing: the Forthcoming Impact of the Internet of Things,No PDF Found
+22, Fortified anonymous communication protocol for location privacy in WSN: a modular approach,No PDF Found
+23,Agent-based trusted on-demand routing protocol for mobile ad-hoc networks,0
+24,A sequence number based bait detection scheme to thwart grayhole attack in mobile ad hoc networks,15
+25,A review on privacy-preserving data mining,1
+26,Towards a reference ontology for security in the Internet of Things,No PDF Found
+27,An overview of performance trade-off mechanisms in routing protocol for green wireless sensor networks,26
+28,Two schemes of privacy-preserving trust evaluation,4
+29,Energy harvesting and battery power based routing in wireless sensor networks,29
+30,A Classification of Trust Computation Models for Service-Oriented Internet of Things Systems,1
+,Total,175
+"
+"
+Paper Title: A survey of security challenges in cognitive radio networks: Solutions and future research directions
+Citing Paper Number,Paper Title,Over-cite Count
+1,"Wireless network virtualization: A survey, some research issues and challenges",No PDF Found
+2," Cognitive radio wireless sensor networks: applications, challenges and research trends",No PDF Found
+3,A mean field game theoretic approach for security enhancements in mobile ad hoc networks,1
+4,Advances on security threats and countermeasures for cognitive radio networks: A survey,1
+5,Jamming mitigation in cognitive radio networks,0
+6,Robust spectrum sensing with crowd sensors,1
+7,A layered approach to cognitive radio network security: A survey,No PDF Found
+8,Artificial intelligence based cognitive routing for cognitive radio networks,0
+9,Byzantine attack and defense in cognitive radio networks: A survey,1
+10,Smart primary user emulation in cognitive radio networks: defence strategies against radio‐aware attacks and robust spectrum sensing,No PDF Found
+11, A Survey of Various Defense Techniques to Detect Primary User Emulation Attacks,1
+12,An evolutionary game-based trust cooperative stimulation model for large scale MANETs,0
+13,Fuzzy logic based unequal clustering for wireless sensor networks,17
+14,Vehicle authentication via monolithically certified public key and attributes,28
+15,Trust based security enhancements for vehicular ad hocnetworks,No PDF Found
+16,A survey on security attacks and countermeasures with primary user detection in cognitive radio networks,No PDF Found
+17,Trust and reputation management in cognitive radio networks: a survey,No PDF Found
+18,Challenges in engineering education of cognitive dynamic systems,1
+19,Optimal transmission behaviour policies of secondary users in proactive-optimization cognitive radio networks,0
+20,Fuzzy c-means clustering based secure fusion strategy in collaborative spectrum sensing,No PDF Found
+21, EigenTrust-based non-cooperative game model assisting ACO look-ahead secure routing against selfishness,No PDF Found
+22,Network economics in cognitive networks,1
+23,Cognitive radio sensor networks: Smart communication for smart grids—A case study of Pakistan,1
+24,Secure transmission design for cognitive radio networks with Poisson distributed eavesdroppers,14
+25,Secrecy in cognitive radio networks,0
+26,Improving throughput in highway transportation systems by entry control and virtual queue,No PDF Found
+27,Agent-based trusted on-demand routing protocol for mobile ad-hoc networks,0
+28,A sequence number based bait detection scheme to thwart grayhole attack in mobile ad hoc networks,15
+29,A modified algorithm to improve security and performance of AODV protocol against black hole attack,No PDF Found
+30,Review of vehicular ad hoc network communication models including WVANET (Web VANET) model and WVANET future research directions,No PDF Found
+,Total,82
+"
+"

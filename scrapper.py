@@ -1,3 +1,4 @@
+
 '''
 Created on Jan 7, 2016
 
@@ -13,7 +14,6 @@ import time
 import PyPDF2
 import SessionInitializer
 from csvWriter import *
-
 
 #these two functions take and authors first name and last name, and convert them to how it would appear in the references
 # section of a paper from the specified publisher
@@ -286,7 +286,7 @@ def count_overcites(author, auth_paper_num, cite_num_to_load=30):
     author.loadPapers(auth_paper_num, loadPaperPDFs=False)
     count = 0
     try:
-        for paper in vas.getPapers():
+        for paper in vas.getPapers()[19:]:
             if paper.getCitedByUrl() is None:
                 print("No cited by url for paper: " + paper.getInfo()['Title'] + "with link " + paper.getUrl() + ", loop continue called")
                 continue
@@ -381,23 +381,24 @@ def count_overcites_paper(paper, author, cite_num_to_load=30):
 # vas = AcademicPublisher(SessionInitializer.ROOT_URL + '/citations?hl=en&user=_yWPQWoAAAAJ&view_op=list_works&sortby=pubdate', 100, loadPaperPDFs=False)
 # over_cite_arr = []
 # for paper in vas.getPapers():
+#     if paper.getInfo()['Title'] == 'Delay tolerant networks: Protocols and applications':
+#         continue
 #     if (paper.getCitedByUrl() is not None and paper.getCitedByNum()>=30):
-#         time.sleep(20)
+#         time.sleep(30)
 #         paper.setPdfObj()
 #         arr = count_overcites_paper(paper, vas)
 #         k = "Paper Title: " + paper.getInfo()['Title']
 #         arr.append(k)
 #         over_cite_arr.append(arr)
 #         print(arr)
-# over_cite_writer(over_cite_arr, 'vas_most_recent_overcites3')
+# over_cite_writer(over_cite_arr, 'vas_most_recent_overcites5')
 
-
-#getting bare data from more relevant papers
-# vas = AcademicPublisher(SessionInitializer.ROOT_URL + '/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 1, loadPaperPDFs=False)
-# over_cite_arr = count_overcites(vas, 50)
-# over_cite_writer(over_cite_arr, 'test')
-
-
-p = Paper(SessionInitializer.ROOT_URL+'/citations?view_op=view_citation&hl=en&user=_yWPQWoAAAAJ&citation_for_view=_yWPQWoAAAAJ:Y0pCki6q_DkC')
+# getting bare data from more relevant papers
 vas = AcademicPublisher(SessionInitializer.ROOT_URL + '/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 1, loadPaperPDFs=False)
-print(count_overcites_paper(p, vas, cite_num_to_load=30))
+over_cite_arr = count_overcites(vas, 50)
+over_cite_writer(over_cite_arr, 'most_rel_overcites_idx19')
+
+
+# p = Paper(SessionInitializer.ROOT_URL+'/citations?view_op=view_citation&hl=en&user=_yWPQWoAAAAJ&citation_for_view=_yWPQWoAAAAJ:Y0pCki6q_DkC')
+# vas = AcademicPublisher(SessionInitializer.ROOT_URL + '/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 1, loadPaperPDFs=False)
+# print(count_overcites_paper(p, vas, cite_num_to_load=30))

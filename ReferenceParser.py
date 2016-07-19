@@ -101,6 +101,7 @@ class PaperReferenceExtractor:
         else:
             if pdfContent=="":
                 return ""
+            print(pdfContent)
             index = pdfContent.find("References")
             if (index==-1):
                 index = pdfContent.find("REFERENCES")

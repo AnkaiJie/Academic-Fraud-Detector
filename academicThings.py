@@ -364,13 +364,14 @@ class GscHtmlFunctions:
         return -1
 
 # g = GscPdfExtractor()
-# p = g.findPapersFromCitations('https://scholar.google.ca/scholar?start=15&hl=en&as_sdt=0,5&sciodt=0,5&cites=13991517909897415820&scipsc=')
+# p = g.findPapersFromCitations('https://scholar-google-ca.proxy.lib.uwaterloo.ca/scholar?start=0&hl=en&as_sdt=0,5&sciodt=0,5&cites=10848974562744400393')
 # print('-----------------------------------------------')
-# for paper in p[6:]:
+# for paper in p:
 #     analyzer = PaperReferenceExtractor()
 #     content = analyzer.getReferencesContent(paper)
 #     if content is None and paper.getTitle() is not None:
+#         print(paper.getTitle())        
 #         print('here2')
 #     else:
 #         print(paper.getTitle())
-#         print(paper.getPdfContent())
+
