@@ -283,15 +283,15 @@ def count_cross_cites (author, x_most_rel, top_x):
 # citing paper on the first page of citing papers also cites the same author
 def count_overcites(author, auth_paper_num, cite_num_to_load=30):
     over_cite_arr = []
-    author.loadPapers(auth_paper_num, loadPaperPDFs=False)
+    author.loadPapers(auth_paper_num, loadPaperPDFs=False, pubFilter=False)
     count = 0
     try:
-        for paper in vas.getPapers()[19:]:
+        for paper in vas.getPapers()[24:]:
             if paper.getCitedByUrl() is None:
                 print("No cited by url for paper: " + paper.getInfo()['Title'] + "with link " + paper.getUrl() + ", loop continue called")
                 continue
             time.sleep(30)
-            paper.setPdfObj()
+            #paper.setPdfObj()
             k = "Paper Title: " + paper.getInfo()['Title']
             print(k)
             arr = count_overcites_paper(paper, vas, cite_num_to_load=cite_num_to_load)
@@ -326,6 +326,7 @@ def count_overcites_paper(paper, author, cite_num_to_load=30):
         for i in range (0, cite_num_to_load, 10):
             time.sleep(10)
             final_url = url_part_one+str(i)+url_part_two+paper_code
+            print('page url for citations:')
             print(final_url)
             current_pdfObjs = pdfExtractor.findPapersFromCitations(final_url)
             all_pdfObjs += current_pdfObjs
@@ -396,9 +397,9 @@ def count_overcites_paper(paper, author, cite_num_to_load=30):
 # getting bare data from more relevant papers
 vas = AcademicPublisher(SessionInitializer.ROOT_URL + '/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 1, loadPaperPDFs=False)
 over_cite_arr = count_overcites(vas, 50)
-over_cite_writer(over_cite_arr, 'most_rel_overcites_idx19')
+over_cite_writer(over_cite_arr, 'most_rel_overcites_idx24')
 
 
-# p = Paper(SessionInitializer.ROOT_URL+'/citations?view_op=view_citation&hl=en&user=_yWPQWoAAAAJ&citation_for_view=_yWPQWoAAAAJ:Y0pCki6q_DkC')
+# p = Paper(SessionInitializer.ROOT_URL+'/citations?view_op=view_citation&hl=en&user=_yWPQWoAAAAJ&cstart=20&pagesize=80&citation_for_view=_yWPQWoAAAAJ:Xz60mAmATU4C')
 # vas = AcademicPublisher(SessionInitializer.ROOT_URL + '/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 1, loadPaperPDFs=False)
 # print(count_overcites_paper(p, vas, cite_num_to_load=30))

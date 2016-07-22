@@ -154,7 +154,7 @@ class Citation:
 
 class AcademicPublisher:
 
-    def __init__(self, mainUrl, numPapers, loadPaperPDFs=True):
+    def __init__(self, mainUrl, numPapers, loadPaperPDFs=True, pubFilter = False):
 
         self.first_name = None
         self.last_name = None
@@ -167,10 +167,10 @@ class AcademicPublisher:
 
         if (mainUrl is not None):
             self.url = mainUrl
-            self.loadPapers(numPapers, loadPaperPDFs)
+            self.loadPapers(numPapers, loadPaperPDFs, pubFilter)
 
 
-    def loadPapers(self, numPapers, loadPaperPDFs):
+    def loadPapers(self, numPapers, loadPaperPDFs, pubFilter):
         response = self.session.get(self.url + '&cstart=0&pagesize=' + str(numPapers), headers=self.headers)
         soup = BeautifulSoup(response.content, "lxml")
 
@@ -190,8 +190,9 @@ class AcademicPublisher:
             #one_url['href'] finds the link to the paper page
             p = Paper(SessionInitializer.ROOT_URL + one_url['href'], loadPaperPDFs)
             self.__paper_list.append(p)
-            # takes out all papers not from IEEE or Springer US 
-            # self.filterByPublishers()
+        # takes out all papers not from IEEE or Springer US 
+        if pubFilter: 
+            self.filterByPublishers()
 
     def filterByPublishers(self):
         self.__paper_list = [x for x in self.__paper_list if x.getInfo()['Publisher']=='IEEE' or x.getInfo()['Publisher']=='Springer US']
