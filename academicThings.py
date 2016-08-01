@@ -26,10 +26,10 @@ class Paper:
         self.session = SessionInitializer.getSesh()
         self.headers = SessionInitializer.getHeaders()
 
-        self.loadFromGoogleScholar(loadPdf)
+        self.loadFromGoogleScholar(loadPdf=loadPdf)
         
 
-    def loadFromGoogleScholar(self, loadPdf):
+    def loadFromGoogleScholar(self, loadPdf=True):
         response = self.session.get(self.__url, headers=self.headers)
         soup = BeautifulSoup(response.content, 'lxml')
         #print(soup)
@@ -154,7 +154,7 @@ class Citation:
 
 class AcademicPublisher:
 
-    def __init__(self, mainUrl, numPapers, loadPaperPDFs=True, pubFilter = False):
+    def __init__(self, mainUrl, numPapers, loadPaperPDFs=True, pubFilter=False):
 
         self.first_name = None
         self.last_name = None
@@ -167,10 +167,10 @@ class AcademicPublisher:
 
         if (mainUrl is not None):
             self.url = mainUrl
-            self.loadPapers(numPapers, loadPaperPDFs, pubFilter)
+            self.loadPapers(numPapers, loadPaperPDFs=loadPaperPDFs, pubFilter=pubFilter)
 
 
-    def loadPapers(self, numPapers, loadPaperPDFs, pubFilter):
+    def loadPapers(self, numPapers, loadPaperPDFs=True, pubFilter=False, delay=False):
         response = self.session.get(self.url + '&cstart=0&pagesize=' + str(numPapers), headers=self.headers)
         soup = BeautifulSoup(response.content, "lxml")
 
@@ -186,10 +186,13 @@ class AcademicPublisher:
         self.__paper_list = []
 
         #appends all papers to paperlist
-        for one_url in soup.findAll('a', attrs={'class': 'gsc_a_at'}, href=True):
+        all_papers = soup.findAll('a', attrs={'class': 'gsc_a_at'}, href=True)
+        for one_url in all_papers:
             #one_url['href'] finds the link to the paper page
             p = Paper(SessionInitializer.ROOT_URL + one_url['href'], loadPaperPDFs)
             self.__paper_list.append(p)
+            if delay:
+                time.sleep(10)
         # takes out all papers not from IEEE or Springer US 
         if pubFilter: 
             self.filterByPublishers()
@@ -358,11 +361,11 @@ class GscHtmlFunctions:
             if (anAuthor.text.find(lastName) != -1):
                 link = anAuthor['href']
                 #default number of paper loads and corresponding paper objects stored for author is set to 1
-                thisAuthor = AcademicPublisher(SessionInitializer.ROOT_URL + link, 1)
+                thisAuthor = AcademicPublisher(SessionInitializer.ROOT_URL + link, 1, pubFilter=True)
                 return thisAuthor
 
         print("cannot find author " + auth_name)
-        return -1
+        return None
 
 # g = GscPdfExtractor()
 # p = g.findPapersFromCitations('https://scholar-google-ca.proxy.lib.uwaterloo.ca/scholar?start=0&hl=en&as_sdt=0,5&sciodt=0,5&cites=10848974562744400393')
@@ -376,3 +379,4 @@ class GscHtmlFunctions:
 #     else:
 #         print(paper.getTitle())
 
+#p = Paper('https://scholar-google-ca.proxy.lib.uwaterloo.ca/citations?view_op=view_citation&hl=en&user=_yWPQWoAAAAJ&cstart=40&citation_for_view=_yWPQWoAAAAJ:u-coK7KVo8oC')

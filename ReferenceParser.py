@@ -46,27 +46,64 @@ class PdfObj:
         return self.title
 
     def storePathPdfContent(self, path):
+        try:
             p = open(self.pathOrUrl, "rb")
             pdf = PyPDF2.PdfFileReader(p)
             num_pages = pdf.getNumPages()
             for i in range(0, num_pages):
                 self.localPdfContent += pdf.getPage(i).extractText()
-            #os.remove(path)
+        except PyPDF2.utils.PdfReadError as e:
+            print('EOF MARKER NOT FOUND' + str(e))
+            print("LOCAL PATH")
+            return None
+        except ValueError as e:
+            print("ValueError " + str(e))
+            print("LOCAL PATH")
+            return None
+        except TypeError as e: 
+            print("TypeError " + str(e))
+            print("LOCAL PATH")
+            return None
+        except Exception as e:
+            print("UNKNOWN EXCEPTION " + str(e))
+            print("LOCAL PATH")
+            return None
 
     def getPdfContent(self):
         content =""
-        if self.fileType == 'url':
-            remoteFile = urlopen(Request(self.pathOrUrl)).read()
-            localFile = BytesIO(remoteFile)
+        try:
+            if self.fileType == 'url':
+                remoteFile = urlopen(Request(self.pathOrUrl)).read()
+                localFile = BytesIO(remoteFile)
 
-            pdf = PyPDF2.PdfFileReader(localFile)
+                pdf = PyPDF2.PdfFileReader(localFile)
 
-            for pageNum in range(pdf.getNumPages()):
-                content+= pdf.getPage(pageNum).extractText()
-            return content
-        elif self.localPdfContent!="":
-            return self.localPdfContent
-        else:
+                for pageNum in range(pdf.getNumPages()):
+                    content+= pdf.getPage(pageNum).extractText()
+                return content
+            elif self.localPdfContent!="":
+                return self.localPdfContent
+            else:
+                return None
+        except urllib.error.URLError as e:
+            print('ERROR OPENING PDF WITH URLLIB: '+ str(e))
+            print("EXCEPTION PDF URL: " + self.getPathUrl())
+            return None
+        except PyPDF2.utils.PdfReadError as e:
+            print('EOF MARKER NOT FOUND' + str(e))
+            print("EXCEPTION PDF URL: " + self.getPathUrl())
+            return None
+        except ValueError as e:
+            print("ValueError " + str(e))
+            print("EXCEPTION PDF URL: " + self.getPathUrl())
+            return None
+        except TypeError as e: 
+            print("TypeError " + str(e))
+            print("EXCEPTION PDF URL: " + self.getPathUrl())
+            return None
+        except Exception as e:
+            print("UNKNOWN EXCEPTION " + str(e))
+            print("EXCEPTION PDF URL: " + self.getPathUrl())
             return None
 
 class PaperReferenceExtractor:
@@ -76,52 +113,34 @@ class PaperReferenceExtractor:
 
     def getReferencesContent(self, pdfObj):
 
-        try:
-            pdfContent = pdfObj.getPdfContent()
-            if pdfContent is not None:
-                pdfContent = self.standardize(pdfObj.getPdfContent())
-            else:
-                return None
-        except urllib.error.URLError as e:
-            print('ERROR OPENING PDF WITH URLLIB: '+ str(e))
-            print("EXCEPTION PDF URL: " + pdfObj.getPathUrl())
-            return None
-        except PyPDF2.utils.PdfReadError as e:
-            print('EOF MARKER NOT FOUND' + str(e))
-            print("EXCEPTION PDF URL: " + pdfObj.getPathUrl())
-            return None
-        except ValueError as e:
-            print("ValueError " + str(e))
-            print("EXCEPTION PDF URL: " + pdfObj.getPathUrl())
-            return None
-        except Exception as e:
-            print("UNKNOWN EXCEPTION " + str(e))
-            print("EXCEPTION PDF URL: " + pdfObj.getPathUrl())
-            return None
+        pdfContent = pdfObj.getPdfContent()
+        if pdfContent is not None:
+            pdfContent = self.standardize(pdfContent)
         else:
-            if pdfContent=="":
-                return ""
+            return None
+        if pdfContent=="":
+            return None
+        index = pdfContent.find("References")
+        if (index==-1):
+            index = pdfContent.find("REFERENCES")
+        if (index==-1):
+            index = pdfContent.find("Bibliography")
+        if (index==-1):
+            index = pdfContent.find("BIBLIOGRAPHY")
+        if (index==-1):
+            print("can't find reference sections")
+            return None
+        while (index!=-1):
+            pdfContent = pdfContent[index +10:]
             index = pdfContent.find("References")
             if (index==-1):
                 index = pdfContent.find("REFERENCES")
-            if (index==-1):
-                index = pdfContent.find("Bibliography")
-            if (index==-1):
-                index = pdfContent.find("BIBLIOGRAPHY")
-            if (index==-1):
-                print("can't find reference sections")
-                return None
-            while (index!=-1):
-                pdfContent = pdfContent[index +10:]
-                index = pdfContent.find("References")
-                if (index==-1):
-                    index = pdfContent.find("REFERENCES")
 
-            app_index = pdfContent.lower().find('appendix')
-            if (app_index!=-1):
-                pdfContent = pdfContent[:app_index]        
+        app_index = pdfContent.lower().find('appendix')
+        if (app_index!=-1):
+            pdfContent = pdfContent[:app_index]        
 
-            return pdfContent
+        return pdfContent
 
     #def parseNoSpaces(self, content):
 
@@ -130,7 +149,7 @@ class PaperReferenceExtractor:
     def getCitesToAuthor(self, author_key_word, refContent):
 
         counter = 0
-        while (refContent.find(author_key_word)!=-1):
+        while (refContent.find(author_key_word) != -1):
             refIndex = refContent.find(author_key_word)
             counter+=1
             refContent = refContent[refIndex+len(author_key_word):]
@@ -149,7 +168,7 @@ class IeeeReferenceParser:
     def splitRefSection(self, section):
         bracket_form = re.compile(r'\[.*?\]')
         section = section.replace('"', '')
-        out = [x for x in bracket_form.split(section) if x]
+        out = [x for x in bracket_form.split(section) if x] 
 
         return out
 
@@ -294,4 +313,3 @@ class SpringerReferenceParser:
                 ref_list.append(ref)
 
         return ref_list
-
