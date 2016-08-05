@@ -78,16 +78,25 @@ def cross_cite_writer(cross_cite_dict, name):
         writer.writerow([name, count])
 
     writer.writerow(['\n'])
-    writer.writerow(['Cross Cite Count to ' + orig_name + ' in the authors\' top papers'])
-    headers2 = ['Author Name', 'Total Citation Count\t', 'Papers from IEEE or Springer Analyzed']
-    writer.writerow(headers2)
+    writer.writerow(['Cross Cite Count to ' + orig_name + ' in the authors\' top papers\n'])
+    
 
     cross_cite_arr = cross_cite_dict['Cited_authors_overcite_frequency']
     for author in cross_cite_arr:
         name = author[1].title() + ' ' + author[2].title()
-        count = author[3]
-        y_most_rel = author[4]
-        writer.writerow([name, count, y_most_rel])
+        pap_an = 'Papers Analyzed: ' + author[4]
+        writer.writerow([name, pap_an])
+
+        headers2 = ['Paper Name', 'Total Cross Citation Count']
+        writer.writerow(headers2)
+
+        total_cites = 0
+        for paper_info in author[3]:
+            writer.writerow[paper_info[0], paper_info[1]]
+            total_cites += int(paper_info[1])
+
+        writer.writerow(['Total Citations:',total_cites])
+        writer.writerow('\n')
 
 
 

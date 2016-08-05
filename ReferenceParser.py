@@ -192,7 +192,9 @@ class IeeeReferenceParser:
 
         authors_just_done = False
         title_done = False
-        for idx, element in enumerate (citation):
+        for idx, element in enumerate(citation):
+            if (element==""):
+                continue
             #for the last author following the and
             if(element.find('LAST_AUTHOR')!=-1):
                 element = element.split('LAST_AUTHOR')
@@ -209,7 +211,8 @@ class IeeeReferenceParser:
                     authors_just_done = True
             #title after authors are finished
             elif(authors_just_done):
-                title = WordInference.inferSpaces(element.lower())
+                title = element.replace("‚", '').replace('"', '')
+                title = WordInference.inferSpaces(title.lower())
                 authors_just_done = False
                 title_done = True
             #year after title is finished
@@ -228,6 +231,7 @@ class IeeeReferenceParser:
 
                 break
 
+        print('title: ' + title)
         infoDict = {'authors': authorArray, 'title': title.strip(),
                     'year': year}
         return infoDict
@@ -275,6 +279,7 @@ class SpringerReferenceParser:
             if (element.isdigit()):
                 year = element
                 raw_title = ref[idx + 1].lower()
+                raw_title = raw_title.replace('‚', '').replace('"', '')
                 #title = re.sub(r'\W+', ' ', raw_title)
                 #title = "+".join(title.split())
                 title = WordInference.inferSpaces(raw_title)
@@ -313,3 +318,16 @@ class SpringerReferenceParser:
                 ref_list.append(ref)
 
         return ref_list
+
+
+
+# extractor = PaperReferenceExtractor()
+# # pdf_paper = PdfObj('url', pathOrUrl='http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.636.9687&rep=rep1&type=pdf')
+# #pdf_paper = PdfObj('url', pathOrUrl='https://www.researchgate.net/profile/Jun_Luo4/publication/220866049_Compressed_Data_Aggregation_for_Energy_Efficient_Wireless_Sensor_Networks/links/0deec52269881dcd2c000000.pdf')
+# spring_paper = PdfObj('url', pathOrUrl='http://pillars.lrc.ic.unicamp.br/~erick/pesquisa/gerla/Mobile%20Cloud%20Computing_%20A%20Survey,%20State%20of%20Art%20and%20Future%20Directions.pdf')
+# ref_content = extractor.getReferencesContent(spring_paper)
+# #print(ref_content)
+# # ieee = IeeeReferenceParser()
+# spring = SpringerReferenceParser()
+# # print(ieee.citeParse(ref_content))
+# print(spring.citeParse(ref_content))

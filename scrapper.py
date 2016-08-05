@@ -14,6 +14,7 @@ import time
 import PyPDF2
 import SessionInitializer
 from csvWriter import *
+import stage2
 
 
 # given a paper, counts the number of times it cites an author of the paper
@@ -166,14 +167,16 @@ def count_cross_cites (author, x_most_rel, top_x, y_most_rel):
 
         if (ref_content is None):
             continue
-
-        if (pub == 'IEEE'):
-            citations = ieee_bot.citeParse(ref_content)
-        elif (pub == 'Springer US'):
-            citations = springer_bot.citeParse(ref_content)
-        else:
-            print('Invalid publication format from: ' + pub)
-            continue
+        try:
+            if (pub == 'IEEE'):
+                citations = ieee_bot.citeParse(ref_content)
+            elif (pub == 'Springer US'):
+                citations = springer_bot.citeParse(ref_content)
+            else:
+                print('Invalid publication format from: ' + pub)
+                continue
+        except Exception as e:
+            print('An exception occured with parsing citations: ' + str(e))
 
         citation_list += citations
     print("STAGE 1 COMPLETE -----------------------------------------------------------")
@@ -204,10 +207,13 @@ def count_cross_cites (author, x_most_rel, top_x, y_most_rel):
     print('STAGE 2 COMPLETE -----------------------------------------------------------------')
     print('sorted author list in tuples: ' + str(author_dist))
 
+    count_cross_cites_stage3(author, author_dist, x_most_rel, top_x, y_most_rel)
 
+
+
+def count_cross_cites_stage3(orig_author, author_dist, x_most_rel, top_x, y_most_rel):
     gsc_bot = GscHtmlFunctions()
     top_x_authors = []
-
     print('STAGE 3 CREATING NEW AUTHOR OBJECTS ---------------------------------------------------------')
     #this part will create valid author objects for each of the top cited authors and append it to a list
     for index, author_info in enumerate(author_dist):
@@ -238,6 +244,8 @@ def count_cross_cites (author, x_most_rel, top_x, y_most_rel):
 
     # array to store another array of author, and how many times they cite the original author
     cited_author_info_arr = []
+    ORIG_FNAME = orig_author.getFirstName()
+    ORIG_LNAME = orig_author.getLastName()
 
     for cited_author_freq_arr in top_x_authors:
         time.sleep(5)
@@ -246,15 +254,18 @@ def count_cross_cites (author, x_most_rel, top_x, y_most_rel):
 
         cited_fname = top_cited_author.getFirstName()
         cited_lname = top_cited_author.getLastName()
+
         print('ANALYZING AUTHOR: ' + str(cited_fname) + ' ' + str(cited_lname))
 
         temp_paper_lst = top_cited_author.getPapers()
-        y_most_rel = len(temp_paper_lst)
-        total_cites = 0
+        pap_list_len = len(temp_paper_lst)
+        total_paper_cites = []
 
         #determines number of times the paper cites the original author
         for paper in temp_paper_lst:
-            print('Paper title: ' + str(paper.getInfo()['Title']))
+            pap_title = paper.getInfo()['Title']
+            print('Paper title: ' + pap_title)
+            auth_word = get_ref_author_format(ORIG_FNAME, ORIG_LNAME, paper.getInfo()['Publisher'])
             pdf_paper = paper.getPdfObj()
             if (pdf_paper is None):
                 print('paper object is none')
@@ -268,10 +279,11 @@ def count_cross_cites (author, x_most_rel, top_x, y_most_rel):
                 print('for some reason, authword is none. Shouldnt be happening')
                 continue
 
-            auth_word = get_ref_author_format(cited_fname, cited_lname, paper.getInfo()['Publisher'])
-            total_cites += analyzer.getCitesToAuthor(auth_word, content)
+            num_cites = analyzer.getCitesToAuthor(auth_word, content)
+            total_paper_cites.append([pap_title, num_cites])
 
-        cited_author_info_arr.append([top_cited_author, cited_fname, cited_lname, total_cites, y_most_rel])
+
+        cited_author_info_arr.append([top_cited_author, cited_fname, cited_lname, total_paper_cites, pap_list_len])
     print('STAGE 4 COMPLETE ---------------------------------------------------------------------')
     print('cited_author_info_arr: ' + str(cited_author_info_arr))
 
@@ -411,6 +423,9 @@ def count_overcites_paper(paper, author, cite_num_to_load=30):
 # vas = AcademicPublisher(SessionInitializer.ROOT_URL + '/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 1, loadPaperPDFs=False)
 # print(count_overcites_paper(p, vas, cite_num_to_load=30))
 
+
 vas = AcademicPublisher(SessionInitializer.ROOT_URL + '/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 1)
-cross_cite_dict = count_cross_cites(vas, 50, 10, 50)
+# cross_cite_dict = count_cross_cites(vas, 50, 10, 50)
+cross_cite_dict = count_cross_cites_stage3(vas, stage2.k, 50, 10, 50)
 cross_cite_writer(cross_cite_dict, 'vas_top50_cross_cites')
+

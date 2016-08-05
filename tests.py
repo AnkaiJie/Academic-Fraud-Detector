@@ -5,6 +5,8 @@ Created on Jan 05, 2016
 This file is used for random things I want to test out, for convenience
 '''
 
-import sys
-print(sys.stdout.encoding)
-print('어/조선말')
+element = '‚‚‚Energyefficientbroadcastinwirelessadhocnetworkswithhitch-hiking'
+k = element.replace(",","")
+print(element)
+print(k)
+

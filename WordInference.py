@@ -46,7 +46,8 @@ def inferSpaces(s):
 
 def formatSymbols(thing):
         thing = thing.replace(" - ", "-").replace(" : ",": ").replace(" , ", ", ").replace(" ? ", "? ")\
-        .replace(" \' ", "\'").replace(" . ", ". ").replace(" ( ", " (").replace(" ) ", ") ").replace(" ) ", ") ").replace(" / ", "/")
+        .replace(" \' ", "\'").replace(" . ", ". ").replace(" ( ", " (").replace(" ) ", ") ").replace(" ) ", ") ")\
+        .replace(" / ", "/").replace('ò','')
         return thing
 
 

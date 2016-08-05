@@ -34,7 +34,13 @@ class Paper:
         soup = BeautifulSoup(response.content, 'lxml')
         #print(soup)
 
-        self.__pap_info['Title'] = soup.find('a', attrs={'class': 'gsc_title_link'}).text
+
+        try:
+            self.__pap_info['Title'] = soup.find('a', attrs={'class': 'gsc_title_link'}).text
+        except AttributeError as e:
+            print(self.__url + 'has no title')
+            self.__pap_info['Title'] = "Unknown Title"
+
 
         div_info_table = soup.find('div', attrs={'id': 'gsc_table'})
         div_fields = div_info_table.find_all('div', attrs={'class': 'gs_scl'})
@@ -341,21 +347,29 @@ class GscHtmlFunctions:
 
     def get_author_from_search(self, auth_name, paper_name):
         # taking out any special characters in paper name
-        paper_name = re.sub(r'\W+', ' ', paper_name)
-        paper_name = "+".join(paper_name.split())
+        try:
+            paper_name = re.sub(r'\W+', ' ', paper_name)
+            paper_name = "+".join(paper_name.split())
 
-        authorFields = auth_name.split()
-        lastName = authorFields[len(authorFields) - 1]
+            authorFields = auth_name.split()
+            lastName = authorFields[len(authorFields) - 1]
 
-        #must get query into the right form as noted by GS link first+middle+last
-        query = "+".join(authorFields) + "+" + paper_name
+            #must get query into the right form as noted by GS link first+middle+last
+            query = "+".join(authorFields) + "+" + paper_name
+        except Exception as e:
+            print('Name error when finding author: ' + str(e))
+            return None
 
         response = self.session.get(SessionInitializer.ROOT_URL + '/scholar?q=' + query + '&btnG=&hl=en&as_sdt=0%2C5',
                                     headers=self.headers)
         soup = BeautifulSoup(response.content, 'lxml')
 
-        authorsData = soup.find('div', attrs={'class': 'gs_a'}).findAll('a')
-        #print (authorsData)
+        try:
+            authorsData = soup.find('div', attrs={'class': 'gs_a'}).findAll('a')
+            #print (authorsData)
+        except Exception as e:
+            print('Search function not returning a possibility ' + str(e))
+            return None
 
         for anAuthor in authorsData:
             if (anAuthor.text.find(lastName) != -1):
