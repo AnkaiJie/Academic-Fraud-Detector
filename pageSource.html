@@ -62,6 +62,11 @@ html,
         min-width: 300px;
     }
     
+    #gs_top.gs_nscl {
+        position: fixed;
+        width: 100%;
+    }
+    
     body,
     td,
     input {
@@ -212,10 +217,6 @@ html,
         content: "";
         display: table;
         clear: both;
-    }
-    
-    .gs_nscl {
-        overflow-y: hidden;
     }
     
     .gs_ind {
@@ -415,7 +416,8 @@ html,
     margin-left:-1px;
     border-radius:0;
 }
-button:hover {
+button:hover,
+button.gs_in_cb:hover {
     z-index:2;
     color:#222;
     border:1px solid #c6c6c6;
@@ -432,14 +434,24 @@ button.gs_sel {
     background-color:#e8e8e8;
     background-image:linear-gradient(to bottom, #eee, #e0e0e0);
 }
-button:active {
+button.gs_in_cb {
+    color:#444;
+    border:1px solid #dcdcdc;
+    border:1px solid rgba(0, 0, 0, .1);
+    box-shadow:none;
+    background-color:#f5f5f5;
+    background-image:linear-gradient(to bottom, #f5f5f5, #f1f1f1);
+}
+button:active,
+button.gs_in_cb:active {
     z-index:2;
     color:#333;
     background-color:#f6f6f6;
     background-image:linear-gradient(to bottom, #f6f6f6, #f1f1f1);
     box-shadow:inset 0px 1px 2px rgba(0, 0, 0, .1);
 }
-button:focus {
+button:focus,
+button.gs_in_cb:focus {
     z-index:2;
     outline:none;
     border:1px solid #4d90fe;
@@ -516,6 +528,11 @@ a.gs_in_ib.gs_md_li .gs_ico {
 a.gs_btn_mini .gs_ico {
     top:1px;
     left:0
+}
+button .gs_cb_wr {
+    position:absolute;
+    top:5px;
+    left:26px;
 }
 .gs_in_ib .gs_ico {
     opacity:.55;
@@ -692,8 +709,7 @@ a.gs_in_se .gs_icm {
     background-position:0 -110px;
 }
 .gs_md_se,
-.gs_md_wn,
-.gs_el_ph .gs_md_wp {
+.gs_md_wn {
     position:absolute;
     top:0;
     left:0;
@@ -708,15 +724,13 @@ a.gs_in_se .gs_icm {
     transition:opacity .13s;
 }
 .gs_md_se.gs_vis,
-.gs_md_wn.gs_vis,
-.gs_el_ph .gs_md_wp.gs_vis {
+.gs_md_wn.gs_vis {
     opacity:1;
     -webkit-transition:all 0s;
     transition:all 0s;
 }
 .gs_el_tc .gs_md_se,
-.gs_el_tc .gs_md_wn,
-.gs_el_ph.gs_el_tc .gs_md_wp {
+.gs_el_tc .gs_md_wn {
     -webkit-transform-origin:100% 0;
     transform-origin:100% 0;
     -webkit-transform:scale(1, 0);
@@ -731,8 +745,7 @@ a.gs_in_se .gs_icm {
 .gs_el_ph.gs_el_ios .gs_md_wp {
     -webkit-backface-visibility:hidden;
 }
-.gs_el_tc .gs_md_wn.gs_ttss,
-.gs_el_ph.gs_el_tc .gs_md_wp.gs_ttss {
+.gs_el_tc .gs_md_wn.gs_ttss {
     -webkit-transform:scale(0, 1);
     transform:scale(0, 1);
 }
@@ -744,8 +757,7 @@ a.gs_in_se .gs_icm {
     transform:scale(0, 0);
 }
 .gs_el_tc .gs_md_se.gs_vis,
-.gs_el_tc .gs_md_wn.gs_vis,
-.gs_el_ph.gs_el_tc .gs_md_wp.gs_vis {
+.gs_el_tc .gs_md_wn.gs_vis {
     -webkit-transform:scale(1, 1);
     transform:scale(1, 1);
     -webkit-transition:-webkit-transform .218s ease-out;
@@ -1059,6 +1071,12 @@ a.gs_in_cb.gs_dis:active .gs_lbl {
 .gs_in_ra:hover .gs_cbx {
     border-color:#666;
     box-shadow:inset 0 1px 1px rgba(0, 0, 0, .1);
+}
+button.gs_in_cb:hover .gs_cbx {
+    border-color:#c6c6c6;
+}
+button.gs_in_cb:active .gs_cbx {
+    border-color:#a6a6a6;
 }
 .gs_in_cb:focus .gs_cbx,
 .gs_in_cb:focus~.gs_cbx,
@@ -1708,8 +1726,7 @@ button.gs_btnUR {
 .gs_el_ph #gs_ad_md .gs_btnC {
     display:block
 }
-.gs_btnAD,
-.gs_btnFI {
+.gs_btnAD {
     -ms-touch-action:none;
     touch-action:none;
 }
@@ -1744,7 +1761,8 @@ button.gs_btnUR {
 }
 .gs_r {
     position:relative;
-    margin:1em 0
+    margin:1em 0;
+    overflow-x:hidden;
 }
 .gs_rt {
     position:relative;
@@ -1787,48 +1805,204 @@ button.gs_btnUR {
     left:0;
     z-index:1;
     float:right;
-    padding-left:12px;
-    padding-right:8px;
-    text-align:right;
+    margin-left:12px;
+    width:200px;
 }
-.gs_el_ph .gs_ggs,
-.gs_el_ta .gs_ggs {
-    padding-right:0
+.gs_el_ph .gs_ggs {
+    height:36px;
 }
-.gs_ggsL {
-    display:inline
+@media(max-width:779px) {
+    .gs_el_sm .gs_ggs {
+        width: 150px;
+    }
 }
-.gs_ggsS {
-    display:none
+.gs_el_ph .gs_ggs {
+    width:72px;
 }
-.gs_el_sm .gs_ggsL {
-    display:none
+.gs_el_tc .gs_ggs {
+    margin-top:7px;
 }
-.gs_el_sm .gs_ggsS {
-    display:inline
-}
-.gs_el_tc .gs_ggs .gs_br,
-.gs_el_ph .gs_ggs .gs_br {
-    height:7px
-}
-.gs_el_tc .gs_ggs a,
-.gs_el_ph .gs_ggs a {
-    display:inline-block;
-    line-height:18px;
+.gs_el_sm.gs_el_tc .gs_ggs,
+.gs_el_ph .gs_ggs {
     margin-top:-7px;
-    padding:7px 0 4px 0;
 }
-.gs_btnFI {
-    display:none
+.gs_ggsd {
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
 }
-.gs_el_ph .gs_btnFI {
-    display:inline-block
+.gs_el_tc .gs_ggsm a,
+.gs_el_ph .gs_ggsm a {
+    display:block;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    padding:7px 8px 4px 8px;
+    -ms-touch-action:none;
+    touch-action:none;
 }
-.gs_el_ph .gs_ggs .gs_md_wp {
-    left:auto;
+.gs_el_ph .gs_ggsm a {
+    text-decoration:none;
+}
+.gs_el_ph .gs_ggsm a:active {
+    color:#1a0dab;
+}
+.gs_el_ph .gs_ggsm a:visited {
+    color:#660099;
+}
+.gs_el_ph .gs_ggsm {
+    position:absolute;
     right:0;
-    padding:8px;
-    padding-left:16px;
+    top:-2px;
+    padding:1px 0 4px;
+    background:#fff;
+    width:200px;
+    height:31px;
+    -webkit-transform:translate(65%, 0);
+    transform:translate(65%, 0);
+}
+.gs_el_ph .gs_ggsm.gs_vis {
+    -webkit-transform:translate(0, 0);
+    transform:translate(0, 0);
+    height:auto;
+    right:3px;
+}
+.gs_el_ph .gs_ggsm>div:nth-child(2) {
+    background:#fff;
+    -webkit-transform:scale(1, 0);
+    transform:scale(1, 0);
+    -webkit-transform-origin:0 0;
+    transform-origin:0 0;
+}
+.gs_el_ph .gs_ggsm.gs_vis>div:nth-child(2) {
+    -webkit-transform:scale(1, 1);
+    transform:scale(1, 1);
+}
+.gs_el_ph .gs_ggsm:before {
+    content:"";
+    position:absolute;
+    top:0;
+    left:-1px;
+    right:-1px;
+    bottom:0;
+    box-shadow:0 2px 4px rgba(0, 0, 0, .2);
+    border:1px solid #ccc;
+    opacity:0;
+    z-index:-1;
+}
+.gs_el_ph .gs_ggsm.gs_vis:before {
+    opacity:1
+}
+.gs_el_ph .gs_ggsm:after {
+    content:"";
+    pointer-events:none;
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index:1;
+    background-image:linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1) 65%, rgba(255, 255, 255, 0) 70%);
+}
+.gs_el_ph .gs_ggsm.gs_vis:after {
+    visibility:hidden
+}
+.gs_el_ph .gs_ggsm.gs_vis.gs_anm {
+    -webkit-animation:gs_anm_hsli .218s ease-in-out;
+    animation:gs_anm_hsli .218s ease-in-out;
+}
+.gs_el_ph .gs_ggsm.gs_anm {
+    -webkit-animation:gs_anm_hslo .218s ease-out;
+    animation:gs_anm_hslo .218s ease-out;
+}
+.gs_el_ph .gs_ggs .gs_ggsm.gs_vis.gs_anm>div:nth-child(2) {
+    -webkit-animation:gs_anm_vscli .218s ease-in;
+    animation:gs_anm_vscli .218s ease-in;
+}
+.gs_el_ph .gs_ggsm.gs_vis.gs_anm:before {
+    -webkit-animation:gs_anm_fil .3s;
+    animation:gs_anm_fil .3s;
+}
+@-webkit-keyframes gs_anm_hsli {
+    0% {
+        -webkit-transform: translate(65%, 0);
+        height: 31px;
+    }
+    99% {
+        -webkit-transform: translate(0, 0);
+        height: 31px;
+    }
+    100% {
+        -webkit-transform: translate(0, 0);
+        height: auto;
+    }
+}
+@keyframes gs_anm_hsli {
+    0% {
+        transform: translate(65%, 0);
+        height: 31px;
+    }
+    99% {
+        transform: translate(0, 0);
+        height: 31px;
+    }
+    100% {
+        transform: translate(0, 0);
+        height: auto;
+    }
+}
+@-webkit-keyframes gs_anm_hslo {
+    0% {
+        -webkit-transform: translate(0, 0);
+    }
+    100% {
+        -webkit-transform: translate(65%, 0);
+    }
+}
+@keyframes gs_anm_hslo {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(65%, 0);
+    }
+}
+@-webkit-keyframes gs_anm_vscli {
+    0% {
+        -webkit-transform: scale(1, 0);
+    }
+    100% {
+        -webkit-transform: scale(1, 1);
+    }
+}
+@keyframes gs_anm_vscli {
+    0% {
+        transform: scale(1, 0);
+    }
+    100% {
+        transform: scale(1, 1);
+    }
+}
+@-webkit-keyframes gs_anm_fil {
+    0% {
+        opacity: 0;
+    }
+    99% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes gs_anm_fil {
+    0% {
+        opacity: 0;
+    }
+    99% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 .gs_ct1 {
     display:inline
@@ -1894,14 +2068,17 @@ button.gs_btnUR {
 .gs_el_ta .gs_rs {
     margin-right:10%
 }
+@media(max-width:780px) {
+    .gs_el_ta .gs_rs,
+    .gs_el_ta .gs_a {
+        margin-right: 100px;
+    }
+}
 .gs_el_ph .gs_rs br,
 .gs_el_ta .gs_rs br {
     display:none
 }
-@media screen and (min-width:670px) {
-    .gs_el_ta .gs_rs {
-        margin-right: 0
-    }
+@media screen and (min-width:771px) {
     .gs_el_ta .gs_rs br {
         display: block
     }
@@ -1914,10 +2091,21 @@ button.gs_btnUR {
 .gs_rt2 b {
     color:#000
 }
-.gs_el_tc .gs_r {
-    padding:0 0 1em 0;
-    margin:1em 0 0 0;
+.gs_el_tc .gs_r,
+.gs_el_ph .gs_r {
+    padding:1em 0 1em 0;
+    margin:0;
     border-bottom:1px solid #eee;
+}
+.gs_el_tc .gs_r:first-child,
+.gs_el_ph .gs_r:first-child {
+    margin-top:-1em;
+}
+.gs_rt {
+    margin-right:100px;
+}
+.gs_el_ph .gs_rt {
+    margin-right:0;
 }
 .gs_el_tc .gs_rt a {
     font-size:17px;
@@ -2128,6 +2316,10 @@ button.gs_btnUR {
 
     function gs_uas(s) {
         return (navigator.userAgent || "").indexOf(s) >= 0
+    }
+
+    function gs_is_ph() {
+        return document.documentElement.className.indexOf("gs_el_ph") + 1;
     }
     var gs_is_tc = /[?&]tc=([01])/.exec(window.location.search || ""),
         gs_is_ios = gs_uas("iPhone") || gs_uas("iPod") || gs_uas("iPad");
@@ -2486,13 +2678,13 @@ button.gs_btnUR {
         v = 0;
     }
 
-    function gs_evt_clk(e, f, w, k) {
+    function gs_evt_clk(e, f, w, k, d) {
         return gs_evt_dlg_clk(e, e, function(t, e) {
             f(e)
-        }, w, k);
+        }, w, k, d);
     }
 
-    function gs_evt_dlg_clk(p, c, f, w, k) {
+    function gs_evt_dlg_clk(p, c, f, w, k, d) {
         k = "," + (k || [13, 32]).join(",") + ",";
         return gs_evt_dlg_xclk(p, c, function(t, e) {
             if (e.type == "keydown") {
@@ -2500,7 +2692,7 @@ button.gs_btnUR {
                 gs_evt_ntr(e);
             }
             f(t, e);
-        }, w);
+        }, w, d);
     }
 
     function gs_evt_xclk(e, f, w) {
@@ -2509,57 +2701,29 @@ button.gs_btnUR {
         }, w);
     }
 
-    function gs_evt_dlg_xclk(p, c, f, w) {
+    function gs_evt_dlg_xclk(p, c, f, w, d) {
         var T, S = 0,
-            X = 0,
-            Y = 0,
-            O = 0,
-            V = 0;
+            D = 0;
 
         function u(t, e) {
-            var n = e.type,
-                h, l;
+            var n = e.type;
+            if (!S && d && d(e)) return;
             if (t !== T) {
                 T = t;
                 S = 0;
             }
             if (!gs_evt_spk(e)) {
                 if (n === "mousedown") {
-                    if (w !== 2) return S = 0;
                     S = 1;
+                    D = d && d(e);
                 } else if (n === "click") {
                     if (S) {
-                        gs_evt_ntr(e);
+                        D || gs_evt_ntr(e);
                         return S = 0;
                     }
-                } else if (n === "touchstart" && w) {
-                    if (e.timeStamp - V < 200) {
-                        gs_evt_ntr(e);
-                        return S = 0;
-                    }
-                    if (w === 2) {
-                        S = 0;
-                    } else {
-                        if ((l = e.touches).length !== 1) return S = -3;
-                        h = l[0];
-                        X = h.pageX;
-                        Y = h.pageY;
-                        O = pageYOffset;
-                        return S = 3;
-                    }
-                } else if (n === "touchcancel") {
-                    return S = 0;
-                } else if (n === "touchend" && w) {
-                    gs_evt_sms(e);
-                    V = e.timeStamp;
-                    if (w === 2) {
-                        gs_evt_ntr(e);
-                        return S = 0;
-                    }
-                    if (S !== 3 || (l = e.changedTouches).length !== 1 || Math.abs(X - (h = l[0]).pageX) > 10 || Math.abs(Y - h.pageY) > 10 || Math.abs(O - pageYOffset) > 1) {
-                        return S = (e.touches.length ? -4 : 0);
-                    }
+                } else if (n === "touchstart") {
                     S = 0;
+                    gs_evt_sms(e);
                 } else if (n === "keydown") {
                     f(t, e);
                     return;
@@ -2573,7 +2737,7 @@ button.gs_btnUR {
                 f(t, e);
             }
         }
-        gs_evt_dlg(p, c, ["keydown", "keyup", "click"].concat(w ? ["mousedown"].concat((w === 2 ? 1 : 0) ? ["touchstart", "touchend", "touchcancel"] : []) : []), u);
+        gs_evt_dlg(p, c, ["keydown", "keyup", "click"].concat(w ? ["mousedown", "touchstart"] : []), u);
         return u;
     }
 
@@ -2746,7 +2910,7 @@ button.gs_btnUR {
     function gs_md_cls(d, e) {
         var x = gs_md_lv[d] || 1e6;
         while (gs_md_st.length >= x)(gs_md_st.pop())();
-        return gs_evt_stp(e);
+        return e && gs_evt_stp(e);
     }
 
     function gs_md_shw(d, e, o, c) {
@@ -2875,7 +3039,7 @@ button.gs_btnUR {
                 X = 0;
             }
         });
-        gs_evt_dlg_xclk(d, f, g, 1);
+        gs_evt_dlg_xclk(d, f, g);
         return u;
     }
 
@@ -3064,7 +3228,7 @@ button.gs_btnUR {
                 a = "data-clk",
                 w = window,
                 r = document.documentElement,
-                p = "https://scholar.google.ca" || "http://" + location.host,
+                p = "https://scholar-google-ca.proxy.lib.uwaterloo.ca" || "http://" + location.host,
                 n, h, c, u;
             while (t) {
                 n = t.nodeName;
@@ -3169,7 +3333,7 @@ button.gs_btnUR {
     function gs_svw(p, c) {
         gs_visi("gs_svl" + p, 0);
         var a = gs_id("gs_svs" + p);
-        a.href = "/citations?view_op\x3dview_citation\x26continue\x3d/scholar%3Fhl%3Den%26start%3D20%26as_sdt%3D0,5%26sciodt%3D0,5%26cites%3D13991517909897415820%26scipsc%3D\x26citilm\x3d1\x26citation_for_view\x3d{id}\x26hl\x3den\x26oi\x3dsaved".replace("{id}", encodeURIComponent(c));
+        a.href = "/citations?view_op\x3dview_citation\x26continue\x3d/scholar%3Fhl%3Den%26as_sdt%3D0,5%26sciodt%3D0,5%26cites%3D13991517909897415820%26scipsc%3D\x26citilm\x3d1\x26citation_for_view\x3d{id}\x26hl\x3den\x26oi\x3dsaved".replace("{id}", encodeURIComponent(c));
         gs_vis(a, 2);
     }
 
@@ -3183,16 +3347,16 @@ button.gs_btnUR {
         gs_visi("gs_svs" + p, 0);
         gs_visi("gs_svo" + p, 2);
         gs_svj("gs_svd" + p);
-        gs_ajax("/citations?hl\x3den\x26update_op\x3dlibrary_add\x26xsrf\x3dAMstHGQAAAAAV4hCkNmG2vmZJpXWKRZ-tuWH7ycdvTJm\x26info\x3d{id}".replace("{id}", d), "", function(c, t) {
+        gs_ajax("/citations?hl\x3den\x26update_op\x3dlibrary_add\x26xsrf\x3dAMstHGQAAAAAV6pygLJr_tVKqNpjL-kkKGI004dd250g\x26info\x3d{id}".replace("{id}", d), "", function(c, t) {
             var f = t.charAt(0),
                 a, b;
             gs_visi("gs_svo" + p, 0);
             gs_svk();
             if (c == 200 && t) {
                 if (f == "2") {
-                    window.location = "https://accounts.google.com/Login?hl\x3den\x26continue\x3dhttps://scholar.google.ca/scholar%3Fstart%3D20%26hl%3Den\x26service\x3dcitations\x26ltmpl\x3dscholarlibrary";
+                    window.location = "https://accounts.google.com/Login?hl\x3den\x26continue\x3dhttps://scholar.google.ca/scholar%3Fstart%3D0%26hl%3Den\x26service\x3dcitations\x26ltmpl\x3dscholarlibrary";
                 } else if (f == "1") {
-                    window.location = "/citations?view_op\x3dlibrary_setup\x26continue\x3d/scholar%3Fhl%3Den%26start%3D20%26as_sdt%3D0,5%26sciodt%3D0,5%26cites%3D13991517909897415820%26scipsc%3D\x26info\x3d{id}\x26hl\x3den".replace("{id}", d);
+                    window.location = "/citations?view_op\x3dlibrary_setup\x26continue\x3d/scholar%3Fhl%3Den%26as_sdt%3D0,5%26sciodt%3D0,5%26cites%3D13991517909897415820%26scipsc%3D\x26info\x3d{id}\x26hl\x3den".replace("{id}", d);
                 } else if (f == "3") {
                     gs_wa_m(t.substr(1));
                 } else {
@@ -3222,27 +3386,6 @@ button.gs_btnUR {
         for (k in l)(v = l[k]) instanceof Array && v.length == 2 && t - v[1] < 12e5 || (delete l[k]);
         for (k in u) l[k] = [u[k], t];
         gs_wlst("s", l);
-    }
-    gs_evt_rdy(function() {
-        var s = gs_id("gs_alrt_ss");
-        gs_svc(s && !s.value && {});
-    });
-
-    function gs_svp(m) {
-        var l = gs_svl(),
-            d, v, p, c;
-        for (d in m) {
-            v = l[d + ",X3wooAoAAAAJ"];
-            if (v instanceof Array) {
-                p = m[d];
-                if (c = v[0]) {
-                    gs_svw(p, c + "");
-                } else {
-                    gs_visi("gs_svl" + p, 2);
-                    gs_visi("gs_svs" + p, 0);
-                }
-            }
-        }
     }
 
     function gs_more(t, v) {
@@ -3438,19 +3581,9 @@ button.gs_btnUR {
         }
         </style>
         <div id="gs_gb" role="navigation">
-            <div id="gs_gb_lt"><a href="//www.google.ca/search?hl=en&amp;authuser=0">Web</a><a href="//www.google.ca/search?tbm=isch&amp;hl=en&amp;authuser=0">Images</a><a href="//www.google.ca/intl/en/options/">More&hellip;</a></div>
-            <a id="gs_gb_lp" aria-label="Web" href="//www.google.ca/search?hl=en&authuser=0"></a>
-            <div id="gs_gb_rt"><a href="//www.google.ca/profiles" role="button" aria-controls="gs_gb_ac" aria-haspopup="true" onclick="return gs_md_opn('gs_gb_ac',event)">ankaijie@gmail.com</a></div>
-            <div id="gs_gb_ac" class="gs_md_wn" style="display:none" role="dialog" aria-hidden="true">
-                <div id="gs_gb_ap"><a id="gs_gb_aa" href="https://www.google.com/settings?ref=home&authuser=0">Account</a><b>Ankai Jie</b>
-                    <br><span class="gs_gray">ankaijie@gmail.com</span></div>
-                <div id="gs_gb_ab">
-                    <button type="button" id="gs_gb_aab" onclick="window.location='https://accounts.google.com/AddSession?hl\x3den\x26continue\x3dhttps://scholar.google.ca/scholar%3Fstart%3D20%26hl%3Den%26as_sdt%3D0,5%26sciodt%3D0,5%26cites%3D13991517909897415820%26scipsc%3D'" class=""><span class="gs_wr"><span class="gs_lbl">Add account</span></span>
-                    </button>
-                    <button type="button" id="gs_gb_aso" onclick="window.location='https://accounts.google.com/Logout?hl\x3den\x26continue\x3dhttps://scholar.google.ca/scholar%3Fstart%3D20%26hl%3Den%26as_sdt%3D0,5%26sciodt%3D0,5%26cites%3D13991517909897415820%26scipsc%3D'" class=""><span class="gs_wr"><span class="gs_lbl">Sign out</span></span>
-                    </button>
-                </div>
-            </div>
+            <div id="gs_gb_lt"><a href="//www.google.ca/search?hl=en&amp;">Web</a><a href="//www.google.ca/search?tbm=isch&amp;hl=en&amp;">Images</a><a href="//www.google.ca/intl/en/options/">More&hellip;</a></div>
+            <a id="gs_gb_lp" aria-label="Web" href="//www.google.ca/search?hl=en&"></a>
+            <div id="gs_gb_rt"><a href="https://accounts.google.com/Login?hl=en&amp;continue=https://scholar-google-ca.proxy.lib.uwaterloo.ca/scholar%3Fstart%3D0%26hl%3Den%26as_sdt%3D0,5%26sciodt%3D0,5%26cites%3D13991517909897415820">Sign in</a></div>
         </div>
         <!--[if lte IE 9]><div class="gs_alrt" style="padding:16px"><div>Sorry, some features may not work in this version of Internet Explorer.</div><div>Please use <a href="//www.google.ca/chrome/">Google Chrome</a> or <a href="//www.mozilla.com/firefox/">Mozilla Firefox</a> for the best experience.</div></div><![endif]-->
         <style>
@@ -3821,6 +3954,11 @@ button.gs_btnUR {
                         padding: 13px 0;
                     }
                     
+                    .gs_el_ph #gs_hdr_adv_scl input,
+                    .gs_el_ph #gs_hdr_adv_scl label {
+                        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+                    }
+                    
                     .gs_hdr_adv_occtr {
                         padding: 5px 0;
                     }
@@ -3950,12 +4088,8 @@ button.gs_btnUR {
                     var gs_aso = function() {
                         var A, O = 0,
                             a = gs_id("gs_hdr_arr"),
-                            b = document.body,
+                            b = gs_id("gs_top"),
                             d = gs_id("gs_hdr_adv");
-
-                        function p() {
-                            return document.documentElement.className.indexOf("gs_el_ph") + 1;
-                        }
 
                         function o() {
                             O = 1;
@@ -3978,7 +4112,7 @@ button.gs_btnUR {
 
                         function t() {
                             if (O) {
-                                var x = p();
+                                var x = gs_is_ph();
                                 (x ? gs_xnscl : gs_unscl)(b);
                                 gs_md_ifc("gs_hdr_adv", x ? "gs_hdr_advcb" : "gs_hdr_advx");
                             }
@@ -3992,8 +4126,8 @@ button.gs_btnUR {
                             gs_md_shw(d.id, e, o, c);
                         }
                     }();
-                    gs_evt_clk(gs_id("gs_hdr_advx"), gs_bind(gs_md_cls, "gs_hdr_adv"), 1);
-                    gs_evt_clk(gs_id("gs_hdr_advcb"), gs_bind(gs_md_cls, "gs_hdr_adv"), 1);
+                    gs_evt_clk(gs_id("gs_hdr_advx"), gs_bind(gs_md_cls, "gs_hdr_adv"));
+                    gs_evt_clk(gs_id("gs_hdr_advcb"), gs_bind(gs_md_cls, "gs_hdr_adv"));
                     gs_evt(gs_id("gs_hdr_frm_adv"), "keydown", function(e) {
                         var x = gs_evt_tgt(e) || {};
                         e.keyCode === 13 && x.nodeType === 1 && x.tagName === "INPUT" && x.form.submit();
@@ -4003,122 +4137,11 @@ button.gs_btnUR {
                 </div>
             </div>
         </div>
-        <style>
-        #gs_alrt_w {
-            position: fixed;
-            width: 100%;
-            z-index: 1050;
-            display: none;
-            opacity: 0;
-            -webkit-transition: opacity .3s ease-out;
-            transition: opacity .3s ease-out;
-        }
-        
-        #gs_alrt_w.gs_vis {
-            opacity: 1
-        }
-        
-        #gs_alrt_p {
-            position: absolute;
-            top: -15px;
-            right: 0;
-            width: 100%;
-            text-align: center;
-        }
-        
-        #gs_alrt {
-            display: inline-block;
-            font-size: 13px;
-            line-height: 16px;
-            padding: 0 16px 6px 16px;
-        }
-        
-        #gs_alrt_m,
-        #gs_alrt_u {
-            display: inline-block;
-            padding-top: 7px;
-        }
-        
-        #gs_alrt_l:link,
-        #gs_alrt_l:visited {
-            margin-left: 16px;
-            padding: 7px 0 6px 0;
-            color: #222;
-            text-decoration: underline;
-        }
-        
-        #gs_alrt_l:hover {
-            color: #1a0dab
-        }
-        
-        #gs_alrt_l:active {
-            color: #d14836
-        }
-        </style>
-        <div id="gs_alrt_w">
-            <div id="gs_alrt_p">
-                <form>
-                    <input type="hidden" id="gs_alrt_ss">
-                </form>
-                <form action="" method="post" id="gs_alrt" class="gs_alrt"><span id="gs_alrt_m"></span><span id="gs_alrt_h"></span><span id="gs_alrt_u" style="display:none"><a id="gs_alrt_l" href="javascript:void(0)" onclick="gs_id('gs_alrt').submit();return false"></a></span></form>
-            </div>
-        </div>
-        <script>
-        var gs_wa_t;
-
-        function gs_wa_hf(e) {
-            gs_uevt(document, "click", gs_wa_hf);
-            clearTimeout(gs_wa_t);
-            gs_wa_t = undefined;
-            var d = gs_id("gs_alrt_w");
-            if (e) {
-                setTimeout(function() {
-                    d.style.display = "none";
-                    gs_uvis(d);
-                }, 0);
-            } else {
-                gs_vis(d, 0);
-            }
-        }
-
-        function gs_wa_sf() {
-            gs_visi("gs_alrt_w", 1);
-            gs_evt(document, "click", gs_wa_hf);
-            clearTimeout(gs_wa_t);
-            gs_wa_t = setTimeout(gs_wa_hf, 60000);
-        }
-
-        function gs_wa_m(m, l, u, f) {
-            var x, h, e;
-            gs_id("gs_alrt_m").innerHTML = m;
-            if (l && u && f) {
-                x = gs_id("gs_alrt_l");
-                "innerText" in x ? (x.innerText = l) : (x.textContent = l);
-                gs_id("gs_alrt").action = u;
-                h = gs_id("gs_alrt_h");
-                h.innerHTML = "";
-                for (i in f) {
-                    e = document.createElement("input");
-                    e.name = i;
-                    e.type = "hidden";
-                    e.value = f[i];
-                    h.appendChild(e);
-                }
-                gs_visi("gs_alrt_u", 2);
-            } else {
-                gs_visi("gs_alrt_u", 0);
-            }
-            gs_wa_sf();
-        }
-        gs_evt_rdy(function() {
-            gs_evt(window, "pagehide", gs_bind(gs_visi, "gs_alrt_w", 0));
-        });
-        </script>
         <script>
         document.title = "Chen: Body area networks: A survey - Google Scholar"
         </script>
         <div id="gs_ab" role="navigation"><a id="gs_ab_na" href="/schhp?hl=en&amp;as_sdt=0,5&amp;sciodt=0,5">Scholar</a>
-            <div id="gs_ab_md">Page 3 of about 766 results (<b>0.03</b> sec)</div>
+            <div id="gs_ab_md">About 776 results (<b>0.02</b> sec)</div>
             <div id="gs_ab_rt">
                 <div id="gs_ylo_dd">
                     <button class="gs_in_se gs_btn_mnu" id="gs_ylo_btn" type="button" aria-controls="gs_ylo_md" aria-haspopup="true"><span class="gs_wr"><span class="gs_lbl">Any time</span><span class="gs_icm"></span></span>
@@ -4129,7 +4152,7 @@ button.gs_btnUR {
                 <script>
                 gs_evt_md_mnu("gs_ylo_md", "gs_ylo_btn")
                 </script>
-                <button type="button" onclick="window.location='/citations?user\x3dX3wooAoAAAAJ\x26hl\x3den'" class="gs_btnC gs_in_ib"><span class="gs_wr"><span class="gs_lbl">My Citations</span><span class="gs_ico"></span></span>
+                <button type="button" onclick="window.location='/citations?hl\x3den'" class="gs_btnC gs_in_ib"><span class="gs_wr"><span class="gs_lbl">My Citations</span><span class="gs_ico"></span></span>
                 </button>
                 <div id="gs_ad_dd">
                     <button type="button" id="gs_btnAD" aria-label="More" aria-controls="gs_ad_md" aria-haspopup="true" class="gs_btnAD gs_in_ib gs_btn_half"><span class="gs_wr"><span class="gs_lbl"></span><span class="gs_ico"></span></span>
@@ -4137,7 +4160,7 @@ button.gs_btnUR {
                     <div id="gs_ad_md" class="gs_md_wn" style="display:none" role="menu" aria-hidden="true">
                         <div class="gs_ad_nlnv"><a href="/scholar?as_sdt=2005&amp;hl=en&amp;sciodt=0,5&amp;cites=13991517909897415820&amp;scipsc=" class="gs_md_li" role="menuitemradio" tabindex="-1">All citations</a><a href="/scholar?as_sdt=0,5&amp;hl=en&amp;sciodt=0,5&amp;cites=13991517909897415820&amp;scipsc=" class="gs_md_li gs_cur" aria-checked="true" role="menuitemradio" tabindex="-1">Articles</a><a href="/scholar?as_sdt=2006&amp;hl=en&amp;sciodt=0,5&amp;cites=13991517909897415820&amp;scipsc=" class="gs_md_li" role="menuitemradio" tabindex="-1">Case law</a><a href="/scholar?scilib=1&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5" class="gs_md_li" role="menuitemradio" tabindex="-1">My library</a>
                             <div class="gs_hr" role="separator"></div><a href="/scholar?as_sdt=1,5&amp;hl=en&amp;sciodt=0,5&amp;cites=13991517909897415820&amp;scipsc=" role="menuitemcheckbox" tabindex="-1" aria-checked="true" class="gs_in_cb gs_sel gs_md_li"><span class="gs_lbl">include patents</span><span class="gs_chk"></span><span class="gs_cbx"></span></a><a href="/scholar?as_vis=1&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5&amp;cites=13991517909897415820&amp;scipsc=" role="menuitemcheckbox" tabindex="-1" aria-checked="true" class="gs_in_cb gs_sel gs_md_li"><span class="gs_lbl">include citations</span><span class="gs_chk"></span><span class="gs_cbx"></span></a>
-                            <div class="gs_hr" role="separator"></div><a href="/citations?hl=en" role="menuitem" tabindex="-1" class="gs_btnC gs_in_ib gs_md_li"><span class="gs_lbl">My Citations</span><span class="gs_ico"></span></a><a href="/scholar_alerts?view_op=create_alert_options&amp;hl=en&amp;alert_params=%3Fhl%3Den%26as_sdt%3D0,5%26sciodt%3D0,5%26cites%3D13991517909897415820%26scipsc%3D" role="menuitem" tabindex="-1" class="gs_btnM gs_in_ib gs_md_li"><span class="gs_lbl">Create alert</span><span class="gs_ico"></span></a></div><a href="/citations?view_op=top_venues&amp;hl=en" role="menuitem" tabindex="-1" class="gs_btnJ gs_in_ib gs_md_li"><span class="gs_lbl">Metrics</span><span class="gs_ico"></span></a><a href="/scholar_settings?hl=en&amp;start=20&amp;as_sdt=0,5&amp;sciodt=0,5&amp;cites=13991517909897415820&amp;scipsc=" role="menuitem" tabindex="-1" class="gs_btnP gs_in_ib gs_md_li"><span class="gs_lbl">Settings</span><span class="gs_ico"></span></a><a href="#" id="gs_a_adv" role="menuitem" tabindex="-1" class="gs_btnSB gs_in_ib gs_md_li"><span class="gs_lbl">Advanced search</span><span class="gs_ico"></span></a></div>
+                            <div class="gs_hr" role="separator"></div><a href="/citations?hl=en" role="menuitem" tabindex="-1" class="gs_btnC gs_in_ib gs_md_li"><span class="gs_lbl">My Citations</span><span class="gs_ico"></span></a><a href="/scholar_alerts?view_op=create_alert_options&amp;hl=en&amp;alert_params=%3Fhl%3Den%26as_sdt%3D0,5%26sciodt%3D0,5%26cites%3D13991517909897415820%26scipsc%3D" role="menuitem" tabindex="-1" class="gs_btnM gs_in_ib gs_md_li"><span class="gs_lbl">Create alert</span><span class="gs_ico"></span></a></div><a href="/citations?view_op=top_venues&amp;hl=en" role="menuitem" tabindex="-1" class="gs_btnJ gs_in_ib gs_md_li"><span class="gs_lbl">Metrics</span><span class="gs_ico"></span></a><a href="/scholar_settings?hl=en&amp;as_sdt=0,5&amp;sciodt=0,5&amp;cites=13991517909897415820&amp;scipsc=" role="menuitem" tabindex="-1" class="gs_btnP gs_in_ib gs_md_li"><span class="gs_lbl">Settings</span><span class="gs_ico"></span></a><a href="#" id="gs_a_adv" role="menuitem" tabindex="-1" class="gs_btnSB gs_in_ib gs_md_li"><span class="gs_lbl">Advanced search</span><span class="gs_ico"></span></a></div>
                 </div>
             </div>
         </div>
@@ -4240,181 +4263,211 @@ button.gs_btnUR {
                     </div>
                     <div class="gs_r">
                         <div class="gs_ggs gs_fl">
-                            <button type="button" id="gs_ggsB20" class="gs_btnFI gs_in_ib gs_btn_half"><span class="gs_wr"><span class="gs_lbl"></span><span class="gs_ico"></span></span>
-                            </button>
-                            <div class="gs_md_wp gs_ttss" id="gs_ggsW20"><a href="https://pdfs.semanticscholar.org/9158/efbd116bb4fda945b06633ac65d25f9f5693.pdf" data-clk="hl=en&amp;sa=T&amp;oi=gga&amp;ct=gga&amp;cd=20&amp;ei=EPGGV7qaD4mfjAHP2ZqADw"><span class="gs_ggsL"><span class=gs_ctg2>[PDF]</span> from semanticscholar.org</span><span class="gs_ggsS">semanticscholar.org <span class=gs_ctg2>[PDF]</span></span></a></div>
+                            <div class="gs_ggsm" id="gs_ggsW0">
+                                <div class="gs_ggsd"><a href="http://uni-obuda.hu/journal/Baranyi_Csapo_33.pdf" data-clk="hl=en&amp;sa=T&amp;oi=gga&amp;ct=gga&amp;cd=0&amp;ei=ACGpV9_BGcGy2AbM55ewAQ"><span class=gs_ctg2>[PDF]</span> uni-obuda.hu</a></div>
+                                <div class="gs_ggsd"><a href="/scholar?output=instlink&amp;q=info:zPD-lXe53TkJ:scholar.google.com/&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5&amp;scillfp=11965087848859964445&amp;oi=lle">Get It!@Waterloo</a></div>
+                            </div>
                         </div>
                         <div class="gs_ri">
-                            <h3 class="gs_rt"><a href="http://www.sciencedirect.com/science/article/pii/S0167739X13002793" data-clk="hl=en&amp;sa=T&amp;ct=res&amp;cd=20&amp;ei=EPGGV7qaD4mfjAHP2ZqADw">BodyCloud: A SaaS approach for community body sensor networks</a></h3>
-                            <div class="gs_a"><a href="/citations?user=ecImn1MAAAAJ&amp;hl=en&amp;oi=sra">G Fortino</a>, D Parisi, V Pirrone, <a href="/citations?user=BB5R4P8AAAAJ&amp;hl=en&amp;oi=sra">G Di Fatta</a> - Future Generation Computer &hellip;, 2014 - Elsevier</div>
-                            <div class="gs_rs">Abstract Body Sensor Networks (BSNs) have been recently introduced for the remote
-                                <br>monitoring of human activities in a broad range of application domains, such as health care,
-                                <br>emergency management, fitness and behavior surveillance. BSNs can be deployed in a <b> ...</b></div>
-                            <div class="gs_fl"><a href="/scholar?cites=9197034739947070587&amp;as_sdt=2005&amp;sciodt=0,5&amp;hl=en">Cited by 60</a> <a href="/scholar?q=related:e-R4NV5uon8J:scholar.google.com/&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5">Related articles</a> <a href="/scholar?cluster=9197034739947070587&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5" class="gs_nph">All 5 versions</a> <a onclick="return gs_ocit(event,'e-R4NV5uon8J','20')" href="#" class="gs_nph" role="button" aria-controls="gs_cit" aria-haspopup="true">Cite</a> <span class="gs_nph"><a id="gs_svl20" onclick="return gs_sva('e-R4NV5uon8J','20')" href="#" title="Save this article to my library so that I can read or cite it later.">Save</a><span id="gs_svo20" class="gs_svm">Saving<span id="gs_svd20">...</span></span><a id="gs_svs20" style="display:none">Saved</a><span id="gs_sve20" class="gs_svm">Error saving. <a onclick="return gs_sva('e-R4NV5uon8J','20')" href="#">Try again?</a></span></span> <a href="#" class="gs_mor gs_oph" role="button" onclick="return gs_more(this,1)">More</a> <a href="#" class="gs_nvi" role="button" onclick="return gs_more(this,0)">Fewer</a></div>
+                            <h3 class="gs_rt"><span class="gs_ctc"><span class="gs_ct1">[PDF]</span><span class="gs_ct2">[PDF]</span></span> <a href="http://uni-obuda.hu/journal/Baranyi_Csapo_33.pdf" data-clk="hl=en&amp;sa=T&amp;oi=ggp&amp;ct=res&amp;cd=0&amp;ei=ACGpV9_BGcGy2AbM55ewAQ">Definition and synergies of cognitive infocommunications</a></h3>
+                            <div class="gs_a"><a href="/citations?user=DeMmbqkAAAAJ&amp;hl=en&amp;oi=sra">P Baranyi</a>, A Csapo - Acta Polytechnica Hungarica, 2012 - uni-obuda.hu</div>
+                            <div class="gs_rs">Abstract: In this paper, we provide the finalized definition of Cognitive Infocommunications
+                                <br>(CogInfoCom). Following the definition, we briefly describe the scope and goals of
+                                <br>CogInfoCom, and discuss the common interests between CogInfoCom and the various <b> ...</b></div>
+                            <div class="gs_fl"><a href="/scholar?cites=4169692753283707084&amp;as_sdt=2005&amp;sciodt=0,5&amp;hl=en">Cited by 266</a> <a href="/scholar?q=related:zPD-lXe53TkJ:scholar.google.com/&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5">Related articles</a> <a href="/scholar?cluster=4169692753283707084&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5" class="gs_nph">All 7 versions</a> <a href="http://gateway.webofknowledge.com.proxy.lib.uwaterloo.ca/gateway/Gateway.cgi?GWVersion=2&amp;SrcApp=GSSearch&amp;SrcAuth=Scholar&amp;DestApp=WOS_CPL&amp;DestLinkType=CitingArticles&amp;UT=000304212300005&amp;SrcURL=https://scholar-google-ca.proxy.lib.uwaterloo.ca/&amp;SrcDesc=Back+to+Google+Scholar&amp;GSPage=TC" data-clk="hl=en&amp;sa=T&amp;ct=wosc&amp;cd=0&amp;ei=ACGpV9_BGcGy2AbM55ewAQ" class="gs_nta gs_nph">Web of Science: 106</a> <a onclick="return gs_ocit(event,'zPD-lXe53TkJ','0')" href="#" class="gs_nph" role="button" aria-controls="gs_cit" aria-haspopup="true">Cite</a> <span class="gs_nph"><a id="gs_svl0" onclick="return gs_sva('zPD-lXe53TkJ','0')" href="#" title="Save this article to my library so that I can read or cite it later.">Save</a><span id="gs_svo0" class="gs_svm">Saving<span id="gs_svd0">...</span></span><a id="gs_svs0" style="display:none">Saved</a><span id="gs_sve0" class="gs_svm">Error saving. <a onclick="return gs_sva('zPD-lXe53TkJ','0')" href="#">Try again?</a></span></span> <a href="#" class="gs_mor" role="button" onclick="return gs_more(this,1)">More</a> <a href="http://scholar.googleusercontent.com/scholar?q=cache:zPD-lXe53TkJ:scholar.google.com/&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5" class="gs_nvi">View as HTML</a> <a href="#" class="gs_nvi" role="button" onclick="return gs_more(this,0)">Fewer</a></div>
                         </div>
                     </div>
                     <div class="gs_r">
                         <div class="gs_ggs gs_fl">
-                            <button type="button" id="gs_ggsB21" class="gs_btnFI gs_in_ib gs_btn_half"><span class="gs_wr"><span class="gs_lbl"></span><span class="gs_ico"></span></span>
-                            </button>
-                            <div class="gs_md_wp gs_ttss" id="gs_ggsW21"><a href="http://labs.xjtudlc.com/labs/wldmt/reading%20list/papers/Multimedia%20and%20Networking/HS14.pdf" data-clk="hl=en&amp;sa=T&amp;oi=gga&amp;ct=gga&amp;cd=21&amp;ei=EPGGV7qaD4mfjAHP2ZqADw"><span class="gs_ggsL"><span class=gs_ctg2>[PDF]</span> from xjtudlc.com</span><span class="gs_ggsS">xjtudlc.com <span class=gs_ctg2>[PDF]</span></span></a></div>
+                            <div class="gs_ggsm" id="gs_ggsW1">
+                                <div class="gs_ggsd"><a href="http://www.academia.edu/download/36145654/06710228.pdf" data-clk="hl=en&amp;sa=T&amp;oi=gga&amp;ct=gga&amp;cd=1&amp;ei=ACGpV9_BGcGy2AbM55ewAQ"><span class=gs_ctg2>[PDF]</span> academia.edu</a></div>
+                                <div class="gs_ggsd"><a href="/scholar?output=instlink&amp;q=info:xbIpocUKvCwJ:scholar.google.com/&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5&amp;scillfp=12058587919676528930&amp;oi=lle">Get It!@Waterloo</a></div>
+                            </div>
                         </div>
                         <div class="gs_ri">
-                            <h3 class="gs_rt"><a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=6365157" data-clk="hl=en&amp;sa=T&amp;ct=res&amp;cd=21&amp;ei=EPGGV7qaD4mfjAHP2ZqADw">Energy efficient multimedia streaming to mobile devices—a survey</a></h3>
-                            <div class="gs_a"><a href="/citations?user=NHmnAhwAAAAJ&amp;hl=en&amp;oi=sra">MA Hoque</a>, <a href="/citations?user=DDzZyqIAAAAJ&amp;hl=en&amp;oi=sra">M Siekkinen</a>&hellip; - &hellip; Surveys &amp; Tutorials, 2014 - ieeexplore.ieee.org</div>
-                            <div class="gs_rs">Abstract—Energy conservation in battery powered mobile devices that perform wireless
-                                <br>multimedia streaming has been a significant research problem since last decade. This is
-                                <br>because these mobile devices consume a lot of power while receiving, decoding and <b> ...</b></div>
-                            <div class="gs_fl"><a href="/scholar?cites=12064038264823744818&amp;as_sdt=2005&amp;sciodt=0,5&amp;hl=en">Cited by 58</a> <a href="/scholar?q=related:MgmKQ-ISbKcJ:scholar.google.com/&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5">Related articles</a> <a href="/scholar?cluster=12064038264823744818&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5" class="gs_nph">All 9 versions</a> <a onclick="return gs_ocit(event,'MgmKQ-ISbKcJ','21')" href="#" class="gs_nph" role="button" aria-controls="gs_cit" aria-haspopup="true">Cite</a> <span class="gs_nph"><a id="gs_svl21" onclick="return gs_sva('MgmKQ-ISbKcJ','21')" href="#" title="Save this article to my library so that I can read or cite it later.">Save</a><span id="gs_svo21" class="gs_svm">Saving<span id="gs_svd21">...</span></span><a id="gs_svs21" style="display:none">Saved</a><span id="gs_sve21" class="gs_svm">Error saving. <a onclick="return gs_sva('MgmKQ-ISbKcJ','21')" href="#">Try again?</a></span></span> <a href="#" class="gs_mor gs_oph" role="button" onclick="return gs_more(this,1)">More</a> <a href="#" class="gs_nvi" role="button" onclick="return gs_more(this,0)">Fewer</a></div>
-                        </div>
-                    </div>
-                    <div class="gs_r">
-                        <div class="gs_ri">
-                            <h3 class="gs_rt"><a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=6427537" data-clk="hl=en&amp;sa=T&amp;ct=res&amp;cd=22&amp;ei=EPGGV7qaD4mfjAHP2ZqADw">BodyCloud: Integration of Cloud Computing and body sensor networks</a></h3>
-                            <div class="gs_a"><a href="/citations?user=ecImn1MAAAAJ&amp;hl=en&amp;oi=sra">G Fortino</a>, M Pathan, <a href="/citations?user=BB5R4P8AAAAJ&amp;hl=en&amp;oi=sra">G Di Fatta</a> - Cloud Computing Technology &hellip;, 2012 - ieeexplore.ieee.org</div>
-                            <div class="gs_rs">Abstract—Spatially distributed sensor nodes can be used to monitor systems and humans
-                                <br>conditions in a wide range of application domains. A network of body sensors in a
-                                <br>community of people generates large amounts of contextual data that requires a scalable <b> ...</b></div>
-                            <div class="gs_fl"><a href="/scholar?cites=8260619902925962661&amp;as_sdt=2005&amp;sciodt=0,5&amp;hl=en">Cited by 58</a> <a href="/scholar?q=related:pX1s-gieo3IJ:scholar.google.com/&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5">Related articles</a> <a href="/scholar?cluster=8260619902925962661&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5" class="gs_nph">All 5 versions</a> <a onclick="return gs_ocit(event,'pX1s-gieo3IJ','22')" href="#" class="gs_nph" role="button" aria-controls="gs_cit" aria-haspopup="true">Cite</a> <span class="gs_nph"><a id="gs_svl22" onclick="return gs_sva('pX1s-gieo3IJ','22')" href="#" title="Save this article to my library so that I can read or cite it later.">Save</a><span id="gs_svo22" class="gs_svm">Saving<span id="gs_svd22">...</span></span><a id="gs_svs22" style="display:none">Saved</a><span id="gs_sve22" class="gs_svm">Error saving. <a onclick="return gs_sva('pX1s-gieo3IJ','22')" href="#">Try again?</a></span></span> <a href="#" class="gs_mor gs_oph" role="button" onclick="return gs_more(this,1)">More</a> <a href="#" class="gs_nvi" role="button" onclick="return gs_more(this,0)">Fewer</a></div>
+                            <h3 class="gs_rt"><a href="http://ieeexplore.ieee.org.proxy.lib.uwaterloo.ca/xpls/abs_all.jsp?arnumber=6710228" data-clk="hl=en&amp;sa=T&amp;ct=res&amp;cd=1&amp;ei=ACGpV9_BGcGy2AbM55ewAQ">Wireless body area networks: A survey</a></h3>
+                            <div class="gs_a"><a href="/citations?user=ILv8KzoAAAAJ&amp;hl=en&amp;oi=sra">S Movassaghi</a>, <a href="/citations?user=lHxRmsEAAAAJ&amp;hl=en&amp;oi=sra">M Abolhasan</a>, <a href="/citations?user=PYpDI2IAAAAJ&amp;hl=en&amp;oi=sra">J Lipman</a>&hellip; - &hellip; Surveys &amp; Tutorials, 2014 - ieeexplore.ieee.org</div>
+                            <div class="gs_rs">Abstract—Recent developments and technological advancements in wireless
+                                <br>communication, MicroElectroMechanical Systems (MEMS) technology and integrated
+                                <br>circuits has enabled low-power, intelligent, miniaturized, invasive/non-invasive micro and <b> ...</b></div>
+                            <div class="gs_fl"><a href="/scholar?cites=3223463277219132101&amp;as_sdt=2005&amp;sciodt=0,5&amp;hl=en">Cited by 228</a> <a href="/scholar?q=related:xbIpocUKvCwJ:scholar.google.com/&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5">Related articles</a> <a href="/scholar?cluster=3223463277219132101&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5" class="gs_nph">All 5 versions</a> <a href="http://gateway.webofknowledge.com.proxy.lib.uwaterloo.ca/gateway/Gateway.cgi?GWVersion=2&amp;SrcApp=GSSearch&amp;SrcAuth=Scholar&amp;DestApp=WOS_CPL&amp;DestLinkType=CitingArticles&amp;UT=000343072200023&amp;SrcURL=https://scholar-google-ca.proxy.lib.uwaterloo.ca/&amp;SrcDesc=Back+to+Google+Scholar&amp;GSPage=TC" data-clk="hl=en&amp;sa=T&amp;ct=wosc&amp;cd=1&amp;ei=ACGpV9_BGcGy2AbM55ewAQ" class="gs_nta gs_nph">Web of Science: 53</a> <a onclick="return gs_ocit(event,'xbIpocUKvCwJ','1')" href="#" class="gs_nph" role="button" aria-controls="gs_cit" aria-haspopup="true">Cite</a> <span class="gs_nph"><a id="gs_svl1" onclick="return gs_sva('xbIpocUKvCwJ','1')" href="#" title="Save this article to my library so that I can read or cite it later.">Save</a><span id="gs_svo1" class="gs_svm">Saving<span id="gs_svd1">...</span></span><a id="gs_svs1" style="display:none">Saved</a><span id="gs_sve1" class="gs_svm">Error saving. <a onclick="return gs_sva('xbIpocUKvCwJ','1')" href="#">Try again?</a></span></span> <a href="#" class="gs_mor gs_ota gs_oph" role="button" onclick="return gs_more(this,1)">More</a> <a href="#" class="gs_nvi" role="button" onclick="return gs_more(this,0)">Fewer</a></div>
                         </div>
                     </div>
                     <div class="gs_r">
                         <div class="gs_ggs gs_fl">
-                            <button type="button" id="gs_ggsB23" class="gs_btnFI gs_in_ib gs_btn_half"><span class="gs_wr"><span class="gs_lbl"></span><span class="gs_ico"></span></span>
-                            </button>
-                            <div class="gs_md_wp gs_ttss" id="gs_ggsW23"><a href="https://ir.nctu.edu.tw/bitstream/11536/20778/1/000312839100004.pdf" data-clk="hl=en&amp;sa=T&amp;oi=gga&amp;ct=gga&amp;cd=23&amp;ei=EPGGV7qaD4mfjAHP2ZqADw"><span class="gs_ggsL"><span class=gs_ctg2>[PDF]</span> from nctu.edu.tw</span><span class="gs_ggsS">nctu.edu.tw <span class=gs_ctg2>[PDF]</span></span></a></div>
+                            <div class="gs_ggsm" id="gs_ggsW2">
+                                <div class="gs_ggsd"><a href="http://www.csd.uoc.gr/~hy564/files/material/03/survey%20on%20aal%20tools%20for%20older%20adults.pdf" data-clk="hl=en&amp;sa=T&amp;oi=gga&amp;ct=gga&amp;cd=2&amp;ei=ACGpV9_BGcGy2AbM55ewAQ"><span class=gs_ctg2>[PDF]</span> uoc.gr</a></div>
+                                <div class="gs_ggsd"><a href="/scholar?output=instlink&amp;q=info:2xo6bwIaBDAJ:scholar.google.com/&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5&amp;scillfp=4276431147547963646&amp;oi=lle">Get It!@Waterloo</a></div>
+                            </div>
                         </div>
                         <div class="gs_ri">
-                            <h3 class="gs_rt"><a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=6193096" data-clk="hl=en&amp;sa=T&amp;ct=res&amp;cd=23&amp;ei=EPGGV7qaD4mfjAHP2ZqADw">Coloring-based inter-WBAN scheduling for mobile wireless body area networks</a></h3>
-                            <div class="gs_a"><a href="/citations?user=_FJdb1YAAAAJ&amp;hl=en&amp;oi=sra">SH Cheng</a>, <a href="/citations?user=ZdsQftgAAAAJ&amp;hl=en&amp;oi=sra">CY Huang</a> - IEEE Transactions on parallel and &hellip;, 2013 - ieeexplore.ieee.org</div>
-                            <div class="gs_rs">Abstract—In this study, random incomplete coloring (RIC) with low time-complexity and high
-                                <br>spatial-reuse is proposed to overcome in-between wireless-body-area-networks (WBAN)
-                                <br>interference, which can cause serious throughput degradation and energy waste. <b> ...</b></div>
-                            <div class="gs_fl"><a href="/scholar?cites=11796275026870731142&amp;as_sdt=2005&amp;sciodt=0,5&amp;hl=en">Cited by 57</a> <a href="/scholar?q=related:hgFxOaPJtKMJ:scholar.google.com/&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5">Related articles</a> <a href="/scholar?cluster=11796275026870731142&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5" class="gs_nph">All 8 versions</a> <a onclick="return gs_ocit(event,'hgFxOaPJtKMJ','23')" href="#" class="gs_nph" role="button" aria-controls="gs_cit" aria-haspopup="true">Cite</a> <span class="gs_nph"><a id="gs_svl23" onclick="return gs_sva('hgFxOaPJtKMJ','23')" href="#" title="Save this article to my library so that I can read or cite it later.">Save</a><span id="gs_svo23" class="gs_svm">Saving<span id="gs_svd23">...</span></span><a id="gs_svs23" style="display:none">Saved</a><span id="gs_sve23" class="gs_svm">Error saving. <a onclick="return gs_sva('hgFxOaPJtKMJ','23')" href="#">Try again?</a></span></span> <a href="#" class="gs_mor gs_oph" role="button" onclick="return gs_more(this,1)">More</a> <a href="#" class="gs_nvi" role="button" onclick="return gs_more(this,0)">Fewer</a></div>
+                            <h3 class="gs_rt"><a href="http://ieeexplore.ieee.org.proxy.lib.uwaterloo.ca/xpls/abs_all.jsp?arnumber=6399501" data-clk="hl=en&amp;sa=T&amp;ct=res&amp;cd=2&amp;ei=ACGpV9_BGcGy2AbM55ewAQ">A survey on ambient-assisted living tools for older adults</a></h3>
+                            <div class="gs_a"><a href="/citations?user=Rtej0FIAAAAJ&amp;hl=en&amp;oi=sra">P Rashidi</a>, <a href="/citations?user=FgKrtn0AAAAJ&amp;hl=en&amp;oi=sra">A Mihailidis</a> - IEEE journal of biomedical and health &hellip;, 2013 - ieeexplore.ieee.org</div>
+                            <div class="gs_rs">Abstract—In recent years, we have witnessed a rapid surge in assisted living technologies
+                                <br>due to a rapidly aging society. The aging population, the increasing cost of formal health
+                                <br>care, the caregiver burden, and the importance that the individuals place on living <b> ...</b></div>
+                            <div class="gs_fl"><a href="/scholar?cites=3459919011485719259&amp;as_sdt=2005&amp;sciodt=0,5&amp;hl=en">Cited by 224</a> <a href="/scholar?q=related:2xo6bwIaBDAJ:scholar.google.com/&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5">Related articles</a> <a href="/scholar?cluster=3459919011485719259&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5" class="gs_nph">All 11 versions</a> <a href="http://gateway.webofknowledge.com.proxy.lib.uwaterloo.ca/gateway/Gateway.cgi?GWVersion=2&amp;SrcApp=GSSearch&amp;SrcAuth=Scholar&amp;DestApp=WOS_CPL&amp;DestLinkType=CitingArticles&amp;UT=000321146100010&amp;SrcURL=https://scholar-google-ca.proxy.lib.uwaterloo.ca/&amp;SrcDesc=Back+to+Google+Scholar&amp;GSPage=TC" data-clk="hl=en&amp;sa=T&amp;ct=wosc&amp;cd=2&amp;ei=ACGpV9_BGcGy2AbM55ewAQ" class="gs_nta gs_nph">Web of Science: 73</a> <a onclick="return gs_ocit(event,'2xo6bwIaBDAJ','2')" href="#" class="gs_nph" role="button" aria-controls="gs_cit" aria-haspopup="true">Cite</a> <span class="gs_nph"><a id="gs_svl2" onclick="return gs_sva('2xo6bwIaBDAJ','2')" href="#" title="Save this article to my library so that I can read or cite it later.">Save</a><span id="gs_svo2" class="gs_svm">Saving<span id="gs_svd2">...</span></span><a id="gs_svs2" style="display:none">Saved</a><span id="gs_sve2" class="gs_svm">Error saving. <a onclick="return gs_sva('2xo6bwIaBDAJ','2')" href="#">Try again?</a></span></span> <a href="#" class="gs_mor gs_ota gs_oph" role="button" onclick="return gs_more(this,1)">More</a> <a href="#" class="gs_nvi" role="button" onclick="return gs_more(this,0)">Fewer</a></div>
                         </div>
                     </div>
                     <div class="gs_r">
                         <div class="gs_ggs gs_fl">
-                            <button type="button" id="gs_ggsB24" class="gs_btnFI gs_in_ib gs_btn_half"><span class="gs_wr"><span class="gs_lbl"></span><span class="gs_ico"></span></span>
-                            </button>
-                            <div class="gs_md_wp gs_ttss" id="gs_ggsW24"><a href="http://ualr.edu/computerscience/files/2014/01/Paper-1.pdf" data-clk="hl=en&amp;sa=T&amp;oi=gga&amp;ct=gga&amp;cd=24&amp;ei=EPGGV7qaD4mfjAHP2ZqADw"><span class="gs_ggsL"><span class=gs_ctg2>[PDF]</span> from ualr.edu</span><span class="gs_ggsS">ualr.edu <span class=gs_ctg2>[PDF]</span></span></a></div>
+                            <div class="gs_ggsm" id="gs_ggsW3">
+                                <div class="gs_ggsd"><a href="http://arxiv.org/pdf/1102.4106" data-clk="hl=en&amp;sa=T&amp;oi=gga&amp;ct=gga&amp;cd=3&amp;ei=ACGpV9_BGcGy2AbM55ewAQ"><span class=gs_ctg2>[PDF]</span> arxiv.org</a></div>
+                            </div>
                         </div>
                         <div class="gs_ri">
-                            <h3 class="gs_rt"><a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=6584939" data-clk="hl=en&amp;sa=T&amp;ct=res&amp;cd=24&amp;ei=EPGGV7qaD4mfjAHP2ZqADw">BANA: body area network authentication exploiting channel characteristics</a></h3>
-                            <div class="gs_a"><a href="/citations?user=YC9I0NoAAAAJ&amp;hl=en&amp;oi=sra">L Shi</a>, <a href="/citations?user=1BrbQPwAAAAJ&amp;hl=en&amp;oi=sra">M Li</a>, <a href="/citations?user=jYW_WCwAAAAJ&amp;hl=en&amp;oi=sra">S Yu</a>, <a href="/citations?user=lF3Q2osAAAAJ&amp;hl=en&amp;oi=sra">J Yuan</a> - IEEE Journal on selected Areas in &hellip;, 2013 - ieeexplore.ieee.org</div>
-                            <div class="gs_rs">Abstract—In wireless body area network (BAN), node authentication is essential for
-                                <br>trustworthy and reliable gathering of patient&#39;s critical health information. Traditional
-                                <br>authentication solutions depend on prior trust among nodes whose establishment would <b> ...</b></div>
-                            <div class="gs_fl"><a href="/scholar?cites=13577593076758347544&amp;as_sdt=2005&amp;sciodt=0,5&amp;hl=en">Cited by 52</a> <a href="/scholar?q=related:GP_7VPdMbbwJ:scholar.google.com/&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5">Related articles</a> <a href="/scholar?cluster=13577593076758347544&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5" class="gs_nph">All 9 versions</a> <a onclick="return gs_ocit(event,'GP_7VPdMbbwJ','24')" href="#" class="gs_nph" role="button" aria-controls="gs_cit" aria-haspopup="true">Cite</a> <span class="gs_nph"><a id="gs_svl24" onclick="return gs_sva('GP_7VPdMbbwJ','24')" href="#" title="Save this article to my library so that I can read or cite it later.">Save</a><span id="gs_svo24" class="gs_svm">Saving<span id="gs_svd24">...</span></span><a id="gs_svs24" style="display:none">Saved</a><span id="gs_sve24" class="gs_svm">Error saving. <a onclick="return gs_sva('GP_7VPdMbbwJ','24')" href="#">Try again?</a></span></span> <a href="#" class="gs_mor gs_oph" role="button" onclick="return gs_more(this,1)">More</a> <a href="#" class="gs_nvi" role="button" onclick="return gs_more(this,0)">Fewer</a></div>
+                            <h3 class="gs_rt"><a href="http://ieeexplore.ieee.org.proxy.lib.uwaterloo.ca/xpls/abs_all.jsp?arnumber=5702867" data-clk="hl=en&amp;sa=T&amp;ct=res&amp;cd=3&amp;ei=ACGpV9_BGcGy2AbM55ewAQ">An overview of IEEE 802.15. 6 standard</a></h3>
+                            <div class="gs_a"><a href="/citations?user=3UmeCq8AAAAJ&amp;hl=en&amp;oi=sra">KS Kwak</a>, <a href="/citations?user=8TVc7lYAAAAJ&amp;hl=en&amp;oi=sra">S Ullah</a>, <a href="/citations?user=XUlEHJkAAAAJ&amp;hl=en&amp;oi=sra">N Ullah</a> - 2010 3rd International Symposium &hellip;, 2010 - ieeexplore.ieee.org</div>
+                            <div class="gs_rs">Abstract—Wireless Body Area Networks (WBAN) has emerged as a key technology to
+                                <br>provide real-time health monitoring of a patient and to diagnose and treat many life
+                                <br>threatening diseases. WBAN operates in close vicinity to, on, or inside a human body and <b> ...</b></div>
+                            <div class="gs_fl"><a href="/scholar?cites=15027110901946550566&amp;as_sdt=2005&amp;sciodt=0,5&amp;hl=en">Cited by 199</a> <a href="/scholar?q=related:Jonsjr8Fi9AJ:scholar.google.com/&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5">Related articles</a> <a href="/scholar?cluster=15027110901946550566&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5" class="gs_nph">All 11 versions</a> <a onclick="return gs_ocit(event,'Jonsjr8Fi9AJ','3')" href="#" class="gs_nph" role="button" aria-controls="gs_cit" aria-haspopup="true">Cite</a> <span class="gs_nph"><a id="gs_svl3" onclick="return gs_sva('Jonsjr8Fi9AJ','3')" href="#" title="Save this article to my library so that I can read or cite it later.">Save</a><span id="gs_svo3" class="gs_svm">Saving<span id="gs_svd3">...</span></span><a id="gs_svs3" style="display:none">Saved</a><span id="gs_sve3" class="gs_svm">Error saving. <a onclick="return gs_sva('Jonsjr8Fi9AJ','3')" href="#">Try again?</a></span></span> <a href="#" class="gs_mor" role="button" onclick="return gs_more(this,1)">More</a> <a href="/scholar?output=instlink&amp;q=info:Jonsjr8Fi9AJ:scholar.google.com/&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5&amp;scillfp=2471856296918309501&amp;oi=llo" class="gs_nvi">Get It!@Waterloo</a> <a href="#" class="gs_nvi" role="button" onclick="return gs_more(this,0)">Fewer</a></div>
                         </div>
                     </div>
                     <div class="gs_r">
                         <div class="gs_ggs gs_fl">
-                            <button type="button" id="gs_ggsB25" class="gs_btnFI gs_in_ib gs_btn_half"><span class="gs_wr"><span class="gs_lbl"></span><span class="gs_ico"></span></span>
-                            </button>
-                            <div class="gs_md_wp gs_ttss" id="gs_ggsW25"><a href="http://or.nsfc.gov.cn/bitstream/00001903-5/96498/1/1000007159268.pdf" data-clk="hl=en&amp;sa=T&amp;oi=gga&amp;ct=gga&amp;cd=25&amp;ei=EPGGV7qaD4mfjAHP2ZqADw"><span class="gs_ggsL"><span class=gs_ctg2>[PDF]</span> from nsfc.gov.cn</span><span class="gs_ggsS">nsfc.gov.cn <span class=gs_ctg2>[PDF]</span></span></a></div>
+                            <div class="gs_ggsm" id="gs_ggsW4">
+                                <div class="gs_ggsd"><a href="http://phys.xmu.edu.cn/shuaiweb/ShuaiPub/IEEETN11_135.pdf" data-clk="hl=en&amp;sa=T&amp;oi=gga&amp;ct=gga&amp;cd=4&amp;ei=ACGpV9_BGcGy2AbM55ewAQ"><span class=gs_ctg2>[PDF]</span> xmu.edu.cn</a></div>
+                                <div class="gs_ggsd"><a href="/scholar?output=instlink&amp;q=info:1StxSKa9E9YJ:scholar.google.com/&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5&amp;scillfp=730994716322353039&amp;oi=lle">Get It!@Waterloo</a></div>
+                            </div>
                         </div>
                         <div class="gs_ri">
-                            <h3 class="gs_rt"><span class="gs_ctc"><span class="gs_ct1">[PDF]</span><span class="gs_ct2">[PDF]</span></span> <a href="http://or.nsfc.gov.cn/bitstream/00001903-5/96498/1/1000007159268.pdf" data-clk="hl=en&amp;sa=T&amp;oi=ggp&amp;ct=res&amp;cd=25&amp;ei=EPGGV7qaD4mfjAHP2ZqADw">From machine-to-machine communications towards cyber-physical systems.</a></h3>
-                            <div class="gs_a"><a href="/citations?user=WHwcWkwAAAAJ&amp;hl=en&amp;oi=sra">J Wan</a>, <a href="/citations?user=_HyHTrsAAAAJ&amp;hl=en&amp;oi=sra">M Chen</a>, <a href="/citations?user=HDFA2VYAAAAJ&amp;hl=en&amp;oi=sra">F Xia</a>, D Li, K Zhou - Comput. Sci. Inf. Syst., 2013 - or.nsfc.gov.cn</div>
-                            <div class="gs_rs">Abstract. In recent years, cyber-physical systems (CPS) have emerged as a promising
-                                <br>direction to enrich the interactions between physical and virtual worlds. In this article, we first
-                                <br>present the correlations among machine-to-machine (M2M), wireless sensor networks (<b> ...</b></div>
-                            <div class="gs_fl"><a href="/scholar?cites=11362799343111580753&amp;as_sdt=2005&amp;sciodt=0,5&amp;hl=en">Cited by 49</a> <a href="/scholar?q=related:USw1xMzFsJ0J:scholar.google.com/&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5">Related articles</a> <a href="/scholar?cluster=11362799343111580753&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5" class="gs_nph">All 7 versions</a> <a onclick="return gs_ocit(event,'USw1xMzFsJ0J','25')" href="#" class="gs_nph" role="button" aria-controls="gs_cit" aria-haspopup="true">Cite</a> <span class="gs_nph"><a id="gs_svl25" onclick="return gs_sva('USw1xMzFsJ0J','25')" href="#" title="Save this article to my library so that I can read or cite it later.">Save</a><span id="gs_svo25" class="gs_svm">Saving<span id="gs_svd25">...</span></span><a id="gs_svs25" style="display:none">Saved</a><span id="gs_sve25" class="gs_svm">Error saving. <a onclick="return gs_sva('USw1xMzFsJ0J','25')" href="#">Try again?</a></span></span> <a href="#" class="gs_mor" role="button" onclick="return gs_more(this,1)">More</a> <a href="http://scholar.googleusercontent.com/scholar?q=cache:USw1xMzFsJ0J:scholar.google.com/&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5" class="gs_nvi">View as HTML</a> <a href="#" class="gs_nvi" role="button" onclick="return gs_more(this,0)">Fewer</a></div>
+                            <h3 class="gs_rt"><a href="http://ieeexplore.ieee.org.proxy.lib.uwaterloo.ca/xpls/abs_all.jsp?arnumber=6208883" data-clk="hl=en&amp;sa=T&amp;ct=res&amp;cd=4&amp;ei=ACGpV9_BGcGy2AbM55ewAQ">Molecular communication and networking: Opportunities and challenges</a></h3>
+                            <div class="gs_a"><a href="/citations?user=-gzOQnYAAAAJ&amp;hl=en&amp;oi=sra">T Nakano</a>, <a href="/citations?user=vk6I_z0AAAAJ&amp;hl=en&amp;oi=sra">MJ Moore</a>, F Wei&hellip; - IEEE transactions on &hellip;, 2012 - ieeexplore.ieee.org</div>
+                            <div class="gs_rs">Abstract—The ability of engineered biological nanomachines to communicate with
+                                <br>biological systems at the molecular level is anticipated to enable future applications such as
+                                <br>monitoring the condition of a human body, regenerating biological tissues and organs, <b> ...</b></div>
+                            <div class="gs_fl"><a href="/scholar?cites=15425881670551677909&amp;as_sdt=2005&amp;sciodt=0,5&amp;hl=en">Cited by 196</a> <a href="/scholar?q=related:1StxSKa9E9YJ:scholar.google.com/&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5">Related articles</a> <a href="/scholar?cluster=15425881670551677909&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5" class="gs_nph">All 7 versions</a> <a href="http://gateway.webofknowledge.com.proxy.lib.uwaterloo.ca/gateway/Gateway.cgi?GWVersion=2&amp;SrcApp=GSSearch&amp;SrcAuth=Scholar&amp;DestApp=WOS_CPL&amp;DestLinkType=CitingArticles&amp;UT=000304913400007&amp;SrcURL=https://scholar-google-ca.proxy.lib.uwaterloo.ca/&amp;SrcDesc=Back+to+Google+Scholar&amp;GSPage=TC" data-clk="hl=en&amp;sa=T&amp;ct=wosc&amp;cd=4&amp;ei=ACGpV9_BGcGy2AbM55ewAQ" class="gs_nta gs_nph">Web of Science: 95</a> <a onclick="return gs_ocit(event,'1StxSKa9E9YJ','4')" href="#" class="gs_nph" role="button" aria-controls="gs_cit" aria-haspopup="true">Cite</a> <span class="gs_nph"><a id="gs_svl4" onclick="return gs_sva('1StxSKa9E9YJ','4')" href="#" title="Save this article to my library so that I can read or cite it later.">Save</a><span id="gs_svo4" class="gs_svm">Saving<span id="gs_svd4">...</span></span><a id="gs_svs4" style="display:none">Saved</a><span id="gs_sve4" class="gs_svm">Error saving. <a onclick="return gs_sva('1StxSKa9E9YJ','4')" href="#">Try again?</a></span></span> <a href="#" class="gs_mor gs_ota gs_oph" role="button" onclick="return gs_more(this,1)">More</a> <a href="#" class="gs_nvi" role="button" onclick="return gs_more(this,0)">Fewer</a></div>
                         </div>
                     </div>
                     <div class="gs_r">
                         <div class="gs_ggs gs_fl">
-                            <button type="button" id="gs_ggsB26" class="gs_btnFI gs_in_ib gs_btn_half"><span class="gs_wr"><span class="gs_lbl"></span><span class="gs_ico"></span></span>
-                            </button>
-                            <div class="gs_md_wp gs_ttss" id="gs_ggsW26"><a href="http://downloads.hindawi.com/journals/ijdsn/2013/950704.pdf" data-clk="hl=en&amp;sa=T&amp;oi=gga&amp;ct=gga&amp;cd=26&amp;ei=EPGGV7qaD4mfjAHP2ZqADw"><span class="gs_ggsL"><span class=gs_ctg2>[PDF]</span> from hindawi.com</span><span class="gs_ggsS">hindawi.com <span class=gs_ctg2>[PDF]</span></span></a></div>
+                            <div class="gs_ggsm" id="gs_ggsW5">
+                                <div class="gs_ggsd"><a href="http://www-ncbi-nlm-nih-gov.proxy.lib.uwaterloo.ca/pmc/articles/PMC3890262/" data-clk="hl=en&amp;sa=T&amp;oi=gga&amp;ct=gga&amp;cd=5&amp;ei=ACGpV9_BGcGy2AbM55ewAQ"><span class=gs_ctg2>[HTML]</span> nih.gov</a></div>
+                                <div class="gs_ggsd"><a href="/scholar?output=instlink&amp;q=info:mRGpM0Wr5d0J:scholar.google.com/&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5&amp;scillfp=12742282540758932555&amp;oi=lle">Get It!@Waterloo</a></div>
+                            </div>
                         </div>
                         <div class="gs_ri">
-                            <h3 class="gs_rt"><a href="http://www.hindawi.com/journals/ijdsn/2013/950704/abs/" data-clk="hl=en&amp;sa=T&amp;ct=res&amp;cd=26&amp;ei=EPGGV7qaD4mfjAHP2ZqADw">A review of IEEE 802.15. 6 MAC, PHY, and security specifications</a></h3>
-                            <div class="gs_a"><a href="/citations?user=8TVc7lYAAAAJ&amp;hl=en&amp;oi=sra">S Ullah</a>, <a href="/citations?user=5GedLYIAAAAJ&amp;hl=en&amp;oi=sra">M Mohaisen</a>, MA Alnuem - International Journal of Distributed &hellip;, 2013 - hindawi.com</div>
-                            <div class="gs_rs">IEEE 802.15. 6 is the first international Wireless Body Area Network (WBAN) standard that
-                                <br>supports communications in the vicinity of or inside a human body to serve a variety of
-                                <br>medical and nonmedical applications. The standard defines a Medium Access Control (<b> ...</b></div>
-                            <div class="gs_fl"><a href="/scholar?cites=6187079244962669586&amp;as_sdt=2005&amp;sciodt=0,5&amp;hl=en">Cited by 49</a> <a href="/scholar?q=related:EiQx8crr3FUJ:scholar.google.com/&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5">Related articles</a> <a href="/scholar?cluster=6187079244962669586&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5" class="gs_nph">All 7 versions</a> <a onclick="return gs_ocit(event,'EiQx8crr3FUJ','26')" href="#" class="gs_nph" role="button" aria-controls="gs_cit" aria-haspopup="true">Cite</a> <span class="gs_nph"><a id="gs_svl26" onclick="return gs_sva('EiQx8crr3FUJ','26')" href="#" title="Save this article to my library so that I can read or cite it later.">Save</a><span id="gs_svo26" class="gs_svm">Saving<span id="gs_svd26">...</span></span><a id="gs_svs26" style="display:none">Saved</a><span id="gs_sve26" class="gs_svm">Error saving. <a onclick="return gs_sva('EiQx8crr3FUJ','26')" href="#">Try again?</a></span></span> <a href="#" class="gs_mor" role="button" onclick="return gs_more(this,1)">More</a> <a href="http://scholar.googleusercontent.com/scholar?q=cache:EiQx8crr3FUJ:scholar.google.com/&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5" class="gs_nvi">Cached</a> <a href="#" class="gs_nvi" role="button" onclick="return gs_more(this,0)">Fewer</a></div>
+                            <h3 class="gs_rt"><a href="http://ieeexplore.ieee.org.proxy.lib.uwaterloo.ca/xpls/abs_all.jsp?arnumber=6579688" data-clk="hl=en&amp;sa=T&amp;ct=res&amp;cd=5&amp;ei=ACGpV9_BGcGy2AbM55ewAQ">A survey on ambient intelligence in healthcare</a></h3>
+                            <div class="gs_a"><a href="/citations?user=VLpaWf8AAAAJ&amp;hl=en&amp;oi=sra">G Acampora</a>, <a href="/citations?user=VpfWvTUAAAAJ&amp;hl=en&amp;oi=sra">DJ Cook</a>, <a href="/citations?user=Rtej0FIAAAAJ&amp;hl=en&amp;oi=sra">P Rashidi</a>&hellip; - Proceedings of the &hellip;, 2013 - ieeexplore.ieee.org</div>
+                            <div class="gs_rs">ABSTRACT| Ambient Intelligence (AmI) is a new paradigm in information technology aimed
+                                <br>at empowering people&#39;s capabilities by means of digital environments that are sensitive,
+                                <br>adaptive, and responsive to human needs, habits, gestures, and emotions. This futuristic <b> ...</b></div>
+                            <div class="gs_fl"><a href="/scholar?cites=15989374365756625305&amp;as_sdt=2005&amp;sciodt=0,5&amp;hl=en">Cited by 156</a> <a href="/scholar?q=related:mRGpM0Wr5d0J:scholar.google.com/&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5">Related articles</a> <a href="/scholar?cluster=15989374365756625305&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5" class="gs_nph">All 13 versions</a> <a href="http://gateway.webofknowledge.com.proxy.lib.uwaterloo.ca/gateway/Gateway.cgi?GWVersion=2&amp;SrcApp=GSSearch&amp;SrcAuth=Scholar&amp;DestApp=WOS_CPL&amp;DestLinkType=CitingArticles&amp;UT=000327606700005&amp;SrcURL=https://scholar-google-ca.proxy.lib.uwaterloo.ca/&amp;SrcDesc=Back+to+Google+Scholar&amp;GSPage=TC" data-clk="hl=en&amp;sa=T&amp;ct=wosc&amp;cd=5&amp;ei=ACGpV9_BGcGy2AbM55ewAQ" class="gs_nta gs_nph">Web of Science: 65</a> <a onclick="return gs_ocit(event,'mRGpM0Wr5d0J','5')" href="#" class="gs_nph" role="button" aria-controls="gs_cit" aria-haspopup="true">Cite</a> <span class="gs_nph"><a id="gs_svl5" onclick="return gs_sva('mRGpM0Wr5d0J','5')" href="#" title="Save this article to my library so that I can read or cite it later.">Save</a><span id="gs_svo5" class="gs_svm">Saving<span id="gs_svd5">...</span></span><a id="gs_svs5" style="display:none">Saved</a><span id="gs_sve5" class="gs_svm">Error saving. <a onclick="return gs_sva('mRGpM0Wr5d0J','5')" href="#">Try again?</a></span></span> <a href="#" class="gs_mor gs_ota gs_oph" role="button" onclick="return gs_more(this,1)">More</a> <a href="#" class="gs_nvi" role="button" onclick="return gs_more(this,0)">Fewer</a></div>
                         </div>
                     </div>
                     <div class="gs_r">
                         <div class="gs_ggs gs_fl">
-                            <button type="button" id="gs_ggsB27" class="gs_btnFI gs_in_ib gs_btn_half"><span class="gs_wr"><span class="gs_lbl"></span><span class="gs_ico"></span></span>
-                            </button>
-                            <div class="gs_md_wp gs_ttss" id="gs_ggsW27"><a href="http://link.springer.com/article/10.1007/s11042-012-1013-4/fulltext.html" data-clk="hl=en&amp;sa=T&amp;oi=gga&amp;ct=gga&amp;cd=27&amp;ei=EPGGV7qaD4mfjAHP2ZqADw"><span class="gs_ggsL"><span class=gs_ctg2>[HTML]</span> from springer.com</span><span class="gs_ggsS">springer.com <span class=gs_ctg2>[HTML]</span></span></a></div>
+                            <div class="gs_ggsm" id="gs_ggsW6">
+                                <div class="gs_ggsd"><a href="https://www.researchgate.net/profile/Jean-Marie_Bonnin/publication/258165429_Wireless_sensor_networks_a_survey_on_recent_developments_and_potential_synergies_J_Supercomput_68_1-48/links/546b718d0cf2397f7831c078.pdf" data-clk="hl=en&amp;sa=T&amp;oi=gga&amp;ct=gga&amp;cd=6&amp;ei=ACGpV9_BGcGy2AbM55ewAQ"><span class=gs_ctg2>[PDF]</span> researchgate.net</a></div>
+                                <div class="gs_ggsd"><a href="/scholar?output=instlink&amp;q=info:vILQ2veBBKMJ:scholar.google.com/&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5&amp;scillfp=16772467418016114641&amp;oi=lle">Get It!@Waterloo</a></div>
+                            </div>
                         </div>
                         <div class="gs_ri">
-                            <h3 class="gs_rt"><a href="http://link.springer.com/article/10.1007/s11042-012-1013-4" data-clk="hl=en&amp;sa=T&amp;ct=res&amp;cd=27&amp;ei=EPGGV7qaD4mfjAHP2ZqADw">Towards smart city: M2M communications with software agent intelligence</a></h3>
-                            <div class="gs_a"><a href="/citations?user=_HyHTrsAAAAJ&amp;hl=en&amp;oi=sra">M Chen</a> - Multimedia Tools and Applications, 2013 - Springer</div>
-                            <div class="gs_rs">Abstract Recent advances in the fields of wireless technology have exhibited a strong
-                                <br>potential and tendency on improving human life by means of ubiquitous communications
-                                <br>devices that enable smart, distributed services. In fact, traditional human to human (H2H) <b> ...</b></div>
-                            <div class="gs_fl"><a href="/scholar?cites=14600993630653353777&amp;as_sdt=2005&amp;sciodt=0,5&amp;hl=en">Cited by 46</a> <a href="/scholar?q=related:MY_VAlkmocoJ:scholar.google.com/&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5">Related articles</a> <a href="/scholar?cluster=14600993630653353777&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5" class="gs_nph">All 10 versions</a> <a onclick="return gs_ocit(event,'MY_VAlkmocoJ','27')" href="#" class="gs_nph" role="button" aria-controls="gs_cit" aria-haspopup="true">Cite</a> <span class="gs_nph"><a id="gs_svl27" onclick="return gs_sva('MY_VAlkmocoJ','27')" href="#" title="Save this article to my library so that I can read or cite it later.">Save</a><span id="gs_svo27" class="gs_svm">Saving<span id="gs_svd27">...</span></span><a id="gs_svs27" style="display:none">Saved</a><span id="gs_sve27" class="gs_svm">Error saving. <a onclick="return gs_sva('MY_VAlkmocoJ','27')" href="#">Try again?</a></span></span> <a href="#" class="gs_mor gs_oph" role="button" onclick="return gs_more(this,1)">More</a> <a href="#" class="gs_nvi" role="button" onclick="return gs_more(this,0)">Fewer</a></div>
+                            <h3 class="gs_rt"><a href="http://link.springer.com.proxy.lib.uwaterloo.ca/article/10.1007/s11227-013-1021-9" data-clk="hl=en&amp;sa=T&amp;ct=res&amp;cd=6&amp;ei=ACGpV9_BGcGy2AbM55ewAQ">Wireless sensor networks: a survey on recent developments and potential synergies</a></h3>
+                            <div class="gs_a">P Rawat, <a href="/citations?user=9tzP1AUAAAAJ&amp;hl=en&amp;oi=sra">KD Singh</a>, <a href="/citations?user=BBRaNeoAAAAJ&amp;hl=en&amp;oi=sra">H Chaouchi</a>, <a href="/citations?user=oB0_OKoAAAAJ&amp;hl=en&amp;oi=sra">JM Bonnin</a> - The Journal of &hellip;, 2014 - Springer</div>
+                            <div class="gs_rs">Abstract Wireless sensor network (WSN) has emerged as one of the most promising
+                                <br>technologies for the future. This has been enabled by advances in technology and
+                                <br>availability of small, inexpensive, and smart sensors resulting in cost effective and easily <b> ...</b></div>
+                            <div class="gs_fl"><a href="/scholar?cites=11746656629617099452&amp;as_sdt=2005&amp;sciodt=0,5&amp;hl=en">Cited by 132</a> <a href="/scholar?q=related:vILQ2veBBKMJ:scholar.google.com/&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5">Related articles</a> <a href="/scholar?cluster=11746656629617099452&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5" class="gs_nph">All 13 versions</a> <a href="http://gateway.webofknowledge.com.proxy.lib.uwaterloo.ca/gateway/Gateway.cgi?GWVersion=2&amp;SrcApp=GSSearch&amp;SrcAuth=Scholar&amp;DestApp=WOS_CPL&amp;DestLinkType=CitingArticles&amp;UT=000334577000001&amp;SrcURL=https://scholar-google-ca.proxy.lib.uwaterloo.ca/&amp;SrcDesc=Back+to+Google+Scholar&amp;GSPage=TC" data-clk="hl=en&amp;sa=T&amp;ct=wosc&amp;cd=6&amp;ei=ACGpV9_BGcGy2AbM55ewAQ" class="gs_nta gs_nph">Web of Science: 33</a> <a onclick="return gs_ocit(event,'vILQ2veBBKMJ','6')" href="#" class="gs_nph" role="button" aria-controls="gs_cit" aria-haspopup="true">Cite</a> <span class="gs_nph"><a id="gs_svl6" onclick="return gs_sva('vILQ2veBBKMJ','6')" href="#" title="Save this article to my library so that I can read or cite it later.">Save</a><span id="gs_svo6" class="gs_svm">Saving<span id="gs_svd6">...</span></span><a id="gs_svs6" style="display:none">Saved</a><span id="gs_sve6" class="gs_svm">Error saving. <a onclick="return gs_sva('vILQ2veBBKMJ','6')" href="#">Try again?</a></span></span> <a href="#" class="gs_mor gs_ota gs_oph" role="button" onclick="return gs_more(this,1)">More</a> <a href="#" class="gs_nvi" role="button" onclick="return gs_more(this,0)">Fewer</a></div>
                         </div>
                     </div>
                     <div class="gs_r">
                         <div class="gs_ggs gs_fl">
-                            <button type="button" id="gs_ggsB28" class="gs_btnFI gs_in_ib gs_btn_half"><span class="gs_wr"><span class="gs_lbl"></span><span class="gs_ico"></span></span>
-                            </button>
-                            <div class="gs_md_wp gs_ttss" id="gs_ggsW28"><a href="http://www.mdpi.com/1424-8220/13/5/5406/htm" data-clk="hl=en&amp;sa=T&amp;oi=gga&amp;ct=gga&amp;cd=28&amp;ei=EPGGV7qaD4mfjAHP2ZqADw"><span class="gs_ggsL"><span class=gs_ctg2>[HTML]</span> from mdpi.com</span><span class="gs_ggsS">mdpi.com <span class=gs_ctg2>[HTML]</span></span></a></div>
+                            <div class="gs_ggsm" id="gs_ggsW7">
+                                <div class="gs_ggsd"><a href="https://www.researchgate.net/profile/Victor_Leung3/publication/278402204_A_Survey_of_Recent_Developments_in_Home_M2M_Networks/links/5596b99108ae5d8f39328042.pdf" data-clk="hl=en&amp;sa=T&amp;oi=gga&amp;ct=gga&amp;cd=7&amp;ei=ACGpV9_BGcGy2AbM55ewAQ"><span class=gs_ctg2>[PDF]</span> researchgate.net</a></div>
+                                <div class="gs_ggsd"><a href="/scholar?output=instlink&amp;q=info:7mKBr1NpahQJ:scholar.google.com/&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5&amp;scillfp=14794908263311309073&amp;oi=lle">Get It!@Waterloo</a></div>
+                            </div>
                         </div>
                         <div class="gs_ri">
-                            <h3 class="gs_rt"><span class="gs_ctc"><span class="gs_ct1">[HTML]</span><span class="gs_ct2">[HTML]</span></span> <a href="http://www.mdpi.com/1424-8220/13/5/5406/htm" data-clk="hl=en&amp;sa=T&amp;oi=ggp&amp;ct=res&amp;cd=28&amp;ei=EPGGV7qaD4mfjAHP2ZqADw">A survey of body sensor networks</a></h3>
-                            <div class="gs_a">X Lai, Q Liu, X Wei, W Wang, G Zhou, G Han - Sensors, 2013 - mdpi.com</div>
-                            <div class="gs_rs">Abstract: The technology of sensor, pervasive computing, and intelligent information
-                                <br>processing is widely used in Body Sensor Networks (BSNs), which are a branch of wireless
-                                <br>sensor networks (WSNs). BSNs are playing an increasingly important role in the fields of <b> ...</b></div>
-                            <div class="gs_fl"><a href="/scholar?cites=9977078618201667161&amp;as_sdt=2005&amp;sciodt=0,5&amp;hl=en">Cited by 45</a> <a href="/scholar?q=related:WTYOdiS0dYoJ:scholar.google.com/&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5">Related articles</a> <a href="/scholar?cluster=9977078618201667161&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5" class="gs_nph">All 12 versions</a> <a onclick="return gs_ocit(event,'WTYOdiS0dYoJ','28')" href="#" class="gs_nph" role="button" aria-controls="gs_cit" aria-haspopup="true">Cite</a> <span class="gs_nph"><a id="gs_svl28" onclick="return gs_sva('WTYOdiS0dYoJ','28')" href="#" title="Save this article to my library so that I can read or cite it later.">Save</a><span id="gs_svo28" class="gs_svm">Saving<span id="gs_svd28">...</span></span><a id="gs_svs28" style="display:none">Saved</a><span id="gs_sve28" class="gs_svm">Error saving. <a onclick="return gs_sva('WTYOdiS0dYoJ','28')" href="#">Try again?</a></span></span> <a href="#" class="gs_mor" role="button" onclick="return gs_more(this,1)">More</a> <a href="http://scholar.googleusercontent.com/scholar?q=cache:WTYOdiS0dYoJ:scholar.google.com/&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5" class="gs_nvi">Cached</a> <a href="#" class="gs_nvi" role="button" onclick="return gs_more(this,0)">Fewer</a></div>
+                            <h3 class="gs_rt"><a href="http://ieeexplore.ieee.org.proxy.lib.uwaterloo.ca/xpls/abs_all.jsp?arnumber=6674156" data-clk="hl=en&amp;sa=T&amp;ct=res&amp;cd=7&amp;ei=ACGpV9_BGcGy2AbM55ewAQ">A survey of recent developments in home M2M networks</a></h3>
+                            <div class="gs_a"><a href="/citations?user=_HyHTrsAAAAJ&amp;hl=en&amp;oi=sra">M Chen</a>, <a href="/citations?user=WHwcWkwAAAAJ&amp;hl=en&amp;oi=sra">J Wan</a>, S González, X Liao&hellip; - &hellip; Surveys &amp; Tutorials, 2014 - ieeexplore.ieee.org</div>
+                            <div class="gs_rs">Abstract—Recent years have witnessed the emergence of machine-to-machine (M2M)
+                                <br>networks as an efficient means for providing automated communications among distributed
+                                <br>devices. Automated M2M communications can offset the overhead costs of conventional <b> ...</b></div>
+                            <div class="gs_fl"><a href="/scholar?cites=1471104036437582574&amp;as_sdt=2005&amp;sciodt=0,5&amp;hl=en">Cited by 116</a> <a href="/scholar?q=related:7mKBr1NpahQJ:scholar.google.com/&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5">Related articles</a> <a href="/scholar?cluster=1471104036437582574&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5" class="gs_nph">All 9 versions</a> <a href="http://gateway.webofknowledge.com.proxy.lib.uwaterloo.ca/gateway/Gateway.cgi?GWVersion=2&amp;SrcApp=GSSearch&amp;SrcAuth=Scholar&amp;DestApp=WOS_CPL&amp;DestLinkType=CitingArticles&amp;UT=000338700900007&amp;SrcURL=https://scholar-google-ca.proxy.lib.uwaterloo.ca/&amp;SrcDesc=Back+to+Google+Scholar&amp;GSPage=TC" data-clk="hl=en&amp;sa=T&amp;ct=wosc&amp;cd=7&amp;ei=ACGpV9_BGcGy2AbM55ewAQ" class="gs_nta gs_nph">Web of Science: 45</a> <a onclick="return gs_ocit(event,'7mKBr1NpahQJ','7')" href="#" class="gs_nph" role="button" aria-controls="gs_cit" aria-haspopup="true">Cite</a> <span class="gs_nph"><a id="gs_svl7" onclick="return gs_sva('7mKBr1NpahQJ','7')" href="#" title="Save this article to my library so that I can read or cite it later.">Save</a><span id="gs_svo7" class="gs_svm">Saving<span id="gs_svd7">...</span></span><a id="gs_svs7" style="display:none">Saved</a><span id="gs_sve7" class="gs_svm">Error saving. <a onclick="return gs_sva('7mKBr1NpahQJ','7')" href="#">Try again?</a></span></span> <a href="#" class="gs_mor gs_ota gs_oph" role="button" onclick="return gs_more(this,1)">More</a> <a href="#" class="gs_nvi" role="button" onclick="return gs_more(this,0)">Fewer</a></div>
                         </div>
                     </div>
                     <div class="gs_r">
                         <div class="gs_ggs gs_fl">
-                            <button type="button" id="gs_ggsB29" class="gs_btnFI gs_in_ib gs_btn_half"><span class="gs_wr"><span class="gs_lbl"></span><span class="gs_ico"></span></span>
-                            </button>
-                            <div class="gs_md_wp gs_ttss" id="gs_ggsW29"><a href="https://www.researchgate.net/profile/Samuel_Fosso_Wamba/publication/259123427_A_literature_review_of_RFID-enabled_healthcare_applications_and_issues/links/00b49533482686b66d000000.pdf" data-clk="hl=en&amp;sa=T&amp;oi=gga&amp;ct=gga&amp;cd=29&amp;ei=EPGGV7qaD4mfjAHP2ZqADw"><span class="gs_ggsL"><span class=gs_ctg2>[PDF]</span> from researchgate.net</span><span class="gs_ggsS">researchgate.net <span class=gs_ctg2>[PDF]</span></span></a></div>
+                            <div class="gs_ggsm" id="gs_ggsW8">
+                                <div class="gs_ggsd"><a href="https://bbcr-uwaterloo-ca.proxy.lib.uwaterloo.ca/papers/LLLS11.pdf" data-clk="hl=en&amp;sa=T&amp;oi=gga&amp;ct=gga&amp;cd=8&amp;ei=ACGpV9_BGcGy2AbM55ewAQ"><span class=gs_ctg2>[PDF]</span> uwaterloo.ca</a></div>
+                                <div class="gs_ggsd"><a href="/scholar?output=instlink&amp;q=info:gYXZ7DhOADYJ:scholar.google.com/&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5&amp;scillfp=5575555732072052159&amp;oi=lle">Get It!@Waterloo</a></div>
+                            </div>
                         </div>
                         <div class="gs_ri">
-                            <h3 class="gs_rt"><a href="http://www.sciencedirect.com/science/article/pii/S0268401213000911" data-clk="hl=en&amp;sa=T&amp;ct=res&amp;cd=29&amp;ei=EPGGV7qaD4mfjAHP2ZqADw">A literature review of RFID-enabled healthcare applications and issues</a></h3>
-                            <div class="gs_a"><a href="/citations?user=xjROkN0AAAAJ&amp;hl=en&amp;oi=sra">SF Wamba</a>, <a href="/citations?user=4QxVNC8AAAAJ&amp;hl=en&amp;oi=sra">A Anand</a>, <a href="/citations?user=YA3tP10AAAAJ&amp;hl=en&amp;oi=sra">L Carter</a> - International Journal of Information &hellip;, 2013 - Elsevier</div>
-                            <div class="gs_rs">Abstract Despite the rising implementation of RFID technology-based healthcare services,
-                                <br>few empirical studies have been conducted to assess the potential of this technology within
-                                <br>the healthcare sector. The purpose of this study is to help initiate and direct such empirical <b> ...</b></div>
-                            <div class="gs_fl"><a href="/scholar?cites=6483605289231307769&amp;as_sdt=2005&amp;sciodt=0,5&amp;hl=en">Cited by 45</a> <a href="/scholar?q=related:-dN5sKhk-lkJ:scholar.google.com/&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5">Related articles</a> <a href="/scholar?cluster=6483605289231307769&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5" class="gs_nph">All 8 versions</a> <a onclick="return gs_ocit(event,'-dN5sKhk-lkJ','29')" href="#" class="gs_nph" role="button" aria-controls="gs_cit" aria-haspopup="true">Cite</a> <span class="gs_nph"><a id="gs_svl29" onclick="return gs_sva('-dN5sKhk-lkJ','29')" href="#" title="Save this article to my library so that I can read or cite it later.">Save</a><span id="gs_svo29" class="gs_svm">Saving<span id="gs_svd29">...</span></span><a id="gs_svs29" style="display:none">Saved</a><span id="gs_sve29" class="gs_svm">Error saving. <a onclick="return gs_sva('-dN5sKhk-lkJ','29')" href="#">Try again?</a></span></span> <a href="#" class="gs_mor gs_oph" role="button" onclick="return gs_more(this,1)">More</a> <a href="#" class="gs_nvi" role="button" onclick="return gs_more(this,0)">Fewer</a></div>
+                            <h3 class="gs_rt"><a href="http://link.springer.com.proxy.lib.uwaterloo.ca/article/10.1007/s11036-010-0274-2" data-clk="hl=en&amp;sa=T&amp;ct=res&amp;cd=8&amp;ei=ACGpV9_BGcGy2AbM55ewAQ">A secure handshake scheme with symptoms-matching for mhealthcare social network</a></h3>
+                            <div class="gs_a"><a href="/citations?user=DeBXK0UAAAAJ&amp;hl=en&amp;oi=sra">R Lu</a>, <a href="/citations?user=om3xUIcAAAAJ&amp;hl=en&amp;oi=sra">X Lin</a>, <a href="/citations?user=fzX2e3sAAAAJ&amp;hl=en&amp;oi=sra">X Liang</a>, <a href="/citations?user=Bjl3GwoAAAAJ&amp;hl=en&amp;oi=sra">X Shen</a> - Mobile Networks and Applications, 2011 - Springer</div>
+                            <div class="gs_rs">Abstract In our aging society, mHealthcare social network (MHSN) built upon wireless body
+                                <br>sensor network (WBSN) and mobile communications provides a promising platform for the
+                                <br>seniors who have the same symptom to exchange their experiences, give mutual support <b> ...</b></div>
+                            <div class="gs_fl"><a href="/scholar?cites=3891196084446922113&amp;as_sdt=2005&amp;sciodt=0,5&amp;hl=en">Cited by 111</a> <a href="/scholar?q=related:gYXZ7DhOADYJ:scholar.google.com/&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5">Related articles</a> <a href="/scholar?cluster=3891196084446922113&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5" class="gs_nph">All 15 versions</a> <a href="http://gateway.webofknowledge.com.proxy.lib.uwaterloo.ca/gateway/Gateway.cgi?GWVersion=2&amp;SrcApp=GSSearch&amp;SrcAuth=Scholar&amp;DestApp=WOS_CPL&amp;DestLinkType=CitingArticles&amp;UT=000297358700003&amp;SrcURL=https://scholar-google-ca.proxy.lib.uwaterloo.ca/&amp;SrcDesc=Back+to+Google+Scholar&amp;GSPage=TC" data-clk="hl=en&amp;sa=T&amp;ct=wosc&amp;cd=8&amp;ei=ACGpV9_BGcGy2AbM55ewAQ" class="gs_nta gs_nph">Web of Science: 17</a> <a onclick="return gs_ocit(event,'gYXZ7DhOADYJ','8')" href="#" class="gs_nph" role="button" aria-controls="gs_cit" aria-haspopup="true">Cite</a> <span class="gs_nph"><a id="gs_svl8" onclick="return gs_sva('gYXZ7DhOADYJ','8')" href="#" title="Save this article to my library so that I can read or cite it later.">Save</a><span id="gs_svo8" class="gs_svm">Saving<span id="gs_svd8">...</span></span><a id="gs_svs8" style="display:none">Saved</a><span id="gs_sve8" class="gs_svm">Error saving. <a onclick="return gs_sva('gYXZ7DhOADYJ','8')" href="#">Try again?</a></span></span> <a href="#" class="gs_mor gs_ota gs_oph" role="button" onclick="return gs_more(this,1)">More</a> <a href="#" class="gs_nvi" role="button" onclick="return gs_more(this,0)">Fewer</a></div>
+                        </div>
+                    </div>
+                    <div class="gs_r">
+                        <div class="gs_ggs gs_fl">
+                            <div class="gs_ggsm" id="gs_ggsW9">
+                                <div class="gs_ggsd"><a href="http://pillars.lrc.ic.unicamp.br/~erick/pesquisa/gerla/Mobile%20Cloud%20Computing_%20A%20Survey,%20State%20of%20Art%20and%20Future%20Directions.pdf" data-clk="hl=en&amp;sa=T&amp;oi=gga&amp;ct=gga&amp;cd=9&amp;ei=ACGpV9_BGcGy2AbM55ewAQ"><span class=gs_ctg2>[PDF]</span> unicamp.br</a></div>
+                                <div class="gs_ggsd"><a href="/scholar?output=instlink&amp;q=info:ehp2c7_YBykJ:scholar.google.com/&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5&amp;scillfp=14627970287359508361&amp;oi=lle">Get It!@Waterloo</a></div>
+                            </div>
+                        </div>
+                        <div class="gs_ri">
+                            <h3 class="gs_rt"><a href="http://link.springer.com.proxy.lib.uwaterloo.ca/article/10.1007/s11036-013-0477-4" data-clk="hl=en&amp;sa=T&amp;ct=res&amp;cd=9&amp;ei=ACGpV9_BGcGy2AbM55ewAQ">Mobile cloud computing: A survey, state of art and future directions</a></h3>
+                            <div class="gs_a"><a href="/citations?user=vAPIyYEAAAAJ&amp;hl=en&amp;oi=sra">MR Rahimi</a>, J Ren, <a href="/citations?user=3IgFTEkAAAAJ&amp;hl=en&amp;oi=sra">CH Liu</a>, <a href="/citations?user=_yWPQWoAAAAJ&amp;hl=en&amp;oi=sra">AV Vasilakos</a>&hellip; - Mobile Networks and &hellip;, 2014 - Springer</div>
+                            <div class="gs_rs">Abstract In the recent years, cloud computing frameworks such as Amazon Web Services,
+                                <br>Google AppEngine and Windows Azure have become increasingly popular among IT
+                                <br>organizations and developers. Simultaneously, we have seen a phenomenal increase in <b> ...</b></div>
+                            <div class="gs_fl"><a href="/scholar?cites=2956569997179492986&amp;as_sdt=2005&amp;sciodt=0,5&amp;hl=en">Cited by 111</a> <a href="/scholar?q=related:ehp2c7_YBykJ:scholar.google.com/&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5">Related articles</a> <a href="/scholar?cluster=2956569997179492986&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5" class="gs_nph">All 10 versions</a> <a href="http://gateway.webofknowledge.com.proxy.lib.uwaterloo.ca/gateway/Gateway.cgi?GWVersion=2&amp;SrcApp=GSSearch&amp;SrcAuth=Scholar&amp;DestApp=WOS_CPL&amp;DestLinkType=CitingArticles&amp;UT=000334161000002&amp;SrcURL=https://scholar-google-ca.proxy.lib.uwaterloo.ca/&amp;SrcDesc=Back+to+Google+Scholar&amp;GSPage=TC" data-clk="hl=en&amp;sa=T&amp;ct=wosc&amp;cd=9&amp;ei=ACGpV9_BGcGy2AbM55ewAQ" class="gs_nta gs_nph">Web of Science: 27</a> <a onclick="return gs_ocit(event,'ehp2c7_YBykJ','9')" href="#" class="gs_nph" role="button" aria-controls="gs_cit" aria-haspopup="true">Cite</a> <span class="gs_nph"><a id="gs_svl9" onclick="return gs_sva('ehp2c7_YBykJ','9')" href="#" title="Save this article to my library so that I can read or cite it later.">Save</a><span id="gs_svo9" class="gs_svm">Saving<span id="gs_svd9">...</span></span><a id="gs_svs9" style="display:none">Saved</a><span id="gs_sve9" class="gs_svm">Error saving. <a onclick="return gs_sva('ehp2c7_YBykJ','9')" href="#">Try again?</a></span></span> <a href="#" class="gs_mor gs_ota gs_oph" role="button" onclick="return gs_more(this,1)">More</a> <a href="#" class="gs_nvi" role="button" onclick="return gs_more(this,0)">Fewer</a></div>
                         </div>
                     </div>
                     <script>
                     ! function() {
-                        var i, b;
-                        for (i = 20; i < 30; i++) {
-                            (b = gs_id("gs_ggsB" + i)) && gs_evt_clk(b, gs_bind(function(i, e) {
-                                gs_md_sif();
-                                gs_md_opn("gs_ggsW" + i, e);
-                            }, i), 2);
+                        var i, b, l;
+
+                        function m(b) {
+                            var A, S = 0;
+
+                            function o() {
+                                S = 1;
+                                A = document.activeElement;
+                                gs_xanm(b);
+                                gs_xvis(b);
+                                l = b.id;
+                            }
+
+                            function c() {
+                                S = 0;
+                                gs_uvis(b);
+                                try {
+                                    A.focus()
+                                } catch (_) {}
+                            }
+                            gs_evt_clk(b, function(e) {
+                                gs_md_shw(b.id, e, o, c);
+                            }, 1, 0, function(e) {
+                                return !gs_is_ph() || S;
+                            });
+                            gs_evt(b, "animationend webkitAnimationEnd", function(e) {
+                                S || e.target != b || gs_uanm(b);
+                            })
                         }
+                        for (i = 0; i < 10; i++) {
+                            (b = gs_id("gs_ggsW" + i)) && m(b);
+                        }
+                        gs_evt_el(function() {
+                            gs_is_ph() || l && (gs_md_cls(l), gs_uanm(gs_id(l)), l = 0);
+                        });
                     }();
-                    gs_evt_rdy(gs_bind(gs_svp, {
-                        "WTYOdiS0dYoJ": 28,
-                        "EiQx8crr3FUJ": 26,
-                        "MY_VAlkmocoJ": 27,
-                        "pX1s-gieo3IJ": 22,
-                        "hgFxOaPJtKMJ": 23,
-                        "e-R4NV5uon8J": 20,
-                        "MgmKQ-ISbKcJ": 21,
-                        "-dN5sKhk-lkJ": 29,
-                        "USw1xMzFsJ0J": 25,
-                        "GP_7VPdMbbwJ": 24
-                    }));
                     </script>
                     <p class="gs_alrt_btm"><a href="/scholar_alerts?view_op=create_alert_options&amp;hl=en&amp;alert_params=%3Fhl%3Den%26as_sdt%3D0,5%26sciodt%3D0,5%26cites%3D13991517909897415820%26scipsc%3D" class="gs_btnM gs_in_ib"><span class="gs_lbl">Create alert</span><span class="gs_ico"></span></a></p>
                     <div id="gs_n" role="navigation">
                         <center>
                             <table cellpadding="0" width="1%">
                                 <tr align="center" valign="top">
-                                    <td align="right" nowrap><a href="/scholar?start=10&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5&amp;cites=13991517909897415820&amp;scipsc="><span class="gs_ico gs_ico_nav_previous"></span><b style="display:block;margin-right:35px">Previous</b></a></td>
-                                    <td><a href="/scholar?start=0&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5&amp;cites=13991517909897415820&amp;scipsc="><span class="gs_ico gs_ico_nav_page"></span>1</a></td>
+                                    <td align="right" nowrap><span class="gs_ico gs_ico_nav_first"></span><b style="display:block;margin-right:35px;visibility:hidden">Previous</b></td>
+                                    <td><span class="gs_ico gs_ico_nav_current"></span><b>1</b></td>
                                     <td><a href="/scholar?start=10&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5&amp;cites=13991517909897415820&amp;scipsc="><span class="gs_ico gs_ico_nav_page"></span>2</a></td>
-                                    <td><span class="gs_ico gs_ico_nav_current"></span><b>3</b></td>
+                                    <td><a href="/scholar?start=20&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5&amp;cites=13991517909897415820&amp;scipsc="><span class="gs_ico gs_ico_nav_page"></span>3</a></td>
                                     <td><a href="/scholar?start=30&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5&amp;cites=13991517909897415820&amp;scipsc="><span class="gs_ico gs_ico_nav_page"></span>4</a></td>
                                     <td><a href="/scholar?start=40&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5&amp;cites=13991517909897415820&amp;scipsc="><span class="gs_ico gs_ico_nav_page"></span>5</a></td>
                                     <td><a href="/scholar?start=50&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5&amp;cites=13991517909897415820&amp;scipsc="><span class="gs_ico gs_ico_nav_page"></span>6</a></td>
@@ -4422,17 +4475,17 @@ button.gs_btnUR {
                                     <td><a href="/scholar?start=70&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5&amp;cites=13991517909897415820&amp;scipsc="><span class="gs_ico gs_ico_nav_page"></span>8</a></td>
                                     <td><a href="/scholar?start=80&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5&amp;cites=13991517909897415820&amp;scipsc="><span class="gs_ico gs_ico_nav_page"></span>9</a></td>
                                     <td><a href="/scholar?start=90&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5&amp;cites=13991517909897415820&amp;scipsc="><span class="gs_ico gs_ico_nav_page"></span>10</a></td>
-                                    <td align="left" nowrap><a href="/scholar?start=30&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5&amp;cites=13991517909897415820&amp;scipsc="><span class="gs_ico gs_ico_nav_next"></span><b style="display:block;margin-left:53px">Next</b></a></td>
+                                    <td align="left" nowrap><a href="/scholar?start=10&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5&amp;cites=13991517909897415820&amp;scipsc="><span class="gs_ico gs_ico_nav_next"></span><b style="display:block;margin-left:53px">Next</b></a></td>
                                 </tr>
                             </table>
                         </center>
                     </div>
                     <div id="gs_nm" role="navigation">
-                        <button type="button" onclick="window.location='/scholar?start\x3d10\x26hl\x3den\x26as_sdt\x3d0,5\x26sciodt\x3d0,5\x26cites\x3d13991517909897415820\x26scipsc\x3d'" aria-label="Previous" class="gs_btnPL gs_in_ib gs_btn_half"><span class="gs_wr"><span class="gs_lbl"></span><span class="gs_ico"></span></span>
+                        <button type="button" aria-label="Previous" disabled class="gs_btnPL gs_in_ib gs_btn_half gs_dis"><span class="gs_wr"><span class="gs_lbl"></span><span class="gs_ico gs_ico_dis"></span></span>
                         </button>
-                        <button type="button" onclick="window.location='/scholar?start\x3d30\x26hl\x3den\x26as_sdt\x3d0,5\x26sciodt\x3d0,5\x26cites\x3d13991517909897415820\x26scipsc\x3d'" aria-label="Next" class="gs_btnPR gs_in_ib gs_btn_half"><span class="gs_wr"><span class="gs_lbl"></span><span class="gs_ico"></span></span>
+                        <button type="button" onclick="window.location='/scholar?start\x3d10\x26hl\x3den\x26as_sdt\x3d0,5\x26sciodt\x3d0,5\x26cites\x3d13991517909897415820\x26scipsc\x3d'" aria-label="Next" class="gs_btnPR gs_in_ib gs_btn_half"><span class="gs_wr"><span class="gs_lbl"></span><span class="gs_ico"></span></span>
                         </button>
-                        <div id="gs_nml"><a class="gs_nma" href="/scholar?start=0&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5&amp;cites=13991517909897415820&amp;scipsc=">1</a><a class="gs_nma" href="/scholar?start=10&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5&amp;cites=13991517909897415820&amp;scipsc=">2</a><b class="gs_nma">3</b><a class="gs_nma" href="/scholar?start=30&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5&amp;cites=13991517909897415820&amp;scipsc=">4</a><a class="gs_nma" href="/scholar?start=40&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5&amp;cites=13991517909897415820&amp;scipsc=">5</a><a class="gs_nma" href="/scholar?start=50&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5&amp;cites=13991517909897415820&amp;scipsc=">6</a><a class="gs_nma" href="/scholar?start=60&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5&amp;cites=13991517909897415820&amp;scipsc=">7</a><a class="gs_nma" href="/scholar?start=70&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5&amp;cites=13991517909897415820&amp;scipsc=">8</a><a class="gs_nma" href="/scholar?start=80&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5&amp;cites=13991517909897415820&amp;scipsc=">9</a><a class="gs_nma" href="/scholar?start=90&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5&amp;cites=13991517909897415820&amp;scipsc=">10</a></div>
+                        <div id="gs_nml"><b class="gs_nma">1</b><a class="gs_nma" href="/scholar?start=10&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5&amp;cites=13991517909897415820&amp;scipsc=">2</a><a class="gs_nma" href="/scholar?start=20&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5&amp;cites=13991517909897415820&amp;scipsc=">3</a><a class="gs_nma" href="/scholar?start=30&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5&amp;cites=13991517909897415820&amp;scipsc=">4</a><a class="gs_nma" href="/scholar?start=40&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5&amp;cites=13991517909897415820&amp;scipsc=">5</a><a class="gs_nma" href="/scholar?start=50&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5&amp;cites=13991517909897415820&amp;scipsc=">6</a><a class="gs_nma" href="/scholar?start=60&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5&amp;cites=13991517909897415820&amp;scipsc=">7</a><a class="gs_nma" href="/scholar?start=70&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5&amp;cites=13991517909897415820&amp;scipsc=">8</a><a class="gs_nma" href="/scholar?start=80&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5&amp;cites=13991517909897415820&amp;scipsc=">9</a><a class="gs_nma" href="/scholar?start=90&amp;hl=en&amp;as_sdt=0,5&amp;sciodt=0,5&amp;cites=13991517909897415820&amp;scipsc=">10</a></div>
                     </div>
                     <div id="gs_ftr" role="contentinfo"><a href="/intl/en/scholar/about.html">About Google Scholar</a> <a href="//www.google.ca/intl/en/policies/privacy/">Privacy</a> <a href="//www.google.ca/intl/en/policies/terms/">Terms</a> <a href="//support.google.com/scholar/contact/general">Provide feedback</a></div>
                 </div>

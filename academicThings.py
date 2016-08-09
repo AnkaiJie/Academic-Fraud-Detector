@@ -253,7 +253,7 @@ class GscPdfExtractor:
             title = extract.find('h3', attrs={'class': 'gs_rt'}).text
             if title is not None:
                 title = title.replace('[PDF]', '').replace('[HTML]', '')
-            extract = extract.find('div', attrs={'class': 'gs_md_wp gs_ttss'})
+            extract = extract.find('div', attrs={'class': 'gs_ggsm'})
             pdf_obj = PdfObj('local')
             pdf_obj.setTitle(title)
             print(pdf_obj.getTitle())
@@ -278,6 +278,7 @@ class GscPdfExtractor:
             notFound = True
             for link in potential_links:
                 if link.text.strip() == "Get It!@Waterloo":
+                    print('Get It!@Waterloo')
                     url = SessionInitializer.ROOT_URL + link['href']
                     pdf_obj = self.getWatPDF(url)
                     if pdf_obj is not None:
@@ -394,3 +395,10 @@ class GscHtmlFunctions:
 #         print(paper.getTitle())
 
 #p = Paper('https://scholar-google-ca.proxy.lib.uwaterloo.ca/citations?view_op=view_citation&hl=en&user=_yWPQWoAAAAJ&cstart=40&citation_for_view=_yWPQWoAAAAJ:u-coK7KVo8oC')
+
+# pdfExtractor = GscPdfExtractor()
+# url='https://scholar-google-ca.proxy.lib.uwaterloo.ca/scholar?start=0&hl=en&as_sdt=0,5&sciodt=0,5&cites=526958332256542107'
+# pdfs = pdfExtractor.findPapersFromCitations(url)
+# analyzer = PaperReferenceExtractor()
+
+

@@ -7,7 +7,7 @@ ch = webdriver.Chrome("./chromedriver")
 
 if SessionInitializer.ROOT_URL == "https://scholar-google-ca.proxy.lib.uwaterloo.ca":
     ch.get('https://login.proxy.lib.uwaterloo.ca/login')
-    cookies = [{'name': 'ezproxy', 'httpOnly': False, 'path': '/', 'domain': '.lib.uwaterloo.ca', 'value': 'jdIfIXCf7y6O1kO', 'secure': False}, {'name': '_gat', 'httpOnly': False, 'path': '/', 'domain': '.uwaterloo.ca', 'value': '1', 'expiry': 1470355765, 'secure': False}, {'name': '_ga', 'httpOnly': False, 'path': '/', 'domain': '.uwaterloo.ca', 'value': 'GA1.2.1227558798.1466567220', 'expiry': 1533427165, 'secure': False}]
+    cookies = [{'httpOnly': False, 'path': '/', 'value': 'CcGg7JB4vd0Lcx1', 'domain': '.lib.uwaterloo.ca', 'name': 'ezproxy', 'secure': False}, {'httpOnly': False, 'path': '/', 'value': '1', 'domain': '.uwaterloo.ca', 'name': '_gat', 'secure': False, 'expiry': 1470697279}, {'httpOnly': False, 'path': '/', 'value': 'GA1.2.1227558798.1466567220', 'domain': '.uwaterloo.ca', 'name': '_ga', 'secure': False, 'expiry': 1533768679}]
 
     for cookie in cookies:
         ch.add_cookie(cookie)
@@ -48,11 +48,11 @@ def downloadFromWatLib(url, path):
 
 
 
-# MANUAL LOGIN
-lname = ch.find_element_by_name('pass')
-lname.send_keys('jie')
-barcode = ch.find_element_by_name('user')
-barcode.send_keys('21187005749502')
-form = ch.find_element_by_xpath('//input[@value = "Login"]')
-form.click()
-print(ch.get_cookies())
+# # MANUAL LOGIN
+# lname = ch.find_element_by_name('pass')
+# lname.send_keys('jie')
+# barcode = ch.find_element_by_name('user')
+# barcode.send_keys('21187005749502')
+# form = ch.find_element_by_xpath('//input[@value = "Login"]')
+# form.click()
+# print(ch.get_cookies())

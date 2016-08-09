@@ -19,7 +19,7 @@ import stage2
 
 # given a paper, counts the number of times it cites an author of the paper
 def count_self_cites(author, num_load):
-    author.loadPapers(num_load)
+    author.loadPapers(num_load, loadPaperPDFs=True)
     self_cite_arr = []
     print("Author fully loaded. Processing loaded papers...")
 
@@ -60,47 +60,57 @@ def count_self_cites(author, num_load):
 #given an author, and a number of papers, returns the journal frequency list of the first 30 citing papers
 def count_journal_frequency (author, num_papers):
 
-    author.loadPapers(num_papers)
+    author.loadPapers(num_papers, loadPaperPDFs=False)
     print("Author fully loaded. Processing loaded papers...")
     pap_arr = []
+    count = 0
 
-    for idx, paper in enumerate(author.getPapers()):
-        time.sleep(10)
-        info_list = []
-        one_pap_arr = []
-        cited_by_url = paper.getCitedByUrl()
-        session = requests.Session()
-
-        url_part_one = SessionInitializer.ROOT_URL + '/scholar?start='
-        url_part_two = '&hl=en&as_sdt=0,5&sciodt=0,5&cites='
-        cited_by_url = cited_by_url[:cited_by_url.rfind('&')]
-        paper_code = cited_by_url[cited_by_url.rfind('=')+1:]
-
-        for i in range(0, 30, 10):
+    try:
+        for idx, paper in enumerate(author.getPapers()):
             time.sleep(10)
-            final_url = url_part_one+str(i)+url_part_two+paper_code
-            response = session.get(final_url)
-            soup = BeautifulSoup(response.content, "lxml")
-            info_list += soup.findAll('div', attrs={'class':'gs_a'})
+            info_list = []
+            one_pap_arr = []
+            cited_by_url = paper.getCitedByUrl()
+            session = SessionInitializer.getSesh()
 
-        journal_dict = {}
+            url_part_one = SessionInitializer.ROOT_URL + '/scholar?start='
+            url_part_two = '&hl=en&as_sdt=0,5&sciodt=0,5&cites='
+            cited_by_url = cited_by_url[:cited_by_url.rfind('&')]
+            paper_code = cited_by_url[cited_by_url.rfind('=')+1:]
 
-        for info_str in info_list:
-            info_str = info_str.text
-            info_str = info_str.split('-')[1].split(',')[0]
-            #print('final info string: ' + info_str)
+            for i in range(0, 30, 10):
+                time.sleep(10)
+                final_url = url_part_one+str(i)+url_part_two+paper_code
+                print(final_url)
+                response = session.get(final_url)
+                soup = BeautifulSoup(response.content, "lxml")
+                info_list += soup.findAll('div', attrs={'class':'gs_a'})
 
-            if (info_str in journal_dict):
-                journal_dict[info_str]+=1
-            else:
-                journal_dict[info_str] = 1
+            journal_dict = {}
 
-        one_pap_arr.append(paper.getInfo()['Title']) 
-        one_pap_arr.append(journal_dict)
-        print(one_pap_arr)
-        pap_arr.append(one_pap_arr)
-        print('Paper ' + str(idx) + ' complete.')
+            for info_str in info_list:
+                info_str = info_str.text
+                info_str = info_str.split(' - ')[1].split(',')[0]
+                #print('final info string: ' + info_str)
+                info_str = info_str.lower().title()
+                if (info_str in journal_dict):
+                    journal_dict[info_str]+=1
+                else:
+                    journal_dict[info_str] = 1
 
+            one_pap_arr.append(paper.getInfo()['Title']) 
+            one_pap_arr.append(journal_dict)
+            print(one_pap_arr)
+            pap_arr.append(one_pap_arr)
+            print('Paper ' + str(idx) + ' complete.')
+            count+=1
+    except Exception as e:
+        print(e)
+        print('Stopped at count ' + str(count))
+        print(pap_arr)
+        return pap_arr
+
+    print(pap_arr)
     return pap_arr
 
 #these two functions take and authors first name and last name, and convert them to how it would appear in the references
@@ -205,7 +215,8 @@ def count_cross_cites (author, x_most_rel, top_x, y_most_rel):
     #author_dist should be in the form [('author', {'freq': 5, 'papers':[]}), ...]
     author_dist = list(reversed(sorted(author_dist.items(), key=lambda x: x[1]['freq'])))
     print('STAGE 2 COMPLETE -----------------------------------------------------------------')
-    print('sorted author list in tuples: ' + str(author_dist))
+    print('sorted author list in tuples:')
+    print(author_dist)
 
     count_cross_cites_stage3(author, author_dist, x_most_rel, top_x, y_most_rel)
 
@@ -215,8 +226,12 @@ def count_cross_cites_stage3(orig_author, author_dist, x_most_rel, top_x, y_most
     gsc_bot = GscHtmlFunctions()
     top_x_authors = []
     print('STAGE 3 CREATING NEW AUTHOR OBJECTS ---------------------------------------------------------')
+    count_x = 0
     #this part will create valid author objects for each of the top cited authors and append it to a list
     for index, author_info in enumerate(author_dist):
+        count_x+=1
+        if count_x>y_most_rel:
+            break
 
         time.sleep(10)
 
@@ -250,7 +265,11 @@ def count_cross_cites_stage3(orig_author, author_dist, x_most_rel, top_x, y_most
     for cited_author_freq_arr in top_x_authors:
         time.sleep(5)
         top_cited_author = cited_author_freq_arr[0]
-        top_cited_author.loadPapers(y_most_rel, pubFilter=True, delay=True)
+
+        # If we need to filter by publisher
+        # top_cited_author.loadPapers(y_most_rel, pubFilter=True, delay=True)
+        # If we don't need to filter by publish
+        top_cited_author.loadPapers(y_most_rel, pubFilter=False, delay=True)
 
         cited_fname = top_cited_author.getFirstName()
         cited_lname = top_cited_author.getLastName()
@@ -258,6 +277,8 @@ def count_cross_cites_stage3(orig_author, author_dist, x_most_rel, top_x, y_most
         print('ANALYZING AUTHOR: ' + str(cited_fname) + ' ' + str(cited_lname))
 
         temp_paper_lst = top_cited_author.getPapers()
+        # Take out Papers with no PDFs
+        temp_paper_lst = [p for p in temp_paper_lst if p.getPdfObj() is not None]
         pap_list_len = len(temp_paper_lst)
         total_paper_cites = []
 
@@ -265,22 +286,25 @@ def count_cross_cites_stage3(orig_author, author_dist, x_most_rel, top_x, y_most
         for paper in temp_paper_lst:
             pap_title = paper.getInfo()['Title']
             print('Paper title: ' + pap_title)
-            auth_word = get_ref_author_format(ORIG_FNAME, ORIG_LNAME, paper.getInfo()['Publisher'])
-            pdf_paper = paper.getPdfObj()
-            if (pdf_paper is None):
-                print('paper object is none')
-                continue
-            analyzer = PaperReferenceExtractor()
+            
+            # For ambiguous names
+            # auth_word = get_ref_author_format(ORIG_FNAME, ORIG_LNAME, paper.getInfo()['Publisher'])
+            # For unique names
+            auth_word = ORIG_LNAME.title()
 
+            pdf_paper = paper.getPdfObj()
+            analyzer = PaperReferenceExtractor()
             content = analyzer.getReferencesContent(pdf_paper)
             if (content is None):
+                total_paper_cites.append([pap_title, -1]) 
                 continue
             elif auth_word is None:
                 print('for some reason, authword is none. Shouldnt be happening')
                 continue
 
             num_cites = analyzer.getCitesToAuthor(auth_word, content)
-            total_paper_cites.append([pap_title, num_cites])
+            total_paper_cites.append([pap_title, num_cites]) 
+            print(total_paper_cites)
 
 
         cited_author_info_arr.append([top_cited_author, cited_fname, cited_lname, total_paper_cites, pap_list_len])
@@ -305,7 +329,7 @@ def count_overcites(author, auth_paper_num, cite_num_to_load=30, recent=False):
     author.loadPapers(auth_paper_num, loadPaperPDFs=False, pubFilter=False)
     count = 0
     try:
-        for paper in vas.getPapers():
+        for paper in author.getPapers()[55:]:
             if paper.getCitedByUrl() is None:
                 print("No cited by url for paper: " + paper.getInfo()['Title'] + "with link " + paper.getUrl() + ", loop continue called")
                 continue
@@ -313,7 +337,7 @@ def count_overcites(author, auth_paper_num, cite_num_to_load=30, recent=False):
             #paper.setPdfObj()
             k = "Paper Title: " + paper.getInfo()['Title']
             print(k)
-            arr = count_overcites_paper(paper, vas, cite_num_to_load=cite_num_to_load)
+            arr = count_overcites_paper(paper, author, cite_num_to_load=cite_num_to_load)
             arr.append(k)
             over_cite_arr.append(arr)
             print(arr)
@@ -413,10 +437,15 @@ def count_overcites_paper(paper, author, cite_num_to_load=30):
 #         print(arr)
 # over_cite_writer(over_cite_arr, 'vas_most_recent_overcites5')
 
-# getting bare data from more relevant papers
+#getting bare data from more relevant papers
 # vas = AcademicPublisher(SessionInitializer.ROOT_URL + '/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 1, loadPaperPDFs=False)
-# over_cite_arr = count_overcites(vas, 50)
-# over_cite_writer(over_cite_arr, 'most_rel_overcites_idx24')
+# over_cite_arr = count_overcites(vas, 100)
+# over_cite_writer(over_cite_arr, 'most_rel_overcites_idx50-99')
+
+#Journal Cites
+vas = AcademicPublisher(SessionInitializer.ROOT_URL + '/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 1, loadPaperPDFs=False)
+journal_cite_arr = count_journal_frequency(vas, 50)
+jounal_dict_writer(journal_cite_arr, 'vas_top50_journals_freq')
 
 
 # p = Paper(SessionInitializer.ROOT_URL+'/citations?view_op=view_citation&hl=en&user=_yWPQWoAAAAJ&cstart=20&pagesize=80&citation_for_view=_yWPQWoAAAAJ:Xz60mAmATU4C')
@@ -424,8 +453,8 @@ def count_overcites_paper(paper, author, cite_num_to_load=30):
 # print(count_overcites_paper(p, vas, cite_num_to_load=30))
 
 
-vas = AcademicPublisher(SessionInitializer.ROOT_URL + '/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 1)
+# vas = AcademicPublisher(SessionInitializer.ROOT_URL + '/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 1)
 # cross_cite_dict = count_cross_cites(vas, 50, 10, 50)
-cross_cite_dict = count_cross_cites_stage3(vas, stage2.k, 50, 10, 50)
-cross_cite_writer(cross_cite_dict, 'vas_top50_cross_cites')
+# #cross_cite_dict = count_cross_cites_stage3(vas, stage2.k, 1, 1, 2)
+# cross_cite_writer(cross_cite_dict, 'vas_top50_cross_cites')
 

@@ -1,4 +1,4 @@
-Athanasios Vasilakos Top Cited Authors in his/her top 50 papers
+Athanasios Vasilakos Top Cited Authors in his/her top 38 papers,
 Author Name,Total Citation Count
 Tadashi Nakano,23
 Tatsuya Suda,22
@@ -9,18 +9,459 @@ Diane J,14
 Michael John,14
 Ian F.,14
 Xiaofei Wang,13
-Yang Xiao,12
+Xue Liu,12
 "
+",
+"Cross Cite Count to Athanasios Vasilakos in the authors' top papers
+",
+Tadashi Nakano,Papers Analyzed: 6
+Paper Name,Total Cross Citation Count
+Molecular communication and networking: Opportunities and challenges,4
+Molecular communication,No PDF
+Molecular communication for nanomachines using intercellular calcium signaling,0
+Exploratory research on molecular communication between nanomachines,0
+Self-organizing network services with evolutionary adaptation,No PDF
+A Design of a Molecular Communication System for Nanomachines Using Molecular Motors.,0
+Design and analysis of molecular relay channels: An information theoretic approach,0
+Channel model and capacity analysis of molecular communication with brownian motion,1
+A molecular communication system using a network of cytoskeletal filaments,No PDF
+Molecular communication among biological nanomachines: A layered architecture and research issues,No PDF
+"Molecular communication through gap junction channels: System design, experiments and modeling",0
+Anonymity and roles associated with aggressive posts in an online forum,0
+Biologically inspired network systems: a review and future prospects,0
+Transmission rate control for molecular communication among biological nanomachines,4
+Molecular communication technology as a biological ICT,0
+Applying biological principles to designs of network services,0
+TCP-like molecular communications,3
+Measuring distance from single spike feedback signals in molecular communication,0
+Adaptive and evolvable network services,No PDF
+"Hybrid dna and enzyme based computing for address encoding, link switching and error correction in molecular communication",0
+Microplatform for intercellular communication,0
+Addressing by beacon distances using molecular communication,0
+A Bosom Buddy Afar Brings a Distant Land Near: Are Bloggers a Global Community?,0
+In-sequence molecule delivery over an aqueous medium,0
+Measuring distance with molecular communication feedback protocols,0
+Oscillation and synchronization of molecular machines by the diffusion of inhibitory molecules,0
+Effective Web browsing through content delivery adaptation,0
+Cooperative target tracking by a mobile bionanosensor network,1
+Biological excitable media based on non-excitable cells and calcium signaling,0
+Dynamic reconfiguration of network applications and middleware systems in the bio-networking architecture,0
+Externally controllable molecular communication,2
+Distributing nanomachines for minimizing mean residence time of molecular signals in bionanosensor networks,1
+Article I,0
+Absorption spectra of high purity metallic and semiconducting single-walled carbon nanotube thin films in a wide energy region,0
+Biologically inspired future service environment,0
+Information transfer through calcium signaling,No PDF
+Autonomous mobile bionanosensor networks for target tracking: A two-dimensional model,2
+Total Citations:,18
 "
-Cross Cite Count to Athanasios Vasilakos in the authors' top papers
-Author Name,Total Citation Count	,Papers from IEEE or Springer Analyzed
-Tadashi Nakano,3,19
-Tatsuya Suda,0,29
-Athanasios Vasilakos,23,38
-Yunhao Liu,0,32
-Joseph Wang,0,0
-Diane J,6,14
-Michael John,2,19
-Ian F.,0,22
-Xiaofei Wang,0,25
-Yang Xiao,0,33
+",
+Tatsuya Suda,Papers Analyzed: 18
+Paper Name,Total Cross Citation Count
+An adaptive bandwidth reservation scheme for high-speed multimedia wireless networks,No PDF
+Survey of traffic control schemes and protocols in ATM networks,No PDF
+Molecular communication,No PDF
+Congestion control and prevention in ATM networks,0
+Molecular communication for nanomachines using intercellular calcium signaling,0
+Source-adaptive multilayered multicast algorithms for real-time video distribution,0
+Exploratory research on molecular communication between nanomachines,0
+Molecular communication: modeling noise effects on information rate,0
+An object-oriented framework for dynamically configuring extensible distributed systems,0
+"Adaptive: a dynamically assembled protocol transformation, integration and evaluation environment",0
+Dynamic service composition using semantic information,0
+"The bio-networking architecture: A biologically inspired approach to the design of scalable, adaptive, and survivable/available network applications",0
+A middleware platform for a biologically inspired network architecture supporting autonomous and adaptive applications,0
+Semantics-based dynamic service composition,No PDF
+Self-organizing network services with evolutionary adaptation,No PDF
+Cell loss and output process analyses of a finite-buffer discrete-time ATM queueing system with correlated arrivals,No PDF
+Analysis of a discrete-time single-server queue with bursty inputs for traffic control in ATM networks,No PDF
+A Design of a Molecular Communication System for Nanomachines Using Molecular Motors.,0
+Transport system architecture services for high-performance communications systems,No PDF
+Automated generation of composite web services based on functional semantics,0
+Coverage-aware self-scheduling in sensor networks,No PDF
+An end-to-end multi-path smooth handoff scheme for stream media,0
+"Bandwidth-efficient multicast routing for multihop, ad-hoc wireless networks",0
+Adaptive multicast of multi-layered video: Rate-based and credit-based approaches,0
+Measuring the performance of parallel message-based process architectures,No PDF
+Feedback control mechanisms for real-time multipoint video services,No PDF
+"Autonomous Loading, Transport, and Unloading of Specified Cargoes by Using DNA Hybridization and Biological Motor‐Based Motility",No PDF
+An equilibratory market-based approach for distributed resource allocation and its applications to communication network control,No PDF
+Packetized voice/data integrated transmission on a token passing ring local area network,No PDF
+A molecular communication system using a network of cytoskeletal filaments,No PDF
+Network border patrol,0
+Molecular communication among biological nanomachines: A layered architecture and research issues,No PDF
+Molecular communication for health care applications,0
+Connectionless service for public ATM networks,No PDF
+"Molecular communication through gap junction channels: System design, experiments and modeling",0
+Distributed pagerank: a distributed reputation model for open peer-to-peer network,0
+Anonymity and roles associated with aggressive posts in an online forum,0
+Molecular communication among nanomachines using vesicles,0
+Semantics-based dynamic web service composition,No PDF
+A design of an autonomous molecule loading/transporting/unloading system using DNA hybridization and biomolecular linear motors,0
+Evaluating the impact of emerging streaming media applications on TCP/IP performance,0
+Total Citations:,0
+"
+",
+Athanasios Vasilakos,Papers Analyzed: 9
+Paper Name,Total Cross Citation Count
+Body area networks: A survey,1
+A game-theoretic method of fair resource allocation for cloud computing services,1
+Compressed data aggregation for energy efficient wireless sensor networks,0
+A survey of green mobile networks: Opportunities and challenges,1
+Directional routing and scheduling for green vehicular delay tolerant networks,4
+Routing for disruption tolerant networks: taxonomy and design,2
+Molecular communication and networking: Opportunities and challenges,4
+Routing metrics of cognitive radio networks: A survey,3
+Flooding-limited and multi-constrained QoS multicast routing based on the genetic algorithm for MANETs,0
+Security and privacy for storage and computation in cloud computing,2
+An adaptive geometry-based stochastic model for non-isotropic MIMO mobile-to-mobile channels,1
+"A survey on the ietf protocol suite for the internet of things: Standards, challenges, and opportunities",0
+"A survey on topology control in wireless sensor networks: Taxonomy, comparative study, and open issues",3
+A survey on ambient intelligence in healthcare,8
+Multi-layer clustering routing algorithm for wireless vehicular sensor networks,0
+CodePipe: An opportunistic feeding and routing protocol for reliable multicast with pipelined network coding,0
+A survey on trust management for Internet of Things,No PDF
+A survey of security challenges in cognitive radio networks: Solutions and future research directions,3
+Linguistic models and linguistic modeling,No PDF
+"EDAL: An energy-efficient, delay-aware, and lifetime-balancing data collection protocol for wireless sensor networks",1
+Granular computing: perspectives and challenges,No PDF
+Distributed media services in P2P-based vehicular networks,2
+Backpressure-based routing protocol for DTNs,0
+A survey on service-oriented network virtualization toward convergence of networking and cloud computing,No PDF
+Prediction-based data aggregation in wireless sensor networks: Combining grey model and Kalman Filter,No PDF
+Spatial reusability-aware routing in multi-hop wireless networks,1
+Algorithm design for data communications in duty-cycled wireless sensor networks: A survey,No PDF
+Security of the internet of things: Perspectives and challenges,No PDF
+Reliable multicast with pipelined network coding using opportunistic feeding and routing,No PDF
+Novel overlay/underlay cognitive radio waveforms using SD-SMSE framework to enhance spectrum efficiency-part I: theoretical framework and analysis in AWGN channel,1
+Cross-layer support for energy efficient routing in wireless sensor networks,0
+"Mobile cloud computing: A survey, state of art and future directions",3
+"Approximating Congestion+ Dilation in Networks via"" Quality of Routing&# x201D; Games",0
+On the partially overlapped channel assignment on wireless mesh network backbone: A game theoretic approach,2
+Joint forensics-scheduling strategy for delay-sensitive multimedia applications over heterogeneous networks,3
+Physarum optimization: A biology-inspired algorithm for the steiner tree problem in networks,2
+ReTrust: Attack-resistant and lightweight trust management for medical sensor networks,4
+Interference-based topology control algorithm for delay-constrained mobile ad hoc networks,2
+Context-aware middleware for multimedia services in heterogeneous networks,1
+QoE-driven channel allocation schemes for multimedia transmission of priority-based secondary users over cognitive radio networks,4
+Software-defined and virtualized future mobile and wireless networks: A survey,0
+Comparative analysis of quality of service and memory usage for adaptive failure detectors in healthcare systems,1
+"Managing performance overhead of virtual machines in cloud computing: A survey, state of the art, and future directions",2
+Nodes organization for channel assignment with topology preservation in multi-radio wireless mesh networks,2
+Tight performance bounds of multihop fair access for MAC protocols in wireless sensor networks and underwater sensor networks,1
+An OSPF-integrated routing strategy for QoS-aware energy saving in IP backbone networks,2
+DTRAB: Combating against attacks on encrypted protocols through traffic-feature analysis,No PDF
+A biology-based algorithm to minimal exposure problem of wireless sensor networks,2
+Total Citations:,69
+"
+",
+Yunhao Liu,Papers Analyzed: 20
+Paper Name,Total Cross Citation Count
+LANDMARC: indoor location sensing using active RFID,0
+AnySee: Peer-to-Peer Live Streaming.,0
+Big Data: A Survey,0
+Rendered path: range-free localization in anisotropic sensor networks with holes,No PDF
+Underground coal mine monitoring with wireless sensor networks,0
+Locating in fingerprint space: wireless indoor localization with little human intervention,0
+Underground structure monitoring with wireless sensor networks,No PDF
+Canopy closure estimates with GreenOrbs: sustainable sensing in the forest,0
+Location-aware topology matching in P2P systems,0
+Does wireless sensor network scale? A measurement study on GreenOrbs,0
+Passive diagnosis for wireless sensor networks,No PDF
+Location awareness in unstructured peer-to-peer systems,0
+A survey of green mobile networks: Opportunities and challenges,1
+Contour map matching for event detection in sensor networks,0
+VIRE: Active RFID-based localization using virtual reference elimination,0
+Quality of trilateration: Confidence-based iterative localization,No PDF
+"Location, localization, and localizability",0
+Cardinality estimation for large-scale RFID systems,0
+WILL: Wireless indoor localization without site survey,0
+Mining frequent trajectory patterns for activity monitoring using radio frequency tag arrays,0
+Beyond trilateration: On the localizability of wireless ad-hoc networks,No PDF
+Iso-map: Energy-efficient contour mapping in wireless sensor networks,No PDF
+A distributed approach to solving overlay mismatching problem,0
+Improving unstructured peer-to-peer systems by adaptive connection establishment,No PDF
+Nonthreshold-based event detection for 3D environment monitoring in sensor networks,No PDF
+Building a scalable bipartite P2P overlay network,0
+Dynamic key-updating: privacy-preserving authentication for RFID systems,0
+CitySee: urban CO 2 monitoring with sensors,0
+Indexable PLA for efficient similarity search,0
+Perpendicular intersection: locating wireless sensors with mobile beacon,No PDF
+Dynamic layer management in superpeer architectures,0
+Capacity of large scale wireless networks under Gaussian channel model,No PDF
+From RSSI to CSI: Indoor localization via channel response,0
+Understanding node localizability of wireless ad hoc and sensor networks,No PDF
+Sea depth measurement with restricted floating sensors,No PDF
+Distributed caching and adaptive search in multilayer p2p networks,0
+A memory-efficient parallel string matching architecture for high-speed intrusion detection,0
+Sensor network navigation without locations,No PDF
+Hybrid periodical flooding in unstructured peer-to-peer networks,0
+Topological detection on wormholes in wireless ad hoc and sensor networks,No PDF
+Agnostic diagnosis: Discovering silent failures in wireless sensor networks,No PDF
+Tagoram: real-time tracking of mobile RFID tags to high precision using COTS devices,0
+Sweep coverage with mobile sensors,No PDF
+VOVO: VCR-oriented video-on-demand in large-scale peer-to-peer networks,No PDF
+Joint throughput optimization for wireless mesh networks,0
+Prioritized overlay multicast in mobile ad hoc environments,No PDF
+Season: Shelving interference and joint identification in large-scale rfid systems,No PDF
+Optimizing overlay topology by reducing cut vertices,No PDF
+Ad-UDDI: An active and distributed service registry,0
+Total Citations:,1
+"
+",
+Joseph Wang,Papers Analyzed: 15
+Paper Name,Total Cross Citation Count
+Carbon‐nanotube based electrochemical biosensors: A review,0
+Electrochemical glucose biosensors,0
+Solubilization of carbon nanotubes by Nafion toward the preparation of amperometric biosensors,0
+Low-potential stable NADH detection at carbon-nanotube-modified glassy carbon electrodes,No PDF
+Electrochemical biosensors: towards point-of-care cancer diagnostics,0
+Sensors based on carbon paste in electrochemical analysis: a review with particular emphasis on the period 1990–1993,0
+Nanomaterial-based electrochemical biosensors,0
+Electroanalytical and bioelectroanalytical systems based on metal and semiconductor nanoparticles,No PDF
+Electrochemical coding technology for simultaneous detection of multiple DNA targets,0
+Electrochemical nucleic acid biosensors,0
+Glucose biosensors: 40 years of advances and challenges,0
+Quantum-dot/aptamer-based ultrasensitive multi-analyte electrochemical biosensor,0
+Stripping analysis at bismuth electrodes: a review,No PDF
+"Carbon Paste Electrodes in Facts, Numbers, and Notes: A Review on the Occasion of the 50‐Years Jubilee of Carbon Paste in Electrochemistry and Electroanalysis",0
+Nanomaterial‐based amplified transduction of biomolecular interactions,No PDF
+Electrochemical detection for microscale analytical systems: a review,0
+Nanoparticle-based electrochemical DNA detection,0
+Insights into the anodic stripping voltammetric behavior of bismuth film electrodes,No PDF
+Biosensors for direct determination of organophosphate pesticides,No PDF
+Sol–gel materials for electrochemical biosensors,0
+DNA electrochemical biosensors for environmental monitoring. A review,No PDF
+Electrochemical coding for multiplexed immunoassays of proteins,No PDF
+Electrochemical biosensors for DNA hybridization and DNA damage,No PDF
+Can man-made nanomachines compete with nature biomotors?,0
+Towards genoelectronics: electrochemical biosensing of DNA hybridization,No PDF
+Carbon-nanotube-modified glassy carbon electrodes for amplified label-free electrochemical detection of DNA hybridization,No PDF
+Amperometric biosensors for clinical and therapeutic drug monitoring: a review,0
+Indicator-free electrochemical DNA hybridization biosensor,No PDF
+A Decade with Bismuth‐Based Electrodes in Electroanalysis,0
+Nano/microscale motors: biomedical opportunities and challenges,0
+Carbon-nanotubes doped polypyrrole glucose biosensor,No PDF
+Contactless conductivity detector for microchip capillary electrophoresis,No PDF
+Point-of-care biosensor systems for cancer diagnostics/prognostics,0
+"Highly selective membrane-free, mediator-free glucose biosensor",No PDF
+Total Citations:,0
+"
+",
+Diane J,Papers Analyzed: 9
+Paper Name,Total Cross Citation Count
+"Growth rate, body composition and feed digestibility/conversion of growth-enhanced transgenic Atlantic salmon (Salmo salar)",0
+"Ambient intelligence: Technologies, applications, and opportunities",No PDF
+Substructure discovery using minimum description length and background knowledge,No PDF
+How smart are our environments? An updated look at the state of the art,No PDF
+MavHome: An Agent-Based Smart Home.,0
+Mining graph data,0
+The role of prediction algorithms in the MavHome smart home architecture,0
+Human activity recognition and pattern discovery,No PDF
+Graph-based anomaly detection,No PDF
+Substucture Discovery in the SUBDUE System.,0
+Discovering activities to recognize and track in a smart environment,0
+Keeping the resident in the loop: adapting the smart home to the user,0
+Automatic video classification: A survey of the literature,0
+Sensor-based activity recognition,0
+A survey on ambient intelligence in healthcare,8
+Learning setting-generalized activity models for smart spaces,0
+Managing adaptive versatile environments,0
+Recognizing independent and joint activities among multiple residents in smart environments,0
+Activity recognition on streaming sensor data,0
+Simple and complex activity recognition through smart phones,0
+A multi-agent approach to controlling a smart environment,0
+Online sequential prediction via incremental parsing: The active lezi algorithm,No PDF
+Location aware resource management in smart homes,0
+Effect of food deprivation on oxygen consumption and body composition of growth-enhanced transgenic Atlantic salmon (Salmosalar),0
+Decision-theoretic cooperative sensor planning,No PDF
+Data mining for hierarchical model creation,0
+Active LeZi: An incremental parsing algorithm for sequential prediction,0
+Flexible social laws,0
+Pervasive computing at scale: Transforming the state of the art,0
+CASAS: A smart home in a box,0
+Subdue: Compression-based frequent pattern discovery in graph data,0
+Metabolic rate of pre-smolt growth-enhanced transgenic Atlantic salmon (Salmo salar),0
+Activity discovery and activity recognition: A new partnership,0
+Health Monitoring and Assistance to Support Aging in Place.,0
+Predicting inhabitant action using action and task models with application to smart homes,0
+Collecting and disseminating smart home sensor data in the CASAS project,0
+A multi-agent system architecture for smart grid management and forecasting of energy demand in virtual power plants,0
+Smart home-based health platform for behavioral monitoring and alteration of diabetes patients,No PDF
+Anomaly detection using temporal data mining in a smart home environment,0
+Multi-agent smart environments,0
+Designing smart environments: A paradigm based on learning and prediction,0
+MDL-based context-free graph grammar induction and applications,0
+Annotating smart environment sensor data for activity learning,No PDF
+"Cognitive correlates of functional performance in older adults: Comparison of self-report, direct observation, and performance-based measures",0
+Total Citations:,8
+"
+",
+Michael John,Papers Analyzed: 6
+Paper Name,Total Cross Citation Count
+Molecular communication and networking: Opportunities and challenges,4
+Molecular communication,No PDF
+Molecular communication for nanomachines using intercellular calcium signaling,0
+Exploratory research on molecular communication between nanomachines,0
+Molecular communication: modeling noise effects on information rate,0
+A Design of a Molecular Communication System for Nanomachines Using Molecular Motors.,0
+A molecular communication system using a network of cytoskeletal filaments,No PDF
+Molecular communication among biological nanomachines: A layered architecture and research issues,No PDF
+Anonymity and roles associated with aggressive posts in an online forum,0
+Molecular communication technology as a biological ICT,0
+Measuring distance from single spike feedback signals in molecular communication,0
+Addressing by beacon distances using molecular communication,0
+In-sequence molecule delivery over an aqueous medium,0
+A decentralized and self-organizing discovery mechanism,No PDF
+Design of self-organizing microtubule networks for molecular communication,0
+Measuring distance with molecular communication feedback protocols,0
+Oscillation and synchronization of molecular machines by the diffusion of inhibitory molecules,0
+Addressing by beacon coordinates using molecular communication,0
+Biologically inspired approaches to networks: The bio-networking architecture and the molecular communication,0
+Diffusion-based multiple access by nano-transmitters to a micro-receiver,2
+Novel lithography technique using an ASML stepper/scanner for the manufacture of display devices in MEMS world,No PDF
+Special Issue on Fundamentals of Nanoscale Communications,No PDF
+PartⅡ Recent Research and Development in Molecular Communication Technology,0
+"Technical Report 05-03 Donald Bren School of Information and Computer Sciences University of California, Irvine Tatsuya Suda+*, Michael Moore+, Tadashi Nakano+, Ryota Egashira+, Akihiro Enomoto+, Satoshi Hiyama*, and Yuki Moritani",0
+Total Citations:,6
+"
+",
+Ian F.,Papers Analyzed: 18
+Paper Name,Total Cross Citation Count
+Wireless sensor networks: a survey,No PDF
+A survey on sensor networks,No PDF
+NeXt generation/dynamic spectrum access/cognitive radio wireless networks: a survey,0
+Wireless mesh networks: a survey,No PDF
+A survey on wireless multimedia sensor networks,0
+Underwater acoustic sensor networks: research challenges,0
+A survey on wireless mesh networks,0
+Wireless sensor and actor networks: research challenges,No PDF
+A survey on spectrum management in cognitive radio networks,0
+CRAHNs: Cognitive radio ad hoc networks,0
+Cooperative spectrum sensing in cognitive radio networks: A survey,0
+ESRT: event-to-sink reliable transport in wireless sensor networks,0
+Mobility management in next-generation wireless systems,No PDF
+Movement-based location update and selective paging for PCS networks,No PDF
+A survey of mobility management in next-generation all-IP-based wireless systems,0
+A resource estimation and call admission algorithm for wireless multimedia networks using the shadow cluster concept,No PDF
+Optimal spectrum sensing framework for cognitive radio networks,0
+Wireless sensor networks,0
+Nanonetworks: A new communication paradigm,No PDF
+Spatio-temporal correlation: theory and applications for wireless sensor networks,No PDF
+Event-to-sink reliable transport in wireless sensor networks,No PDF
+Wireless multimedia sensor networks: A survey,No PDF
+Challenges for efficient communication in underwater acoustic sensor networks,0
+Energy efficiency based packet size optimization in wireless sensor networks,0
+Wireless underground sensor networks: Research challenges,0
+Spatial correlation-based collaborative medium access control in wireless sensor networks,0
+TCP-Peach: a new congestion control scheme for satellite IP networks,0
+State-of-the-art in protocol research for underwater acoustic sensor networks,0
+Mobile user location update and paging under delay constraints,No PDF
+Electromagnetic wireless nanosensor networks,0
+Time-diffusion synchronization protocol for wireless sensor networks,No PDF
+Wireless multimedia sensor networks: Applications and testbeds,0
+The evolution to 4G cellular systems: LTE-Advanced,0
+A novel distributed dynamic location management scheme for minimizing signaling costs in Mobile IP,0
+A distributed routing algorithm for datagram traffic in LEO satellite networks,0
+A dynamic location management scheme for next-generation multitier PCS systems,0
+A scalable approach for reliable downstream data delivery in wireless sensor networks,0
+A cross-layer (layer 2+ 3) handoff management protocol for next-generation wireless systems,0
+A physical end-to-end model for molecular communication in nanonetworks,0
+A new random walk model for PCS networks,No PDF
+InterPlaNetary Internet: state-of-the-art and research challenges,No PDF
+Cognitive wireless mesh networks with dynamic spectrum access,0
+A slotted CDMA protocol with BER scheduling for wireless multimedia networks,0
+Deployment analysis in underwater acoustic wireless sensor networks,No PDF
+Medium access control protocols for multimedia traffic in wireless networks,No PDF
+Wireless mesh networks,0
+Routing algorithms for delay-insensitive and delay-sensitive applications in underwater sensor networks,0
+MLSR: a novel routing algorithm for multilayered satellite IP networks,No PDF
+A distributed coordination framework for wireless sensor and actor networks,0
+The predictive user mobility profile framework for wireless multimedia networks,0
+Total Citations:,0
+"
+",
+Xiaofei Wang,Papers Analyzed: 8
+Paper Name,Total Cross Citation Count
+A Survey of Green Mobile Networks: Opportunities and Challenges,1
+Cache in the air: exploiting content caching and delivery techniques for 5G systems,0
+Cloud-enabled wireless body area networks for pervasive healthcare,0
+AMES-Cloud: A Framework of Adaptive Mobile Video Streaming and Efficient Social Video Sharing in the Clouds,0
+Resolution of inflammation is altered in Alzheimer's disease,0
+Multiple mobile agents' itinerary planning in wireless sensor networks: survey and evaluation,0
+Cloud-assisted adaptive video streaming and social-aware video prefetching for mobile users,0
+Anomaly secure detection methods by analyzing dynamic characteristics of the network traffic in cloud communications,No PDF
+Measurement and analysis of world of warcraft in mobile wimax networks,No PDF
+An energy-efficient protocol for data gathering and aggregation in wireless sensor networks,0
+A depression detection model based on sentiment analysis in micro-blog social network,No PDF
+Continuous power allocation strategies for sensing-based multiband spectrum sharing,0
+Allergy influences the inflammatory status of the brain and enhances tau‐phosphorylation,0
+Characterizing the gaming traffic of World of Warcraft: From game scenarios to network access technologies,No PDF
+Effects of exogenous silicon on seed germination and antioxidant enzyme activities of Momordica charantia under salt stress,No PDF
+Core–shell structured Li [(Ni 0.8 Co 0.1 Mn 0.1) 0.7 (Ni 0.45 Co 0.1 Mn 0.45) 0.3] O 2 cathode material for high-energy lithium ion batteries,0
+Fast moving object detection with non-stationary background,0
+Measurement and Analysis of BitTorrent Traffic in Mobile WiMAX Networks,1
+Delay and capacity in MANETs under random walk mobility model,0
+An end-to-end bandwidth allocation algorithm for ad hoc networks,0
+Effects of n-3 FA supplementation on the release of proresolving lipid mediators by blood mononuclear cells: the OmegAD study,No PDF
+Adaptive multiband spectrum sensing,0
+An efficient broadcast authentication protocol in wireless sensor networks,No PDF
+A framework of cooperative cell caching for the future mobile networks,No PDF
+Preparation of poly (styrene)-b-poly (acrylic acid)/γ-Fe 2 O 3 composites,0
+Energy management and cross layer optimization for wireless sensor network powered by heterogeneous energy sources,0
+Heat treatment of LiCoO 2 recovered from cathode scraps with solvent method,0
+PreFeed: cloud-based content prefetching of feed subscriptions for mobile users,1
+Total Citations:,3
+"
+",
+Xue Liu,Papers Analyzed: 12
+Paper Name,Total Cross Citation Count
+Pda: Privacy-preserving data aggregation in wireless sensor networks,0
+GreenCloud: a new architecture for green data center,0
+Minimizing electricity cost: Optimization of distributed internet data centers in a multi-electricity-market environment,0
+Cyber-physical systems: A new frontier,0
+Dynamic voltage scaling in multitier web servers with end-to-end delay control,0
+A survey of multicast routing protocols for mobile ad-hoc networks,0
+Research on multicast routing protocols for mobile ad-hoc networks,No PDF
+Feedback control with queueing-theoretic prediction for relative delay guarantees in web servers,0
+Personalized interactive faceted search,0
+Online response time optimization of apache web server,0
+Adaptive entitlement control of resource containers on shared servers,0
+SLA decomposition: Translating service level objectives to system level thresholds,0
+A trust model based on fuzzy recommendation for mobile ad-hoc networks,0
+iPDA: An integrity-protecting private data aggregation scheme for wireless sensor networks,0
+Integrating adaptive components: An emerging challenge in performance-adaptive systems and a server farm case-study,No PDF
+I-Living: An Open System Architecture for Assisted Living.,0
+Adaptive control of multi-tiered web applications using queueing predictor,No PDF
+Challenges towards elastic power management in internet data centers,0
+Optimal multivariate control for differentiated services on a shared hosting platform,0
+Towards optimal electric demand management for internet data centers,0
+Location cheating: A security challenge to location-based social network services,0
+Modeling 3-tiered web applications,0
+Distributed coordination of internet data centers under multiregional electricity markets,0
+DPLC: dynamic packet length control in wireless sensor networks,No PDF
+A cluster-based protocol to enforce integrity and preserve privacy in data aggregation,No PDF
+Coordinated energy cost management of distributed internet data centers in smart grid,0
+Providing OS support for wireless sensor networks: Challenges and approaches,No PDF
+Cyber-physical systems: Milestones and research challenges,0
+Inferring users' online activities through traffic analysis,No PDF
+MEC-IDC: joint load balancing and power control for distributed Internet Data Centers,0
+Temporal load balancing with service delay guarantees for data center energy cost optimization,No PDF
+SiFi: exploiting VoIP silence for WiFi energy savings insmart phones,0
+D-pro: dynamic data center operations with demand-responsive electricity prices in smart grid,0
+A lightweight and density-aware reprogramming protocol for wireless sensor networks,0
+Efficient SAT-based mapping and scheduling of homogeneous synchronous dataflow graphs for throughput optimization,No PDF
+Connectivity-based skeleton extraction in wireless sensor networks,0
+Hedging against uncertainty: A tale of internet data center operations under smart grid environment,0
+Translating Service Level Objectives to lower level policies for multi-tier services,0
+Power-aware cpu utilization control for distributed real-time systems,0
+Optimal real-time sampling rate assignment for wireless sensor networks,0
+A certificateless signature scheme for mobile wireless cyber-physical systems,No PDF
+OptiTuner: On Performance Composition and Server Farm Energy Minimization Application,0
+Optimal QoS Sampling Frequency Assignment for Real-Time Wireless Sensor Networks.,No PDF
+Optimal sampling rate assignment with dynamic route selection for real-time wireless sensor networks,0
+Multigreen: Cost-minimizing multi-source datacenter power supply with online control,0
+A switch design for real-time industrial networks,No PDF
+Total Citations:,0
+"
+",
