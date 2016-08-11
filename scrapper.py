@@ -438,14 +438,14 @@ def count_overcites_paper(paper, author, cite_num_to_load=30):
 # over_cite_writer(over_cite_arr, 'vas_most_recent_overcites5')
 
 #getting bare data from more relevant papers
-# vas = AcademicPublisher(SessionInitializer.ROOT_URL + '/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 1, loadPaperPDFs=False)
-# over_cite_arr = count_overcites(vas, 100)
-# over_cite_writer(over_cite_arr, 'most_rel_overcites_idx50-99')
+vas = AcademicPublisher(SessionInitializer.ROOT_URL + '/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 1, loadPaperPDFs=False)
+over_cite_arr = count_overcites(vas, 50)
+over_cite_writer(over_cite_arr, 'idx50')
 
 #Journal Cites
-vas = AcademicPublisher(SessionInitializer.ROOT_URL + '/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 1, loadPaperPDFs=False)
-journal_cite_arr = count_journal_frequency(vas, 50)
-jounal_dict_writer(journal_cite_arr, 'vas_top50_journals_freq')
+# vas = AcademicPublisher(SessionInitializer.ROOT_URL + '/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 1, loadPaperPDFs=False)
+# journal_cite_arr = count_journal_frequency(vas, 50)
+# jounal_dict_writer(journal_cite_arr, 'vas_top50_journals_freq')
 
 
 # p = Paper(SessionInitializer.ROOT_URL+'/citations?view_op=view_citation&hl=en&user=_yWPQWoAAAAJ&cstart=20&pagesize=80&citation_for_view=_yWPQWoAAAAJ:Xz60mAmATU4C')

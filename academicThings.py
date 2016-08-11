@@ -37,7 +37,7 @@ class Paper:
 
         try:
             self.__pap_info['Title'] = soup.find('a', attrs={'class': 'gsc_title_link'}).text
-        except AttributeError as e:
+        except AttributeError:
             print(self.__url + 'has no title')
             self.__pap_info['Title'] = "Unknown Title"
 
