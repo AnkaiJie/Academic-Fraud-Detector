@@ -6,7 +6,7 @@ var PythonShell = require('python-shell')
 
 app.get('/', function(req, res){
 
-	pyshell = new PythonShell('testNode.py')
+	pyshell = new PythonShell('testNode.py');
 
 	pyshell.on('message', function(message){
 		console.log(message);
