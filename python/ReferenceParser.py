@@ -120,25 +120,23 @@ class PaperReferenceExtractor:
             return None
         if pdfContent=="":
             return None
-        index = pdfContent.find("References")
+        index = pdfContent.lower().find("references")
         if (index==-1):
-            index = pdfContent.find("REFERENCES")
-        if (index==-1):
-            index = pdfContent.find("Bibliography")
-        if (index==-1):
-            index = pdfContent.find("BIBLIOGRAPHY")
+            index = pdfContent.lower().find("bibliography")
         if (index==-1):
             print("can't find reference sections")
             return None
         while (index!=-1):
             pdfContent = pdfContent[index +10:]
-            index = pdfContent.find("References")
-            if (index==-1):
-                index = pdfContent.find("REFERENCES")
+            index = pdfContent.lower().find("references")
 
         app_index = pdfContent.lower().find('appendix')
         if (app_index!=-1):
-            pdfContent = pdfContent[:app_index]        
+            pdfContent = pdfContent[:app_index]
+
+        abt_authors = pdfContent.lower().find('abouttheauthors')
+        if (abt_authors!=-1):
+            pdfContent = pdfContent[:abt_authors]
 
         return pdfContent
 
@@ -168,7 +166,7 @@ class IeeeReferenceParser:
     def splitRefSection(self, section):
         bracket_form = re.compile(r'\[.*?\]')
         section = section.replace('"', '')
-        out = [x for x in bracket_form.split(section) if x] 
+        out = [x for x in bracket_form.split(section) if x]
 
         return out
 

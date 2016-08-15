@@ -19,40 +19,44 @@ import stage2
 
 # given a paper, counts the number of times it cites an author of the paper
 def count_self_cites(author, num_load):
-    author.loadPapers(num_load, loadPaperPDFs=True)
+    author.loadPapers(num_load, loadPaperPDFs=False, pubFilter=False)
     self_cite_arr = []
     print("Author fully loaded. Processing loaded papers...")
 
-    for idx, paper in enumerate(author.getPapers()):
-        paper_authors = paper.getInfo()['Authors'].lower()
-        fname = author.getFirstName()
-        lname = author.getLastName()
+    try:
+        for idx, paper in enumerate(author.getPapers()):
+            #auth_word = get_ref_author_format(fname, lname, paper.getInfo()['Publisher'])
+            auth_word = author.getLastName().title()
 
-        if (paper_authors.find(fname) == -1 or paper_authors.find(lname) == -1):
-            print('Error: author: ' + fname + ' ' + lname + ' is not a valid author of this paper.')
-            return None
 
-        auth_word = get_ref_author_format(fname, lname, paper.getInfo()['Publisher'])
+            title = paper.getInfo()['Title']
+            print('Paper title: ' + str(title))
+            paper.setPdfObj()
 
-        analyzer = PaperReferenceExtractor()
+            analyzer = PaperReferenceExtractor()
 
-        pdf_paper = paper.getPdfObj()
-        if (pdf_paper is None):
-            print('No PDF object for this paper, skipping.')
-            continue
-        refContent = analyzer.getReferencesContent(pdf_paper)
+            pdf_paper = paper.getPdfObj()
+            if (pdf_paper is None):
+                print('No PDF object for this paper, skipping.')
+                continue
+            refContent = analyzer.getReferencesContent(pdf_paper)
 
-        if (refContent is not None):
+            num_cites = 0
+            if (refContent is not None):
 
-            numCites = analyzer.getCitesToAuthor(auth_word, refContent)
-            #print (fname+ ' '+lname+ ' has '+str(numCites)+' number of self-cites in paper: '+ paper.getInfo()['Title'])
-            self_cites_info = {'Paper Title': paper.getInfo()['Title'], 'Self Cites': numCites}
-        else:
-            self_cites_info = {'Paper Title': paper.getInfo()['Title'], 'Self Cites': 'No Valid PDF CONTENT in GSC'}
+                num_cites = analyzer.getCitesToAuthor(auth_word, refContent)
+                #print (fname+ ' '+lname+ ' has '+str(numCites)+' number of self-cites in paper: '+ paper.getInfo()['Title'])
+                self_cites_info = {'Paper Title': paper.getInfo()['Title'], 'Self Cites': num_cites}
+            else:
+                self_cites_info = {'Paper Title': paper.getInfo()['Title'], 'Self Cites': 'No Valid PDF CONTENT in GSC'}
 
-        print('Paper ' + str(idx) + ' complete.')
-        print(self_cites_info)
-        self_cite_arr.append(self_cites_info)
+            print('Paper title: ' + str(title) + ' has self cites: ' + str(num_cites))
+            self_cite_arr.append(self_cites_info)
+
+        print(self_cite_arr)
+    except Exception as e:
+        print('Exception occured: ' + str(e))
+        print(self_cite_arr)
 
     return self_cite_arr
 
@@ -266,10 +270,7 @@ def count_cross_cites_stage3(orig_author, author_dist, x_most_rel, top_x, y_most
         time.sleep(5)
         top_cited_author = cited_author_freq_arr[0]
 
-        # If we need to filter by publisher
-        # top_cited_author.loadPapers(y_most_rel, pubFilter=True, delay=True)
-        # If we don't need to filter by publish
-        top_cited_author.loadPapers(y_most_rel, pubFilter=False, delay=True)
+        top_cited_author.loadPapers(y_most_rel, pubFilter=True, delay=True)
 
         cited_fname = top_cited_author.getFirstName()
         cited_lname = top_cited_author.getLastName()
@@ -288,9 +289,7 @@ def count_cross_cites_stage3(orig_author, author_dist, x_most_rel, top_x, y_most
             print('Paper title: ' + pap_title)
             
             # For ambiguous names
-            # auth_word = get_ref_author_format(ORIG_FNAME, ORIG_LNAME, paper.getInfo()['Publisher'])
-            # For unique names
-            auth_word = ORIG_LNAME.title()
+            auth_word = get_ref_author_format(ORIG_FNAME, ORIG_LNAME, paper.getInfo()['Publisher'])
 
             pdf_paper = paper.getPdfObj()
             analyzer = PaperReferenceExtractor()
@@ -329,7 +328,7 @@ def count_overcites(author, auth_paper_num, cite_num_to_load=30, recent=False):
     author.loadPapers(auth_paper_num, loadPaperPDFs=False, pubFilter=False)
     count = 0
     try:
-        for paper in author.getPapers()[55:]:
+        for paper in author.getPapers()[5:]:
             if paper.getCitedByUrl() is None:
                 print("No cited by url for paper: " + paper.getInfo()['Title'] + "with link " + paper.getUrl() + ", loop continue called")
                 continue
@@ -437,10 +436,16 @@ def count_overcites_paper(paper, author, cite_num_to_load=30):
 #         print(arr)
 # over_cite_writer(over_cite_arr, 'vas_most_recent_overcites5')
 
+#self cites
+# vas = AcademicPublisher(SessionInitializer.ROOT_URL + '/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 1, loadPaperPDFs=False)
+# self_cite_arr = count_self_cites(vas, 50)
+# self_cite_writer(self_cite_arr, 'vas_top50_self_cites')
+
+
 #getting bare data from more relevant papers
-vas = AcademicPublisher(SessionInitializer.ROOT_URL + '/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 1, loadPaperPDFs=False)
-over_cite_arr = count_overcites(vas, 50)
-over_cite_writer(over_cite_arr, 'idx50')
+# vas = AcademicPublisher(SessionInitializer.ROOT_URL + '/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 1, loadPaperPDFs=False)
+# over_cite_arr = count_overcites(vas, 50)
+# over_cite_writer(over_cite_arr, 'rel_idx_5')
 
 #Journal Cites
 # vas = AcademicPublisher(SessionInitializer.ROOT_URL + '/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 1, loadPaperPDFs=False)
@@ -453,8 +458,7 @@ over_cite_writer(over_cite_arr, 'idx50')
 # print(count_overcites_paper(p, vas, cite_num_to_load=30))
 
 
-# vas = AcademicPublisher(SessionInitializer.ROOT_URL + '/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 1)
-# cross_cite_dict = count_cross_cites(vas, 50, 10, 50)
-# #cross_cite_dict = count_cross_cites_stage3(vas, stage2.k, 1, 1, 2)
-# cross_cite_writer(cross_cite_dict, 'vas_top50_cross_cites')
-
+vas = AcademicPublisher(SessionInitializer.ROOT_URL + '/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 1)
+cross_cite_dict = count_cross_cites(vas, 50, 11, 50)
+#cross_cite_dict = count_cross_cites_stage3(vas, stage2.k, 1, 1, 2)
+cross_cite_writer(cross_cite_dict, 'vas_top50_cross_cites')

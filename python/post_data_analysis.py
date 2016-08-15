@@ -19,7 +19,7 @@ def add_freq_dict(d, el):
 
 titles = []
 
-with open("vas_top50_most_rel_overcites.csv", "r", encoding='latin1') as file:
+with open("data/vas_top50_most_rel_overcites_new.csv", "r", encoding='latin1') as file:
     reader = csv.reader(file)
     for idx,line in enumerate(reader):
         if idx>0:

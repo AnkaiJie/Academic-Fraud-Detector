@@ -61,9 +61,7 @@ class Paper:
             self.__pap_info[fieldName] = field.find('div', attrs={'class': 'gsc_value'}).text
 
         if loadPdf:
-            self.__pdfObj = self.findPdfObjFromUrlOnPage()
-            if self.__pdfObj is not None:
-                self.__pdfObj.setTitle(self.__pap_info['Title'])
+            self.setPdfObj()
 
     def loadFromSpringer(self):
         return
@@ -91,6 +89,8 @@ class Paper:
     def setPdfObj(self):
         if self.__pdfObj is None:
             self.__pdfObj = self.findPdfObjFromUrlOnPage()
+            if self.__pdfObj is not None:
+                self.__pdfObj.setTitle(self.__pap_info['Title'])
 
     def findPdfObjFromUrlOnPage(self):
         extractor = GscPdfExtractor()
@@ -265,7 +265,7 @@ class GscPdfExtractor:
 
             #this code will skip links with [HTML] tag and throw error for links that are only "Get it at UWaterloo"
             tag = extract.find('span', attrs={'class': 'gs_ctg2'})
-            if tag is not None and tag.text == "[PDF]":
+            if tag is not None and tag.text == "[PDF]" and not self.badSource(extract.find('a')):
                 pdf_obj.resetContent('url', extract.find('a')['href'])
                 print('pdf url: ' + pdf_obj.getPathUrl() + ' has title ' + str(pdf_obj.getTitle()))
                 pdfList.append(pdf_obj)
@@ -310,10 +310,10 @@ class GscPdfExtractor:
 
         #find pdf url
         tag = extract.find('span', attrs={'class': 'gsc_title_ggt'})
-        if tag is not None and tag.text == "[PDF]":
+        if tag is not None and tag.text == "[PDF]" and not self.badSource(extract.find('a')):
             return PdfObj('url', extract.find('a')['href'])
         elif tag is not None:
-            print('Non-PDF tag, using get it @ waterloo')
+            print('Non-PDF tag or bad source, using get it @ waterloo')
 
         potential_links = extract.findAll('div', attrs={'class': 'gsc_title_ggi'})
         for div in potential_links:
@@ -324,6 +324,14 @@ class GscPdfExtractor:
                     return pdf_obj
         return None
 
+    def badSource(self, html_el):
+        bad_sources = ['researchgate']
+        if html_el is None:
+            return True
+        for bs in bad_sources:
+            if bs in html_el.text:
+                return True
+        return False
 
     # Parses page waterloo gives us to extract pdf of paper
     def getWatPDF(self, url, title=None):
@@ -402,3 +410,6 @@ class GscHtmlFunctions:
 # analyzer = PaperReferenceExtractor()
 
 
+# p = Paper('https://scholar-google-ca.proxy.lib.uwaterloo.ca/citations?view_op=view_citation&hl=en&user=_yWPQWoAAAAJ&citation_for_view=_yWPQWoAAAAJ:R3hNpaxXUhUC')
+# pre = PaperReferenceExtractor()
+# print(pre.getReferencesContent(p.getPdfObj()))
