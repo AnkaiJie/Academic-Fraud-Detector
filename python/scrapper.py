@@ -38,6 +38,7 @@ def count_self_cites(author, num_load):
             pdf_paper = paper.getPdfObj()
             if (pdf_paper is None):
                 print('No PDF object for this paper, skipping.')
+                self_cite_arr.append({'Paper Title': title, 'Self Cites': 'No PDF found'})
                 continue
             refContent = analyzer.getReferencesContent(pdf_paper)
 
@@ -46,9 +47,9 @@ def count_self_cites(author, num_load):
 
                 num_cites = analyzer.getCitesToAuthor(auth_word, refContent)
                 #print (fname+ ' '+lname+ ' has '+str(numCites)+' number of self-cites in paper: '+ paper.getInfo()['Title'])
-                self_cites_info = {'Paper Title': paper.getInfo()['Title'], 'Self Cites': num_cites}
+                self_cites_info = {'Paper Title': title, 'Self Cites': num_cites}
             else:
-                self_cites_info = {'Paper Title': paper.getInfo()['Title'], 'Self Cites': 'No Valid PDF CONTENT in GSC'}
+                self_cites_info = {'Paper Title': title, 'Self Cites': 'No PDF found'}
 
             print('Paper title: ' + str(title) + ' has self cites: ' + str(num_cites))
             self_cite_arr.append(self_cites_info)
@@ -437,9 +438,9 @@ def count_overcites_paper(paper, author, cite_num_to_load=30):
 # over_cite_writer(over_cite_arr, 'vas_most_recent_overcites5')
 
 #self cites
-# vas = AcademicPublisher(SessionInitializer.ROOT_URL + '/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 1, loadPaperPDFs=False)
-# self_cite_arr = count_self_cites(vas, 50)
-# self_cite_writer(self_cite_arr, 'vas_top50_self_cites')
+vas = AcademicPublisher(SessionInitializer.ROOT_URL + '/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 1, loadPaperPDFs=False)
+self_cite_arr = count_self_cites(vas, 50)
+self_cite_writer(self_cite_arr, 'data/vas_top50_self_cites2')
 
 
 #getting bare data from more relevant papers
@@ -458,7 +459,7 @@ def count_overcites_paper(paper, author, cite_num_to_load=30):
 # print(count_overcites_paper(p, vas, cite_num_to_load=30))
 
 
-vas = AcademicPublisher(SessionInitializer.ROOT_URL + '/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 1)
-cross_cite_dict = count_cross_cites(vas, 50, 11, 50)
-#cross_cite_dict = count_cross_cites_stage3(vas, stage2.k, 1, 1, 2)
-cross_cite_writer(cross_cite_dict, 'vas_top50_cross_cites')
+# vas = AcademicPublisher(SessionInitializer.ROOT_URL + '/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 1)
+# cross_cite_dict = count_cross_cites(vas, 50, 11, 50)
+# #cross_cite_dict = count_cross_cites_stage3(vas, stage2.k, 1, 1, 2)
+# cross_cite_writer(cross_cite_dict, 'vas_top50_cross_cites')

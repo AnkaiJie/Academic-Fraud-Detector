@@ -111,6 +111,26 @@ class PaperReferenceExtractor:
     def __init__(self):
         self.references = []
 
+    def filterNoise(self, refContent):
+        i = 1
+        old_idx = 0
+        while(1):
+            idx = refContent[old_idx:].find(str(i))
+            if idx == -1 or (i > 10 and idx > 400):
+                break
+            idx += old_idx
+            print(idx)
+            i+=1
+            old_idx = idx
+
+        if len(refContent[old_idx:])>200:
+            old_idx += 200
+        else:
+            old_idx += len(refContent[old_idx:])
+    
+        return refContent[:old_idx]
+
+
     def getReferencesContent(self, pdfObj):
 
         pdfContent = pdfObj.getPdfContent()
@@ -138,7 +158,7 @@ class PaperReferenceExtractor:
         if (abt_authors!=-1):
             pdfContent = pdfContent[:abt_authors]
 
-        return pdfContent
+        return self.filterNoise(pdfContent)
 
     #def parseNoSpaces(self, content):
 
@@ -322,8 +342,9 @@ class SpringerReferenceParser:
 # extractor = PaperReferenceExtractor()
 # # pdf_paper = PdfObj('url', pathOrUrl='http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.636.9687&rep=rep1&type=pdf')
 # #pdf_paper = PdfObj('url', pathOrUrl='https://www.researchgate.net/profile/Jun_Luo4/publication/220866049_Compressed_Data_Aggregation_for_Energy_Efficient_Wireless_Sensor_Networks/links/0deec52269881dcd2c000000.pdf')
-# pp = PdfObj('url', pathOrUrl='http://phys.xmu.edu.cn/shuaiweb/ShuaiPub/IEEETN11_135.pdf')
+# pp = PdfObj('url', pathOrUrl='http://novintarjome.com/wp-content/uploads/2014/10/Security-and-privacy-for-storage-and.pdf')
 # ref_content = extractor.getReferencesContent(pp)
+# print(ref_content)
 # print(extractor.getCitesToAuthor('Vasilakos', ref_content))
 # #print(ref_content)
 # # ieee = IeeeReferenceParser()

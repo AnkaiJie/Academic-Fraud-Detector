@@ -7,7 +7,7 @@ ch = webdriver.Chrome("./chromedriver")
 
 if SessionInitializer.ROOT_URL == "https://scholar-google-ca.proxy.lib.uwaterloo.ca":
     ch.get('https://login.proxy.lib.uwaterloo.ca/login')
-    cookies = [{'value': 'ntli3huVJuBMN5u', 'name': 'ezproxy', 'domain': '.lib.uwaterloo.ca', 'secure': False, 'httpOnly': False, 'path': '/'}, {'expiry': 1471212282, 'value': '1', 'name': '_gat', 'domain': '.uwaterloo.ca', 'secure': False, 'httpOnly': False, 'path': '/'}, {'expiry': 1534283682, 'value': 'GA1.2.1227558798.1466567220', 'name': '_ga', 'domain': '.uwaterloo.ca', 'secure': False, 'httpOnly': False, 'path': '/'}]
+    cookies = [{'value': 'GnvMwRNRyR7ik5T', 'secure': False, 'domain': '.lib.uwaterloo.ca', 'name': 'ezproxy', 'path': '/', 'httpOnly': False}, {'value': '1', 'secure': False, 'expiry': 1471476498, 'name': '_gat', 'path': '/', 'domain': '.uwaterloo.ca', 'httpOnly': False}, {'value': 'GA1.2.1227558798.1466567220', 'secure': False, 'expiry': 1534547898, 'name': '_ga', 'path': '/', 'domain': '.uwaterloo.ca', 'httpOnly': False}]
 
     for cookie in cookies:
         ch.add_cookie(cookie)
