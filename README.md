@@ -4,7 +4,10 @@ Mass data collection functions for publishers on Google Scholar to determine sus
 
 This repository examines the citing behaviours of authors on Google Scholar, as determined through their publicly published papers on Google scholar. Specifically, it looks relationships between those they cite and those who cite them. It does so through the following four automated functions.
 
-Self-cites: Given an author’s paper on Google Scholar, returns that number of times that the author cites him/herself in the paper.
-Over-cites: Given an author’s paper on Google Scholar, finds papers that cite that paper, and determines the number of times each paper cites the original author in total
-Journal Frequency: Given an Author’s paper on Google Scholar, finds its most relevant citers on Google Scholar, and determines the frequency of the journals that those papers come from as listed in Google Scholar
-Cross Cites: Given an author, determines other authors with whom the author has frequent citing relationships.
+Self-cites: Examines the number of times an author cites him/herself.
+
+Over-cites: Examines the number of times that citing papers of an author's paper cite the author as a whole.
+
+Journal Frequency: Determines the number of citing papers of an author that are from common publication journals. 
+
+Cross Cites: Determines the number of times two authors cite each other. 
