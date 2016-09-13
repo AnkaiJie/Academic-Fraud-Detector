@@ -13,8 +13,7 @@ import requests
 import time
 import PyPDF2
 import SessionInitializer
-from csvWriter import *
-import stage2
+
 
 
 # given a paper, counts the number of times it cites an author of the paper
@@ -324,12 +323,12 @@ def count_cross_cites_stage3(orig_author, author_dist, x_most_rel, top_x, y_most
 
 # given paper and author, and index number, returns number of times a each
 # citing paper on the first page of citing papers also cites the same author
-def count_overcites(author, auth_paper_num, cite_num_to_load=30, recent=False):
+def count_overcites(author, auth_paper_num, cite_num_to_load=30):
     over_cite_arr = []
     author.loadPapers(auth_paper_num, loadPaperPDFs=False, pubFilter=False)
     count = 0
     try:
-        for paper in author.getPapers()[5:]:
+        for paper in author.getPapers():
             if paper.getCitedByUrl() is None:
                 print("No cited by url for paper: " + paper.getInfo()['Title'] + "with link " + paper.getUrl() + ", loop continue called")
                 continue
@@ -345,7 +344,7 @@ def count_overcites(author, auth_paper_num, cite_num_to_load=30, recent=False):
     except Exception:
         print('returning back over_cite_arr')
 
-    print(str(count) + "number of papers analyzed")
+    print(str(count) + " number of papers analyzed")
     print(over_cite_arr)
     return over_cite_arr
 
@@ -416,3 +415,5 @@ def count_overcites_paper(paper, author, cite_num_to_load=30):
         return overcites_info
 
     return overcites_info
+
+

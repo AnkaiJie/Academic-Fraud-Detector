@@ -18,10 +18,10 @@ def add_freq_dict(d, el):
         d[el] = 1
 
 
-def overcite_an():
+def overcite_an(path):
     titles = []
 
-    with open("data/vas_most_recent_overcites.csv", "r", encoding='latin1') as file:
+    with open(path, "r", encoding='latin1') as file:
         reader = csv.reader(file)
         for idx,line in enumerate(reader):
             if idx>0:
@@ -75,16 +75,10 @@ def overcite_an():
     print(final_dict)
 
 
-    # 134 papers over 15 cites, but only 21 unique ones. 
-    # These 21 papers cite vasilakos 456 times in total - average 21 papers
-    final = {'journals': {'Wireless  …': 1, 'Wireless Networks': 19, 'Proceedings of the ACM/IEEE  …': 1}, 'publishers': {'Springer': 20, 'dl.acm.org': 1}, 'authors': {' R Misra': 1, 'RH Jhaveri': 1, ' JY Song': 1, 'PK Batra': 1, ' N Panwar': 2, ' NM Patel': 1, ' M Chen': 1, ' H Al-Wattar': 1, ' JY Zou': 1, ' AWA Wahab…': 1, ' W Deng': 1, ' YC Chang': 1, 'S Dolev': 2, ' B Shah': 1, ' I Keshtkar': 1, ' DQ Wang': 1, ' RC Jin': 1, ' MY Alias': 1, ' Y Fanaeian': 1, ' MYI Idris': 1, 'M Ghiyasvand': 1, ' Z Zhang': 1, ' Y Liu': 1, ' OG Hafif': 1, ' L Zeng': 1, 'AE Kostin': 1, 'JMY Lim': 1, ' JH Ding': 1, ' A Kannan': 1, 'SK Bhoi': 2, 'Z Li': 1, 'Z Liu': 1, ' A Raj': 1, 'İ Abasıkeleş-Turgut': 1, ' K Kant': 1, ' M Abdullah': 1, 'MH Anisi': 1, ' WY Shin': 1, 'C Jeong': 1, ' KI Kim': 1, ' Ł Krzywiecki': 2, ' A Faruque': 1, 'K Vatanparvar': 1, 'CJ Lee': 1, 'Q Han': 1, ' J Wang': 1, ' J Loo': 1, 'R Logambigai': 1, 'T Gao': 1, ' G Zhang': 1, ' G Abdul-Salaam': 1, ' M Segal': 2, 'SA Alghamdi': 1, ' X He': 1, ' L Ye': 1, 'D Das': 1, ' PM Khilar': 2}}
-
-
-
-def journal_an():
+def journal_an(path):
     titles = []
     tempsum = 0
-    with open("data/vas_top50_journals_freq.csv", "r", encoding='latin1') as file:
+    with open(path, "r", encoding='latin1') as file:
         reader = csv.reader(file)
         for idx,line in enumerate(reader):
             if idx>0 and len(line) > 1:
@@ -95,5 +89,3 @@ def journal_an():
                 
 
     print(tempsum)
-
-journal_an()

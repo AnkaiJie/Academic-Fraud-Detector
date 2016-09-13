@@ -54,7 +54,7 @@ def self_cite_writer(self_cite_arr, name):
 
 def over_cite_writer(over_cite_arr, name):
 
-    writer = csv.writer(open(name + '.csv', 'w', encoding='latin1'), lineterminator='\n')
+    writer = csv.writer(open(name + '.csv', 'w', encoding='utf8'), lineterminator='\n')
     for paper in over_cite_arr:
 
         writer.writerow([paper[-1]])

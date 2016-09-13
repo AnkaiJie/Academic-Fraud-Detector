@@ -119,7 +119,6 @@ class PaperReferenceExtractor:
             if idx == -1 or (i > 10 and idx > 400):
                 break
             idx += old_idx
-            print(idx)
             i+=1
             old_idx = idx
 
