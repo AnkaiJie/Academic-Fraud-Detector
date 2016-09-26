@@ -28,14 +28,15 @@ def author_selfcites(link, name, num):
 def author_overcites(link, name, num):
 	auth = AcademicPublisher(SessionInitializer.ROOT_URL + link, 1, loadPaperPDFs=False)
 	over_cite_arr = count_overcites(auth, num)
-	over_cite_writer(over_cite_arr, 'data/' + name + '/' + name + '_top_' + str(num) + '_selfcites')
+	over_cite_writer(over_cite_arr, 'data/' + name + '/' + name + '_top_' + str(num) + '_overcites_idx')
 
 
 # Journal Cites
 def author_journalfreq(link, name, num):
 	auth = AcademicPublisher(SessionInitializer.ROOT_URL + link, 1, loadPaperPDFs=False)
 	journal_cite_arr = count_journal_frequency(auth, num)
-	jounal_dict_writer(journal_cite_arr, 'data/' + name + '/' + name + '_top_' + str(num) + '_jounalfreq')
+	jounal_dict_writer(journal_cite_arr, 'data/' + name + '/' + name + '_top_' + str(num) + '_journalfreq')
+	total_journal_dict_writer(journal_cite_arr, 'data/' + name + '/' + name + '_top_' + str(num) + '_totaljournalfreq')
 
 
 def author_crosscites(link, name):
@@ -46,3 +47,8 @@ def author_crosscites(link, name):
 
 #Vasilakos
 # author_overcites('/citations?user=_yWPQWoAAAAJ&hl=en&oi=ao', 'vasilakos', 50)
+
+#Abdelzaher
+#author_overcites ('/citations?user=cA28Zs0AAAAJ&hl=en&oi=ao', 'abdelzaher', 3)
+#author_overcites ('/citations?user=cA28Zs0AAAAJ&hl=en&oi=ao', 'abdelzaher', 3)
+author_journalfreq('/citations?user=cA28Zs0AAAAJ&hl=en&oi=ao', 'abdelzaher', 50)

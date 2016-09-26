@@ -339,10 +339,13 @@ def count_overcites(author, auth_paper_num, cite_num_to_load=30):
             arr = count_overcites_paper(paper, author, cite_num_to_load=cite_num_to_load)
             arr.append(k)
             over_cite_arr.append(arr)
+            print("PAPER ARRAY DICT")
             print(arr)
             count+=1
-    except Exception:
-        print('returning back over_cite_arr')
+    except AttributeError:
+        print('google scholar possibly has blocked you, sending back collected data...')
+    except KeyboardInterrupt:
+        print('User ended program, returning over cite array')
 
     print(str(count) + " number of papers analyzed")
     print(over_cite_arr)
@@ -410,8 +413,8 @@ def count_overcites_paper(paper, author, cite_num_to_load=30):
         print('google scholar possibly has blocked you, sending back collected data...')
         print(e)
         return overcites_info
-    except Exception as e:
-        print('unknown exception ' + str(e))
+    except KeyboardInterrupt:
+        print('User ended program. Returning existing Data')
         return overcites_info
 
     return overcites_info

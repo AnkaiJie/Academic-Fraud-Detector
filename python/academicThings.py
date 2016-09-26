@@ -413,3 +413,6 @@ class GscHtmlFunctions:
 # p = Paper('https://scholar-google-ca.proxy.lib.uwaterloo.ca/citations?view_op=view_citation&hl=en&user=_yWPQWoAAAAJ&citation_for_view=_yWPQWoAAAAJ:R3hNpaxXUhUC')
 # pre = PaperReferenceExtractor()
 # print(pre.getReferencesContent(p.getPdfObj()))
+
+# g = GscPdfExtractor()
+# g.findPapersFromCitations('https://scholar.google.ca/scholar?start=20&hl=en&as_sdt=0,5&sciodt=0,5&cites=16000911563998617100')

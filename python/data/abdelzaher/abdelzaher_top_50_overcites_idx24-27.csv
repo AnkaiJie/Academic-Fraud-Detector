@@ -1,0 +1,145 @@
+Paper Title: Achieving real-time target tracking usingwireless sensor networks,,
+Citing Paper Number,Paper Title,Over-cite Count
+1,Real-time power-aware routing in sensor networks,No PDF Found
+2,QoS-aware MAC protocols for wireless sensor networks: A survey,2
+3,Real-time QoS support in wireless sensor networks: a survey,6
+4,Secure data aggregation in wireless sensor network: a survey,1
+5,Sparse target counting and localization in sensor networks based on compressive sensing,1
+6,Smart sleeping policies for energy-efficient tracking in sensor networks,0
+7,BorderSense: Border patrol through advanced wireless sensor networks,1
+8,Sensor node lifetime analysis: Models and tools,No PDF Found
+9,A comprehensive worst-case calculus for wireless sensor networks with in-network processing,2
+10,On-demand time synchronization with predictable accuracy,0
+11,Target enumeration via Euler characteristic integrals,No PDF Found
+12,A new routing metric for satisfying both energy and delay constraints in wireless sensor networks,3
+13,Towards stable network performance in wireless sensor networks,No PDF Found
+14,Probability-based prediction and sleep scheduling for energy-efficient target tracking in sensor networks,3
+15,Detecting movements of a target using face tracking in wireless sensor networks,1
+16,A learning automata based scheduling solution to the dynamic point coverage problem in wireless sensor networks,0
+17,Energy-efficient routing and secure communication in wireless sensor networks,0
+18,A novel mobility management scheme for target tracking in cluster-based sensor networks,2
+19,A single mobile target tracking in Voronoi-based clustered wireless sensor network,No PDF Found
+20,Impact of data fusion on real-time detection in sensor networks,4
+21,Theoretical treatment of target coverage in wireless sensor networks,0
+22,Energy efficient sleep scheduling based on moving directions in target tracking sensor network,No PDF Found
+23,A hybrid cluster-based target tracking protocol for wireless sensor networks,No PDF Found
+24,Target tracking with monitor and backup sensors in wireless sensor networks,1
+25,Real-time video surveillance over IEEE 802.11 mesh networks,1
+26,Local area prediction-based mobile target tracking in wireless sensor networks,2
+27,Distributed real-time detection and tracking of homogeneous regions in sensor networks,1
+28,Fidelity-aware utilization control for cyber-physical surveillance systems,3
+29,Energy efficient sleep scheduling in sensor networks for multiple target tracking,1
+30, Dynamic Point Coverage Problem in Wireless Sensor Networks: A Cellular Learning Automata Approach.,0
+,Total,35
+"
+",,
+Paper Title: Range-free localization and its impact on large scale sensor networks,,
+Citing Paper Number,Paper Title,Over-cite Count
+1,A survey on sensor localization,0
+2,RFID localization algorithms and applications—a review,0
+3,MBAL: A mobile beacon-assisted localization scheme for wireless sensor networks,No PDF Found
+4,Traffic-differentiation-based modular QoS localized routing for wireless sensor networks,No PDF Found
+5,Localization with a mobile beacon based on geometric constraints in wireless sensor networks,1
+6,SensorFly: Controlled-mobile sensing platform for indoor emergency response applications,2
+7,High accuracy localization method using AoA in sensor networks,1
+8,Cost-effective barrier coverage by mobile sensor networks,1
+9,A walking beacon-assisted localization in wireless sensor networks,2
+10,Improved weighted centroid localization in smart ubiquitous environments,0
+11,[CITATION][C] Survey of localization techniques in wireless sensor networks,No PDF Found
+12,Energy-efficient capture of stochastic events under periodic network coverage and coordinated sleep,1
+13,Energy-efficient capture of stochastic events by global-and local-periodic network coverage,1
+14,Coverage and connectivity in duty-cycled wireless sensor networks for event monitoring,1
+15,ucast: Unified connectionless multicast for energy efficient content distribution in sensor networks,4
+16,Theory and practice of geographic routing,2
+17,Localization of mobile users using trajectory matching,1
+18,Maintaining quality of sensing with actors in wireless sensor networks,1
+19,Mobility and intruder prior information improving the barrier coverage of sparse sensor networks,1
+20,[BOOK][B] Indoor location tracking using received signal strength indicator,No PDF Found
+21,EMD: energy-efficient P2P message dissemination in delay-tolerant wireless sensor and actor networks,1
+22,Component-based localization in sparse wireless networks,2
+23,Network localization using angle of arrival,No PDF Found
+24, Mobility management in sensor networks,No PDF Found
+25,Medium access control with mobility-adaptive mechanisms for wireless sensor networks,1
+26,OTMCL: Orientation tracking-based Monte Carlo localization for mobile sensor networks,1
+27,A range free localization algorithm based on restricted-area for wireless sensor networks,No PDF Found
+28,At-dist: A distributed method for localization with high accuracy in sensor networks,No PDF Found
+29,GPS-free directional localization via dual wireless radios,0
+30,On accuracy of region based localization algorithms for wireless sensor networks,2
+,Total,26
+"
+",,
+Paper Title: GreenGPS: a participatory sensing fuel-efficient maps application,,
+Citing Paper Number,Paper Title,Over-cite Count
+1,A survey on privacy in mobile participatory sensing applications,2
+2,SignalGuru: leveraging mobile phones for collaborative traffic signal schedule advisory,1
+3,On truth discovery in social sensing: A maximum likelihood estimation approach,5
+4,Optimal incentive-driven design of participatory sensing systems,1
+5,Mobile computing: the next decade,No PDF Found
+6,Deanonymizing mobility traces: Using social network as a side-channel,1
+7, Human-centric sensing,No PDF Found
+8,Integrating sensors and social networks,7
+9,A scalable and elastic publish/subscribe service,No PDF Found
+10,Privacy-aware regression modeling of participatory sensing data,No PDF Found
+11,Quality control for real-time ubiquitous crowdsourcing,1
+12,Social sensing,14
+13,Leveraging smartphone cameras for collaborative road advisories,1
+14,Indoor weather stations: investigating a ludic approach to environmental HCI through batch prototyping,No PDF Found
+15,Ikarus: large-scale participatory sensing at high altitudes,2
+16,Hiding in the mobile crowd: Locationprivacy through collaboration,1
+17,Smartroad: a crowd-sourced traffic regulator detection and identification system,1
+18,Exploitation of physical constraints for reliable social sensing,1
+19,Using smart-phones and floor plans for indoor location tracking-Withdrawn,0
+20,The sparse regression cube: A reliable modeling technique for open cyber-physical systems,1
+21,Social drive: a crowdsourcing-based vehicular social networking system for green transportation,No PDF Found
+22,Distance and time based node selection for probabilistic coverage in people-centric sensing,No PDF Found
+23,Efficient 3g budget utilization in mobile participatory sensing applications,1
+24,Crowdsensing maps of on-street parking spaces,1
+25,Mutual privacy-preserving regression modeling in participatory sensing,4
+26,On credibility estimation tradeoffs in assured social sensing,No PDF Found
+27,Its for sustainable mobility: A survey on applications and impact assessment tools,1
+28,Energy-efficient opportunistic coverage for people-centric urban sensing,0
+29,A decade of wireless sensing applications: Survey and taxonomy,No PDF Found
+30,Carma: towards personalized automotive tuning,1
+,Total,47
+"
+",,
+Paper Title: RID: Radio interference detection in wireless sensor networks,,
+Citing Paper Number,Paper Title,Over-cite Count
+1,Opportunities and challenges of wireless sensor networks in smart grid,1
+2,ATPC: adaptive transmission power control for wireless sensor networks,3
+3, MMSN: Multi-Frequency Media Access Control for Wireless Sensor Networks.,2
+4,Realistic and efficient multi-channel communications in wireless sensor networks,2
+5,Link scheduling in wireless sensor networks: distributed edge-coloring revisited,0
+6,Radio link quality estimation in wireless sensor networks: a survey,0
+7,Does wireless sensor network scale? A measurement study on GreenOrbs,3
+8, Wireless Sensor Networks.,0
+9,Developing ZigBee deployment guideline under WiFi interference for smart grid applications,0
+10,A survey on jamming attacks and countermeasures in WSNs,No PDF Found
+11,A measurement study of interference modeling and scheduling in low-power wireless networks,1
+12,Online and remote motor energy monitoring and fault diagnostics using wireless sensor networks,1
+13,Data gathering in wireless sensor networks with mobile collectors,1
+14, Crowded spectrum in wireless sensor networks,2
+15,Distributed time-optimal scheduling for convergecast in wireless sensor networks,No PDF Found
+16,Detection of reactive jamming in sensor networks,No PDF Found
+17,Multichannel superframe scheduling for IEEE 802.15. 4 industrial wireless sensor networks,2
+18,Tour planning for mobile data-gathering mechanisms in wireless sensor networks,1
+19,Adaptive interference-aware multi-channel clustering algorithm in a Zigbee network in the presence of WLAN interference,No PDF Found
+20,TDMA-ASAP: Sensor network TDMA scheduling with adaptive slot-stealing and parallelism,No PDF Found
+21,Making sensornet MAC protocols robust against interference,1
+22,Dynamic conflict-free query scheduling for wireless sensor networks,1
+23,Real-time query scheduling for wireless sensor networks,2
+24,Resource-aware and link quality based routing metric for wireless sensor and actor networks,No PDF Found
+25,Chip error pattern analysis in IEEE 802.15. 4,No PDF Found
+26,RSS-based carrier sensing and interference estimation in 802.11 wireless networks,1
+27,Distributed latency-energy minimization and interference avoidance in TDMA wireless sensor networks,0
+28,Passive interference measurement in wireless sensor networks,1
+29,Multi-channel interference measurement and modeling in low-power wireless networks,4
+30,Throughput-aware routing for industrial sensor networks: Application to isa100. 11a,1
+,Total,30
+"
+",,
+,,
+,,
+,,
+"
+",,

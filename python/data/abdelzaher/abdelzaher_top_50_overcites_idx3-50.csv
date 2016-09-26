@@ -1,0 +1,1642 @@
+Paper Title: Performance guarantees for web server end-systems: A control-theoretical approach,,
+Citing Paper Number,Paper Title,Over-cite Count
+1,Managing energy and server resources in hosting centers,2
+2,Dynamic placement of virtual machines for managing sla violations,1
+3,The state of the art in locally distributed Web-server systems,0
+4,Adaptive control of virtualized resources in utility computing environments,3
+5, Energy-Aware Server Provisioning and Load Dispatching for Connection-Intensive Internet Services.,0
+6,An analytical model for multi-tier internet services and its applications,No PDF Found
+7,Real time scheduling theory: A historical perspective,No PDF Found
+8,Managing server energy and operational costs in hosting centers,3
+9, Correlating Instrumentation Data to System States: A Building Block for Automated Diagnosis and Control.,1
+10,Automated control of multiple virtualized resources,3
+11,Q-clouds: managing performance interference effects for qos-aware clouds,2
+12,Dynamic resource allocation for shared data centers using online measurements,4
+13,A method for transparent admission control and request scheduling in e-commerce web sites,3
+14,Agile dynamic provisioning of multi-tier internet applications,0
+15,Model-Based Resource Provisioning in a Web Service Utility.,1
+16," By Tarek F. Abdelzaher, John A. Stankovic, Chenyang Lu, Ronghua Zhang, and Ying Lu",11
+17,Interposed proportional sharing for a storage service utility,1
+18,On the use of fuzzy modeling in virtualized data center management,1
+19,Feedback utilization control in distributed real-time systems with end-to-end tasks,3
+20,Controlware: A middleware architecture for feedback control of software performance,10
+21,Cyber–physical systems: A perspective at the centennial,No PDF Found
+22,A cost-aware elasticity provisioning system for the cloud,1
+23,Feedback control with queueing-theoretic prediction for relative delay guarantees in web servers,12
+24,Performance management for cluster based web services,No PDF Found
+25,Energy-aware autonomic resource allocation in multitier virtualized environments,1
+26,An adaptive control framework for qos guarantees and its application to differentiated caching,9
+27,Performance management for cluster-based web services,1
+28,SLA based profit optimization in autonomic computing systems,No PDF Found
+29,Utility-driven workload management using nested control design,No PDF Found
+30,Triage: Performance isolation and differentiation for storage systems,0
+,Total,73
+"
+",,
+Paper Title: Rap: A real-time communication architecture for large-scale wireless sensor networks,,
+Citing Paper Number,Paper Title,Over-cite Count
+1,[BOOK][B] Protocols and architectures for wireless sensor networks,No PDF Found
+2,Denial of service in sensor networks,0
+3,SPEED: A stateless protocol for real-time communication in sensor networks,2
+4,Tinyos: An operating system for sensor networks,2
+5,Collection tree protocol,1
+6,MMSPEED: multipath Multi-SPEED protocol for QoS guarantee of reliability and. Timeliness in wireless sensor networks,3
+7,Mitigating congestion in wireless sensor networks,1
+8,Location-based pairwise key establishments for static sensor networks,1
+9,Differentiated surveillance for sensor networks,5
+10, QoS Support in Wireless Sensor Networks: A Survey.,No PDF Found
+11,Real-time communication and coordination in embedded sensor networks,6
+12,Minimum-energy asynchronous dissemination to mobile sinks in wireless sensor networks,3
+13,A survey of multimedia streaming in wireless sensor networks,3
+14,AIDA: Adaptive application-independent data aggregation in wireless sensor networks,4
+15,A spatiotemporal communication protocol for wireless sensor networks,5
+16,Probabilistic QoS guarantee in reliability and timeliness domains in wireless sensor networks,No PDF Found
+17,Envirotrack: Towards an environmental computing paradigm for distributed sensor networks,No PDF Found
+18,Event detection services using data service middleware in distributed sensor networks,4
+19,Achieving real-time target tracking usingwireless sensor networks,9
+20, Wireless Sensor Networks.,0
+21,A distributed coordination framework for wireless sensor and actor networks,3
+22, IGF: A state-free robust communication protocol for wireless sensor networks,No PDF Found
+23,A survey on energy-efficient routing techniques with QoS assurances for wireless multimedia sensor networks,3
+24,Real-time databases and data services,No PDF Found
+25,On handling QoS traffic in wireless sensor networks,0
+26,Distributed deviation detection in sensor networks,1
+27,Cyber–physical systems: A perspective at the centennial,No PDF Found
+28,QoS-aware MAC protocols for wireless sensor networks: A survey,2
+29,EARQ: Energy aware routing for real-time and reliable communication in wireless industrial sensor networks,No PDF Found
+30, A survey of wireless sensor networks technology,1
+,Total,59
+"
+",,
+Paper Title: Real time scheduling theory: A historical perspective,,
+Citing Paper Number,Paper Title,Over-cite Count
+1,[BOOK][B] Real-time systems: design principles for distributed embedded applications,No PDF Found
+2,A survey of hard real-time scheduling for multiprocessor systems,0
+3,Cyber–physical systems: A perspective at the centennial,No PDF Found
+4,Tardiness bounds under global EDF scheduling on a multiprocessor,0
+5,"Fixed interval scheduling: Models, applications, computational complexity and algorithms",No PDF Found
+6,An analysis of fixed-priority schedulability on a multiprocessor,1
+7,Task scheduling for control oriented requirements for cyber-physical systems,1
+8, Schedulability analysis of multiprocessor sporadic task systems,1
+9,Annotating UML models with non-functional properties for quantitative analysis,No PDF Found
+10,Control: A perspective,0
+11,Control-scheduling codesign: A perspective on integrating control and computing,6
+12,Efficient implementation of tight response-times for tasks with offsets,1
+13,Analysis of hierarchical EDF pre-emptive scheduling,1
+14,Control and embedded computing: Survey of research directions,No PDF Found
+15,Analysis and optimization of distributed real-time embedded systems,0
+16,Early quality prediction of component-based systems–A generic framework,0
+17,An evaluation of SMT-based schedule synthesis for time-triggered multi-hop networks,No PDF Found
+18,Virtual execution platforms for mixed-time-criticality systems: the CompSOC architecture and design flow,1
+19,Verifying distributed real-time properties of embedded systems via graph transformations and model checking,0
+20, Event-driven control in theory and practice,1
+21,An implementing framework for holonic manufacturing control with multiple robot-vision stations,0
+22,An EDF schedulability test for periodic tasks on reconfigurable hardware devices,No PDF Found
+23,Reconfigurable real-time middleware for distributed cyber-physical systems with aperiodic events,1
+24,Optimal real-time scheduling of control tasks with state feedback resource allocation,1
+25,Multihop multi-channel scheduling for wireless control in WirelessHART networks,No PDF Found
+26," Support for End-to-End Response-Time and Delay Analysis in the Industrial Tool Suite: Implementation Issues, Experiences and a Case Study",No PDF Found
+27,A flexible scheduling framework for deeply embedded systems,1
+28,Workflow management for soft real-time interactive applications in virtualized environments,No PDF Found
+29,On schedulability bounds of static priority schedulers,3
+30,Fuzzy logic based feedback scheduler for embedded control systems,2
+,Total,21
+"
+",,
+Paper Title: VigilNet: An integrated sensor network system for energy-efficient surveillance,,
+Citing Paper Number,Paper Title,Over-cite Count
+1, Middleware: Middleware challenges and approaches for wireless sensor networks,1
+2,Towards optimal sleep scheduling in sensor networks for rare-event detection,1
+3,A survey of visual sensor networks,1
+4, Alarm-net: Wireless sensor networks for assisted-living and residential monitoring,No PDF Found
+5,Trio: enabling sustainable and scalable outdoor wireless sensor network deployments,1
+6,Lightweight detection and classification for wireless sensor networks in realistic environments,5
+7,Achieving real-time target tracking usingwireless sensor networks,9
+8,Opportunistic flooding in low-duty-cycle wireless sensor networks with unreliable links,2
+9, Wireless Sensor Networks.,0
+10,Securing the deluge network programming system,1
+11,Data forwarding in extremely low duty-cycle sensor networks with unreliable communication links,2
+12,Energy-efficient distributed adaptive multisensor scheduling for target tracking in wireless sensor networks,1
+13,Radio-triggered wake-up for wireless sensor networks,2
+14,Cyber–physical systems: A perspective at the centennial,No PDF Found
+15,DistressNet: a wireless ad hoc and sensor network architecture for situation management in disaster response,0
+16,"A robust, adaptive, solar-powered WSN framework for aquatic environmental monitoring",1
+17,t-kernel: Providing reliable OS support to wireless sensor networks,1
+18,"[BOOK][B] Ultra-low energy wireless sensor networks in practice: Theory, realization and deployment",No PDF Found
+19,FIND: faulty node detection for wireless sensor networks,No PDF Found
+20,Resource aware programming in the pixie os,3
+21,Towards radar-enabled sensor networks,1
+22,Cluster-based forwarding for reliable end-to-end delivery in wireless sensor networks,0
+23,Lance: optimizing high-resolution signal collection in wireless sensor networks,1
+24,Target tracking in wireless sensor networks based on the combination of KF and MLE using distance measurements,1
+25,Detection of reactive jamming in sensor networks,No PDF Found
+26,System software techniques for low-power operation in wireless sensor networks,0
+27,Decentralized control of adaptive sampling in wireless sensor networks,1
+28,Visibility: A new metric for protocol design,1
+29,Capturing high-frequency phenomena using a bandwidth-limited sensor network,No PDF Found
+30,Addressing burstiness for reliable communication and latency bound generation in wireless sensor networks,No PDF Found
+,Total,36
+"
+",,
+Paper Title: Real-time communication and coordination in embedded sensor networks,,
+Citing Paper Number,Paper Title,Over-cite Count
+1,[BOOK][B] Protocols and architectures for wireless sensor networks,No PDF Found
+2,Wireless sensor and actor networks: research challenges,No PDF Found
+3,Wireless technology in industrial networks,1
+4,Recent and emerging topics in wireless industrial communications: A selection,2
+5,Wireless sensor network security: A survey,0
+6,A survey of multimedia streaming in wireless sensor networks,3
+7,Ethernet-based real-time and industrial communications,1
+8,A survey of application distribution in wireless sensor networks,1
+9,Nano-rk: an energy-aware resource-centric rtos for sensor networks,5
+10,A distributed coordination framework for wireless sensor and actor networks,3
+11,Middleware for wireless sensor networks: A survey,1
+12,A survey on wireless sensor network security,0
+13,Cyber–physical systems: A perspective at the centennial,No PDF Found
+14,Improving the IEEE 802.15. 4 slotted CSMA/CA MAC for time-critical events in wireless sensor networks,2
+15, Wearable and implantable wireless sensor network solutions for healthcare monitoring,No PDF Found
+16,Modeling and worst-case dimensioning of cluster-tree wireless sensor networks,2
+17,Bits-per-joule capacity of energy-limited wireless networks,1
+18,Real-time QoS support in wireless sensor networks: a survey,6
+19,Real-time scheduling for WirelessHART networks,0
+20,Time-critical data delivery in wireless sensor networks,1
+21,Real-time scheduling for energy harvesting sensor nodes,1
+22,Building-environment control with wireless sensor and actuator networks: centralized versus distributed,1
+23,Minimum power configuration in wireless sensor networks,2
+24,Scheduling messages with deadlines in multi-hop real-time sensor networks,No PDF Found
+25,"[BOOK][B] Ultra-low energy wireless sensor networks in practice: Theory, realization and deployment",No PDF Found
+26,Enhancing real-time delivery in wireless sensor networks with two-hop information,4
+27, Programming paradigms and middleware for sensor networks,No PDF Found
+28,Autonomic approaches for enhancing communication qos in dense wireless sensor networks with real time requirements,No PDF Found
+29,Physiological information acquisition through wireless biomedical sensor networks,No PDF Found
+30, Handling mobility in wireless sensor and actor networks,2
+,Total,39
+"
+",,
+Paper Title: Named data networking (ndn) project,,
+Citing Paper Number,Paper Title,Over-cite Count
+1,A case for stateful forwarding plane,No PDF Found
+2,Adaptive forwarding in named data networking,1
+3, OSPFN: An OSPF based routing protocol for Named Data Networking,0
+4,NLSR: named-data link state routing protocol,0
+5,Interest flooding attack and countermeasures in Named Data Networking,0
+6,Data naming in vehicle-to-vehicle communications,0
+7,Rapid traffic information dissemination using named data,0
+8,ACT: audio conference tool over named data networking,0
+9,Scalable name lookup in NDN using effective name component encoding,0
+10,Information centric network: Research challenges and opportunities,0
+11,A survey on software-defined networking,No PDF Found
+12,Flow-aware traffic control for a content-centric network,0
+13,Copss: An efficient content oriented publish/subscribe system,No PDF Found
+14,Information centric services in smart cities,0
+15, Wire speed name lookup: A gpu-based approach,No PDF Found
+16,Intra-AS cooperative caching for content-centric networks,0
+17,Backscatter from the data plane–threats to stability and security in information-centric network infrastructure,0
+18,Towards name-based trust and security for content-centric network,No PDF Found
+19,On pending interest table in named data networking,0
+20,Cloud mobile media: Reflections and outlook,No PDF Found
+21,Cache privacy in named-data networking,1
+22,Collaborative forwarding and caching in content centric networks,1
+23,Global source mobility in the content-centric networking architecture,0
+24,Performance analysis of in-network caching for content-centric networking,No PDF Found
+25, Needle in a haystack: Mitigating content poisoning in named-data networking,0
+26,Let's chronosync: Decentralized dataset state synchronization in named data networking,0
+27,On the role of routing in named data networking,0
+28,Mitigate ddos attacks in ndn by interest traceback,0
+29,TB2F: Tree-bitmap and bloom-filter for a scalable and efficient name lookup in content-centric networking,0
+30,Information-centric networking: a natural design for social network applications,0
+,Total,3
+"
+",,
+Paper Title: Minimum-energy asynchronous dissemination to mobile sinks in wireless sensor networks,,
+Citing Paper Number,Paper Title,Over-cite Count
+1,[BOOK][B] Protocols and architectures for wireless sensor networks,No PDF Found
+2,Energy conservation in wireless sensor networks: A survey,2
+3,Wireless sensor and actor networks: research challenges,No PDF Found
+4,VADD: Vehicle-assisted data delivery in vehicular ad hoc networks,0
+5,In-network aggregation techniques for wireless sensor networks: a survey,3
+6,Exploiting sink mobility for maximizing sensor networks lifetime,1
+7,[BOOK][B] Networking wireless sensors,0
+8,Mobiroute: Routing towards a mobile sink for improving lifetime in sensor networks,0
+9,Controlled sink mobility for prolonging wireless sensor networks lifetime,1
+10,Data collection in wireless sensor networks with mobile elements: A survey,1
+11,General network lifetime and cost models for evaluating sensor network deployment strategies,1
+12,Nano-rk: an energy-aware resource-centric rtos for sensor networks,5
+13,Energy-aware node placement in wireless sensor networks,1
+14,Joint sink mobility and routing to maximize the lifetime of wireless sensor networks: the case of constrained mobility,1
+15,An adaptive mobility-aware MAC protocol for sensor networks (MS-MAC),0
+16,Data storage placement in sensor networks,2
+17,An experimental study of routing and data aggregation in sensor networks,1
+18,"Promoting heterogeneity, mobility, and energy-aware voronoi diagram in wireless sensor networks",1
+19,HCDD: hierarchical cluster-based data dissemination in wireless sensor networks with mobile sink,1
+20,A coordination-based data dissemination protocol for wireless sensor networks,1
+21,Adaptive sink mobility in event-driven multi-hop wireless sensor networks,No PDF Found
+22,A spatiotemporal query service for mobile users in sensor networks,2
+23,Efficient routing from multiple sources to multiple sinks in wireless sensor networks,No PDF Found
+24,Learning-enforced time domain routing to mobile sinks in wireless sensor fields,1
+25,Dynamic proxy tree-based data dissemination schemes for wireless sensor networks,2
+26,Energy-aware routing to a mobile gateway in wireless sensor networks,1
+27,MUSTER: Adaptive energy-aware multisink routing in wireless sensor networks,2
+28,Adaptive cluster-based data collection in sensor networks with direct sink access,1
+29,Moving schemes for mobile sinks in wireless sensor networks,No PDF Found
+30,Sink mobility in wireless sensor networks,No PDF Found
+,Total,31
+"
+",,
+Paper Title: Control-theoretic techniques and thermal-RC modeling for accurate and localized dynamic thermal management,,
+Citing Paper Number,Paper Title,Over-cite Count
+1,Temperature-aware microarchitecture,No PDF Found
+2,Temperature-aware microarchitecture: Modeling and implementation,0
+3,Real time scheduling theory: A historical perspective,No PDF Found
+4,Techniques for multicore thermal management: Classification and new exploration,1
+5,Reducing power density through activity migration,0
+6,Heat-and-run: leveraging SMT and CMP to manage power density through the operating system,1
+7,Balance of power: Dynamic thermal management for internet data centers,1
+8, Hotleakage: A temperature-aware model of subthreshold and gate leakage for architects,2
+9,Temperature and supply voltage aware performance and power modeling at microarchitecture level,1
+10," By Tarek F. Abdelzaher, John A. Stankovic, Chenyang Lu, Ronghua Zhang, and Ying Lu",11
+11,Server-level power control,0
+12,Cluster-level feedback power control for performance optimization,3
+13,Predictive dynamic thermal management for multimedia applications,0
+14,Approximation algorithm for the temperature-aware scheduling problem,1
+15,Dynamic cluster reconfiguration for power and performance,No PDF Found
+16,Controlware: A middleware architecture for feedback control of software performance,10
+17,Feedback control with queueing-theoretic prediction for relative delay guarantees in web servers,12
+18,Formal online methods for voltage/frequency control in multiple clock domain microprocessors,1
+19,Temperature-constrained power control for chip multiprocessors with online model estimation,3
+20,An adaptive control framework for qos guarantees and its application to differentiated caching,9
+21,Control techniques to eliminate voltage emergencies in high performance processors,1
+22,Temperature-aware processor frequency assignment for MPSoCs using convex optimization,0
+23,Power capping: a prelude to power shifting,0
+24,Dynamic thermal management through task scheduling,1
+25,Coordinating power control and performance management for virtualized server clusters,4
+26,Control-theoretic dynamic frequency and voltage scaling for multimedia workloads,No PDF Found
+27, Temperature-aware computer systems: Opportunities and challenges,1
+28,Thermal memory effects modeling and compensation in RF power amplifiers and predistortion linearizers,No PDF Found
+29,Power-efficient response time guarantees for virtualized enterprise servers,7
+30,Recent thermal management techniques for microprocessors,0
+,Total,70
+"
+",,
+Paper Title: Towards optimal sleep scheduling in sensor networks for rare-event detection,,
+Citing Paper Number,Paper Title,Over-cite Count
+1,Energy conservation in wireless sensor networks: A survey,2
+2,Coverage and connectivity issues in wireless sensor networks: A survey,0
+3,RMAC: A routing-enhanced duty-cycle MAC protocol for wireless sensor networks,No PDF Found
+4,Wakeup scheduling in wireless sensor networks,1
+5,"DW-MAC: a low latency, energy efficient demand-wakeup MAC protocol for wireless sensor networks",1
+6,Data forwarding in extremely low duty-cycle sensor networks with unreliable communication links,2
+7,Resistor emulation approach to low-power RF energy harvesting,1
+8,Lifetime maximization for connected target coverage in wireless sensor networks,No PDF Found
+9,"A survey on topology control in wireless sensor networks: Taxonomy, comparative study, and open issues",2
+10,Extending the lifetime of wireless sensor networks through adaptive sleep,1
+11,Delay of intrusion detection in wireless sensor networks,No PDF Found
+12,Sleep scheduling and lifetime maximization in sensor networks: fundamental limits and optimal solutions,No PDF Found
+13,An analytical model for wireless sensor networks with sleeping nodes,0
+14,Design and analysis of sensing scheduling algorithms under partial coverage for object detection in sensor networks,4
+15,Communicating via fireflies: geographic routing on duty-cycled sensors,No PDF Found
+16,Achieving long-term surveillance in vigilnet,6
+17,[CITATION][C] A Survey on Topology issues in Wireless Sensor Network.,1
+18,A theory for maximizing the lifetime of sensor networks,1
+19,Achieving long-term surveillance in vigilnet,8
+20,Solarstore: enhancing data reliability in solar-powered storage-centric sensor networks,No PDF Found
+21,Optimal sleep-wakeup algorithms for barriers of wireless sensors,2
+22,Spatiotemporal delay control for low-duty-cycle sensor networks,6
+23,"Analyzing the yield of exscal, a large-scale wireless sensor network experiment",1
+24,On maximizing the lifetime of wireless sensor networks using virtual backbone scheduling,No PDF Found
+25,Dynamic switching-based data forwarding for low-duty-cycle wireless sensor networks,2
+26,Energy-driven detection scheme with guaranteed accuracy,1
+27, Sleeping coordination for comprehensive sensing using isotonic regression and domatic partitions,No PDF Found
+28,Efficient multipath communication for time-critical applications in underwater acoustic sensor networks,No PDF Found
+29,Spatial-temporal coverage optimization in wireless sensor networks,1
+30,Piggyback CrowdSensing (PCS): energy efficient crowdsourcing of mobile sensor data by exploiting smartphone app opportunities,2
+,Total,45
+"
+",,
+Paper Title: MMSN: Multi-Frequency Media Access Control for Wireless Sensor Networks.,,
+Citing Paper Number,Paper Title,Over-cite Count
+1,MAC essentials for wireless sensor networks,2
+2,Realistic and efficient multi-channel communications in wireless sensor networks,2
+3,Y-MAC: An energy-efficient multi-channel MAC protocol for dense wireless sensor networks,1
+4, Wireless Sensor Networks.,0
+5,The evolution of MAC protocols in wireless sensor networks: A survey,2
+6,DEEJAM: Defeating energy-efficient jamming in IEEE 802.15. 4-based wireless networks,1
+7,TMMAC: An energy efficient multi-channel mac protocol for ad hoc networks,1
+8, Wireless multimedia sensor networks: current trends and future directions,No PDF Found
+9,MC-LMAC: A multi-channel MAC protocol for wireless sensor networks,2
+10,Fast data collection in tree-based wireless sensor networks,No PDF Found
+11,RACNet: a high-fidelity data center sensing network,3
+12,Towards a classification of energy aware MAC protocols for wireless sensor networks,2
+13,A practical multi-channel media access control protocol for wireless sensor networks,No PDF Found
+14,Em-mac: a dynamic multichannel energy-efficient mac protocol for wireless sensor networks,1
+15, Crowded spectrum in wireless sensor networks,2
+16,Efficient hybrid security mechanisms for heterogeneous sensor networks,No PDF Found
+17,"Cooperative asynchronous multichannel MAC: Design, analysis, and implementation",2
+18,Wireless body sensor network with adaptive low-power design for biometrics and healthcare applications,1
+19,HYMAC: Hybrid TDMA/FDMA medium access control protocol for wireless sensor networks,No PDF Found
+20,Enhancing the data collection rate of tree-based aggregation in wireless sensor networks,1
+21,Multi-channel scheduling algorithms for fast aggregated convergecast in sensor networks,No PDF Found
+22,Multi-channel assignment in wireless sensor networks: A game theoretic approach,No PDF Found
+23,Approaching the maximum 802.15. 4 multi-hop throughput,1
+24,A survey on multi-channel communication in wireless sensor networks,3
+25,A control theory approach to throughput optimization in multi-channel collection sensor networks,1
+26,Side channel: bits over interference,1
+27,Game theoretical approach for channel allocation in wireless sensor and actuator networks,1
+28,TFMAC: Multi-channel MAC protocol for wireless sensor networks,1
+29,Flow-based real-time communication in multi-channel wireless sensor networks,5
+30,Multi-channel support for dense wireless sensor networking,1
+,Total,37
+"
+",,
+Paper Title: Pda: Privacy-preserving data aggregation in wireless sensor networks,,
+Citing Paper Number,Paper Title,Over-cite Count
+1,SDAP: A secure hop-by-hop data aggregation protocol for sensor networks,0
+2,Cyber-physical systems: A new frontier,0
+3,Privacy preservation in wireless sensor networks: A state-of-the-art survey,1
+4,Prisense: privacy-preserving data aggregation in people-centric urban sensing systems,No PDF Found
+5,Verifiable privacy-preserving range query in two-tiered sensor networks,0
+6,Secure data aggregation in wireless sensor networks,0
+7,iPDA: an integrity-protecting private data aggregation scheme for wireless sensor networks,2
+8,Query privacy in wireless sensor networks,No PDF Found
+9,Confidentiality protection for distributed sensor data aggregation,1
+10,KIPDA: k-indistinguishable privacy-preserving data aggregation in wireless sensor networks,No PDF Found
+11,Energy-efficient and high-accuracy secure data aggregation in wireless sensor networks,1
+12,A privacy-preserving location monitoring system for wireless sensor networks,No PDF Found
+13,GP^ 2S: Generic Privacy-Preservation Solutions for Approximate Aggregation of Sensor Data (concise contribution),No PDF Found
+14,Integrity protecting hierarchical concealed data aggregation for wireless sensor networks,1
+15,Detecting node replication attacks in wireless sensor networks: a survey,1
+16,Privacy-preserving data aggregation without secure channel: Multivariate polynomial evaluation,1
+17,Privacy‐preserving robust data aggregation in wireless sensor networks,1
+18,A cluster-based protocol to enforce integrity and preserve privacy in data aggregation,No PDF Found
+19,MDPA: multidimensional privacy‐preserving aggregation scheme for wireless sensor networks,1
+20,Location privacy preservation in collaborative spectrum sensing,1
+21,Secure and energy-efficient disjoint multipath routing for WSNs,1
+22,Secure data aggregation in wireless sensor networks: Filtering out the attacker's impact,1
+23,Distributed privacy-preserving aggregation of metering data in smart grids,2
+24,A robust sampling-based framework for privacy preserving OLAP,No PDF Found
+25,A security framework for privacy-preserving data aggregation in wireless sensor networks,No PDF Found
+26,High energy‐efficient and privacy‐preserving secure data aggregation for wireless sensor networks,2
+27,Providing source location privacy in wireless sensor networks: a survey,0
+28,Location privacy and resilience in wireless sensor networks querying,0
+29,Exact in-network aggregation with integrity and confidentiality,1
+30,Reconciling privacy preservation and intrusion detection in sensory data aggregation,1
+,Total,19
+,,
+Paper Title: Real-time power-aware routing in sensor networks,,
+Citing Paper Number,Paper Title,Over-cite Count
+1,ATPC: adaptive transmission power control for wireless sensor networks,3
+2,Rendezvous design algorithms for wireless sensor networks with a mobile base station,3
+3,A survey on energy-efficient routing techniques with QoS assurances for wireless multimedia sensor networks,3
+4,Transmission power control in body area sensor networks for healthcare monitoring,1
+5,Real-time QoS support in wireless sensor networks: a survey,6
+6,Bounded relay hop mobile data gathering in wireless sensor networks,1
+7,Enhancing real-time delivery in wireless sensor networks with two-hop information,4
+8,Enhancing real-time delivery of gradient routing for industrial wireless sensor networks,2
+9,Energy efficient scheduling for cluster-tree Wireless Sensor Networks with time-bounded data flows: application to IEEE 802.15. 4/ZigBee,2
+10,Traffic-differentiation-based modular QoS localized routing for wireless sensor networks,No PDF Found
+11,Low latency and energy efficient routing protocols for wireless sensor networks,No PDF Found
+12, A fuzzy approach to energy optimized routing for wireless sensor networks.,No PDF Found
+13,Flow-based real-time communication in multi-channel wireless sensor networks,5
+14,A new routing metric for satisfying both energy and delay constraints in wireless sensor networks,3
+15,Efficient rendezvous algorithms for mobility-enabled wireless sensor networks,3
+16,Minimum power configuration for wireless communication in sensor networks,0
+17,Mobile cellular networks and wireless sensor networks: toward convergence,0
+18,Towards stable network performance in wireless sensor networks,No PDF Found
+19,An adaptive approach to topology management in large and dense real-time wireless sensor networks,3
+20,A progressive approach to reducing data collection latency in wireless sensor networks with mobile elements,0
+21,"FT-SPEED: A fault-tolerant, real-time routing protocol for wireless sensor networks",No PDF Found
+22, A survey of routing protocols in wireless body sensor networks,No PDF Found
+23, An emergency-adaptive routing scheme for wireless sensor networks for building fire hazard monitoring,No PDF Found
+24,QoSNET: An integrated QoS network for routing protocols in large scale wireless sensor networks,2
+25,Dimensioning and worst-case analysis of cluster-tree sensor networks,5
+26,Overview of data routing approaches for wireless sensor networks,1
+27,Optimal sampling rate assignment with dynamic route selection for real-time wireless sensor networks,2
+28,AsOR: an energy efficient multi-hop opportunistic routing protocol for wireless sensor networks over Rayleigh fading channels,1
+29, A survey of transmission power control in wireless sensor networks,1
+30,Wireless sensor networks applications and routing protocols: survey and research challenges,No PDF Found
+,Total,51
+,,
+Paper Title: A spatiotemporal communication protocol for wireless sensor networks,,
+Citing Paper Number,Paper Title,Over-cite Count
+1,A survey on wireless multimedia sensor networks,1
+2,Rendezvous design algorithms for wireless sensor networks with a mobile base station,3
+3, Wireless Sensor Networks.,0
+4, Wireless multimedia sensor networks: current trends and future directions,No PDF Found
+5,Research directions for the internet of things,No PDF Found
+6,Enhancing real-time delivery in wireless sensor networks with two-hop information,4
+7,Enhancing real-time delivery of gradient routing for industrial wireless sensor networks,2
+8,Localized network layer protocols in wireless sensor networks based on optimizing cost over progress ratio,0
+9,Energy efficient scheduling for cluster-tree Wireless Sensor Networks with time-bounded data flows: application to IEEE 802.15. 4/ZigBee,2
+10,Traffic-differentiation-based modular QoS localized routing for wireless sensor networks,No PDF Found
+11, Efficient multi-path protocol for wireless sensor networks,2
+12,Identification-free batch authentication for RFID tags,1
+13,Efficient rendezvous algorithms for mobility-enabled wireless sensor networks,3
+14,JiTS: Just-in-time scheduling for real-time sensor data dissemination,3
+15, Cross-layer QoS-aware communication for ultra wide band wireless multimedia sensor networks,1
+16,A modeling for hole problem in wireless sensor networks,No PDF Found
+17,Exploiting ubiquitous data collection for mobile users in wireless sensor networks,1
+18,Reliable data delivery in large-scale low-power sensor networks,No PDF Found
+19,Efficient hole detour scheme for geographic routing in wireless sensor networks,No PDF Found
+20, An energy-efficient and high-quality video transmission architecture in wireless video-based sensor networks,No PDF Found
+21,Dimensioning and worst-case analysis of cluster-tree sensor networks,5
+22,Sink location service for geographic routing in wireless sensor networks,No PDF Found
+23,Cross-layer quality of service support for UWB wireless multimedia sensor networks,1
+24,Wireless sensor networks applications and routing protocols: survey and research challenges,No PDF Found
+25,A novel routing protocol in wireless sensor networks based on ant colony optimization,No PDF Found
+26,Efficient algorithm for prolonging network lifetime of wireless sensor networks,No PDF Found
+27,Energy-efficient transmission scheme of JPEG images over visual sensor networks,No PDF Found
+28,Data gathering mechanism with local sink in geographic routing for wireless sensor networks,2
+29,Energy-efficient data dissemination protocol for detouring routing holes in wireless sensor networks,No PDF Found
+30,Delay-constrained high throughput protocol for multi-path transmission over wireless multimedia sensor networks,2
+,Total,33
+"
+",,
+Paper Title: AIDA: Adaptive application-independent data aggregation in wireless sensor networks,,
+Citing Paper Number,Paper Title,Over-cite Count
+1,[BOOK][B] Protocols and architectures for wireless sensor networks,No PDF Found
+2,Energy-efficient surveillance system using wireless sensor networks,4
+3,Data aggregation techniques in sensor networks: A survey,1
+4,Differentiated surveillance for sensor networks,5
+5,Lessons from a sensor network expedition,1
+6,In-network aggregation techniques for wireless sensor networks: a survey,3
+7,VigilNet: An integrated sensor network system for energy-efficient surveillance,5
+8,"Information fusion for wireless sensor networks: Methods, models, and classifications",No PDF Found
+9,Minimum-energy asynchronous dissemination to mobile sinks in wireless sensor networks,3
+10,A unifying link abstraction for wireless sensor networks,No PDF Found
+11,Environmental wireless sensor networks,0
+12,Siphon: overload traffic management using multi-radio virtual sinks in sensor networks,No PDF Found
+13,Achieving real-time target tracking usingwireless sensor networks,9
+14,Opportunistic flooding in low-duty-cycle wireless sensor networks with unreliable links,2
+15,Analysis of wireless sensor networks for habitat monitoring,1
+16,An experimental study of routing and data aggregation in sensor networks,1
+17,The impact of data aggregation on the performance of wireless sensor networks,1
+18,Fault-tolerant wireless sensor network routing protocols for the supervision of context-aware physical environments,1
+19,Achieving long-term surveillance in vigilnet,6
+20,Feedback control of data aggregation in sensor networks,3
+21,Adaptive data aggregation scheme in clustered wireless sensor networks,2
+22,Achieving long-term surveillance in vigilnet,8
+23,Optimized scheduling for data aggregation in wireless sensor networks,No PDF Found
+24,Overload traffic management for sensor networks,1
+25,Spatiotemporal delay control for low-duty-cycle sensor networks,6
+26,A novel agent-based simulation framework for sensing in complex adaptive environments,0
+27,Optimal policies for distributed data aggregation in wireless sensor networks,1
+28, Data aggregation techniques in sensor networks,1
+29,DPLC: Dynamic packet length control in wireless sensor networks,No PDF Found
+30, Efficient aggregation of delay-constrained data in wireless sensor networks.,1
+,Total,66
+"
+",,
+Paper Title: Envirotrack: Towards an environmental computing paradigm for distributed sensor networks,,
+Citing Paper Number,Paper Title,Over-cite Count
+1,[BOOK][B] Protocols and architectures for wireless sensor networks,No PDF Found
+2,[BOOK][B] Fundamentals of wireless sensor networks: theory and practice,1
+3, Middleware: Middleware challenges and approaches for wireless sensor networks,1
+4,Programming wireless sensor networks: Fundamental concepts and state of the art,3
+5,Macro-programming wireless sensor networks using Kairos,1
+6,Nano-rk: an energy-aware resource-centric rtos for sensor networks,5
+7,Middleware for wireless sensor networks: A survey,1
+8,The liteos operating system: Towards unix-like abstractions for wireless sensor networks,No PDF Found
+9,Scalable logical coordinates framework for routing in wireless sensor networks,1
+10,Tinylime: Bridging mobile and sensor networks through middleware,1
+11,Algorithms for generic role assignment in wireless sensor networks,1
+12,Programming models for sensor networks: A survey,1
+13,Opportunities and obligations for physical computing systems,No PDF Found
+14, Design and implementation of a sensor network system for vehicle tracking and autonomous interception.,1
+15,Research challenges for wireless sensor networks,3
+16,Envirosuite: An environmentally immersive programming framework for sensor networks,0
+17,Programming wireless sensor networks with the TeenyLIME middleware,1
+18,TeenyLIME: transiently shared tuple space middleware for wireless sensor networks,1
+19,Directed flood-routing framework for wireless sensor networks,2
+20,The internet of things: A survey from the data-centric perspective,1
+21,Oasis: A programming framework for service-oriented sensor networks,1
+22,Beyond event handlers: Programming wireless sensors with attributed state machines,No PDF Found
+23,Mobile data collection in sensor networks: The TinyLime middleware,1
+24,An architecture for energy management in wireless sensor networks,1
+25,PDA: Passive distributed assertions for sensor networks,2
+26,Organizing the aggregate,1
+27,SNTS: Sensor network troubleshooting suite,No PDF Found
+28,Distributed event localization and tracking with wireless sensors,2
+29, FireFly: A time synchronized real-time sensor networking platform,5
+30,Energy efficient differentiable coverage service protocols for wireless sensor networks,No PDF Found
+,Total,38
+"
+",,
+Paper Title: Mobiscopes for human spaces,,
+Citing Paper Number,Paper Title,Over-cite Count
+1,A survey of mobile phone sensing,1
+2,"Sensing meets mobile social networks: the design, implementation and evaluation of the cenceme application",No PDF Found
+3,SoundSense: scalable sound sensing for people-centric applications on mobile phones,1
+4,Micro-blog: sharing and querying content through mobile phones and social participation,No PDF Found
+5,Anonysense: privacy-aware people-centric sensing,1
+6,Data collection in wireless sensor networks with mobile elements: A survey,1
+7,EmotionSense: a mobile phones based adaptive platform for experimental social psychology research,1
+8,Urban sensing: out of the woods,No PDF Found
+9,PRISM: platform for remote sensing using smartphones,No PDF Found
+10,CenceMe–injecting sensing presence into social networking applications,2
+11,GreenGPS: a participatory sensing fuel-efficient maps application,3
+12,A survey on privacy in mobile participatory sensing applications,2
+13,Urban sensing systems: opportunistic or participatory?,0
+14,Common sense: participatory urban sensing using a network of handheld air quality monitors,1
+15,Darwin phones: the evolution of sensing and inference on mobile phones,1
+16,Sell your experiences: a market mechanism based incentive for participatory sensing,No PDF Found
+17,How long to wait?: predicting bus arrival time with mobile phone based participatory sensing,1
+18,Prisense: privacy-preserving data aggregation in people-centric urban sensing systems,No PDF Found
+19,Programming pervasive and mobile computing applications: The TOTA approach,0
+20,PoolView: stream privacy for grassroots participatory sensing,No PDF Found
+21,Social sensing for epidemiological behavior change,0
+22,Littlerock: Enabling energy-efficient continuous sensing on mobile phones,No PDF Found
+23,On truth discovery in social sensing: A maximum likelihood estimation approach,5
+24,Examining micro-payments for participatory sensing data collections,No PDF Found
+25,Noisespy: A real-time mobile phone platform for urban noise monitoring and mapping,No PDF Found
+26,AnonySense: Opportunistic and privacy-preserving context collection,1
+27,AnonySense: A system for anonymous opportunistic sensing,1
+28,Enabling large-scale human activity inference on smartphones using community similarity networks (csn),1
+29,Dynamic pricing incentive for participatory sensing,1
+30,[BOOK][B] Data-Centric Systems and Applications,No PDF Found
+,Total,24
+"
+",,
+"Paper Title: By Tarek F. Abdelzaher, John A. Stankovic, Chenyang Lu, Ronghua Zhang, and Ying Lu",,
+Citing Paper Number,Paper Title,Over-cite Count
+1,Real-time communication and coordination in embedded sensor networks,6
+2,Cluster-level feedback power control for performance optimization,3
+3,Feedback control architecture and design methodology for service delay guarantees in web servers,6
+4,Feedback utilization control in distributed real-time systems with end-to-end tasks,3
+5,Coordinating power control and performance management for virtualized server clusters,4
+6,Power-efficient response time guarantees for virtualized enterprise servers,7
+7,An overview of software cybernetics,4
+8,What does control theory bring to systems research?,3
+9,DEUCON: Decentralized end-to-end utilization control for distributed real-time systems,3
+10,Improved prediction for web server delay control,No PDF Found
+11,A systematic survey on the design of self-adaptive software systems using control engineering approaches,No PDF Found
+12,Feedback control real-time scheduling in ORB middleware,3
+13,Exploring alternative approaches to implement an elasticity policy,No PDF Found
+14,Modeling and control design for performance management of web servers via an LPV approach,2
+15,Dynamic duty cycle control for end-to-end delay guarantees in wireless sensor networks,5
+16,Co-con: Coordinated control of power and application performance for virtualized server clusters,3
+17,METE: meeting end-to-end QoS in multicores through system-wide resource management,1
+18,SHARP control: controlled shared cache management in chip multiprocessors,No PDF Found
+19,Practical application of control theory to web services,No PDF Found
+20,Rethinking the use of models in software architecture,No PDF Found
+21,MIMO power control for high-density servers in an enclosure,3
+22,Partic: Power-aware response time control for virtualized web servers,5
+23,Hierarchical control of multiple resources in distributed real-time and embedded systems,1
+24,Adaptive green hosting,1
+25,Conclusions of the ARTIST2 roadmap on control of computing systems,No PDF Found
+26,End-to-end utilization control in distributed real-time systems,2
+27,An adaptive framework for multiprocessor real-time system,4
+28,Distributed utilization control for real-time clusters with load balancing,3
+29,Power-aware cpu utilization control for distributed real-time systems,2
+30,[CITATION][C] Control engineering for computing systems-industry experience and research challenges,4
+,Total,78
+"
+",,
+Paper Title: Lightweight detection and classification for wireless sensor networks in realistic environments,,
+Citing Paper Number,Paper Title,Over-cite Count
+1,Wireless sensor network survey,No PDF Found
+2,"Information fusion for wireless sensor networks: Methods, models, and classifications",No PDF Found
+3,Achieving real-time target tracking usingwireless sensor networks,9
+4, Wireless sensor networks for battlefield surveillance,2
+5,Robust location distinction using temporal link signatures,1
+6,"Tracking and coordination of multiple agents using sensor networks: system design, algorithms and experiments",1
+7,Tracking mobile nodes using RF doppler shifts,1
+8,Data fusion improves the coverage of wireless sensor networks,2
+9,Envirosuite: An environmentally immersive programming framework for sensor networks,0
+10,Towards radar-enabled sensor networks,1
+11,Instrumenting wireless sensor networks for real-time surveillance,0
+12,A system for distributed event detection in wireless sensor networks,No PDF Found
+13,Achieving long-term surveillance in vigilnet,8
+14,Enviromic: Towards cooperative storage and retrieval in audio sensor networks,1
+15,Detection and tracking using particle-filter-based wireless sensor networks,2
+16,Data dissemination with ring-based index for wireless sensor networks,No PDF Found
+17,An efficient key distribution scheme for heterogeneous sensor networks,1
+18,"Archetype-based design: Sensor network programming for application experts, not just programming experts",0
+19,SWATS: Wireless sensor networks for steamflood and waterflood pipeline monitoring,0
+20,Deployment strategies for differentiated detection in wireless sensor networks,2
+21,Exploring in-situ sensing irregularity in wireless sensor networks,4
+22,Key predistribution schemes for establishing pairwise keys with a mobile sink in sensor networks,1
+23,Scopes: Smart cameras object position estimation system,No PDF Found
+24,Exploiting data fusion to improve the coverage of wireless sensor networks,2
+25,Hierarchical distributed data classification in wireless sensor networks,1
+26,EasiTia: A pervasive traffic information acquisition system based on wireless sensor networks,1
+27,Vehicle classification in sensor networks using time-domain signal processing and neural networks,0
+28,Watchdog: Confident event detection in heterogeneous sensor networks,No PDF Found
+29,Congestion control protocol for wireless sensor networks handling prioritized heterogeneous traffic,1
+30,Ultra-low power time synchronization using passive radio receivers,1
+,Total,42
+"
+",,
+Paper Title: Dynamic voltage scaling in multitier web servers with end-to-end delay control,,
+Citing Paper Number,Paper Title,Over-cite Count
+1,pMapper: power and migration cost aware application placement in virtualized systems,No PDF Found
+2,GreenCloud: a packet-level simulator of energy-aware cloud computing data centers,1
+3,GreenCloud: a new architecture for green data center,2
+4,Minimizing electricity cost: optimization of distributed internet data centers in a multi-electricity-market environment,2
+5,Server workload analysis for power minimization using consolidation,No PDF Found
+6,Enacloud: An energy-saving application live placement approach for cloud computing environments,1
+7,Power-aware dynamic placement of hpc applications,1
+8, Coordinating Multiple Autonomic Managers to Achieve Specified Power-Performance Tradeoffs.,No PDF Found
+9,Temperature-constrained power control for chip multiprocessors with online model estimation,3
+10,Capping the brown energy consumption of internet services at low cost,0
+11,Characterizing cloud federation for enhancing providers' profit,2
+12,Coordinating power control and performance management for virtualized server clusters,4
+13,Autonomic power and performance management for computing systems,1
+14,Corollaries to Amdahl's law for energy,1
+15,Power-efficient response time guarantees for virtualized enterprise servers,7
+16,C-Oracle: Predictive thermal management for data centers,1
+17,Greenware: Greening cloud-scale data centers to maximize the use of renewable energy,2
+18,SHIP: Scalable hierarchical power control for large-scale data centers,3
+19,Integrating adaptive components: An emerging challenge in performance-adaptive systems and a server farm case-study,5
+20,Challenges towards elastic power management in internet data centers,2
+21, Power budgeting for virtualized data centers,0
+22,Exploring power-performance tradeoffs in database systems,2
+23,"Managing the cost, energy consumption, and carbon footprint of internet services",0
+24,A survey of the research on power management techniques for high‐performance systems,2
+25,Optimized management of power and performance for virtualized heterogeneous server clusters,No PDF Found
+26,A dynamic optimization model for power and performance management of virtualized clusters,0
+27,Efficient power management of heterogeneous soft real-time clusters,4
+28,Power optimization for dynamic configuration in heterogeneous web server clusters,2
+29,Economic model of a Cloud provider operating in a federated Cloud,0
+30,Co-con: Coordinated control of power and application performance for virtualized server clusters,3
+,Total,51
+"
+",,
+Paper Title: Power-aware QoS management in web servers,,
+Citing Paper Number,Paper Title,Over-cite Count
+1,"A survey of autonomic computing—degrees, models, and applications",0
+2, Energy-Aware Server Provisioning and Load Dispatching for Connection-Intensive Internet Services.,0
+3,No power struggles: Coordinated multi-level power management for the data center,0
+4,Real time scheduling theory: A historical perspective,No PDF Found
+5,Managing server energy and operational costs in hosting centers,3
+6,Static-priority scheduling on multiprocessors,No PDF Found
+7,Dynamic voltage scaling in multitier web servers with end-to-end delay control,1
+8,Server-level power control,0
+9,Multi-objective virtual machine placement in virtualized data center environments,No PDF Found
+10,Just-in-time dynamic voltage scaling: Exploiting inter-node slack to save energy in mpi programs,No PDF Found
+11,Cluster-level feedback power control for performance optimization,3
+12,Using multiple energy gears in MPI programs on a power-scalable cluster,1
+13,Energy-efficient real-time heterogeneous server clusters,2
+14,"Weatherman: Automated, online and predictive thermal mapping and management for data centers",No PDF Found
+15,Joint optimization of idle and cooling power in data centers while maintaining response time,1
+16,Temperature-constrained power control for chip multiprocessors with online model estimation,3
+17,Performance evaluation of a green scheduling algorithm for energy savings in cloud computing,No PDF Found
+18,"Adaptive, transparent frequency and voltage scaling of communication phases in mpi programs",1
+19,Energy-aware task allocation for rate monotonic scheduling,1
+20,Analyzing the energy-time trade-off in high-performance computing applications,0
+21,Bounding energy consumption in large-scale MPI programs,No PDF Found
+22,Power capping: a prelude to power shifting,0
+23,"[BOOK][B] Autonomic computing: concepts, infrastructure, and applications",0
+24,Exploring the energy-time tradeoff in mpi programs on a power-scalable cluster,1
+25,Coordinating power control and performance management for virtualized server clusters,4
+26,Boosting data center performance through non-uniform power allocation,1
+27,Autonomic power and performance management for computing systems,1
+28,Risk-aware limited lookahead control for dynamic resource provisioning in enterprise computing systems,1
+29,Power-efficient response time guarantees for virtualized enterprise servers,7
+30,Maximizing cloud providers' revenues via energy aware allocation policies,1
+,Total,32
+"
+",,
+Paper Title: Web server QoS management by adaptive content delivery,,
+Citing Paper Number,Paper Title,Over-cite Count
+1,[BOOK][B] Feedback control of computing systems,0
+2,Performance guarantees for web server end-systems: A control-theoretical approach,10
+3,"Feedback control real-time scheduling: Framework, modeling, and algorithms",No PDF Found
+4,Integrating user-perceived quality into web server design,No PDF Found
+5,Quality is in the eye of the beholder: meeting users' requirements for Internet quality of service,1
+6,Web server support for tiered services,1
+7,A feedback control approach for guaranteeing relative delays in web servers,No PDF Found
+8, Adaptive Overload Control for Busy Internet Servers.,No PDF Found
+9," By Tarek F. Abdelzaher, John A. Stankovic, Chenyang Lu, Ronghua Zhang, and Ying Lu",11
+10,Using MIMO feedback control to enforce policies for interrelated metrics with application to the Apache Web server,3
+11,Characterizing the scalability of a large web-based shopping system,0
+12, Aqueduct: Online Data Migration with Performance Guarantees.,4
+13,Web content adaptation to improve server overload behavior,1
+14,Integrated resource management for cluster-based internet services,No PDF Found
+15,Performance specifications and metrics for adaptive real-time systems,No PDF Found
+16,Feedback control architecture and design methodology for service delay guarantees in web servers,6
+17,Feedback control scheduling in distributed real-time systems,7
+18,Controlware: A middleware architecture for feedback control of software performance,10
+19,Feedback control with queueing-theoretic prediction for relative delay guarantees in web servers,12
+20, Kernel Mechanisms for Service Differentiation in Overloaded Web Servers.,No PDF Found
+21,Differentiated caching services; a control-theoretical approach,3
+22,An adaptive control framework for qos guarantees and its application to differentiated caching,9
+23,An admission control scheme for predictable server response time for web accesses,1
+24,Modeling and performance control of internet servers,5
+25,Self-managing systems: A control theory foundation,No PDF Found
+26,A QoS-sensitive approach for timeliness and freshness guarantees in real-time databases,No PDF Found
+27,A control theory foundation for self-managing computing systems,5
+28,Application-level differentiated multimedia Web services using quality aware transcoding,0
+29,An overview of software cybernetics,4
+30,Qos provisioning with qcontracts in web and multimedia servers,3
+,Total,96
+,,
+Paper Title: Achieving real-time target tracking usingwireless sensor networks,,
+Citing Paper Number,Paper Title,Over-cite Count
+1,Real-time power-aware routing in sensor networks,No PDF Found
+2,QoS-aware MAC protocols for wireless sensor networks: A survey,2
+3,Real-time QoS support in wireless sensor networks: a survey,6
+4,Secure data aggregation in wireless sensor network: a survey,1
+5,Sparse target counting and localization in sensor networks based on compressive sensing,1
+6,Smart sleeping policies for energy-efficient tracking in sensor networks,0
+7,BorderSense: Border patrol through advanced wireless sensor networks,1
+8,Sensor node lifetime analysis: Models and tools,No PDF Found
+9,A comprehensive worst-case calculus for wireless sensor networks with in-network processing,2
+10,On-demand time synchronization with predictable accuracy,0
+11,Target enumeration via Euler characteristic integrals,No PDF Found
+12,A new routing metric for satisfying both energy and delay constraints in wireless sensor networks,3
+13,Towards stable network performance in wireless sensor networks,No PDF Found
+14,Probability-based prediction and sleep scheduling for energy-efficient target tracking in sensor networks,3
+15,Detecting movements of a target using face tracking in wireless sensor networks,1
+16,A learning automata based scheduling solution to the dynamic point coverage problem in wireless sensor networks,0
+17,Energy-efficient routing and secure communication in wireless sensor networks,0
+18,A novel mobility management scheme for target tracking in cluster-based sensor networks,2
+19,A single mobile target tracking in Voronoi-based clustered wireless sensor network,No PDF Found
+20,Impact of data fusion on real-time detection in sensor networks,4
+21,Theoretical treatment of target coverage in wireless sensor networks,0
+22,Energy efficient sleep scheduling based on moving directions in target tracking sensor network,No PDF Found
+23,A hybrid cluster-based target tracking protocol for wireless sensor networks,No PDF Found
+24,Target tracking with monitor and backup sensors in wireless sensor networks,1
+25,Real-time video surveillance over IEEE 802.11 mesh networks,1
+26,Local area prediction-based mobile target tracking in wireless sensor networks,2
+27,Distributed real-time detection and tracking of homogeneous regions in sensor networks,1
+28,Fidelity-aware utilization control for cyber-physical surveillance systems,3
+29,Energy efficient sleep scheduling in sensor networks for multiple target tracking,1
+30, Dynamic Point Coverage Problem in Wireless Sensor Networks: A Cellular Learning Automata Approach.,No PDF Found
+,Total,35
+"
+",,
+Paper Title: Range-free localization and its impact on large scale sensor networks,,
+Citing Paper Number,Paper Title,Over-cite Count
+1,A survey on sensor localization,0
+2,RFID localization algorithms and applications—a review,0
+3,MBAL: A mobile beacon-assisted localization scheme for wireless sensor networks,No PDF Found
+4,Traffic-differentiation-based modular QoS localized routing for wireless sensor networks,No PDF Found
+5,Localization with a mobile beacon based on geometric constraints in wireless sensor networks,1
+6,SensorFly: Controlled-mobile sensing platform for indoor emergency response applications,2
+7,High accuracy localization method using AoA in sensor networks,1
+8,Cost-effective barrier coverage by mobile sensor networks,1
+9,A walking beacon-assisted localization in wireless sensor networks,2
+10,Improved weighted centroid localization in smart ubiquitous environments,0
+11,[CITATION][C] Survey of localization techniques in wireless sensor networks,No PDF Found
+12,Energy-efficient capture of stochastic events under periodic network coverage and coordinated sleep,1
+13,Energy-efficient capture of stochastic events by global-and local-periodic network coverage,1
+14,Coverage and connectivity in duty-cycled wireless sensor networks for event monitoring,1
+15,ucast: Unified connectionless multicast for energy efficient content distribution in sensor networks,4
+16,Theory and practice of geographic routing,2
+17,Localization of mobile users using trajectory matching,1
+18,Maintaining quality of sensing with actors in wireless sensor networks,1
+19,Mobility and intruder prior information improving the barrier coverage of sparse sensor networks,1
+20,[BOOK][B] Indoor location tracking using received signal strength indicator,No PDF Found
+21,EMD: energy-efficient P2P message dissemination in delay-tolerant wireless sensor and actor networks,1
+22,Component-based localization in sparse wireless networks,2
+23,Network localization using angle of arrival,No PDF Found
+24, Mobility management in sensor networks,No PDF Found
+25,Medium access control with mobility-adaptive mechanisms for wireless sensor networks,1
+26,OTMCL: Orientation tracking-based Monte Carlo localization for mobile sensor networks,1
+27,A range free localization algorithm based on restricted-area for wireless sensor networks,No PDF Found
+28,At-dist: A distributed method for localization with high accuracy in sensor networks,No PDF Found
+29,GPS-free directional localization via dual wireless radios,0
+30,On accuracy of region based localization algorithms for wireless sensor networks,2
+,Total,26
+"
+",,
+Paper Title: GreenGPS: a participatory sensing fuel-efficient maps application,,
+Citing Paper Number,Paper Title,Over-cite Count
+1,A survey on privacy in mobile participatory sensing applications,2
+2,SignalGuru: leveraging mobile phones for collaborative traffic signal schedule advisory,1
+3,On truth discovery in social sensing: A maximum likelihood estimation approach,5
+4,Optimal incentive-driven design of participatory sensing systems,1
+5,Mobile computing: the next decade,No PDF Found
+6,Deanonymizing mobility traces: Using social network as a side-channel,1
+7, Human-centric sensing,No PDF Found
+8,Integrating sensors and social networks,7
+9,A scalable and elastic publish/subscribe service,No PDF Found
+10,Privacy-aware regression modeling of participatory sensing data,No PDF Found
+11,Quality control for real-time ubiquitous crowdsourcing,1
+12,Social sensing,14
+13,Leveraging smartphone cameras for collaborative road advisories,1
+14,Indoor weather stations: investigating a ludic approach to environmental HCI through batch prototyping,No PDF Found
+15,Ikarus: large-scale participatory sensing at high altitudes,2
+16,Hiding in the mobile crowd: Locationprivacy through collaboration,1
+17,Smartroad: a crowd-sourced traffic regulator detection and identification system,1
+18,Exploitation of physical constraints for reliable social sensing,1
+19,Using smart-phones and floor plans for indoor location tracking-Withdrawn,0
+20,The sparse regression cube: A reliable modeling technique for open cyber-physical systems,1
+21,Social drive: a crowdsourcing-based vehicular social networking system for green transportation,No PDF Found
+22,Distance and time based node selection for probabilistic coverage in people-centric sensing,No PDF Found
+23,Efficient 3g budget utilization in mobile participatory sensing applications,1
+24,Crowdsensing maps of on-street parking spaces,1
+25,Mutual privacy-preserving regression modeling in participatory sensing,4
+26,On credibility estimation tradeoffs in assured social sensing,No PDF Found
+27,Its for sustainable mobility: A survey on applications and impact assessment tools,1
+28,Energy-efficient opportunistic coverage for people-centric urban sensing,0
+29,A decade of wireless sensing applications: Survey and taxonomy,No PDF Found
+30,Carma: towards personalized automotive tuning,1
+,Total,47
+"
+",,
+Paper Title: RID: Radio interference detection in wireless sensor networks,,
+Citing Paper Number,Paper Title,Over-cite Count
+1,Opportunities and challenges of wireless sensor networks in smart grid,1
+2,ATPC: adaptive transmission power control for wireless sensor networks,3
+3, MMSN: Multi-Frequency Media Access Control for Wireless Sensor Networks.,2
+4,Realistic and efficient multi-channel communications in wireless sensor networks,2
+5,Link scheduling in wireless sensor networks: distributed edge-coloring revisited,0
+6,Radio link quality estimation in wireless sensor networks: a survey,0
+7,Does wireless sensor network scale? A measurement study on GreenOrbs,3
+8, Wireless Sensor Networks.,0
+9,Developing ZigBee deployment guideline under WiFi interference for smart grid applications,0
+10,A survey on jamming attacks and countermeasures in WSNs,No PDF Found
+11,A measurement study of interference modeling and scheduling in low-power wireless networks,1
+12,Online and remote motor energy monitoring and fault diagnostics using wireless sensor networks,1
+13,Data gathering in wireless sensor networks with mobile collectors,1
+14, Crowded spectrum in wireless sensor networks,2
+15,Distributed time-optimal scheduling for convergecast in wireless sensor networks,No PDF Found
+16,Detection of reactive jamming in sensor networks,No PDF Found
+17,Multichannel superframe scheduling for IEEE 802.15. 4 industrial wireless sensor networks,2
+18,Tour planning for mobile data-gathering mechanisms in wireless sensor networks,1
+19,Adaptive interference-aware multi-channel clustering algorithm in a Zigbee network in the presence of WLAN interference,No PDF Found
+20,TDMA-ASAP: Sensor network TDMA scheduling with adaptive slot-stealing and parallelism,No PDF Found
+21,Making sensornet MAC protocols robust against interference,1
+22,Dynamic conflict-free query scheduling for wireless sensor networks,1
+23,Real-time query scheduling for wireless sensor networks,2
+24,Resource-aware and link quality based routing metric for wireless sensor and actor networks,No PDF Found
+25,Chip error pattern analysis in IEEE 802.15. 4,No PDF Found
+26,RSS-based carrier sensing and interference estimation in 802.11 wireless networks,1
+27,Distributed latency-energy minimization and interference avoidance in TDMA wireless sensor networks,0
+28,Passive interference measurement in wireless sensor networks,1
+29,Multi-channel interference measurement and modeling in low-power wireless networks,4
+30,Throughput-aware routing for industrial sensor networks: Application to isa100. 11a,1
+,Total,30
+"
+",,
+Paper Title: Assignment and scheduling communicating periodic tasks in distributed real-time systems,,
+Citing Paper Number,Paper Title,Over-cite Count
+1,Combined task and message scheduling in distributed real-time systems,2
+2,Static analysis and dynamic steering of time-dependent systems,1
+3,Allocation of periodic task modules with precedence and deadline constraints in distributed real-time systems,0
+4,Minimum and maximum utilization bounds for multiprocessor rate monotonic scheduling,1
+5, Greedy Heuristics for Resource Allocation in Dynamic Distributed Real-Time Heterogeneous Computing Systems.,No PDF Found
+6,Optimal combined task and message scheduling in distributed real-time systems,2
+7,Solving a real-time allocation problem with constraint programming,2
+8,Online resource management in a multiprocessor with a network-on-chip,1
+9,Allocation of periodic task modules with precedence and deadline constraints in distributed real-time systems,No PDF Found
+10, Multiprocessor Scheduling Using Hybrid Particle Swarm Optimization with Dynamically Varying Inertia.,1
+11,An evaluation of SMT-based schedule synthesis for time-triggered multi-hop networks,No PDF Found
+12,Rtsat--an optimal and efficient approach to the task allocation problem in distributed architectures,No PDF Found
+13,Minimum and maximum utilization bounds for multiprocessor RM scheduling,No PDF Found
+14, Dynamic task scheduling with load balancing using hybrid particle swarm optimization,1
+15,Improving scalability of task allocation and scheduling in large distributed real-time systems using shared buffers,1
+16,A metric and mixed-integer-programming-based approach for resource allocation in dynamic real-time systems,1
+17,"Planning and resource allocation for hard real-time, fault-tolerant plan execution",4
+18,Replication and allocation of task modules in distributed real-time systems,No PDF Found
+19,Data plan activation and modification,No PDF Found
+20,Dynamic task scheduling with load balancing using parallel orthogonal particle swarm optimisation,No PDF Found
+21,Synthesis of static communication schedules for mixed-criticality systems,No PDF Found
+22,Hierarchical distributed architectures for autonomous mobile robots: a case study,No PDF Found
+23,A methodology for the development of distributed real-time control applications with focus on task allocation in heterogeneous systems,1
+24,A computing resource management framework for software-defined radios,1
+25, Temporal analysis and scheduling of hard real-time radios running on a multi-processor,1
+26,Minimising task migration and priority changes in mode transitions,1
+27, Solving embedded system scheduling problems using constraint programming,No PDF Found
+28,Allocating and scheduling tasks in multiple fieldbus real-time systems,No PDF Found
+29,Heuristic techniques for allocating and scheduling communicating periodic tasks in distributed real-time systems,No PDF Found
+30, QoS adaptation in real-time systems,0
+,Total,21
+"
+",,
+Paper Title: The liteos operating system: Towards unix-like abstractions for wireless sensor networks,,
+Citing Paper Number,Paper Title,Over-cite Count
+1,Programming wireless sensor networks: Fundamental concepts and state of the art,3
+2, Operating systems for wireless sensor networks: A survey,No PDF Found
+3, TOSThreads: thread-safe and non-invasive preemption in TinyOS.,No PDF Found
+4,Declarative tracepoints: a programmable and application independent debugging system for wireless sensor networks,3
+5,Dustminer: troubleshooting interactive complexity bugs in sensor networks,6
+6,"Internet of things: A survey on enabling technologies, protocols, and applications",No PDF Found
+7,Providing OS support for wireless sensor networks: challenges and approaches,No PDF Found
+8,Lorien: a pure dynamic component-based operating system for wireless sensor networks,1
+9,Real deployments of wireless sensor networks,No PDF Found
+10,Virtual battery: An energy reserve abstraction for embedded sensor networks,4
+11,[BOOK][B] The emerging domain of Cooperating Objects,No PDF Found
+12,Type-safe updating for modular WSN software,1
+13,"Senspire OS: A predictable, flexible, and efficient operating system for wireless sensor networks",0
+14,"CMAC, CCM and GCM/GMAC: Advanced modes of operation of symmetric block ciphers in wireless sensor networks",1
+15,Bringing pervasive embedded networks to the service cloud: A lightweight middleware approach,2
+16,Dynamic linking and loading in networked embedded systems,1
+17, Operating systems and network protocols for wireless sensor networks,No PDF Found
+18,Enix: a lightweight dynamic operating system for tightly constrained wireless sensor platforms,No PDF Found
+19,"FIT: a flexible, lightweight, and real-time scheduling system for wireless sensor platforms",0
+20,A comparative study on operating system for wireless sensor networks,No PDF Found
+21,TinyLTS: Efficient network-wide logging and tracing system for TinyOS,4
+22, Wireless sensor network operating system design rules based on real-world deployment survey,No PDF Found
+23,Wireless sensor network virtualization: A survey,1
+24, Evaluation of the impact of furniture on communications performance for ubiquitous deployment of wireless sensor networks in smart homes,No PDF Found
+25,Optimizing in-network aggregate queries in wireless sensor networks for energy saving,2
+26,Adaptive service provisioning for enhanced energy efficiency and flexibility in wireless sensor networks,0
+27,Evolution of software-defined sensor networks,No PDF Found
+28,On authentication method impact upon data sampling delay in wireless sensor networks,No PDF Found
+29,SenSmart: adaptive stack management for multitasking sensor networks,0
+30,Community Sensor Grids: Virtualization for sharing across domains,No PDF Found
+,Total,29
+"
+",,
+Paper Title: Web content adaptation to improve server overload behavior,,
+Citing Paper Number,Paper Title,Over-cite Count
+1,Performance guarantees for web server end-systems: A control-theoretical approach,10
+2,An analytical model for multi-tier internet services and its applications,No PDF Found
+3,A method for transparent admission control and request scheduling in e-commerce web sites,3
+4,Session-based admission control: A mechanism for peak load management of commercial web sites,1
+5,Agile dynamic provisioning of multi-tier internet applications,0
+6,Web server QoS management by adaptive content delivery,1
+7,Puppeteer: Component-based Adaptation for Mobile Computing.,0
+8,Web servers under overload: How scheduling can help,1
+9,Controlware: A middleware architecture for feedback control of software performance,10
+10,Framework for adaptive content delivery in heterogeneous network environments,0
+11,Session-based overload control in qos-aware web servers,No PDF Found
+12,Differentiated caching services; a control-theoretical approach,3
+13,WebView materialization,No PDF Found
+14,Triage: Performance isolation and differentiation for storage systems,0
+15,Analytic modeling of multitier internet applications,0
+16,Reduction of quality (RoQ) attacks on Internet end-systems,0
+17,Triage: Performance differentiation for storage systems using adaptive control,0
+18,Modeling and performance control of internet servers,5
+19,Application-level differentiated multimedia Web services using quality aware transcoding,0
+20, Web2K: Bringing QoS to web servers,No PDF Found
+21,Transcoding: Extending e-business to new environments,0
+22, Cataclysm: Handling extreme overloads in internet services,1
+23,Cataclysm: policing extreme overloads in internet applications,1
+24,Session-based adaptive overload control for secure dynamic web applications,1
+25,Overload control in QoS-aware web servers,No PDF Found
+26,[BOOK][B] Web caching and its applications,No PDF Found
+27,A survey on performance management for internet applications,3
+28,Quality-of-service differentiation on the internet: A taxonomy,2
+29,Understanding the management of client perceived response time,No PDF Found
+30,Improving learner quality of experience by content adaptation based on network conditions,1
+,Total,43
+"
+",,
+Paper Title: Performance specifications and metrics for adaptive real-time systems,,
+Citing Paper Number,Paper Title,Over-cite Count
+1,[BOOK][B] Feedback control of computing systems,0
+2,"Feedback control real-time scheduling: Framework, modeling, and algorithms",No PDF Found
+3,Real time scheduling theory: A historical perspective,No PDF Found
+4,Feedback–feedforward scheduling of control tasks,2
+5,A feedback control approach for guaranteeing relative delays in web servers,No PDF Found
+6, Integrated control and real-time scheduling,No PDF Found
+7,Real-time databases and data services,No PDF Found
+8,Analysis of a reservation-based feedback scheduler,1
+9,STAR: secure real-time transaction processing with timeliness guarantees,No PDF Found
+10,Feedback control scheduling in distributed real-time systems,7
+11,Controlware: A middleware architecture for feedback control of software performance,10
+12,Adaptive workload management through elastic scheduling,No PDF Found
+13, Scheduling and locking in multiprocessor real-time operating systems,0
+14,Self-managing systems: A control theory foundation,No PDF Found
+15,A QoS-sensitive approach for timeliness and freshness guarantees in real-time databases,No PDF Found
+16,[BOOK][B] Soft Real-Time Systems,No PDF Found
+17,A control theory foundation for self-managing computing systems,5
+18,Qos control strategies for high-quality video processing,0
+19,Using fuzzy control to maximize profits in service level management,1
+20,Optimizing quality of service using fuzzy control,No PDF Found
+21,Performance adaptation in real-time intrusion detection systems,No PDF Found
+22,Hybrid modeling and simulation of genetic regulatory networks: A qualitative approach,No PDF Found
+23,A framework for evaluating quality-driven self-adaptive software systems,1
+24,Qos management through adaptive reservations,2
+25, Feedback control real-time scheduling,0
+26,Introduction to control theory and its application to computing systems,No PDF Found
+27,Control-scheduling codesign: A perspective on integrating control and computing,6
+28,Feedback control real-time scheduling in ORB middleware,3
+29,A cyber-physical systems approach to energy management in data centers,3
+30,Service differentiation in real-time main memory databases,No PDF Found
+,Total,41
+"
+",,
+Paper Title: Scalable logical coordinates framework for routing in wireless sensor networks,,
+Citing Paper Number,Paper Title,Over-cite Count
+1,Wireless sensor networks: A survey on the state of the art and the 802.15. 4 and ZigBee standards,2
+2,Beacon vector routing: Scalable point-to-point routing in wireless sensornets,No PDF Found
+3,From manet to ietf roll standardization: A paradigm shift in wsn routing protocols,No PDF Found
+4,Declarative tracepoints: a programmable and application independent debugging system for wireless sensor networks,3
+5,Location verification and trust management for resilient geographic routing,4
+6, Implementation of Gradient Routing in Wireless Sensor Networks.,0
+7,[BOOK][B] Algorithms for sensor and ad hoc networks: advanced lectures,No PDF Found
+8,SGF: a state-free gradient-based forwarding protocol for wireless sensor networks,No PDF Found
+9,Aligned virtual coordinates for greedy routing in WSNs,2
+10,Convex partition of sensor networks and its use in virtual coordinate geographic routing,1
+11,ALBA-R: Load-balancing geographic routing around connectivity holes in wireless sensor networks,No PDF Found
+12,Practical 3D geographic routing for wireless sensor networks,No PDF Found
+13,Centroid virtual coordinates–A novel near-shortest path routing paradigm,1
+14,Virtual coordinates with backtracking for void traversal in geographic routing,2
+15,ucast: Unified connectionless multicast for energy efficient content distribution in sensor networks,4
+16,A multifrequency MAC specially designed for wireless sensor network applications,No PDF Found
+17,Scalable integrated routing using prefix labels and distributed hash tables for MANETs,No PDF Found
+18,Localised alpha-shape computations for boundary recognition in sensor networks,1
+19,Improving end-to-end routing performance of greedy forwarding in sensor networks,2
+20,LL-MAC: A low latency MAC protocol for wireless self-organised networks,0
+21,Sidewinder: a predictive data forwarding protocol for mobile wireless sensor networks,2
+22,Routing in wireless networks with position trees,0
+23,PROSE: scalable routing in MANETs using prefix labels and distributed hashing,No PDF Found
+24, Probabilistic verification of sensor networks.,1
+25,Load balanced and efficient hierarchical data-centric storage in sensor networks,1
+26,CSR: Convex Subspace Routing protocol for wireless sensor networks,No PDF Found
+27,Localised convex hulls to identify boundary nodes in sensor networks,1
+28,Cognitive networking of large scale wireless systems,1
+29, Topology preserving maps from virtual coordinates for wireless sensor networks.,1
+30,Aligned virtual coordinates for greedy geometric routing in WSNs,No PDF Found
+,Total,29
+"
+",,
+Paper Title: Feedback control architecture and design methodology for service delay guarantees in web servers,,
+Citing Paper Number,Paper Title,Over-cite Count
+1,"Autoscale: Dynamic, robust capacity management for multi-tier data centers",0
+2,A systematic survey on the design of self-adaptive software systems using control engineering approaches,No PDF Found
+3,Power optimization for dynamic configuration in heterogeneous web server clusters,2
+4,URL: A unified reinforcement learning approach for autonomic cloud management,2
+5,Self-adaptive software meets control theory: A preliminary approach supporting reliability requirements,0
+6,Autonomic provisioning with self-adaptive neural fuzzy control for end-to-end delay guarantee,3
+7,Efficient server provisioning with control for end-to-end response time guarantee on multitier clusters,3
+8,Comparison of decision-making strategies for self-optimization in autonomic computing systems,0
+9,Stochastic approximation control of power and tardiness in a three-tier web-hosting cluster,1
+10,A multi-model framework to implement self-managing control systems for QoS management,No PDF Found
+11,Automated design of self-adaptive software with control-theoretical formal guarantees,0
+12,High-performance resource allocation and request redirection algorithms for web clusters,1
+13,Hammerstein–Wiener nonlinear model based predictive control for relative QoS performance and resource management of software systems,2
+14,Robust runtime optimization of data transfer in queries over web services,4
+15,Feedback-controlled resource sharing for predictable eScience,1
+16,Decision making in autonomic computing systems: comparison of approaches and techniques,No PDF Found
+17,Predictable high-performance computing using feedback control and admission control,0
+18,A survey of resource management in multi-tier web applications,6
+19,Seec: A framework for self-aware computing,No PDF Found
+20,Self-tuning virtual machines for predictable escience,No PDF Found
+21,Software engineering meets control theory,1
+22,Adaptive resource allocation for service-based systems,2
+23,An adaptive tradeoff model for service performance and security in service-based systems,No PDF Found
+24,Autonomic provisioning with self-adaptive neural fuzzy control for percentile-based delay guarantee,0
+25,Self-∗ through self-learning: Overload control for distributed web systems,2
+26,SEEC: A framework for self-aware management of multicore resources,No PDF Found
+27, Coordinated allocation and scheduling of multiple resources in real-time operating systems,0
+28,Boosting the performance of computing systems through adaptive configuration tuning,1
+29,An approximation-based load-balancing algorithm with admission control for cluster web servers with dynamic workloads,2
+30,[CITATION][C] SISO PIDF controller in an energy-efficient multi-tier web server cluster for e-commerce,3
+,Total,36
+"
+",,
+Paper Title: Feedback control scheduling in distributed real-time systems,,
+Citing Paper Number,Paper Title,Over-cite Count
+1,SPEED: A stateless protocol for real-time communication in sensor networks,2
+2,Real time scheduling theory: A historical perspective,No PDF Found
+3,Real-time communication and coordination in embedded sensor networks,6
+4,A spatiotemporal communication protocol for wireless sensor networks,5
+5,Stabilization of arbitrary switched linear systems with unknown time-varying delays,1
+6," By Tarek F. Abdelzaher, John A. Stankovic, Chenyang Lu, Ronghua Zhang, and Ying Lu",11
+7,Real-time databases and data services,No PDF Found
+8,Feedback utilization control in distributed real-time systems with end-to-end tasks,3
+9,Feedback control with queueing-theoretic prediction for relative delay guarantees in web servers,12
+10,An adaptive control framework for qos guarantees and its application to differentiated caching,9
+11,Triage: Performance isolation and differentiation for storage systems,0
+12,Triage: Performance differentiation for storage systems using adaptive control,0
+13,Power-efficient response time guarantees for virtualized enterprise servers,7
+14,SPEED: A real-time routing protocol for sensor networks,1
+15,DEUCON: Decentralized end-to-end utilization control for distributed real-time systems,3
+16,Improved prediction for web server delay control,10
+17,A systematic survey on the design of self-adaptive software systems using control engineering approaches,No PDF Found
+18,Feedback control real-time scheduling in ORB middleware,3
+19,DEECO: an ensemble-based component system,1
+20,Feedback thermal control for real-time systems,1
+21,Practical application of control theory to web services,5
+22,An integrated energy aware wireless transmission system for QoS provisioning in wireless sensor network,3
+23,End-to-end utilization control in distributed real-time systems,2
+24,An adaptive framework for multiprocessor real-time system,4
+25,Distributed utilization control for real-time clusters with load balancing,3
+26,Power-aware cpu utilization control for distributed real-time systems,2
+27,Honoring SLAs on cloud computing services: a control perspective,2
+28,Double-loop feedback-based scheduling approach for distributed real-time systems,1
+29,FC-ORB: A robust distributed real-time embedded middleware with end-to-end utilization control,0
+30,QoS management in replicated real-time databases,3
+,Total,100
+"
+",,
+Paper Title: Analysis of target detection performance for wireless sensor networks,,
+Citing Paper Number,Paper Title,Over-cite Count
+1,Deploying wireless sensors to achieve both coverage and connectivity,1
+2,Achieving real-time target tracking usingwireless sensor networks,9
+3,Reliable density estimates for coverage and connectivity in thin strips of finite length,No PDF Found
+4,Complete optimal deployment patterns for full-coverage and k-connectivity (k≤ 6) wireless sensor networks,1
+5, Forest Fire Modeling and Early Detection using Wireless Sensor Networks.,1
+6,Deploying four-connectivity and full-coverage wireless sensor networks,1
+7,Probabilistic detection of mobile targets in heterogeneous sensor networks,1
+8,Design and analysis of sensing scheduling algorithms under partial coverage for object detection in sensor networks,4
+9,A study of k-coverage and measures of connectivity in 3D wireless sensor networks,1
+10,Optimal deployment patterns for full coverage and k-connectivity (k≤ 6) wireless sensor networks,1
+11,An effective genetic algorithm to improve wireless sensor network lifetime for large-scale surveillance applications,1
+12,A probabilistic coverage protocol for wireless sensor networks,No PDF Found
+13,Achieving long-term surveillance in vigilnet,6
+14,Low-connectivity and full-coverage three dimensional wireless sensor networks,1
+15,Localized algorithms for coverage boundary detection in wireless sensor networks,1
+16,Sensor node lifetime analysis: Models and tools,No PDF Found
+17,Connected coverage in wireless networks with directional antennas,0
+18,Optimal patterns for four-connectivity and full coverage in wireless sensor networks,1
+19,Analytic evaluation of target detection in heterogeneous wireless sensor networks,1
+20,Asynchronous random sleeping for sensor networks,0
+21, Coverage-guaranteed sensor node deployment strategies for wireless sensor networks,No PDF Found
+22,Energy-efficient protocol for deterministic and probabilistic coverage in sensor networks,1
+23,Constructing low-connectivity and full-coverage three dimensional sensor networks,1
+24,Probability-based prediction and sleep scheduling for energy-efficient target tracking in sensor networks,3
+25,Pattern mutation in wireless sensor deployment,1
+26,Gaussian versus uniform distribution for intrusion detection in wireless sensor networks,1
+27,Design and optimization of distributed sensing coverage in wireless sensor networks,0
+28,ANDES: an ANalysis-based DEsign tool for wireless Sensor networks,No PDF Found
+29,Notice of Violation of IEEE Publication Principles Optimal multiple-coverage of sensor networks,1
+30,Impact of data fusion on real-time detection in sensor networks,4
+,Total,43
+"
+",,
+Paper Title: Controlware: A middleware architecture for feedback control of software performance,,
+Citing Paper Number,Paper Title,Over-cite Count
+1,Real time scheduling theory: A historical perspective,No PDF Found
+2,Dynamic resource allocation for shared data centers using online measurements,4
+3," By Tarek F. Abdelzaher, John A. Stankovic, Chenyang Lu, Ronghua Zhang, and Ying Lu",11
+4,Cyber–physical systems: A perspective at the centennial,No PDF Found
+5,Feedback control with queueing-theoretic prediction for relative delay guarantees in web servers,12
+6,Dynamic knobs for responsive power-aware computing,1
+7,An adaptive control framework for qos guarantees and its application to differentiated caching,9
+8,A real-time service-oriented architecture for industrial automation,1
+9,Managing deadline miss ratio and sensor data freshness in real-time databases,2
+10,An observation-based approach towards self-managing web servers,3
+11,AQuoSA—adaptive quality of service architecture,1
+12,Self-managing systems: A control theory foundation,No PDF Found
+13,A control theory foundation for self-managing computing systems,5
+14,Qos management through adaptive reservations,2
+15,Control-scheduling codesign: A perspective on integrating control and computing,6
+16,A systematic survey on the design of self-adaptive software systems using control engineering approaches,No PDF Found
+17,Feedback control real-time scheduling in ORB middleware,3
+18,On the integration of application level and resource level QoS control for real-time applications,2
+19,METE: meeting end-to-end QoS in multicores through system-wide resource management,1
+20,SHARP control: controlled shared cache management in chip multiprocessors,2
+21,Practical application of control theory to web services,5
+22,A component-based approach to the design of networked control systems,0
+23,Conclusions of the ARTIST2 roadmap on control of computing systems,No PDF Found
+24,Comparison of decision-making strategies for self-optimization in autonomic computing systems,0
+25,Main effects screening: a distributed continuous quality assurance process for monitoring performance degradation in evolving software systems,No PDF Found
+26,Hammerstein–Wiener nonlinear model based predictive control for relative QoS performance and resource management of software systems,2
+27,FC-ORB: A robust distributed real-time embedded middleware with end-to-end utilization control,0
+28,A generalized software framework for accurate and efficient management of performance goals,0
+29,Addressing timeliness/accuracy/cost tradeoffs in information collection for dynamic environments,1
+30,Effective web service load balancing through statistical monitoring,No PDF Found
+,Total,73
+"
+",,
+Paper Title: Feedback control with queueing-theoretic prediction for relative delay guarantees in web servers,,
+Citing Paper Number,Paper Title,Over-cite Count
+1,Real time scheduling theory: A historical perspective,No PDF Found
+2,The future of software performance engineering,No PDF Found
+3,Feedback control architecture and design methodology for service delay guarantees in web servers,6
+4,Reduction of quality (RoQ) attacks on Internet end-systems,0
+5,Hierarchical model-based autonomic control of software systems,2
+6,Predictive control for dynamic resource allocation in enterprise data centers,5
+7,eQoS: Provisioning of client-perceived end-to-end qos guarantees in web servers,4
+8,Improved prediction for web server delay control,10
+9,Tracking time-varying parameters in software systems with extended Kalman filters,2
+10,A systematic survey on the design of self-adaptive software systems using control engineering approaches,No PDF Found
+11,A cyber-physical systems approach to energy management in data centers,3
+12,Service system resource management based on a tracked layered performance model,No PDF Found
+13,A performance analysis method for autonomic computing systems,No PDF Found
+14,Exploring alternative approaches to implement an elasticity policy,No PDF Found
+15,A qos control mechanism to provide service differentiation and overload protection to internet scalable servers,4
+16,Robust processing rate allocation for proportional slowdown differentiation on internet servers,5
+17,Feedback-control-based performance regulation for multi-tenant applications,No PDF Found
+18,Chronos: Feedback control of a real database system performance,2
+19,Hammerstein–Wiener nonlinear model based predictive control for relative QoS performance and resource management of software systems,2
+20,Using policies to drive autonomic management,No PDF Found
+21,The use of optimal filters to track parameters of performance models,2
+22,Improving architecture-based self-adaptation through resource prediction,1
+23,Comparing the use of bayesian networks and neural networks in response time modeling for service-oriented systems,No PDF Found
+24,An analytical approach to providing controllable differentiated quality of service in web servers,2
+25,Short-term prediction models for server management in Internet-based contexts,2
+26,Resource allocation for session-based two-dimensional service differentiation on e-commerce servers,2
+27,A survey of resource management in multi-tier web applications,6
+28,Autonomic load-testing framework,1
+29,[BOOK][B] Scalable and secure Internet services and architecture,No PDF Found
+30,Dec: Service demand estimation with confidence,1
+,Total,62
+"
+",,
+Paper Title: Queueing model based network server performance control,,
+Citing Paper Number,Paper Title,Over-cite Count
+1,Real time scheduling theory: A historical perspective,No PDF Found
+2,Dynamic voltage scaling in multitier web servers with end-to-end delay control,1
+3,Feedback control architecture and design methodology for service delay guarantees in web servers,6
+4,On the use of fuzzy modeling in virtualized data center management,1
+5,Feedback control with queueing-theoretic prediction for relative delay guarantees in web servers,12
+6,Utility-driven workload management using nested control design,No PDF Found
+7,Online response time optimization of apache web server,No PDF Found
+8,Autonomic resource management in virtualized data centers using fuzzy logic-based approaches,2
+9,Self-managing systems: A control theory foundation,No PDF Found
+10,A smart hill-climbing algorithm for application server configuration,1
+11,A control theory foundation for self-managing computing systems,5
+12,Integrating adaptive components: An emerging challenge in performance-adaptive systems and a server farm case-study,5
+13,Adaptive control of multi-tiered web applications using queueing predictor,No PDF Found
+14,Predictive control for dynamic resource allocation in enterprise data centers,5
+15,eQoS: Provisioning of client-perceived end-to-end qos guarantees in web servers,4
+16,Improved prediction for web server delay control,10
+17,Modeling 3-tiered web applications,2
+18,Control-scheduling codesign: A perspective on integrating control and computing,6
+19,RDDS: A real-time data distribution service for cyber-physical systems,1
+20,Modeling and control design for performance management of web servers via an LPV approach,2
+21,Efficient power management of heterogeneous soft real-time clusters,4
+22,Design and evaluation of load control in web server systems,3
+23,Challenges in control engineering of computing systems,3
+24,Autonomic provisioning with self-adaptive neural fuzzy control for end-to-end delay guarantee,3
+25,A qos control mechanism to provide service differentiation and overload protection to internet scalable servers,4
+26,Robust processing rate allocation for proportional slowdown differentiation on internet servers,5
+27,Efficient server provisioning with control for end-to-end response time guarantee on multitier clusters,3
+28,Conclusions of the ARTIST2 roadmap on control of computing systems,No PDF Found
+29,Queueing-model-based adaptive control of multi-tiered web applications,No PDF Found
+30,A survey of resource management in multi-tier web applications,6
+,Total,94
+"
+",,
+Paper Title: Satire: a software architecture for smart attire,,
+Citing Paper Number,Paper Title,Over-cite Count
+1,"Sensing meets mobile social networks: the design, implementation and evaluation of the cenceme application",No PDF Found
+2,Research directions in requirements engineering,1
+3,BikeNet: A mobile sensing system for cyclist experience mapping,No PDF Found
+4,Micro-blog: sharing and querying content through mobile phones and social participation,No PDF Found
+5,Using mobile phones to determine transportation modes,0
+6,Wireless sensor networks for healthcare,1
+7,[BOOK][B] Interconnecting smart objects with ip: The next internet,No PDF Found
+8,"Accurate, fast fall detection using gyroscopes and accelerometer-derived posture information",1
+9,Context-aware wireless sensor networks for assisted living and residential monitoring,0
+10, Alarm-net: Wireless sensor networks for assisted-living and residential monitoring,No PDF Found
+11, Mercury: a wearable sensor network platform for high-fidelity motion analysis.,No PDF Found
+12,CenceMe–injecting sensing presence into social networking applications,2
+13,PoolView: stream privacy for grassroots participatory sensing,No PDF Found
+14,Activity recognition from on-body sensors: accuracy-power trade-off by dynamic sensor selection,1
+15,Adapcode: Adaptive network coding for code updates in wireless sensor networks,2
+16,PerFallD: A pervasive fall detection system using mobile phones,1
+17, Security issues in healthcare applications using wireless medical sensor networks: A survey,No PDF Found
+18,Bodyqos: Adaptive and radio-agnostic qos for body sensor networks,No PDF Found
+19,Body sensor network security: an identity-based cryptography approach,1
+20,Mobile phone-based pervasive fall detection,0
+21,AAMPL: accelerometer augmented mobile phone localization,0
+22,Resource aware programming in the pixie os,3
+23,Activity recognition using hierarchical hidden markov models on a smartphone with 3D accelerometer,1
+24,Pbn: towards practical activity recognition using smartphone-based body sensor networks,No PDF Found
+25,Requirements and design spaces of mobile medical care,No PDF Found
+26,Enviromic: Towards cooperative storage and retrieval in audio sensor networks,1
+27,BALANCE: towards a usable pervasive wellness application with accurate activity inference,No PDF Found
+28,Integrating sensors and social networks,7
+29,Envirostore: A cooperative storage system for disconnected operation in sensor networks,2
+30,CaliBree: A self-calibration system for mobile sensor networks,2
+,Total,26
+"
+",,
+Paper Title: PoolView: stream privacy for grassroots participatory sensing,,
+Citing Paper Number,Paper Title,Over-cite Count
+1,A survey of mobile phone sensing,1
+2, Mobile crowdsensing: current state and future challenges.,0
+3,Differentially private aggregation of distributed time-series with transformation and encryption,No PDF Found
+4,GreenGPS: a participatory sensing fuel-efficient maps application,3
+5,A survey on privacy in mobile participatory sensing applications,2
+6,Prisense: privacy-preserving data aggregation in people-centric urban sensing systems,No PDF Found
+7,From wireless sensor networks towards cyber physical systems,3
+8, Towards trustworthy participatory sensing,1
+9, Human-centric sensing,No PDF Found
+10,Preserving privacy in participatory sensing systems,1
+11,Personal data vaults: a locus of control for personal data streams,1
+12,KIPDA: k-indistinguishable privacy-preserving data aggregation in wireless sensor networks,No PDF Found
+13,Bubble-sensing: Binding sensing tasks to the physical world,2
+14,Integrating sensors and social networks,7
+15,Privacy-aware regression modeling of participatory sensing data,No PDF Found
+16,Privacy risks emerging from the adoption of innocuous wearable sensors in the mobile environment,1
+17,Providing privacy-aware incentives for mobile sensing,1
+18,Short paper: PEPSI---privacy-enhanced participatory sensing infrastructure,0
+19,Social sensing,14
+20,A cluster-based protocol to enforce integrity and preserve privacy in data aggregation,No PDF Found
+21,Privacy-preserving reconstruction of multidimensional data maps in vehicular participatory sensing,No PDF Found
+22,A security framework for privacy-preserving data aggregation in wireless sensor networks,No PDF Found
+23,Spotme if you can: Randomized responses for location obfuscation on mobile phones,1
+24,Participatory privacy: Enabling privacy in participatory sensing,1
+25,Ikarus: large-scale participatory sensing at high altitudes,2
+26,A review of earth observation using mobile personal communication devices,0
+27,Participatory personal data: An emerging research challenge for the information sciences,0
+28,TrPF: A trajectory privacy-preserving framework for participatory sensing,1
+29,Sensorsafe: a framework for privacy-preserving management of personal sensory information,No PDF Found
+30,Data perturbation with state-dependent noise for participatory sensing,No PDF Found
+,Total,42
+"
+",,
+Paper Title: Differentiated caching services; a control-theoretical approach,,
+Citing Paper Number,Paper Title,Over-cite Count
+1,[BOOK][B] Feedback control of computing systems,0
+2,Performance guarantees for web server end-systems: A control-theoretical approach,10
+3,A survey of web cache replacement strategies,0
+4,Real time scheduling theory: A historical perspective,No PDF Found
+5,Using control theory to achieve service level objectives in performance management,No PDF Found
+6," By Tarek F. Abdelzaher, John A. Stankovic, Chenyang Lu, Ronghua Zhang, and Ying Lu",11
+7,Using MIMO feedback control to enforce policies for interrelated metrics with application to the Apache Web server,3
+8, Aqueduct: Online Data Migration with Performance Guarantees.,4
+9,Controlware: A middleware architecture for feedback control of software performance,10
+10,Queueing model based network server performance control,No PDF Found
+11,Feedback control with queueing-theoretic prediction for relative delay guarantees in web servers,12
+12,An adaptive control framework for qos guarantees and its application to differentiated caching,9
+13,Triage: Performance isolation and differentiation for storage systems,0
+14,A utilization bound for aperiodic tasks and priority driven scheduling,No PDF Found
+15,Triage: Performance differentiation for storage systems using adaptive control,0
+16,Control-theoretic dynamic frequency and voltage scaling for multimedia workloads,No PDF Found
+17,Adaptive entitlement control of resource containers on shared servers,4
+18,A quantitative assured forwarding service,No PDF Found
+19,Self-managing systems: A control theory foundation,No PDF Found
+20,A QoS-sensitive approach for timeliness and freshness guarantees in real-time databases,No PDF Found
+21,A control theory foundation for self-managing computing systems,5
+22,Adaptive control of multi-tiered web applications using queueing predictor,No PDF Found
+23,Reducing multimedia decode power using feedback control,No PDF Found
+24, Feedback control real-time scheduling,0
+25,Control-scheduling codesign: A perspective on integrating control and computing,6
+26,A systematic survey on the design of self-adaptive software systems using control engineering approaches,No PDF Found
+27,Using MIMO linear control for load balancing in computing systems,1
+28,Service differentiation in real-time main memory databases,No PDF Found
+29,World Wide Wait: a study of Internet scalability and cache-based approaches to alleviate it,No PDF Found
+30,Efficient web content delivery using proxy caching techniques,No PDF Found
+,Total,75
+"
+",,
+Paper Title: On real-time capacity limits of multihop wireless sensor networks,,
+Citing Paper Number,Paper Title,Over-cite Count
+1,Real-time power-aware routing in sensor networks,No PDF Found
+2,Achieving real-time target tracking usingwireless sensor networks,9
+3,Improving the IEEE 802.15. 4 slotted CSMA/CA MAC for time-critical events in wireless sensor networks,2
+4,Modeling and worst-case dimensioning of cluster-tree wireless sensor networks,2
+5,Cross-layer analysis of the end-to-end delay distribution in wireless sensor networks,1
+6,Enabling energy-efficient and lossy-aware data compression in wireless sensor networks by multi-objective evolutionary optimization,1
+7,Firefly mosaic: A vision-enabled wireless sensor networking system,3
+8,Feedback control of data aggregation in sensor networks,3
+9,Spatiotemporal delay control for low-duty-cycle sensor networks,6
+10,End-to-end delay analysis for fixed priority scheduling in WirelessHART networks,4
+11,Dual-mode real-time mac protocol for wireless sensor networks: a validation/simulation approach,5
+12,Analysis of audio streaming capability of zigbee networks,1
+13,Real-time communications over cluster-tree sensor networks with mobile sink behaviour,2
+14,On scheduling and real-time capacity of hexagonal wireless sensor networks,2
+15,ANDES: an ANalysis-based DEsign tool for wireless Sensor networks,No PDF Found
+16,Priority assignment for real-time flows in WirelessHART networks,0
+17,[BOOK][B] The emerging domain of Cooperating Objects,No PDF Found
+18,Dimensioning and worst-case analysis of cluster-tree sensor networks,5
+19, Features Detection Based on a Variational Model in Sensornets.,3
+20,Static-priority scheduling over wireless networks with multiple broadcast domains,1
+21,Interference-aware real-time flow scheduling for wireless sensor networks,2
+22,Bodyt2: Throughput and time delay performance assurance for heterogeneous bsns,No PDF Found
+23,Dynamic conflict-free transmission scheduling for sensor network queries,2
+24,Improving audio streaming over multi-hop ZigBee networks,1
+25,TIGRA: Timely sensor data collection using distributed graph coloring,3
+26,Probabilistic estimation of end-to-end path latency in wireless sensor networks,3
+27,Noninteractive localization of wireless camera sensors with mobile beacon,1
+28,End-to-end communication delay analysis in industrial wireless networks,No PDF Found
+29,Qvs: Quality-aware voice streaming for wireless sensor networks,6
+30,Efficient aggregate computations in large-scale dense WSN,0
+,Total,68
+"
+",,
+Paper Title: On truth discovery in social sensing: A maximum likelihood estimation approach,,
+Citing Paper Number,Paper Title,Over-cite Count
+1,Social sensing,14
+2,Using humans as sensors: an estimation-theoretic perspective,9
+3,Recursive fact-finding: A streaming approach to truth estimation in crowdsourcing applications,8
+4, On quantifying the accuracy of maximum likelihood estimation of participant reliability in social sensing,No PDF Found
+5,Exploitation of physical constraints for reliable social sensing,1
+6,Quality of contributed service and market equilibrium for participatory sensing,1
+7,On scalability and robustness limitations of real and asymptotic confidence bounds in social sensing,4
+8,Maximum likelihood analysis of conflicting observations in social sensing,No PDF Found
+9, Tweet Ranking Based on Heterogeneous Networks.,0
+10,URREF self-confidence in information fusion trust,2
+11, The Wisdom of Minority: Unsupervised Slot Filling Validation based on Multi-dimensional Truth-Finding.,No PDF Found
+12,On credibility estimation tradeoffs in assured social sensing,No PDF Found
+13,On diversifying source selection in social sensing,No PDF Found
+14,Truth discovery in crowdsourced detection of spatial events,0
+15, Mobile sensing systems,No PDF Found
+16,Generalized decision aggregation in distributed sensing systems,7
+17,SEW-ing a simple endorsement web to incentivize trustworthy participatory sensing,1
+18,Minimizing efforts in validating crowd answers,1
+19,[BOOK][B] Social sensing: building reliable systems on unreliable data,No PDF Found
+20,Towards cyber-physical systems in social spaces: The data reliability challenge,12
+21,Truth discovery in data streams: A single-pass probabilistic approach,2
+22,Truth discovery algorithms: An experimental evaluation,1
+23,Debiasing crowdsourced quantitative characteristics in local businesses and services,1
+24,Scalable social sensing of interdependent phenomena,7
+25,Passfit: Participatory sensing and filtering for identifying truthful urban pollution sources,1
+26,On assessing the accuracy of positioning systems in indoor environments,No PDF Found
+27,Faitcrowd: Fine grained truth discovery for crowdsourced data aggregation,2
+28,"Detection, classification and visualization of place-triggered geotagged tweets",No PDF Found
+29,Review of wildfire detection using social media,4
+30,A framework for fusion of human sensor and physical sensor data,2
+,Total,80
+"
+",,
+Paper Title: An adaptive control framework for qos guarantees and its application to differentiated caching,,
+Citing Paper Number,Paper Title,Over-cite Count
+1,Real time scheduling theory: A historical perspective,No PDF Found
+2,Dynamic resource allocation for shared data centers using online measurements,4
+3," By Tarek F. Abdelzaher, John A. Stankovic, Chenyang Lu, Ronghua Zhang, and Ying Lu",11
+4,Yaksha: A self-tuning controller for managing the performance of 3-tiered web sites,1
+5,Feedback control architecture and design methodology for service delay guarantees in web servers,6
+6,Feedback control with queueing-theoretic prediction for relative delay guarantees in web servers,12
+7,Utility-driven workload management using nested control design,No PDF Found
+8,Triage: Performance isolation and differentiation for storage systems,0
+9,Triage: Performance differentiation for storage systems using adaptive control,0
+10,Adaptive entitlement control of resource containers on shared servers,4
+11,Utilization and SLO-based control for dynamic sizing of resource partitions,4
+12,What does control theory bring to systems research?,3
+13,Predictive control for dynamic resource allocation in enterprise data centers,5
+14,A systematic survey on the design of self-adaptive software systems using control engineering approaches,No PDF Found
+15,A cyber-physical systems approach to energy management in data centers,3
+16, Designing Controllable Computer Systems.,1
+17,Modeling and control design for performance management of web servers via an LPV approach,2
+18,Scalable service differentiation in a shared storage cache,No PDF Found
+19,CacheCOW: QoS for storage system caches,No PDF Found
+20,A multi-model framework to implement self-managing control systems for QoS management,No PDF Found
+21,A new approach to dynamic self-tuning of database buffers,No PDF Found
+22,Hammerstein–Wiener nonlinear model based predictive control for relative QoS performance and resource management of software systems,2
+23,An LPV approximation for admission control of an internet web server: identification and control,2
+24,Ca-nfs: A congestion-aware network file system,No PDF Found
+25,Dynamic black-box performance model estimation for self-tuning regulators,2
+26,CAMRIT: control-based adaptive middleware for real-time image transmission,2
+27,Resource entitlement control system controlling resource entitlement based on automatic determination of a target utilization and controller gain,No PDF Found
+28,Controllable fair queuing for meeting performance goals,2
+29,A control theory based framework for dynamic adaptable systems,No PDF Found
+30,Adaptive and intelligent request distribution for content delivery networks,1
+,Total,67
+"
+",,
+Paper Title: Combined task and message scheduling in distributed real-time systems,,
+Citing Paper Number,Paper Title,Over-cite Count
+1,Feedback control scheduling in distributed real-time systems,7
+2,A novel fault-tolerant scheduling algorithm for precedence constrained tasks in real-time heterogeneous systems,1
+3,A dynamic and reliability-driven scheduling algorithm for parallel real-time jobs executing on heterogeneous clusters,No PDF Found
+4,Scheduling security-critical real-time applications on clusters,2
+5,An efficient fault-tolerant scheduling algorithm for real-time tasks with precedence constraints in heterogeneous systems,No PDF Found
+6,Schedulability analysis and utilization bounds for highly scalable real-time services,2
+7,"Dynamic, reliability-driven scheduling of parallel real-time jobs in heterogeneous systems",1
+8,Transparent recovery from intermittent faults in time-triggered distributed systems,1
+9,An automated profiling subsystem for QoS-aware services,5
+10,SAREC: A security-aware scheduling strategy for real-time applications on clusters,1
+11,Improving security for periodic tasks in embedded systems through scheduling,0
+12,Dependable communication synthesis for distributed embedded systems,1
+13,"Planning and resource allocation for hard real-time, fault-tolerant plan execution",4
+14,Dynamic scheduling of parallel real-time jobs by modelling spare capabilities in heterogeneous clusters,1
+15,ACO approach with learning for preemptive scheduling of real-time tasks,No PDF Found
+16,PARM: A power-aware message scheduling algorithm for real-time wireless networks,No PDF Found
+17,Multi-dimensional scheduling for real-time tasks on heterogeneous clusters,0
+18,Improving security of real-time wireless networks through packet scheduling [transactions letters],1
+19,Dynamic task scheduling with security awareness in real-time systems,3
+20,Combining hard periodic and soft aperiodic real-time task scheduling on heterogeneous compute resources,No PDF Found
+21,End-to-end schedulability tests for multiprocessor embedded systems based on networks-on-chip with priority-preemptive arbitration,0
+22,Deployment and scheduling synthesis for mixed-critical shared-memory applications,2
+23,"Heuristic resource allocation algorithms for maximizing allowable workload in dynamic, distributed real-time systems",No PDF Found
+24, A new DAG based Dynamic Task Scheduling Algorithm (DYTAS) for Multiprocessor Systems,No PDF Found
+25,A time Petri net approach for finding preruntime schedules in embedded hard real-time systems,No PDF Found
+26,Analysis and optimisation of hierarchically scheduled multiprocessor embedded systems,0
+27,Ant colony system with stagnation avoidance for the scheduling of real-time tasks,No PDF Found
+28,Real-time scheduling with quality of security constraints,No PDF Found
+29,Dependable communication synthesis for distributed embedded systems,1
+30,"Planning and resource allocation for hard real-time, fault-tolerant plan execution",No PDF Found
+,Total,33
+"
+",,
+Paper Title: A practical multi-channel media access control protocol for wireless sensor networks,,
+Citing Paper Number,Paper Title,Over-cite Count
+1,MAC essentials for wireless sensor networks,2
+2,The evolution of MAC protocols in wireless sensor networks: A survey,2
+3,MC-LMAC: A multi-channel MAC protocol for wireless sensor networks,2
+4,RACNet: a high-fidelity data center sensing network,3
+5,Towards a classification of energy aware MAC protocols for wireless sensor networks,2
+6,Dustminer: troubleshooting interactive complexity bugs in sensor networks,6
+7,"Cooperative asynchronous multichannel MAC: Design, analysis, and implementation",2
+8,Multi-channel assignment in wireless sensor networks: A game theoretic approach,No PDF Found
+9,A survey on multi-channel communication in wireless sensor networks,3
+10,Game theoretical approach for channel allocation in wireless sensor and actuator networks,1
+11,Multi-channel interference measurement and modeling in low-power wireless networks,4
+12,Multichannel reliability assessment in real world WSNs,No PDF Found
+13,Traffic-aware channel assignment in wireless sensor networks,4
+14,ARCH: Practical channel hopping for reliable home-area sensor networks,2
+15,Queen-MAC: A quorum-based energy-efficient medium access control protocol for wireless sensor networks,0
+16,Netdetect: Neighborhood discovery in wireless networks using adaptive beacons,0
+17,"Modeling, analysis and design of wireless sensor network protocols",0
+18,Distributed channel allocation protocols for wireless sensor networks,4
+19, Towards discovering data center genome using sensor nets,0
+20,BurstMAC—An efficient MAC protocol for correlated traffic bursts,No PDF Found
+21,Distributed time-frequency division multiple access protocol for wireless sensor networks,0
+22,Exploiting time and frequency diversity in IEEE 802.15. 4 industrial networks for enhanced reliability and throughput,1
+23,Dynamic channel assignment for wireless sensor networks: A regret matching based approach,1
+24,ARM: An asynchronous receiver-initiated multichannel MAC protocol with duty cycling for WSNs,0
+25,Energy-efficient strategies for cooperative multichannel MAC protocols,2
+26,Regret matching based channel assignment for wireless sensor networks,No PDF Found
+27,A detailed review of multi-channel medium access control protocols for wireless sensor networks,0
+28,Implementation and experimental evaluation of multi-channel MAC protocols for 802.11 networks,1
+29,Low-power listening goes multi-channel,0
+30,Analysis of IEEE 802.15. 4 throughput in beaconless mode on MicaZ under TinyOS 2,3
+,Total,45
+"
+",,
+Paper Title: Adapcode: Adaptive network coding for code updates in wireless sensor networks,,
+Citing Paper Number,Paper Title,Over-cite Count
+1,Practical defenses against pollution attacks in intra-flow network coding for wireless mesh networks,1
+2,Energy efficiency in wireless sensor networks: A top-down survey,No PDF Found
+3,SYNAPSE++: code dissemination in wireless sensor networks using fountain codes,1
+4,Enhancement of lifetime using duty cycle and network coding in wireless sensor networks,1
+5,Minimizing delay for multicast-streaming in wireless networks with network coding,No PDF Found
+6, A survey of system architecture requirements for health care-based wireless sensor networks,No PDF Found
+7,Survey of network coding and its applications,1
+8,Elon: enabling efficient and long-term reprogramming for wireless sensor networks,2
+9, Data dissemination in wireless sensor networks with network coding,1
+10,A lightweight and density-aware reprogramming protocol for wireless sensor networks,1
+11,Secure rateless deluge: Pollution-resistant reprogramming and data dissemination for wireless sensor networks,No PDF Found
+12,R-Code: Network coding-based reliable broadcast in wireless mesh networks,1
+13,Network coding techniques for wireless and sensor networks,No PDF Found
+14,Link quality aware code dissemination in wireless sensor networks,1
+15,Power efficient adaptive network coding in wireless sensor networks,No PDF Found
+16,R2: Incremental reprogramming using relocatable code in networked embedded systems,1
+17,Practical defenses against pollution attacks in wireless network coding,0
+18,R-Code: Network coding based reliable broadcast in wireless mesh networks with unreliable links,1
+19,Security enhanced multi-hop over the air reprogramming with fountain codes,No PDF Found
+20,Network coding and competitive approach for gradient based routing in wireless sensor networks,2
+21,Survey of network coding and its benefits in energy saving over wireless sensor networks,No PDF Found
+22,Exploiting concurrency for efficient dissemination in wireless sensor networks,1
+23,Design and application of a VOC-monitoring system based on a ZigBee wireless sensor network,1
+24,CodeDrip: Data dissemination protocol with network coding for wireless sensor networks,1
+25,UFlood: High-throughput flooding over wireless mesh networks,0
+26,Adaptive data aggregation and energy efficiency using network coding in a clustered wireless sensor network: an analytical approach,1
+27,From rateless to distanceless: Enabling sparse sensor network deployment in large areas,3
+28,Network coding in duty-cycled sensor networks,1
+29,SYREN: Synergistic link correlation-aware and network coding-based dissemination in wireless sensor networks,1
+30,How network coding benefits converge-cast in wireless sensor networks,No PDF Found
+,Total,23
+"
+",,
+Paper Title: A utilization bound for aperiodic tasks and priority driven scheduling,,
+Citing Paper Number,Paper Title,Over-cite Count
+1,Real time scheduling theory: A historical perspective,No PDF Found
+2,Rate monotonic vs. EDF: judgment day,1
+3,Cyber–physical systems: A perspective at the centennial,No PDF Found
+4,A non-preemptive scheduling algorithm for soft real-time systems,1
+5, The multiprocessor real-time scheduling of general task systems,0
+6,A delay composition theorem for real-time pipelines,No PDF Found
+7,On schedulability bounds of static priority schedulers,3
+8,Rhythmic tasks: A new task model with continually varying periods for cyber-physical systems,1
+9,Control-based quality adaptation in data stream management systems,1
+10,Delay composition in preemptive and non-preemptive real-time pipelines,2
+11,Exact admission-control for integrated aperiodic and periodic tasks,No PDF Found
+12,Towards feasible region calculus: An end-to-end schedulability analysis of real-time multistage execution,3
+13,Mathematical formalisms for performance evaluation of networks-on-chip,0
+14,Utilization-controlled task consolidation for power optimization in multi-core real-time systems,2
+15,The feasibility analysis of multiprocessor real-time systems,1
+16, Quality attribute support in a component technology for vehicular software,1
+17,Robustness analysis for battery-supported cyber-physical systems,1
+18,"FIT: a flexible, lightweight, and real-time scheduling system for wireless sensor platforms",0
+19,Real-time preemptive scheduling of sporadic tasks based on supervisory control of discrete event systems,1
+20,The feasibility of general task systems with precedence constraints on multiprocessor platforms,1
+21,Towards more effective utilization of computer systems,1
+22, Group-Edf: A New Approach and an Efficient Non-Preemptive Algorithm for Soft Real-Time Systems,0
+23,A general framework for parameterized schedulability bound analysis of real-time systems,6
+24,Real-time scheduling for embedded systems,No PDF Found
+25,Dynamic packet scheduling for cdma2000 1× EV-DO broadcast and multicast services,1
+26,The global feasibility and schedulability of general task models on multiprocessor platforms,0
+27,Hierarchical utilization control for real-time and resilient power grid,5
+28,Non-migratory feasibility and migratory schedulability analysis of multiprocessor real-time systems,1
+29,Semantic load shedding over real-time data streams,No PDF Found
+30,Sharp utilization thresholds for some realtime scheduling problems,0
+,Total,33
+"
+",,
+Paper Title: Envirosuite: An environmentally immersive programming framework for sensor networks,,
+Citing Paper Number,Paper Title,Over-cite Count
+1,Programming wireless sensor networks: Fundamental concepts and state of the art,3
+2, Wireless Sensor Networks.,0
+3,The regiment macroprogramming system,1
+4,Dustminer: troubleshooting interactive complexity bugs in sensor networks,6
+5, Exploring Link Correlation for Efficient Flooding in Wireless Sensor Networks.,1
+6,Is there light at the ends of the tunnel? Wireless sensor networks for adaptive lighting in road tunnels,1
+7,Oasis: A programming framework for service-oriented sensor networks,1
+8,[BOOK][B] Flash flooding: Exploiting the capture effect for rapid flooding in wireless sensor networks,2
+9,Macrolab: a vector-based macroprogramming framework for cyber-physical systems,1
+10,Enviromic: Towards cooperative storage and retrieval in audio sensor networks,1
+11,Envirostore: A cooperative storage system for disconnected operation in sensor networks,2
+12, Reliable multi-hop communication for structural health monitoring,0
+13,Web‐of‐things framework for cyber–physical systems,2
+14,SNTS: Sensor network troubleshooting suite,No PDF Found
+15,Distributed event localization and tracking with wireless sensors,2
+16,Bundle: A group-based programming abstraction for cyber-physical systems,2
+17,tinyDSM: A highly reliable cooperative data storage for Wireless Sensor Networks,2
+18,Realistic applications for wireless sensor networks,7
+19,A compilation framework for macroprogramming networked sensors,1
+20,Enabling high-level application development for the Internet of Things,0
+21,Enabling scope-based interactions in sensor network macroprogramming,0
+22,An overview of data aggregation architecture for real-time tracking with sensor networks,8
+23,Clustering distributed sensor data streams,No PDF Found
+24, A rule-based language for programming wireless sensor actuator networks using frequency and communication,1
+25,"Design, implementation, and evaluation of enviromic: A storage-centric audio sensor network",0
+26,A local data abstraction and communication paradigm for pervasive computing,No PDF Found
+27,Design and comparison of lightweight group management strategies in envirosuite,4
+28,Clustering distributed sensor data streams using local processing and reduced communication,No PDF Found
+29,Efficient integration of web services in ambient-aware sensor network applications,No PDF Found
+30,Robust dynamic service composition in sensor networks,1
+,Total,49
+"
+",,
