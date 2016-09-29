@@ -52,3 +52,4 @@ def author_crosscites(link, name):
 #author_overcites ('/citations?user=cA28Zs0AAAAJ&hl=en&oi=ao', 'abdelzaher', 3)
 #author_overcites ('/citations?user=cA28Zs0AAAAJ&hl=en&oi=ao', 'abdelzaher', 3)
 author_journalfreq('/citations?user=cA28Zs0AAAAJ&hl=en&oi=ao', 'abdelzaher', 50)
+# author_selfcites('/citations?user=cA28Zs0AAAAJ&hl=en&oi=ao', 'abdelzaher', 50)
