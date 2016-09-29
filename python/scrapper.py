@@ -53,11 +53,11 @@ def count_self_cites(author, num_load):
             print('Paper title: ' + str(title) + ' has self cites: ' + str(num_cites))
             self_cite_arr.append(self_cites_info)
 
-        print(self_cite_arr)
-    except Exception as e:
-        print('Exception occured: ' + str(e))
-        print(self_cite_arr)
+        
+    except KeyboardInterrupt:
+        print('key board KeyboardInterrupt returninbg self cite array')
 
+    print(self_cite_arr)
     return self_cite_arr
 
 
@@ -94,7 +94,10 @@ def count_journal_frequency (author, num_papers):
 
             for info_str in info_list:
                 info_str = info_str.text
-                info_str = info_str.split(' - ')[1].split(',')[0]
+                info_str = info_str.split(' - ')[1].split(',')[0].replace('…', '').strip()
+                if info_str.isdigit():
+                    continue
+
                 #print('final info string: ' + info_str)
                 info_str = info_str.lower().title()
                 if (info_str in journal_dict):
@@ -108,11 +111,8 @@ def count_journal_frequency (author, num_papers):
             pap_arr.append(one_pap_arr)
             print('Paper ' + str(idx) + ' complete.')
             count+=1
-    except Exception as e:
-        print(e)
-        print('Stopped at count ' + str(count))
-        print(pap_arr)
-        return pap_arr
+    except KeyboardInterrupt:
+        print('User ended program, returning journal array')
 
     print(pap_arr)
     return pap_arr
