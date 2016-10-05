@@ -34,7 +34,7 @@ def total_journal_dict_writer (journal_dict,name):
 def jounal_dict_writer(indJournalArrays, name):
     writer = csv.writer(open(name + '.csv', 'w'), lineterminator='\n')
     for paper in indJournalArrays:
-        writer.writerow([paper[0]])
+        writer.writerow(['Paper Title: ' + paper[0]])
         for key, value in paper[1].items():
             try:
                 writer.writerow([key, value])

@@ -70,7 +70,7 @@ def count_journal_frequency (author, num_papers):
     count = 0
 
     try:
-        for idx, paper in enumerate(author.getPapers()):
+        for idx, paper in enumerate(author.getPapers()[45:]):
             time.sleep(10)
             info_list = []
             one_pap_arr = []

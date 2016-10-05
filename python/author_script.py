@@ -36,7 +36,7 @@ def author_journalfreq(link, name, num):
 	auth = AcademicPublisher(SessionInitializer.ROOT_URL + link, 1, loadPaperPDFs=False)
 	journal_cite_arr = count_journal_frequency(auth, num)
 	jounal_dict_writer(journal_cite_arr, 'data/' + name + '/' + name + '_top_' + str(num) + '_journalfreq')
-	total_journal_dict_writer(journal_cite_arr, 'data/' + name + '/' + name + '_top_' + str(num) + '_totaljournalfreq')
+	#total_journal_dict_writer(journal_cite_arr, 'data/' + name + '/' + name + '_top_' + str(num) + '_totaljournalfreq')
 
 
 def author_crosscites(link, name):
@@ -50,6 +50,7 @@ def author_crosscites(link, name):
 
 #Abdelzaher
 #author_overcites ('/citations?user=cA28Zs0AAAAJ&hl=en&oi=ao', 'abdelzaher', 3)
-#author_overcites ('/citations?user=cA28Zs0AAAAJ&hl=en&oi=ao', 'abdelzaher', 3)
-author_journalfreq('/citations?user=cA28Zs0AAAAJ&hl=en&oi=ao', 'abdelzaher', 50)
-# author_selfcites('/citations?user=cA28Zs0AAAAJ&hl=en&oi=ao', 'abdelzaher', 50)
+#author_journalfreq('/citations?user=cA28Zs0AAAAJ&hl=en&oi=ao', 'abdelzaher', 50)
+#author_selfcites('/citations?user=cA28Zs0AAAAJ&hl=en&oi=ao', 'abdelzahers', 50)
+# author_overcites_recent('/citations?user=cA28Zs0AAAAJ&hl=en&oi=ao', 'abdelzaher')
+author_crosscites('/citations?user=cA28Zs0AAAAJ&hl=en&oi=ao', 'abdelzaher' )

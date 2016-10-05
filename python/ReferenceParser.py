@@ -248,7 +248,6 @@ class IeeeReferenceParser:
 
                 break
 
-        print('title: ' + title)
         infoDict = {'authors': authorArray, 'title': title.strip(),
                     'year': year}
         return infoDict
