@@ -36,7 +36,8 @@ class Paper:
 
 
         try:
-            self.__pap_info['Title'] = soup.find('a', attrs={'class': 'gsc_title_link'}).text
+            t = soup.find('a', attrs={'class': 'gsc_title_link'}).text
+            self.__pap_info['Title'] = re.sub('(\[.*\])', '', t)
         except AttributeError:
             print(self.__url + 'has no title')
             self.__pap_info['Title'] = "Unknown Title"
@@ -252,7 +253,7 @@ class GscPdfExtractor:
         for extract in linkExtracts:
             title = extract.find('h3', attrs={'class': 'gs_rt'}).text
             if title is not None:
-                title = title.replace('[PDF]', '').replace('[HTML]', '')
+                title = re.sub('(\[.*\])', '', title)
             extract = extract.find('div', attrs={'class': 'gs_ggsm'})
             pdf_obj = PdfObj('local')
             pdf_obj.setTitle(title)
