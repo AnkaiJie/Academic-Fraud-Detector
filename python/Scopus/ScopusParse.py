@@ -8,7 +8,9 @@ import requests
 import time
 from ReferenceParser import IeeeReferenceParser, SpringerReferenceParser, PaperReferenceExtractor, PdfObj
 
+
 SESSION = requests.Session()
+SESSION.get('https://www-scopus-com.proxy.lib.uwaterloo.ca/')
 
 class Paper:
     def __init__ (self, link):
@@ -23,40 +25,44 @@ class Paper:
         self.loadFromScopus()
 
     def loadFromScopus(self):
-        response = self.session.get(self.url, headers=self.headers)
+        response = SESSION.get(self.url)
         soup = BeautifulSoup(response.content, 'lxml')
         scopux = ScopusPdfExtractor()
 
         # PDF Object
         ext_link = soup.find('div', attrs={'class': 'sectionCnt'}).find('a', attrs={'class': 'outwardLink'}, href=True)
         ext_link = ext_link['href']
-        self.pdfObj = scopux.getWatPDF(ext_link)
+        #self.pdfObj = scopux.getWatPDF(ext_link)
 
         # All Info
         div = soup.find('div', attrs={'id': 'profileleftinside'})
-        self.pap_info['journal'] = div.find('sourceCrossMain').find('a').text
-        self.pap_info['title'] = div.find('h1', attrs={'class': 'svTitle'}).text
+        self.pap_info['journal'] = div.find('div', attrs={'class': 'sourceCrossMain'}).find('a').text
+        title_div = div.find('h1', attrs={'class': 'svTitle'})
+        self.pap_info['title'] = title_div.text.replace('\n', '')
+        if title_div.find('span', text=True):
+            self.pap_info['title'] = self.pap_info['title'].replace(title_div.find('span', text=True).text, '')
+
         self.pap_info['author_links'] = []
         for auth_div in div.find('div', attrs={'id': 'authorlist'}).findAll('div'):
-            author = auth_div.find('a', attrs={'id': 'Show Author Details'}, href=True)
+            author = auth_div.find('a', attrs={'title': 'Show Author Details'}, href=True)
             if author is not None:
                 self.pap_info['author_links'].append(author['href'])
 
         #Cited by URL
-        div_cited = soup.find('div', attrs={'id': 'rightContentSection'}).find('div', attrs={'class': 'docViewAll'})
+        div_cited = soup.find('div', attrs={'class': 'docViewAll'})
         href = div_cited.find('a', attrs={'title': 'View all citing documents'}, href=True)
         if href is not None:
             self.citedByUrl = href['href']
-        num = div_cited.find('span')
+        num = div_cited.find('span').text
         if num is not None:
-            self.citedByNum = int(num.text)
+            self.citedByNum = int(num)
 
         self.printInfo()
 
     def printInfo(self):
         print(self.pap_info)
-        print(citedByUrl)
-        print(citedByNum)
+        print(self.citedByUrl)
+        print(self.citedByNum)
 
     def getUrl(self):
         return self.url
@@ -123,14 +129,12 @@ class AcademicPublisher:
             sortType = 'plf-f'
 
         url = self.rootUrl + '/author/document/retrieval.uri?authorId=' + self.authorId + '&tabSelected=docLi&sortType=' + sortType + '&resultCount=' + str(numPapers)
-        response = requests.get(url)
+        response = SESSION.get(url)
         
         soup = BeautifulSoup(response.content, 'lxml')
-        print(soup)
         pap_list = soup.find('ul', attrs={'id': 'documentListUl'}).findAll('li')
-        print(pap_list)
+
         for paper in pap_list:
-            print('here1')
             p = paper.find('span', attrs={'class': "docTitle"})
             p = p.find('a', href=True)
             print(p['href'])
