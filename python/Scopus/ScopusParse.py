@@ -4,13 +4,12 @@ Created on Jan 05, 2016
 @author: Ankai
 '''
 from bs4 import BeautifulSoup
-import requests
 import time
 from ReferenceParser import IeeeReferenceParser, SpringerReferenceParser, PaperReferenceExtractor, PdfObj
+import SessionInitializer
+import WatLibSeleniumParser
 
-
-SESSION = requests.Session()
-SESSION.get('https://www-scopus-com.proxy.lib.uwaterloo.ca/')
+SESSION = SessionInitializer.getSesh()
 
 class Paper:
     def __init__ (self, link):
@@ -32,7 +31,7 @@ class Paper:
         # PDF Object
         ext_link = soup.find('div', attrs={'class': 'sectionCnt'}).find('a', attrs={'class': 'outwardLink'}, href=True)
         ext_link = ext_link['href']
-        #self.pdfObj = scopux.getWatPDF(ext_link)
+        self.pdfObj = scopux.getWatPDF(ext_link)
 
         # All Info
         div = soup.find('div', attrs={'id': 'profileleftinside'})
