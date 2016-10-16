@@ -95,28 +95,7 @@ def count_overcites(author, auth_paper_num, cite_num_to_load=30):
 # use case: allows used to only look at overcites for specific papers
 def count_overcites_paper(paper, author, cite_num_to_load=30):
     try:
-        pdfExtractor = GscPdfExtractor()
-
-        cited_by_url = paper.getCitedByUrl()
-        url_part_one = SessionInitializer.ROOT_URL + '/scholar?start='
-        url_part_two = '&hl=en&as_sdt=0,5&sciodt=0,5&cites='
-        cited_by_url = cited_by_url[:cited_by_url.rfind('&')]
-        paper_code = cited_by_url[cited_by_url.rfind('=')+1:]
-
-        all_pdfObjs = []
-        overcites_info = []
-
-        print('-----------------------------------LOADING CITING PAPERS-----------------------------------')
-        for i in range (0, cite_num_to_load, 10):
-            final_url = url_part_one+str(i)+url_part_two+paper_code
-            print('page url for citations:')
-            print(final_url)
-            current_pdfObjs = pdfExtractor.findPapersFromCitations(final_url)
-            all_pdfObjs += current_pdfObjs
-
-        print('-----------------------------------DONE CITING PAPERS-------------------------------------')
-
-        print('Loaded: ' + str(len(all_pdfObjs)) + ' pdf objects.')
+        all_pdfObjs = paper.getCitingPdfs(30)
 
         analyzer = PaperReferenceExtractor()
 

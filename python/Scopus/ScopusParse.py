@@ -72,6 +72,44 @@ class Paper:
     def getCitedByNum(self):
         return self.citedByNum
 
+    def getCitingPdfs(self, num):
+
+        cited_by_url = self.getCitedByUrl()
+        pdfExtractor = ScopusPdfExtractor()
+
+        offidx = cited_by_url.find('offset=')
+        up1 = cited_by_url[:offidx + 7]
+        afteridx = cited_by_url[offidx:].find('&')
+        up2 = cited_by_url[afteridx + offidx:]
+        print(up1)
+        print(up2)
+
+        pdfObjs = []
+
+        count = 0
+        print('-----------------------------------LOADING CITING PAPERS-----------------------------------')
+        for i in range (1, num, 20):
+            count += 1
+            final_url = up1+str(i)+up2
+            print('page url for citations:')
+            print(final_url)
+            current_pdfObjs = pdfExtractor.findPapersFromCitations(final_url)
+            for (p in current_pdfObjs):
+                pdfObjs.append(p)
+                count += 1
+                if count >= num:
+                    count = -1
+                    break
+
+            if count==-1:
+                break
+
+        print('-----------------------------------DONE CITING PAPERS-------------------------------------')
+        print('Loaded ' + str(len(pdfObjs)) + ' papers.')
+
+        return pdfObjs
+
+
     def getInfo(self):
         return self.pap_info
 
@@ -167,5 +205,30 @@ class ScopusPdfExtractor:
             newPdf = PdfObj('local', 'paper.pdf')
             return newPdf
 
+    def findPapersFromCitations(url):
+        response = SESSION.get(url)
+        soup = BeautifulSoup(response.content, 'lxml')
 
-a = AcademicPublisher('https://www-scopus-com.proxy.lib.uwaterloo.ca/authid/detail.uri?origin=resultslist&authorId=22954842600', 2)
+        papers_ul = soup.find('ul', attrs={'class':'documentListUl'})
+        paper_divs = papers_ul.findAll('li')
+
+        papers_list = []
+
+        for pdiv in paper_divs:
+            title = pdiv.find('span', attrs={'class':'docTitle'}).text
+            link = pdiv.find('a', attrs={'titel':'GetIt!@Waterloo(opens in a new window)'}, href=true)
+            if link is not None:
+                link = link['href']
+            new_pdf = self.getWatPDF(link)
+            if new_pdf is None:
+                new_pdf = PdfObj('local')
+            new_pdf.setTitle(title)
+            papers_list.append(new_pdf)
+
+        return papers_list
+
+
+
+
+
+#a = AcademicPublisher('https://www-scopus-com.proxy.lib.uwaterloo.ca/authid/detail.uri?origin=resultslist&authorId=22954842600', 2)
