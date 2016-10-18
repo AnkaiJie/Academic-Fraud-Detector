@@ -5,18 +5,13 @@ Created on Jan 7, 2016
 @author: Ankai
 '''
 
-from academicThings import AcademicPublisher, GscHtmlFunctions, Paper
-from academicThings import GscPdfExtractor
+from ScopusParse import AcademicPublisher, Paper
 from ReferenceParser import PaperReferenceExtractor, SpringerReferenceParser, IeeeReferenceParser
 from bs4 import BeautifulSoup
-import time
-import SessionInitializer
-
-
 
 # given a paper, counts the number of times it cites an author of the paper
 def count_self_cites(author, num_load):
-    author.loadPapers(num_load, loadPaperPDFs=False, pubFilter=False)
+    author.loadPapers(num_load, loadPaperPDFs=False)
     self_cite_arr = []
     print("Author fully loaded. Processing loaded papers...")
 
@@ -62,18 +57,17 @@ def count_self_cites(author, num_load):
 
 # given paper and author, and index number, returns number of times a each
 # citing paper on the first page of citing papers also cites the same author
-def count_overcites(author, auth_paper_num, cite_num_to_load=30):
+def count_overcites(author, auth_paper_num, cite_num_to_load=40):
     over_cite_arr = []
-    author.loadPapers(auth_paper_num, loadPaperPDFs=False, pubFilter=False)
+    author.loadPapers(auth_paper_num, loadPaperPDFs=False)
     count = 0
     try:
         for paper in author.getPapers():
             if paper.getCitedByUrl() is None:
                 print("No cited by url for paper: " + paper.getInfo()['Title'] + "with link " + paper.getUrl() + ", loop continue called")
                 continue
-            time.sleep(30)
             #paper.setPdfObj()
-            k = "Paper Title: " + paper.getInfo()['Title']
+            k = "Paper Title: " + paper.getInfo()['title']
             print(k)
             arr = count_overcites_paper(paper, author, cite_num_to_load=cite_num_to_load)
             arr.append(k)
@@ -93,11 +87,12 @@ def count_overcites(author, auth_paper_num, cite_num_to_load=30):
 
 # this function takes a paper instead of an author, leaves the author implementation to the user
 # use case: allows used to only look at overcites for specific papers
-def count_overcites_paper(paper, author, cite_num_to_load=30):
+def count_overcites_paper(paper, author, cite_num_to_load=40):
     try:
-        all_pdfObjs = paper.getCitingPdfs(30)
+        all_pdfObjs = paper.getCitingPdfs(cite_num_to_load)
 
         analyzer = PaperReferenceExtractor()
+        overcites_info = []
 
         for idx, pdf in enumerate(all_pdfObjs):
             content = analyzer.getReferencesContent(pdf)
@@ -137,3 +132,5 @@ def count_overcites_paper(paper, author, cite_num_to_load=30):
     return overcites_info
 
 
+vas = AcademicPublisher('https://www-scopus-com.proxy.lib.uwaterloo.ca/authid/detail.uri?origin=resultslist&authorId=22954842600', 1)
+count_overcites(vas, 1, 2)

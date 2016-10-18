@@ -12,7 +12,7 @@ import WatLibSeleniumParser
 SESSION = SessionInitializer.getSesh()
 
 class Paper:
-    def __init__ (self, link):
+    def __init__ (self, link, loadPaperPDFs=True):
         self.url = link
         self.pdfObj = None
         self.pap_info = {}
@@ -21,17 +21,15 @@ class Paper:
         self.citedByNum = 0
 
         #Internet Session Setup
-        self.loadFromScopus()
+        self.loadFromScopus(loadPaperPDFs=loadPaperPDFs)
 
-    def loadFromScopus(self):
+    def loadFromScopus(self, loadPaperPDFs=True):
         response = SESSION.get(self.url)
         soup = BeautifulSoup(response.content, 'lxml')
-        scopux = ScopusPdfExtractor()
 
         # PDF Object
-        ext_link = soup.find('div', attrs={'class': 'sectionCnt'}).find('a', attrs={'class': 'outwardLink'}, href=True)
-        ext_link = ext_link['href']
-        self.pdfObj = scopux.getWatPDF(ext_link)
+        if loadPaperPDFs:
+            self.setPdfObj()
 
         # All Info
         div = soup.find('div', attrs={'id': 'profileleftinside'})
@@ -52,16 +50,24 @@ class Paper:
         href = div_cited.find('a', attrs={'title': 'View all citing documents'}, href=True)
         if href is not None:
             self.citedByUrl = href['href']
+            resp = SESSION.get(self.citedByUrl, allow_redirects=False)
+            self.citedByUrl = resp.headers['Location']
         num = div_cited.find('span').text
         if num is not None:
             self.citedByNum = int(num)
-
-        self.printInfo()
 
     def printInfo(self):
         print(self.pap_info)
         print(self.citedByUrl)
         print(self.citedByNum)
+
+    def setPdfObj(self):
+        response = SESSION.get(self.url)
+        soup = BeautifulSoup(response.content, 'lxml')
+        scopux = ScopusPdfExtractor()
+        ext_link = soup.find('div', attrs={'class': 'sectionCnt'}).find('a', attrs={'class': 'outwardLink'}, href=True)
+        ext_link = ext_link['href']
+        self.pdfObj = scopux.getWatPDF(ext_link)
 
     def getUrl(self):
         return self.url
@@ -77,24 +83,26 @@ class Paper:
         cited_by_url = self.getCitedByUrl()
         pdfExtractor = ScopusPdfExtractor()
 
-        offidx = cited_by_url.find('offset=')
-        up1 = cited_by_url[:offidx + 7]
-        afteridx = cited_by_url[offidx:].find('&')
-        up2 = cited_by_url[afteridx + offidx:]
-        print(up1)
-        print(up2)
-
+        offidx = cited_by_url.find('&origin=')
+        up1 = cited_by_url[:offidx]
+        up2 = cited_by_url[offidx:]
         pdfObjs = []
 
         count = 0
+        inpage = 20
         print('-----------------------------------LOADING CITING PAPERS-----------------------------------')
-        for i in range (1, num, 20):
-            count += 1
-            final_url = up1+str(i)+up2
+        for i in range (0, num, inpage):
+
+            final_url = up1 + '&offset=' + str(i+1) + up2
             print('page url for citations:')
             print(final_url)
-            current_pdfObjs = pdfExtractor.findPapersFromCitations(final_url)
-            for (p in current_pdfObjs):
+
+            toload = 20
+            if num-count < inpage:
+                toload = num-count
+
+            current_pdfObjs = pdfExtractor.findPapersFromCitations(final_url, toload)
+            for p in current_pdfObjs:
                 pdfObjs.append(p)
                 count += 1
                 if count >= num:
@@ -129,7 +137,7 @@ class Paper:
 
 class AcademicPublisher:
 
-    def __init__(self, mainUrl, numPapers, sortType='relevance'):
+    def __init__(self, mainUrl, numPapers, sortType='relevance', loadPaperPDFs=False):
 
         self.first_name = None
         self.last_name = None
@@ -139,7 +147,7 @@ class AcademicPublisher:
 
 
         self.loadInfo()
-        self.loadPapers(numPapers)
+        self.loadPapers(numPapers, loadPaperPDFs)
         print(self.first_name + ' ' + self.last_name + ' ' + self.middle_name)
 
     def loadInfo(self):
@@ -159,7 +167,7 @@ class AcademicPublisher:
         self.authorId = self.url[idx+9:]
 
 
-    def loadPapers(self, numPapers, sortType='relevance'):
+    def loadPapers(self, numPapers, loadPaperPDFs=True, sortType='relevance'):
         if sortType=='relevance':
             sortType = 'cp-f'
         else:
@@ -174,8 +182,7 @@ class AcademicPublisher:
         for paper in pap_list:
             p = paper.find('span', attrs={'class': "docTitle"})
             p = p.find('a', href=True)
-            print(p['href'])
-            p = Paper(p['href'])
+            p = Paper(p['href'], loadPaperPDFs=loadPaperPDFs)
             self.paper_list.append(p)
 
 
@@ -183,8 +190,8 @@ class AcademicPublisher:
         self.__paper_list = [x for x in self.__paper_list if x.getInfo()['Publisher']=='IEEE' or x.getInfo()['Publisher']=='Springer US']
 
     def getPapers(self):
-        #returns a list of Papers
-        return self.__paper_list
+        #returns authors papers
+        return self.paper_list
 
     def getFirstName(self):
         return self.first_name
@@ -196,39 +203,50 @@ class AcademicPublisher:
 class ScopusPdfExtractor:
 
     def getWatPDF(self, url, title=None):
+        print('Getting pdf from WatLib')
         print(url)
-        time.sleep(15)
         status = WatLibSeleniumParser.downloadFromWatLib(url, 'paper.pdf')
         if status is None:
+            print('None status')
             return None
         else:
             newPdf = PdfObj('local', 'paper.pdf')
             return newPdf
 
-    def findPapersFromCitations(url):
+    def findPapersFromCitations(self, url, toload):
         response = SESSION.get(url)
         soup = BeautifulSoup(response.content, 'lxml')
 
-        papers_ul = soup.find('ul', attrs={'class':'documentListUl'})
+        papers_ul = soup.find('ul', attrs={'id':'documentListUl'})
         paper_divs = papers_ul.findAll('li')
 
         papers_list = []
 
+        count = 0
         for pdiv in paper_divs:
-            title = pdiv.find('span', attrs={'class':'docTitle'}).text
-            link = pdiv.find('a', attrs={'titel':'GetIt!@Waterloo(opens in a new window)'}, href=true)
+            title = pdiv.find('span', attrs={'class':'docTitle'}).text.replace('\n', '')
+            link = pdiv.find('a', attrs={'class':'outwardLink'}, href=True)
+
+            #if there is no valid waterloo link, try to find one
+            while link.find('img', attrs={'title':'GetIt!@Waterloo(opens in a new window)'}) is None:
+                link = pdiv.find('a', attrs={'class':'outwardLink'}, href=True)
+                if link is None:
+                    break
+
+            new_pdf = None
             if link is not None:
                 link = link['href']
-            new_pdf = self.getWatPDF(link)
+                new_pdf = self.getWatPDF(link)
+            
             if new_pdf is None:
                 new_pdf = PdfObj('local')
+
             new_pdf.setTitle(title)
             papers_list.append(new_pdf)
 
+            count += 1
+            # only load num specified
+            if (count>=toload):
+                break
+
         return papers_list
-
-
-
-
-
-#a = AcademicPublisher('https://www-scopus-com.proxy.lib.uwaterloo.ca/authid/detail.uri?origin=resultslist&authorId=22954842600', 2)
