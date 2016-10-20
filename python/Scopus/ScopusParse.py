@@ -33,7 +33,13 @@ class Paper:
 
         # All Info
         div = soup.find('div', attrs={'id': 'profileleftinside'})
-        self.pap_info['journal'] = div.find('div', attrs={'class': 'sourceCrossMain'}).find('a').text
+
+        journaldiv = div.find('div', attrs={'class': 'sourceCrossMain'}).find('a')
+        if journaldiv is not None:
+            self.pap_info['journal'] = journaldiv.text
+        else:
+            self.pap_info['journal'] = None
+
         title_div = div.find('h1', attrs={'class': 'svTitle'})
         self.pap_info['title'] = title_div.text.replace('\n', '')
         if title_div.find('span', text=True):
