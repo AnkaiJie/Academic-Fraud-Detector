@@ -88,11 +88,11 @@ def count_overcites(author, auth_paper_num, cite_num_to_load=40):
 # this function takes a paper instead of an author, leaves the author implementation to the user
 # use case: allows used to only look at overcites for specific papers
 def count_overcites_paper(paper, author, cite_num_to_load=40):
+    overcites_info = []
     try:
         all_pdfObjs = paper.getCitingPdfs(cite_num_to_load)
 
         analyzer = PaperReferenceExtractor()
-        overcites_info = []
 
         for idx, pdf in enumerate(all_pdfObjs):
             content = analyzer.getReferencesContent(pdf)
