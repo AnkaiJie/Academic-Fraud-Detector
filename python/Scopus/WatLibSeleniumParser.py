@@ -93,6 +93,8 @@ def downloadFromWatLib(url, path):
         link1 = ch.find_element_by_xpath("//h2[@class='exlHeadingTextDisplay']/a").get_attribute('href')
         ch.get(link1)
 
+    source = ''
+
     try:
         #href = ch.find_element_by_link_text('Scholars Portal')
         #href = ch.find_element_by_xpath('//a[@href="javascript:openWindow(this, \'basic1\');" and text()="Scholars Portal"]')

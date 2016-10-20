@@ -131,6 +131,3 @@ def count_overcites_paper(paper, author, cite_num_to_load=40):
 
     return overcites_info
 
-
-vas = AcademicPublisher('https://www-scopus-com.proxy.lib.uwaterloo.ca/authid/detail.uri?origin=resultslist&authorId=22954842600', 1)
-count_overcites(vas, 1, 2)
