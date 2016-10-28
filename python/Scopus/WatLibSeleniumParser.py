@@ -3,7 +3,7 @@ import selenium
 import SessionInitializer
 import shutil
 
-ch = webdriver.Chrome("./chromedriver")
+ch = webdriver.Chrome("./chromedriver.exe")
 ch.get('https://www-scopus-com.proxy.lib.uwaterloo.ca/')
 
 def downloadScholarPortal(href, path):
@@ -31,12 +31,25 @@ def downloadScholarPortal(href, path):
 
 
 def downloadSpringerOpen(path):
+
+        
     try:
-        pdfTag = ch.find_element_by_xpath("//p[@class='u-marginBtmM']/a[text()='Download PDF']")
+        pdfTag = ch.find_element_by_xpath("//p[@class='SideBox_action']/a[text()='Download PDF']")
         pdfLink = pdfTag.get_attribute('href')
+        p1idx = pdfLink.find(';jwcn')
+        pdfLink = pdfLink[p1idx+1:] + pdfLink[:p1idx + 1] 
+        extidx = pdfLink.find('?site=')
+        if (extidx!=-1):
+            pdfLink = pdfLink[:extidx]
+
     except selenium.common.exceptions.NoSuchElementException:
-        print('Springer open link has no PDF, returning None...')
-        return None
+        print('Springer open link has no PDF, return trying v2...')
+        try:
+            pdfTag = ch.find_element_by_xpath("//p[@class='u-marginBtmM']/a[text()='Download PDF']")
+            pdfLink = pdfTag.get_attribute('href')
+        except selenium.common.exceptions.NoSuchElementException:
+            print('Springer open link has no PDF, trying V2...')
+            return None
 
     print(pdfLink)
     session = SessionInitializer.getSesh()

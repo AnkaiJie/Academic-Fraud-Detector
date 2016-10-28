@@ -153,7 +153,7 @@ class AcademicPublisher:
 
 
         self.loadInfo()
-        self.loadPapers(numPapers, loadPaperPDFs)
+        self.loadPapers(numPapers, loadPaperPDFs=loadPaperPDFs)
         print(self.first_name + ' ' + self.last_name + ' ' + self.middle_name)
 
     def loadInfo(self):
@@ -208,7 +208,7 @@ class AcademicPublisher:
 
 class ScopusPdfExtractor:
 
-    def getWatPDF(self, url, title=None):
+    def getWatPDF(self, url, title=None, pdfName='paper.pdf'):
         print('Getting pdf from WatLib')
         print(url)
         status = WatLibSeleniumParser.downloadFromWatLib(url, 'paper.pdf')
@@ -216,7 +216,7 @@ class ScopusPdfExtractor:
             print('None status')
             return None
         else:
-            newPdf = PdfObj('local', 'paper.pdf')
+            newPdf = PdfObj('local', pdfName)
             return newPdf
 
     def findPapersFromCitations(self, url, toload):
@@ -256,3 +256,7 @@ class ScopusPdfExtractor:
                 break
 
         return papers_list
+
+# sc = ScopusPdfExtractor()
+# sc.getWatPDF('https://www-scopus-com.proxy.lib.uwaterloo.ca/redirect/linking.uri?targetURL=http%3a%2f%2fsfx.scholarsportal.info%2fwaterloo%3fsid%3dElsevier%3aScopus%26_service_type%3dgetFullTxt%26issn%3d16871472%26isbn%3d%26volume%3d2016%26issue%3d1%26spage%3d%26epage%3d%26pages%3d%26artnum%3d181%26date%3d2016%26id%3ddoi%3a10.1186%252fs13638-016-0680-7%26title%3dEurasip%2bJournal%2bon%2bWireless%2bCommunications%2band%2bNetworking%26atitle%3dUnderstanding%2bSTDMA%2bvia%2bcomputer%2bsimulation%253a%2bfeasibility%2bto%2bvehicular%2bsafety%2bapplications%252c%2bconfigurations%252c%2band%2btime%2bsynchronization%2berrors%26aufirst%3dJ.-H.%26auinit%3dJ.-H.%26auinit1%3dJ%26aulast%3dLim&locationID=2&categoryID=6&eid=2-s2.0-84981156913&issn=16871472&linkType=TemplateLinking&year=2016&zone=outwardlinks&origin=resultslist&dig=f27235173a5b4809def53afe4c6884f2&recordRank=4\
+# ', pdfName='paper.pdf')
