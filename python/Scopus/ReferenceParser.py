@@ -13,10 +13,10 @@ from _io import BytesIO
 import WordInference
 from math import log
 
-from pdfminer.pdfparser import PDFParser, PDFDocument
-from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
-from pdfminer.converter import PDFPageAggregator
-from pdfminer.layout import LAParams, LTTextBox, LTTextLine
+# from pdfminer.pdfparser import PDFParser, PDFDocument
+# from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
+# from pdfminer.converter import PDFPageAggregator
+# from pdfminer.layout import LAParams, LTTextBox, LTTextLine
 
 
 
@@ -51,47 +51,49 @@ class PdfObj:
         return self.title
 
     def storePathPdfContent(self, path):
-        # try:
-        #     p = open(self.pathOrUrl, "rb")
-        #     pdf = PyPDF2.PdfFileReader(p)
-        #     num_pages = pdf.getNumPages()
-        #     for i in range(0, num_pages):
-        #         self.localPdfContent += pdf.getPage(i).extractText()
-        # except PyPDF2.utils.PdfReadError as e:
-        #     print('EOF MARKER NOT FOUND' + str(e))
-        #     print("LOCAL PATH")
-        #     return None
-        # except ValueError as e:
-        #     print("ValueError " + str(e))
-        #     print("LOCAL PATH")
-        #     return None
-        # except TypeError as e: 
-        #     print("TypeError " + str(e))
-        #     print("LOCAL PATH")
-        #     return None
-        # except Exception as e:
-        #     print("UNKNOWN EXCEPTION " + str(e))
-        #     print("LOCAL PATH")
-        #     return None
-        k=''
-        fp = open(path, 'rb')
-        parser = PDFParser(fp)
-        doc = PDFDocument()
-        parser.set_document(doc)
-        doc.set_parser(parser)
-        doc.initialize('')
-        rsrcmgr = PDFResourceManager()
-        laparams = LAParams()
-        device = PDFPageAggregator(rsrcmgr, laparams=laparams)
-        interpreter = PDFPageInterpreter(rsrcmgr, device)
-        # Process each page contained in the document.
-        for page in doc.get_pages():
-            interpreter.process_page(page)
-            layout = device.get_result()
-            for lt_obj in layout:
-                if isinstance(lt_obj, LTTextBox) or isinstance(lt_obj, LTTextLine):
-                    k += lt_obj.get_text()
-        return k
+        try:
+            p = open(self.pathOrUrl, "rb")
+            pdf = PyPDF2.PdfFileReader(p)
+            num_pages = pdf.getNumPages()
+            for i in range(0, num_pages):
+                self.localPdfContent += pdf.getPage(i).extractText()
+        except PyPDF2.utils.PdfReadError as e:
+            print('EOF MARKER NOT FOUND' + str(e))
+            print("LOCAL PATH")
+            return None
+        except ValueError as e:
+            print("ValueError " + str(e))
+            print("LOCAL PATH")
+            return None
+        except TypeError as e: 
+            print("TypeError " + str(e))
+            print("LOCAL PATH")
+            return None
+        except Exception as e:
+            print("UNKNOWN EXCEPTION " + str(e))
+            print("LOCAL PATH")
+            return None
+        except KeyboardInterrupt:
+            return
+        # k=''
+        # fp = open(path, 'rb')
+        # parser = PDFParser(fp)
+        # doc = PDFDocument()
+        # parser.set_document(doc)
+        # doc.set_parser(parser)
+        # doc.initialize('')
+        # rsrcmgr = PDFResourceManager()
+        # laparams = LAParams()
+        # device = PDFPageAggregator(rsrcmgr, laparams=laparams)
+        # interpreter = PDFPageInterpreter(rsrcmgr, device)
+        # # Process each page contained in the document.
+        # for page in doc.get_pages():
+        #     interpreter.process_page(page)
+        #     layout = device.get_result()
+        #     for lt_obj in layout:
+        #         if isinstance(lt_obj, LTTextBox) or isinstance(lt_obj, LTTextLine):
+        #             k += lt_obj.get_text()
+        # return k
 
     def getPdfContent(self):
         content =""
