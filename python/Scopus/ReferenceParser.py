@@ -19,7 +19,6 @@ from math import log
 # from pdfminer.layout import LAParams, LTTextBox, LTTextLine
 
 
-
 class PdfObj:
     def __init__(self, fileType, pathOrUrl='None'):
         self.pathOrUrl = pathOrUrl
@@ -73,8 +72,6 @@ class PdfObj:
             print("UNKNOWN EXCEPTION " + str(e))
             print("LOCAL PATH")
             return None
-        except KeyboardInterrupt:
-            return
         # k=''
         # fp = open(path, 'rb')
         # parser = PDFParser(fp)

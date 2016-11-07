@@ -216,7 +216,10 @@ class ScopusPdfExtractor:
             print('None status')
             return None
         else:
+            # try:
             newPdf = PdfObj('local', pdfName)
+            # except KeyboardInterrupt:
+            #     return None
             return newPdf
 
     def findPapersFromCitations(self, url, toload):
