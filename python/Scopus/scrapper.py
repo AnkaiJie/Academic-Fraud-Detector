@@ -8,6 +8,7 @@ Created on Jan 7, 2016
 from ScopusParse import AcademicPublisher, Paper
 from ReferenceParser import PaperReferenceExtractor, SpringerReferenceParser, IeeeReferenceParser
 from bs4 import BeautifulSoup
+import WatLibSeleniumParser
 
 # given a paper, counts the number of times it cites an author of the paper
 def count_self_cites(author, num_load):
@@ -57,12 +58,12 @@ def count_self_cites(author, num_load):
 
 # given paper and author, and index number, returns number of times a each
 # citing paper on the first page of citing papers also cites the same author
-def count_overcites(author, auth_paper_num, cite_num_to_load=40):
+def count_overcites(author, auth_paper_num, startidx, endidx, cite_num_to_load=40):
     over_cite_arr = []
     author.loadPapers(auth_paper_num, loadPaperPDFs=False)
     count = 0
     try:
-        for paper in author.getPapers():
+        for paper in author.getPapers()[startidx:endidx]:
             if paper.getCitedByUrl() is None:
                 print("No cited by url for paper: " + paper.getInfo()['Title'] + "with link " + paper.getUrl() + ", loop continue called")
                 continue
@@ -121,12 +122,9 @@ def count_overcites_paper(paper, author, cite_num_to_load=40):
             info_dict['Over-cite Count'] = numCites
             overcites_info.append(info_dict)
 
-    except AttributeError as e:
-        print('google scholar possibly has blocked you, sending back collected data...')
-        print(e)
-        return overcites_info
     except KeyboardInterrupt:
         print('User ended program. Returning existing Data')
+        WatLibSeleniumParser.reset()
         return overcites_info
 
     return overcites_info

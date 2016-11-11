@@ -10,6 +10,7 @@ import SessionInitializer
 import WatLibSeleniumParser
 
 SESSION = SessionInitializer.getSesh()
+WATPARSER = WatLibSeleniumParser.WatLibParser()
 
 class Paper:
     def __init__ (self, link, loadPaperPDFs=True):
@@ -211,17 +212,18 @@ class ScopusPdfExtractor:
     def getWatPDF(self, url, title=None, pdfName='paper.pdf'):
         print('Getting pdf from WatLib')
         print(url)
-        status = WatLibSeleniumParser.downloadFromWatLib(url, 'paper.pdf')
+        status = WATPARSER.downloadFromWatLib(url, 'paper.pdf')
+        print('fnish here')
         if status is None:
             print('None status')
             return None
         else:
-            # try:
-            newPdf = PdfObj('local', pdfName)
-            # except KeyboardInterrupt:
-            #     return None
-            return newPdf
-
+            try:
+                newPdf = PdfObj('local', pdfName)
+                return newPdf
+            except KeyboardInterrupt:
+                return WATPARSER.reset()
+            
     def findPapersFromCitations(self, url, toload):
         response = SESSION.get(url)
         soup = BeautifulSoup(response.content, 'lxml')
@@ -261,5 +263,9 @@ class ScopusPdfExtractor:
         return papers_list
 
 # sc = ScopusPdfExtractor()
-# sc.getWatPDF('https://www-scopus-com.proxy.lib.uwaterloo.ca/redirect/linking.uri?targetURL=http%3a%2f%2fsfx.scholarsportal.info%2fwaterloo%3fsid%3dElsevier%3aScopus%26_service_type%3dgetFullTxt%26issn%3d16871472%26isbn%3d%26volume%3d2016%26issue%3d1%26spage%3d%26epage%3d%26pages%3d%26artnum%3d181%26date%3d2016%26id%3ddoi%3a10.1186%252fs13638-016-0680-7%26title%3dEurasip%2bJournal%2bon%2bWireless%2bCommunications%2band%2bNetworking%26atitle%3dUnderstanding%2bSTDMA%2bvia%2bcomputer%2bsimulation%253a%2bfeasibility%2bto%2bvehicular%2bsafety%2bapplications%252c%2bconfigurations%252c%2band%2btime%2bsynchronization%2berrors%26aufirst%3dJ.-H.%26auinit%3dJ.-H.%26auinit1%3dJ%26aulast%3dLim&locationID=2&categoryID=6&eid=2-s2.0-84981156913&issn=16871472&linkType=TemplateLinking&year=2016&zone=outwardlinks&origin=resultslist&dig=f27235173a5b4809def53afe4c6884f2&recordRank=4\
+# sc.getWatPDF('https://www-scopus-com.proxy.lib.uwaterloo.ca/redirect/linking.uri?targetURL=http%3a%2f%2fsfx.scholarsportal.info%2fwaterloo%3fsid%3dElsevier%3aScopus%26_service_type%3dgetFullTxt%26issn%3d10009000%26isbn%3d%26volume%3d31%26issue%3d2%26spage%3d326%26epage%3d349%26pages%3d326-349%26artnum%3d%26date%3d2016%26id%3ddoi%3a10.1007%252fs11390-016-1630-x%26title%3dJournal%2bof%2bComputer%2bScience%2band%2bTechnology%26atitle%3dSurvey%2bon%2bSimulation%2bfor%2bMobile%2bAd-Hoc%2bCommunication%2bfor%2bDisaster%2bScenarios%26aufirst%3dE.%26auinit%3dE.%26auinit1%3dE%26aulast%3dRosas&locationID=2&categoryID=6&eid=2-s2.0-84961134392&issn=10009000&linkType=TemplateLinking&year=2016&zone=outwardlinks&origin=resultslist&dig=6b3c23ba79b87950c5998b8ddf22d890&recordRank=15\
 # ', pdfName='paper.pdf')
+# time.sleep(5)
+# sc.getWatPDF('https://www-scopus-com.proxy.lib.uwaterloo.ca/redirect/linking.uri?targetURL=http%3a%2f%2fsfx.scholarsportal.info%2fwaterloo%3fsid%3dElsevier%3aScopus%26_service_type%3dgetFullTxt%26issn%3d10220038%26isbn%3d%26volume%3d22%26issue%3d4%26spage%3d1355%26epage%3d1363%26pages%3d1355-1363%26artnum%3d%26date%3d2016%26id%3ddoi%3a10.1007%252fs11276-015-1029-6%26title%3dWireless%2bNetworks%26atitle%3dLoad%2bbalancing%2bmaximal%2bminimal%2bnodal%2bresidual%2benergy%2bad%2bhoc%2bon-demand%2bmultipath%2bdistance%2bvector%2brouting%2bprotocol%2b%2528LBMMRE-AOMDV%2529%26aufirst%3dS.A.%26auinit%3dS.A.%26auinit1%3dS%26aulast%3dAlghamdi&locationID=2&categoryID=6&eid=2-s2.0-84938850681&issn=10220038&linkType=TemplateLinking&year=2016&zone=outwardlinks&origin=resultslist&dig=1144dae7d57d8fe088af7758f36404b9&recordRank=7\
+# ', pdfName='paper.pdf')
+# print('done, continue with rest of program.')

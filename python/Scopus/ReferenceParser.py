@@ -64,12 +64,8 @@ class PdfObj:
             print("ValueError " + str(e))
             print("LOCAL PATH")
             return None
-        except TypeError as e: 
+        except TypeError as e:
             print("TypeError " + str(e))
-            print("LOCAL PATH")
-            return None
-        except Exception as e:
-            print("UNKNOWN EXCEPTION " + str(e))
             print("LOCAL PATH")
             return None
         # k=''

@@ -25,10 +25,15 @@ def author_selfcites(link, name, num):
 
 
 # getting bare data from more relevant papers
-def author_overcites(link, name, num, sortType='relevance'):
+def author_overcites(link, name, num, startidx=0, endidx=-1, sortType='relevance'):
     auth = AcademicPublisher(link, 1, loadPaperPDFs=False, sortType=sortType)
-    over_cite_arr = count_overcites(auth, num)
-    over_cite_writer(over_cite_arr, 'data/' + name + '/' + name + '_top_' + str(num) + '_overcites_' + sortType)
+    if endidx==-1:
+        endidx = num
+    over_cite_arr = count_overcites(auth, num, startidx, endidx)
+    ttle = 'data/' + name + '/' + name + '_top_' + str(num) + '_overcites_' + sortType
+    if endidx!=-1:
+        ttle+= '_' + str(startidx) + '-' + str(endidx)
+    over_cite_writer(over_cite_arr, ttle)
 
 
 # Journal Cites
@@ -46,7 +51,7 @@ def author_crosscites(link, name):
 
 
 #Vasilakos
-author_overcites('https://www-scopus-com.proxy.lib.uwaterloo.ca/authid/detail.uri?origin=resultslist&authorId=22954842600&zone=', 'vasilakos', 5)
+author_overcites('https://www-scopus-com.proxy.lib.uwaterloo.ca/authid/detail.uri?origin=resultslist&authorId=22954842600&zone=', 'vasilakos', 10, 7, 8)
 #author_overcites('https://www-scopus-com.proxy.lib.uwaterloo.ca/authid/detail.uri?origin=resultslist&authorId=22954842600&zone=', 'vasilakos', 50, sortType='date')
 
 #Abdelzaher
