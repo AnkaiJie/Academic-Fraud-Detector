@@ -171,22 +171,6 @@ class WatLibParser:
         self.ch.get(url)
 
 
-url = 'http://sfx.scholarsportal.info.proxy.lib.uwaterloo.ca/waterloo?sid=Elsevier:Scopus&_service_type=getFullTxt&issn=15253511&isbn=9781467398145&volume=2016-September&issue=&spage=&epage=&pages=&artnum=7564733&date=2016&id=doi:10.1109%2fWCNC.2016.7564733&title=IEEE+Wireless+Communications+and+Networking+Conference%2c+WCNC&atitle=Parameter+estimation+of+inverse+Gaussian+channel+for+diffusion-based+molecular+communication&aufirst=L.&auinit=L.&auinit1=L&aulast=Lin'
-wl = WatLibParser()
-wl.downloadFromWatLib(url, 'paper.pdf')
-
-# s = SessionInitializer.getSesh()
-# r = s.get('http://ieeexplore.ieee.org.proxy.lib.uwaterloo.ca/stamp/stamp.jsp?arnumber=7564733')
-# soup = BeautifulSoup(r.content, 'lxml')
-# print(soup)
-
-# session = SessionInitializer.getSesh()
-# resp2 = session.get('http://ieeexplore.ieee.org.proxy.lib.uwaterloo.ca/stamp/stamp.jsp?tp=&arnumber=7564733')
-# wrapperPage = BeautifulSoup(resp2.content, 'lxml')
-# frames = wrapperPage.findAll('frame')
-# srcFrame = None
-# for frame in frames:
-#     if frame['src'] and 'http' in frame['src']:
-#         srcFrame = frame['src']
-
-# print(srcFrame)
+# url = 'http://sfx.scholarsportal.info.proxy.lib.uwaterloo.ca/waterloo?sid=Elsevier:Scopus&_service_type=getFullTxt&issn=15253511&isbn=9781467398145&volume=2016-September&issue=&spage=&epage=&pages=&artnum=7564733&date=2016&id=doi:10.1109%2fWCNC.2016.7564733&title=IEEE+Wireless+Communications+and+Networking+Conference%2c+WCNC&atitle=Parameter+estimation+of+inverse+Gaussian+channel+for+diffusion-based+molecular+communication&aufirst=L.&auinit=L.&auinit1=L&aulast=Lin'
+# wl = WatLibParser()
+# wl.downloadFromWatLib(url, 'paper.pdf')
