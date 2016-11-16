@@ -51,7 +51,7 @@ def author_crosscites(link, name):
 
 
 #Vasilakos
-author_overcites('https://www-scopus-com.proxy.lib.uwaterloo.ca/authid/detail.uri?origin=resultslist&authorId=22954842600&zone=', 'vasilakos', 10, 7, 8)
+author_overcites('https://www-scopus-com.proxy.lib.uwaterloo.ca/authid/detail.uri?origin=resultslist&authorId=22954842600&zone=', 'vasilakos', 50)
 #author_overcites('https://www-scopus-com.proxy.lib.uwaterloo.ca/authid/detail.uri?origin=resultslist&authorId=22954842600&zone=', 'vasilakos', 50, sortType='date')
 
 #Abdelzaher
