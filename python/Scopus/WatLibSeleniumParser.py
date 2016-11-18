@@ -4,6 +4,7 @@ import SessionInitializer
 import shutil
 from bs4 import BeautifulSoup
 from urllib.request import urlopen
+import time
 
 class WatLibParser:
     def __init__(self):
@@ -170,7 +171,19 @@ class WatLibParser:
     def goto(self, url):
         self.ch.get(url)
 
+    def getExports(self, url):
+        self.ch.get(url)
+        time.sleep(5)
+        toggleAll = self.ch.find_element_by_xpath('//input[@onclick="toggleRefChkBoxes(this);"]')
+        toggleAll.click()
+        exportBtn = self.ch.find_element_by_xpath('//a[@id="export_references"]')
+        exportBtn.click()
+        radioCsv = self.ch.find_element_by_xpath('//input[@id="CSV"]')
+        radioCsv.click()
+        exportButton = self.ch.find_element_by_xpath('//input[@onclick="oneClick.oneClickExportSubmit(this,true);"]')
+        exportButton.click()
 
-# url = 'http://sfx.scholarsportal.info.proxy.lib.uwaterloo.ca/waterloo?sid=Elsevier:Scopus&_service_type=getFullTxt&issn=15253511&isbn=9781467398145&volume=2016-September&issue=&spage=&epage=&pages=&artnum=7564733&date=2016&id=doi:10.1109%2fWCNC.2016.7564733&title=IEEE+Wireless+Communications+and+Networking+Conference%2c+WCNC&atitle=Parameter+estimation+of+inverse+Gaussian+channel+for+diffusion-based+molecular+communication&aufirst=L.&auinit=L.&auinit1=L&aulast=Lin'
+
+# url = 'https://www.scopus.com/record/display.uri?eid=2-s2.0-84957018354&origin=resultslist&sort=plf-f&cite=2-s2.0-79956094375&src=s&nlo=&nlr=&nls=&imp=t&sid=EC422C392E22297025F58AC4F4BDBACC.wsnAw8kcdt7IPYLO0V48gA%3a90&sot=cite&sdt=a&sl=0&relpos=2&citeCnt=1&searchTerm=#'
 # wl = WatLibParser()
-# wl.downloadFromWatLib(url, 'paper.pdf')
+# wl.getExports(url)
