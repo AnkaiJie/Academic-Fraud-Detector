@@ -163,7 +163,8 @@ class WatLibParser:
             result = self.downloadIEEE(href, path)
 
         if not result:
-            return self.downloadFromWatLib(url, path, linkNo=2)
+            newNum = linkNo + 1
+            return self.downloadFromWatLib(url, path, linkNo=newNum)
         else:
             return result
 
