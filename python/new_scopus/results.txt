@@ -1,0 +1,740 @@
+{
+    "search-results": {
+        "entry": [
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:79956094375",
+                "dc:title": "Body area networks: A survey",
+                "eid": "2-s2.0-79956094375",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/79956094375"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84898487969",
+                "dc:title": "A game-theoretic method of fair resource allocation for cloud computing services",
+                "eid": "2-s2.0-84898487969",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84898487969"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84861953887",
+                "dc:title": "Molecular communication and networking: Opportunities and challenges",
+                "eid": "2-s2.0-84861953887",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84861953887"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84861817602",
+                "dc:title": "A survey of green mobile networks: Opportunities and challenges",
+                "eid": "2-s2.0-84861817602",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84861817602"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84878547961",
+                "dc:title": "Directional routing and scheduling for green vehicular delay tolerant networks",
+                "eid": "2-s2.0-84878547961",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84878547961"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:70350291378",
+                "dc:title": "An adaptive geometry-based stochastic model for non-isotropic MIMO mobile-to-mobile channels",
+                "eid": "2-s2.0-70350291378",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/70350291378"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:78049528434",
+                "dc:title": "Routing for disruption tolerant networks: Taxonomy and design",
+                "eid": "2-s2.0-78049528434",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/78049528434"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84889608731",
+                "dc:title": "A survey on ambient intelligence in healthcare",
+                "eid": "2-s2.0-84889608731",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84889608731"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:79953095042",
+                "dc:title": "Flooding-limited and multi-constrained QoS multicast routing based on the genetic algorithm for MANETs",
+                "eid": "2-s2.0-79953095042",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/79953095042"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84894675565",
+                "dc:title": "Routing metrics of cognitive radio networks: A survey",
+                "eid": "2-s2.0-84894675565",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84894675565"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84892614267",
+                "dc:title": "A survey on the ietf protocol suite for the internet of things: Standards, challenges, and opportunities",
+                "eid": "2-s2.0-84892614267",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84892614267"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84889087663",
+                "dc:title": "Security and privacy for storage and computation in cloud computing",
+                "eid": "2-s2.0-84889087663",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84889087663"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:80052807351",
+                "dc:title": "Compressed data aggregation for energy efficient wireless sensor networks",
+                "eid": "2-s2.0-80052807351",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/80052807351"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84889567969",
+                "dc:title": "A survey on topology control in wireless sensor networks: Taxonomy, comparative study, and open issues",
+                "eid": "2-s2.0-84889567969",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84889567969"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:79951901852",
+                "dc:title": "Distributed media services in P2P-based vehicular networks",
+                "eid": "2-s2.0-79951901852",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/79951901852"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84869508857",
+                "dc:title": "A survey of security challenges in cognitive radio networks: Solutions and future research directions",
+                "eid": "2-s2.0-84869508857",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84869508857"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:77956938104",
+                "dc:title": "Multi-layer clustering routing algorithm for wireless vehicular sensor networks",
+                "eid": "2-s2.0-77956938104",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/77956938104"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84901427258",
+                "dc:title": "A survey on trust management for Internet of Things",
+                "eid": "2-s2.0-84901427258",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84901427258"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:0033281104",
+                "dc:title": "Linguistic models and linguistic modeling",
+                "eid": "2-s2.0-0033281104",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/0033281104"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:79952038956",
+                "dc:title": "Prediction-based data aggregation in wireless sensor networks: Combining grey model and Kalman Filter",
+                "eid": "2-s2.0-79952038956",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/79952038956"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:70449417916",
+                "dc:title": "Novel overlay/underlay cognitive radio waveforms using SD-SMSE framework to enhance spectrum efficiency-part I: Theoretical framework and analysis in AWGN channel",
+                "eid": "2-s2.0-70449417916",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/70449417916"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84880538357",
+                "dc:title": "Algorithm design for data communications in duty-cycled wireless sensor networks: A survey",
+                "eid": "2-s2.0-84880538357",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84880538357"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84871003529",
+                "dc:title": "A survey on service-oriented network virtualization toward convergence of networking and cloud computing",
+                "eid": "2-s2.0-84871003529",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84871003529"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84855461114",
+                "dc:title": "On the partially overlapped channel assignment on wireless mesh network backbone: A game theoretic approach",
+                "eid": "2-s2.0-84855461114",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84855461114"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:80051507362",
+                "dc:title": "Joint forensics-scheduling strategy for delay-sensitive multimedia applications over heterogeneous networks",
+                "eid": "2-s2.0-80051507362",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/80051507362"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84863512174",
+                "dc:title": "ReTrust: Attack-resistant and lightweight trust management for medical sensor networks",
+                "eid": "2-s2.0-84863512174",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84863512174"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84858155782",
+                "dc:title": "Nodes organization for channel assignment with topology preservation in multi-radio wireless mesh networks",
+                "eid": "2-s2.0-84858155782",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84858155782"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84861597395",
+                "dc:title": "CodePipe: An opportunistic feeding and routing protocol for reliable multicast with pipelined network coding",
+                "eid": "2-s2.0-84861597395",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84861597395"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84895057562",
+                "dc:title": "Power minimization based resource allocation for interference mitigation in OFDMA femtocell networks",
+                "eid": "2-s2.0-84895057562",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84895057562"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84870926798",
+                "dc:title": "ECG-cryptography and authentication in body area networks",
+                "eid": "2-s2.0-84870926798",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84870926798"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84898825587",
+                "dc:title": "Mobile cloud computing: A survey, state of art and future directions",
+                "eid": "2-s2.0-84898825587",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84898825587"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84864540763",
+                "dc:title": "QoE-driven channel allocation schemes for multimedia transmission of priority-based secondary users over cognitive radio networks",
+                "eid": "2-s2.0-84864540763",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84864540763"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:77953744550",
+                "dc:title": "Differential modulation for bidirectional relaying with analog network coding",
+                "eid": "2-s2.0-77953744550",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/77953744550"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84866023112",
+                "dc:title": "An OSPF-integrated routing strategy for QoS-aware energy saving in IP backbone networks",
+                "eid": "2-s2.0-84866023112",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84866023112"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84865420766",
+                "dc:title": "Tight performance bounds of multihop fair access for MAC protocols in wireless sensor networks and underwater sensor networks",
+                "eid": "2-s2.0-84865420766",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84865420766"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84907691461",
+                "dc:title": "Reliable multicast with pipelined network coding using opportunistic feeding and routing",
+                "eid": "2-s2.0-84907691461",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84907691461"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:67349153313",
+                "dc:title": "Comparative analysis of quality of service and memory usage for adaptive failure detectors in healthcare systems",
+                "eid": "2-s2.0-67349153313",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/67349153313"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84887481112",
+                "dc:title": "Granular computing: Perspectives and challenges",
+                "eid": "2-s2.0-84887481112",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84887481112"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84891627095",
+                "dc:title": "Managing performance overhead of virtual machines in cloud computing: A survey, state of the art, and future directions",
+                "eid": "2-s2.0-84891627095",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84891627095"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84867804047",
+                "dc:title": "An evolutionary multiobjective sleep-scheduling scheme for differentiated coverage in wireless sensor networks",
+                "eid": "2-s2.0-84867804047",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84867804047"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:81855190674",
+                "dc:title": "Peer-to-Peer media streaming: Insights and new developments",
+                "eid": "2-s2.0-81855190674",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/81855190674"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84910149653",
+                "dc:title": "Security of the Internet of Things: perspectives and challenges",
+                "eid": "2-s2.0-84910149653",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84910149653"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84902459076",
+                "dc:title": "Web services composition: A decade's overview",
+                "eid": "2-s2.0-84902459076",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84902459076"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84855433968",
+                "dc:title": "Game dynamics and cost of learning in heterogeneous 4G networks",
+                "eid": "2-s2.0-84855433968",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84855433968"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84855470604",
+                "dc:title": "Approximating congestion + dilation in networks via \"quality of routing\" games",
+                "eid": "2-s2.0-84855470604",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84855470604"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:77954803204",
+                "dc:title": "Context-aware middleware for multimedia services in heterogeneous networks",
+                "eid": "2-s2.0-77954803204",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/77954803204"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:0242334153",
+                "dc:title": "Optimizing QoS routing in hierarchical ATM networks using computational intelligence techniques",
+                "eid": "2-s2.0-0242334153",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/0242334153"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:77955771346",
+                "dc:title": "DTRAB: Combating against attacks on encrypted protocols through traffic-feature analysis",
+                "eid": "2-s2.0-77955771346",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/77955771346"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84924530901",
+                "dc:title": "Interference-based topology control algorithm for delay-constrained mobile Ad hoc networks",
+                "eid": "2-s2.0-84924530901",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84924530901"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84923369715",
+                "dc:title": "Physarum optimization: A biology-inspired algorithm for the steiner tree problem in networks",
+                "eid": "2-s2.0-84923369715",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84923369715"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84882598991",
+                "dc:title": "On distributed and coordinated resource allocation for interference mitigation in self-organizing lte networks",
+                "eid": "2-s2.0-84882598991",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84882598991"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:79960627456",
+                "dc:title": "Survey on routing in data centers: Insights and future directions",
+                "eid": "2-s2.0-79960627456",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/79960627456"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:34447526312",
+                "dc:title": "Stability analysis of the simplest Takagi-Sugeno fuzzy control system using circle criterion",
+                "eid": "2-s2.0-34447526312",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/34447526312"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:67449119644",
+                "dc:title": "Cross-layer support for energy efficient routing in wireless sensor networks",
+                "eid": "2-s2.0-67449119644",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/67449119644"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84883794568",
+                "dc:title": "Understanding user behavior in online social networks: A survey",
+                "eid": "2-s2.0-84883794568",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84883794568"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84924368818",
+                "dc:title": "Security in cloud computing: Opportunities and challenges",
+                "eid": "2-s2.0-84924368818",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84924368818"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:77952928088",
+                "dc:title": "Interoperable and adaptive fuzzy services for ambient intelligence applications",
+                "eid": "2-s2.0-77952928088",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/77952928088"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84883091139",
+                "dc:title": "A framework for truthful online auctions in cloud computing with heterogeneous user demands",
+                "eid": "2-s2.0-84883091139",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84883091139"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84925843610",
+                "dc:title": "A biology-based algorithm to minimal exposure problem of wireless sensor networks",
+                "eid": "2-s2.0-84925843610",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84925843610"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84891588127",
+                "dc:title": "GreenDCN: A general framework for achieving energy efficiency in data center networks",
+                "eid": "2-s2.0-84891588127",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84891588127"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:33746924070",
+                "dc:title": "Comparison of computational intelligence based classification techniques for remotely sensed optical image classification",
+                "eid": "2-s2.0-33746924070",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/33746924070"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84893220802",
+                "dc:title": "EDAL: An energy-efficient, delay-aware, and lifetime-balancing data collection protocol for wireless sensor networks",
+                "eid": "2-s2.0-84893220802",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84893220802"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:79961159103",
+                "dc:title": "Resource and revenue sharing with coalition formation of cloud providers: Game theoretic approach",
+                "eid": "2-s2.0-79961159103",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/79961159103"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84904438519",
+                "dc:title": "TRAC: Truthful auction for location-aware collaborative sensing in mobile crowdsourcing",
+                "eid": "2-s2.0-84904438519",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84904438519"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84923784594",
+                "dc:title": "Software-Defined and Virtualized Future Mobile and Wireless Networks: A Survey",
+                "eid": "2-s2.0-84923784594",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84923784594"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84907666420",
+                "dc:title": "Molecular communication among biological nanomachines: A layered architecture and research issues",
+                "eid": "2-s2.0-84907666420",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84907666420"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84874278922",
+                "dc:title": "MAPCloud: Mobile applications on an elastic and scalable 2-tier cloud architecture",
+                "eid": "2-s2.0-84874278922",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84874278922"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84856290711",
+                "dc:title": "On convergence of differential evolution over a class of continuous functions with unique global optimum",
+                "eid": "2-s2.0-84856290711",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84856290711"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84932606768",
+                "dc:title": "EDAL: An energy-efficient, delay-aware, and lifetime-balancing data collection protocol for heterogeneous wireless sensor networks",
+                "eid": "2-s2.0-84932606768",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84932606768"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:77955228598",
+                "dc:title": "A distributed efficient flow control scheme for multirate multicast networks",
+                "eid": "2-s2.0-77955228598",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/77955228598"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84937398870",
+                "dc:title": "CDC: Compressive Data Collection for Wireless Sensor Networks",
+                "eid": "2-s2.0-84937398870",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84937398870"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84884572913",
+                "dc:title": "Securing m-healthcare social networks: Challenges, countermeasures and future directions",
+                "eid": "2-s2.0-84884572913",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84884572913"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:0031637838",
+                "dc:title": "Evolutionary-fuzzy prediction for strategic QoS routing in broadband networks",
+                "eid": "2-s2.0-0031637838",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/0031637838"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84870885560",
+                "dc:title": "A distributed trust evaluation model and its application scenarios for medical sensor networks",
+                "eid": "2-s2.0-84870885560",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84870885560"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84929303014",
+                "dc:title": "Full duplex techniques for 5G networks: Self-interference cancellation, protocol design, and relay selection",
+                "eid": "2-s2.0-84929303014",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84929303014"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84897741920",
+                "dc:title": "MuSIC: Mobility-aware optimal service allocation in mobile cloud computing",
+                "eid": "2-s2.0-84897741920",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84897741920"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:0029278149",
+                "dc:title": "A new approach to the design of reinforcement schemes for learning automata: Stochastic estimator learning algorithm",
+                "eid": "2-s2.0-0029278149",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/0029278149"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84873937323",
+                "dc:title": "Semi-random backoff: Towards resource reservation for channel access in wireless LANs",
+                "eid": "2-s2.0-84873937323",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84873937323"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84921067887",
+                "dc:title": "Cloud-assisted body area networks: state-of-the-art and future challenges",
+                "eid": "2-s2.0-84921067887",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84921067887"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:78751650165",
+                "dc:title": "P2P soft security: On evolutionary dynamics of P2P incentive mechanism",
+                "eid": "2-s2.0-78751650165",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/78751650165"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:0033905910",
+                "dc:title": "Hybrid genetic approach for channel reuse in multiple access telecommunication networks",
+                "eid": "2-s2.0-0033905910",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/0033905910"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:4344701821",
+                "dc:title": "Evolutionary fuzzy multi-objective routing for wireless mobile ad hoc networks",
+                "eid": "2-s2.0-4344701821",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/4344701821"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:0442279644",
+                "dc:title": "Service configuration and traffic distribution in composite radio environments",
+                "eid": "2-s2.0-0442279644",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/0442279644"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84893857034",
+                "dc:title": "BASA: Building mobile Ad-Hoc social networks on top of android",
+                "eid": "2-s2.0-84893857034",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84893857034"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84945441189",
+                "dc:title": "A survey of millimeter wave communications (mmWave) for 5G: opportunities and challenges",
+                "eid": "2-s2.0-84945441189",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84945441189"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:79960532534",
+                "dc:title": "New deterministic and stochastic simulation models for non-isotropic scattering mobile-to-mobile Rayleigh fading channels",
+                "eid": "2-s2.0-79960532534",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/79960532534"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:0034275467",
+                "dc:title": "Use of learning algorithms in ATM networks call admission control problem: a methodology",
+                "eid": "2-s2.0-0034275467",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/0034275467"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84893124023",
+                "dc:title": "Transmission rate control for molecular communication among biological nanomachines",
+                "eid": "2-s2.0-84893124023",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84893124023"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84894468698",
+                "dc:title": "A bare-metal and asymmetric partitioning approach to client virtualization",
+                "eid": "2-s2.0-84894468698",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84894468698"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84941671076",
+                "dc:title": "Data mining for the internet of things: Literature review and challenges",
+                "eid": "2-s2.0-84941671076",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84941671076"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84907640319",
+                "dc:title": "TCP-like molecular communications",
+                "eid": "2-s2.0-84907640319",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84907640319"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84924870720",
+                "dc:title": "Information centric network: Research challenges and opportunities",
+                "eid": "2-s2.0-84924870720",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84924870720"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84923456856",
+                "dc:title": "Hierarchical data aggregation using compressive sensing (HDACS) in WSNs",
+                "eid": "2-s2.0-84923456856",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84923456856"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:78149309099",
+                "dc:title": "Backpressure-based routing protocol for DTNs",
+                "eid": "2-s2.0-78149309099",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/78149309099"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:79952020799",
+                "dc:title": "SecCloud: Bridging secure storage and computation in cloud",
+                "eid": "2-s2.0-79952020799",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/79952020799"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:77958153411",
+                "dc:title": "Affectively intelligent and adaptive car interfaces",
+                "eid": "2-s2.0-77958153411",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/77958153411"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84910146997",
+                "dc:title": "A survey of wireless technologies coexistence in WBAN: analysis and open research issues",
+                "eid": "2-s2.0-84910146997",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84910146997"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84860585792",
+                "dc:title": "Evolutionary coalitional games: Design and challenges in wireless networks",
+                "eid": "2-s2.0-84860585792",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84860585792"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:84859886418",
+                "dc:title": "CoDaaS: An experimental cloud-centric content delivery platform for user-generated contents",
+                "eid": "2-s2.0-84859886418",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/84859886418"
+            },
+            {
+                "@_fa": "true",
+                "dc:identifier": "SCOPUS_ID:0002134061",
+                "dc:title": "ASAFES2: A novel, neuro-fuzzy architecture for fuzzy computing, based on functional reasoning",
+                "eid": "2-s2.0-0002134061",
+                "prism:url": "http://api.elsevier.com/content/abstract/scopus_id/0002134061"
+            }
+        ],
+        "link": [
+            {
+                "@_fa": "true",
+                "@href": "http://api.elsevier.com/content/search/scopus?start=0&count=100&query=AU-ID%2822954842600%29&field=eid,identifier,title&sort=citedby-count",
+                "@ref": "self",
+                "@type": "application/json"
+            },
+            {
+                "@_fa": "true",
+                "@href": "http://api.elsevier.com/content/search/scopus?start=0&count=100&query=AU-ID%2822954842600%29&field=eid,identifier,title&sort=citedby-count",
+                "@ref": "first",
+                "@type": "application/json"
+            },
+            {
+                "@_fa": "true",
+                "@href": "http://api.elsevier.com/content/search/scopus?start=100&count=100&query=AU-ID%2822954842600%29&field=eid,identifier,title&sort=citedby-count",
+                "@ref": "next",
+                "@type": "application/json"
+            },
+            {
+                "@_fa": "true",
+                "@href": "http://api.elsevier.com/content/search/scopus?start=473&count=100&query=AU-ID%2822954842600%29&field=eid,identifier,title&sort=citedby-count",
+                "@ref": "last",
+                "@type": "application/json"
+            }
+        ],
+        "opensearch:Query": {
+            "@role": "request",
+            "@searchTerms": "AU-ID(22954842600)",
+            "@startPage": "0"
+        },
+        "opensearch:itemsPerPage": "100",
+        "opensearch:startIndex": "0",
+        "opensearch:totalResults": "573"
+    }
+}
