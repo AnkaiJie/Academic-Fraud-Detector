@@ -72,11 +72,12 @@ class ScopusApiLib:
         url = 'https://api.elsevier.com/content/abstract/eid/' + str(eid) + '?&field=authors,coverDate,eid,title,publicationName'
         resp = self.reqs.getJson(url)
         resp = resp["abstracts-retrieval-response"]
-        authors = resp['authors']['author']
-        authors = [a['@auid'] for a in authors]
-        authors = [a for a in authors if a!='']
         coredata = resp['coredata']
-        coredata['authors'] = authors
+        if resp['authors']:
+            authors = resp['authors']['author']
+            authors = [a['@auid'] for a in authors]
+            authors = [a for a in authors if a!='']
+            coredata['authors'] = authors
         return coredata
 
     # returns an array of papers that the paper with the given eid cites
@@ -128,11 +129,20 @@ class Utility:
         dictfilt = lambda x, y: dict([ (i,x[i]) for i in x if i in set(y) ])
         return dictfilt(d, keys)
 
+    def removePrefix (self, d):
+        rem = []
+        for key, value in d.items():
+            if len(key.split(':')) > 1:
+                rem.append(key)
+        for k in rem:
+            newkey = k.split(':')[0]
+            d[newkey] = d[k].pop()
+        return d
 
 # all the SQL code to insert/update is here
 class DbInterface:
     def __init_(self):
-        #definition of DB tables should be initialized here
+        self.utility = Utility()
         return
 
     #enters a citation record into database
@@ -178,7 +188,7 @@ class ApiToDB:
         author = self.storeAuthorOnly(auth_id)
         # Puts the authors papers
         print('Getting author papers')
-        papers = self.sApi.getAuthorPapers(author['dc:identifier'], 0, 100)
+        papers = self.sApi.getAuthorPapers(author['dc:identifier'], start=start_index, num=pap_num)
         for eid in papers:
             print('Beginning processing for paper: ' + eid)
             print('Storing into database...')
@@ -210,11 +220,11 @@ class ApiToDB:
     def storePapersOnly(self, eid):
         paperDict = self.sApi.getPaperInfo(eid)
         count = 0
-        #print(paperDict)
-        for authid in paperDict['authors']:
-            self.storeAuthorOnly(authid)
-            self.dbi.pushAuthorPaper(authid, eid)
-            count += 1
+        if 'authors' in paperDict:
+            for authid in paperDict['authors']:
+                self.storeAuthorOnly(authid)
+                self.dbi.pushAuthorPaper(authid, eid)
+                count += 1
 
         if count is 0:
             self.dbi.pushAuthorPaper('NOID_' + eid, eid)
