@@ -1,0 +1,13 @@
+{
+    "citation-count": "8252",
+    "cited-by-count": "5178",
+    "dc:identifier": "AUTHOR_ID:22954842600",
+    "document-count": "541",
+    "eid": "9-s2.0-22954842600",
+    "preferred-name_given-name": "Athanasios V.",
+    "preferred-name_indexed-name": "Vasilakos A.",
+    "preferred-name_initials": "A.V.",
+    "preferred-name_surname": "Vasilakos",
+    "publication-range_@end": "2016",
+    "publication-range_@start": "1988"
+}

@@ -1,6 +1,7 @@
 from credentials import API_KEY
 import requests
 import json
+import sys
 
 
 class reqWrapper:
@@ -60,20 +61,49 @@ class ScopusApiLib:
         return eid_arr
 
     # returns an array of papers that cite the paper with the given eid    
-    def getCitingPapers(self, eid):
+    def getCitingPapers(self, eid, num=100):
         #eid = '2-s2.0-79956094375'
-        url ='https://api.elsevier.com/content/search/scopus?query=refeid(' + str(eid) + ')'
-        return self.reqs.getJson(url)['search-results']['entry']
+        url ='https://api.elsevier.com/content/search/scopus?query=refeid(' + str(eid) + ')&field=eid,title&start=0&count=' + str(num)
+        resp = self.reqs.getJson(url)['search-results']['entry']
+        return [pap['eid'] for pap in resp]
 
     #returns basic info about a paper with the given eid
     def getPaperInfo(self, eid):
         url = 'https://api.elsevier.com/content/abstract/eid/' + str(eid) + '?&field=authors,coverDate,eid,title,publicationName'
-        return self.reqs.getJson(url)
+        resp = self.reqs.getJson(url)
+        resp = resp["abstracts-retrieval-response"]
+        authors = resp['authors']['author']
+        authors = [a['@auid'] for a in authors]
+        authors = [a for a in authors if a!='']
+        coredata = resp['coredata']
+        coredata['authors'] = authors
+        return coredata
 
     # returns an array of papers that the paper with the given eid cites
     def getPaperReferences(self, eid):
         url = 'https://api.elsevier.com/content/abstract/eid/' + str(eid) + '?&view=REF'
-        return self.reqs.getJson(url)['abstracts-retrieval-response']['references']['reference']
+        resp = self.reqs.getJson(url)['abstracts-retrieval-response']['references']['reference']
+        ref_arr = []
+        for raw in resp:
+            ref_dict = {}
+            ref_dict['authors'] = None
+            if raw['author-list'] and raw['author-list']['author']:
+                auth_list = raw['author-list']['author']
+                auids = []
+                for a in auth_list:
+                    if '@auid' in a:
+                        auids.append(a['@auid'])
+                    else: 
+                        #no scopus id, just use name as id
+                        auids.append('no-id_' + a['ce:initials'] + '_' + a['ce:surname'])
+                ref_dict['authors'] = auids
+
+            ref_dict['srceid'] = eid
+            ref_dict['eid'] = raw['scopus-eid']
+            ref_arr.append(ref_dict)
+
+        return ref_arr
+
 
     #makes a jsonObj pretty
     def prettifyJson(self, jsonObj):
@@ -106,15 +136,30 @@ class DbInterface:
         return
 
     #enters a citation record into database
-    def pushCitation(record_dict):
+    def pushCitation(self, srceid, targeid):
+        print(srceid + "------" + targeid)
         return
 
     #enters an author record into database
-    def pushAuthor(record_dict):
+    def pushAuthor(self, record_dict):
+        print('Push Author')
+        if 'preferred-name_given-name' in record_dict:
+            print(record_dict['dc:identifier'] + ' ' + record_dict['preferred-name_given-name'])
+        else:
+            print(record_dict)
         return
 
-    #enters a paper record, and the necessary number of author-paper records into the database
-    def pushPaper(record_dict):
+    # enters a paper record
+    def pushPaper(self, record_dict):
+        print('Push Paper')
+        if 'dc:title' in record_dict:
+            print(record_dict['eid'] + ' ' + record_dict['dc:title'])
+        else:
+            print(record_dict)
+        return
+
+    def pushAuthorPaper(self, authid, eid):
+        print(authid + "------" + eid)
         return
 
 
@@ -125,39 +170,73 @@ class ApiToDB:
     def __init__(self):
         self.dbi = DbInterface()
         self.sApi = ScopusApiLib()
-        return
 
     # this should be the only method that the client interacts with
-    def storeAuthorMain(self, auth_id, start_index=0, pap_num=100):
+    def storeAuthorMain(self, auth_id, start_index=0, pap_num=100, cite_num=100):
         # Puts the main author record
-        author = self.sApi.getAuthorMetrics(auth_id)
-        self.storeAuthorOnly(author)
+        print('Storing author ' + str(auth_id))
+        author = self.storeAuthorOnly(auth_id)
         # Puts the authors papers
+        print('Getting author papers')
         papers = self.sApi.getAuthorPapers(author['dc:identifier'], 0, 100)
         for eid in papers:
-            self.storePapersOnly(auth_id, eid)
-        # Puts the citing papers of the authors papers, and those respective authors
-        # Puts the cited papers of the authors papers, and those respective authors
-        return
+            print('Beginning processing for paper: ' + eid)
+            print('Storing into database...')
+            self.storePapersOnly(eid)
+            references = self.sApi.getPaperReferences(eid)
+            citedbys = self.sApi.getCitingPapers(eid, num=cite_num)
+
+            # Puts the citing papers of the authors papers, and those respective authors
+            print('Handling citing papers...')
+            for citing in citedbys:
+                self.storeCitation(citing, eid)
+                self.storePapersOnly(citing)
+            print('Done citing papers.')
+
+            # Puts the cited papers of the authors papers, and those respective authors
+            print('Handling references...')
+            for ref in references:
+                self.storeCitation(eid, ref['eid'])
+                self.storePapersOnly(ref['eid'])
+            print('Done references')
 
     # given author id, puts only an author record in db
     def storeAuthorOnly(self, auth_id):
-        return
+        author = self.sApi.getAuthorMetrics(auth_id)
+        self.dbi.pushAuthor(author)
+        return author
 
     # given author id and paper eid, stores the paper in db, as well as author-paper relation
-    def storePapersOnly(self, auth_id, eid):
-        return
+    def storePapersOnly(self, eid):
+        paperDict = self.sApi.getPaperInfo(eid)
+        count = 0
+        #print(paperDict)
+        for authid in paperDict['authors']:
+            self.storeAuthorOnly(authid)
+            self.dbi.pushAuthorPaper(authid, eid)
+            count += 1
+
+        if count is 0:
+            self.dbi.pushAuthorPaper('NOID_' + eid, eid)
+
+        self.dbi.pushPaper(paperDict)
+        return paperDict
 
     # given the src/targ eids, stores the citation relation into db
     def storeCitation(self, src_eid, targ_eid):
-        return
+        self.dbi.pushCitation(src_eid, targ_eid)
 
 
 
-sal = ScopusApiLib()
+#sal = ScopusApiLib()
 #k = sal.getAuthorMetrics(22954842600)
-k = sal.getAuthorPapers("AUTHOR_ID:22954842600", 0, 2)
-# print(sal.getCitingPapers('2-s2.0-79956094375'))
-# k = sal.getPaperReferences('2-s2.0-79956094375')
+#k= sal.getAuthorPapers("AUTHOR_ID:22954842600", 0, 2)
+#k = sal.getCitingPapers('2-s2.0-79956094375')
+#k = sal.getPaperReferences('2-s2.0-79956094375')
 #k = sal.getPaperInfo('2-s2.0-79956094375')
-print(sal.prettifyJson(k))
+# print(sal.prettifyJson(k))
+# k = sal.getPaperInfo('2-s2.0-84992381851')
+# print(sal.prettifyJson(k))
+
+# atd = ApiToDB()
+# atd.storeAuthorMain(22954842600, 0,1,5)
