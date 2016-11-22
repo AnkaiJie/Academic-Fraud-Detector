@@ -1,7 +1,8 @@
 from apilib import *
 
 # sal = ScopusApiLib()
-# k = sal.getPaperInfo('2-s2.0-79956129623')
+# k = sal.getPaperInfo('2-s2.0-79956060771')
+#k = sal.getAuthorMetrics(22954842600)
 # print(sal.prettifyJson(k))
 
 atd = ApiToDB()

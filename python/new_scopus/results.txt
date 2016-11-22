@@ -1,523 +1,654 @@
 Storing author 22954842600
 Push Author
-AUTHOR_ID:22954842600 Athanasios V.
+9-s2.0-22954842600 Vasilakos A.V.
 Getting author papers
 Beginning processing for paper: 2-s2.0-79956094375
 Storing into database...
 Push Author
-AUTHOR_ID:25821032200 Min
-25821032200------2-s2.0-79956094375
+9-s2.0-25821032200 Chen M.
+Push Author-Paper: 25821032200------2-s2.0-79956094375
 Push Author
-AUTHOR_ID:55427089400 Sergio Alejandro
-55427089400------2-s2.0-79956094375
+9-s2.0-55427089400 González S.A.
+Push Author-Paper: 55427089400------2-s2.0-79956094375
 Push Author
-AUTHOR_ID:22954842600 Athanasios V.
-22954842600------2-s2.0-79956094375
+9-s2.0-22954842600 Vasilakos A.V.
+Push Author-Paper: 22954842600------2-s2.0-79956094375
 Push Author
-AUTHOR_ID:35304507100 Huasong
-35304507100------2-s2.0-79956094375
+9-s2.0-35304507100 Cao H.
+Push Author-Paper: 35304507100------2-s2.0-79956094375
 Push Author
-AUTHOR_ID:7102336029 Victor
-7102336029------2-s2.0-79956094375
+9-s2.0-7102336029 Leung V.
+Push Author-Paper: 7102336029------2-s2.0-79956094375
 Push Paper
 2-s2.0-79956094375 Body area networks: A survey
 Handling citing papers...
-2-s2.0-84992381851------2-s2.0-79956094375
+Push citation: 2-s2.0-84992381851------2-s2.0-79956094375
 Push Author
-AUTHOR_ID:55964982500 Jian
-55964982500------2-s2.0-84992381851
+9-s2.0-55964982500 Shen J.
+Push Author-Paper: 55964982500------2-s2.0-84992381851
 Push Author
-AUTHOR_ID:57003982500 Shaohua
-57003982500------2-s2.0-84992381851
+9-s2.0-57003982500 Chang S.
+Push Author-Paper: 57003982500------2-s2.0-84992381851
 Push Paper
 2-s2.0-84992381851 Certificateless authentication protocol for wireless body area network
-2-s2.0-84992650026------2-s2.0-79956094375
+Push citation: 2-s2.0-84992650026------2-s2.0-79956094375
 Push Author
-AUTHOR_ID:57191746772 Jianjun
-57191746772------2-s2.0-84992650026
+9-s2.0-57191746772 Yu J.
+Push Author-Paper: 57191746772------2-s2.0-84992650026
 Push Author
-AUTHOR_ID:57191745589 Xingbin
-57191745589------2-s2.0-84992650026
+9-s2.0-57191745589 Chen X.
+Push Author-Paper: 57191745589------2-s2.0-84992650026
 Push Paper
 2-s2.0-84992650026 Integrated application research about the necklace type wearable health sensing system under the internet of things
-2-s2.0-84957018354------2-s2.0-79956094375
+Push citation: 2-s2.0-84957018354------2-s2.0-79956094375
 Push Author
-AUTHOR_ID:24328618200 Mohammad Mehedi
-24328618200------2-s2.0-84957018354
+9-s2.0-24328618200 Hassan M.M.
+Push Author-Paper: 24328618200------2-s2.0-84957018354
 Push Author
-AUTHOR_ID:56431757700 Kai
-56431757700------2-s2.0-84957018354
+9-s2.0-56431757700 Lin K.
+Push Author-Paper: 56431757700------2-s2.0-84957018354
 Push Author
-AUTHOR_ID:57094563500 Xuejun
-57094563500------2-s2.0-84957018354
+9-s2.0-57094563500 Yue X.
+Push Author-Paper: 57094563500------2-s2.0-84957018354
 Push Author
-AUTHOR_ID:24333732700 Jiafu
-24333732700------2-s2.0-84957018354
+9-s2.0-24333732700 Wan J.
+Push Author-Paper: 24333732700------2-s2.0-84957018354
 Push Paper
 2-s2.0-84957018354 A multimedia healthcare data sharing approach through cloud-based body area network
-2-s2.0-84994473902------2-s2.0-79956094375
+Push citation: 2-s2.0-84994473902------2-s2.0-79956094375
 Push Author
-AUTHOR_ID:56767408000 Di
-56767408000------2-s2.0-84994473902
+9-s2.0-56767408000 Lin D.
+Push Author-Paper: 56767408000------2-s2.0-84994473902
 Push Author
-AUTHOR_ID:22954842600 Athanasios V.
-22954842600------2-s2.0-84994473902
+9-s2.0-22954842600 Vasilakos A.V.
+Push Author-Paper: 22954842600------2-s2.0-84994473902
 Push Author
-AUTHOR_ID:57191873234 Yu
-57191873234------2-s2.0-84994473902
+9-s2.0-57191873234 Tang Y.
+Push Author-Paper: 57191873234------2-s2.0-84994473902
 Push Author
-AUTHOR_ID:22434376500 Yuanzhe
-22434376500------2-s2.0-84994473902
+9-s2.0-22434376500 Yao Y.
+Push Author-Paper: 22434376500------2-s2.0-84994473902
 Push Paper
 2-s2.0-84994473902 Neural networks for computer-aided diagnosis in medicine: A review
-2-s2.0-84964304854------2-s2.0-79956094375
+Push citation: 2-s2.0-84964304854------2-s2.0-79956094375
 Push Author
-AUTHOR_ID:56118829500 Alireza
-56118829500------2-s2.0-84964304854
+9-s2.0-56118829500 Esfahani A.
+Push Author-Paper: 56118829500------2-s2.0-84964304854
 Push Author
-AUTHOR_ID:6506030571 Georgios
-6506030571------2-s2.0-84964304854
+9-s2.0-6506030571 Mantas G.
+Push Author-Paper: 6506030571------2-s2.0-84964304854
 Push Author
-AUTHOR_ID:37017358200 Hélio A.
-37017358200------2-s2.0-84964304854
+9-s2.0-37017358200 Silva H.A.
+Push Author-Paper: 37017358200------2-s2.0-84964304854
 Push Author
-AUTHOR_ID:16025343100 Jonathan
-16025343100------2-s2.0-84964304854
+9-s2.0-16025343100 Rodriguez J.
+Push Author-Paper: 16025343100------2-s2.0-84964304854
 Push Author
-AUTHOR_ID:56116322900 Jose Carlos
-56116322900------2-s2.0-84964304854
+9-s2.0-56116322900 Neves J.C.
+Push Author-Paper: 56116322900------2-s2.0-84964304854
 Push Paper
 2-s2.0-84964304854 An efficient MAC-based scheme against pollution attacks in XOR network coding-enabled WBANs for remote patient monitoring systems
 Done citing papers.
 Handling references...
-2-s2.0-79956094375------2-s2.0-0037086890
+Push citation: 2-s2.0-79956094375------2-s2.0-0037086890
 Push Author
-AUTHOR_ID:35838511900 Ian Fuat
-35838511900------2-s2.0-0037086890
+9-s2.0-35838511900 Akyìldìz I.F.
+Push Author-Paper: 35838511900------2-s2.0-0037086890
 Push Author
-AUTHOR_ID:7402009895 Weilian
-7402009895------2-s2.0-0037086890
+9-s2.0-7402009895 Su W.
+Push Author-Paper: 7402009895------2-s2.0-0037086890
 Push Author
-AUTHOR_ID:6506149732 Yogesh
-6506149732------2-s2.0-0037086890
+9-s2.0-6506149732 Sankarasubramaniam Y.
+Push Author-Paper: 6506149732------2-s2.0-0037086890
 Push Author
-AUTHOR_ID:6602568266 Erdal
-6602568266------2-s2.0-0037086890
+9-s2.0-6602568266 Cayirci E.
+Push Author-Paper: 6602568266------2-s2.0-0037086890
 Push Paper
 2-s2.0-0037086890 Wireless sensor networks: A survey
-2-s2.0-79956094375------2-s2.0-79956060771
-NOID_2-s2.0-79956060771------2-s2.0-79956060771
+Push citation: 2-s2.0-79956094375------2-s2.0-79956060771
+Push Author
+D.K._Arvind Arvind D.K.
+Push Author-Paper: D.K._Arvind------2-s2.0-79956060771
+Push Author
+A._Bates Bates A.
+Push Author-Paper: A._Bates------2-s2.0-79956060771
 Push Paper
 2-s2.0-79956060771 The speckled golfer
-2-s2.0-79956094375------2-s2.0-35348904948
+Push citation: 2-s2.0-79956094375------2-s2.0-35348904948
 Push Author
-AUTHOR_ID:55418220600 Chris R.
-55418220600------2-s2.0-35348904948
+9-s2.0-55418220600 Baker C.R.
+Push Author-Paper: 55418220600------2-s2.0-35348904948
 Push Author
-AUTHOR_ID:22833836100 Kenneth M.
-22833836100------2-s2.0-35348904948
+9-s2.0-22833836100 Armijo K.M.
+Push Author-Paper: 22833836100------2-s2.0-35348904948
 Push Author
-AUTHOR_ID:22833515800 Simon
-22833515800------2-s2.0-35348904948
+9-s2.0-22833515800 Belka S.
+Push Author-Paper: 22833515800------2-s2.0-35348904948
 Push Author
-AUTHOR_ID:22833733800 Merwan
-22833733800------2-s2.0-35348904948
+9-s2.0-22833733800 Benhabib M.
+Push Author-Paper: 22833733800------2-s2.0-35348904948
 Push Author
-AUTHOR_ID:22833718900 Vikas
-22833718900------2-s2.0-35348904948
+9-s2.0-22833718900 Bhargava V.
+Push Author-Paper: 22833718900------2-s2.0-35348904948
 Push Author
-AUTHOR_ID:10739143400 Nathan
-10739143400------2-s2.0-35348904948
+9-s2.0-10739143400 Burkhart N.
+Push Author-Paper: 10739143400------2-s2.0-35348904948
 Push Author
-AUTHOR_ID:6507214074 Artin
-6507214074------2-s2.0-35348904948
+9-s2.0-6507214074 Der Minassians A.
+Push Author-Paper: 6507214074------2-s2.0-35348904948
 Push Author
-AUTHOR_ID:22834478300 Gunes
-22834478300------2-s2.0-35348904948
+9-s2.0-22834478300 Dervisoglu G.
+Push Author-Paper: 22834478300------2-s2.0-35348904948
 Push Author
-AUTHOR_ID:22834321500 Lilia
-22834321500------2-s2.0-35348904948
+9-s2.0-22834321500 Gutnik L.
+Push Author-Paper: 22834321500------2-s2.0-35348904948
 Push Author
-AUTHOR_ID:22834377400 M. Brent
-22834377400------2-s2.0-35348904948
+9-s2.0-22834377400 Haick M.B.
+Push Author-Paper: 22834377400------2-s2.0-35348904948
 Push Author
-AUTHOR_ID:35229598200 Christine
-35229598200------2-s2.0-35348904948
+9-s2.0-35229598200 Ho C.
+Push Author-Paper: 35229598200------2-s2.0-35348904948
 Push Author
-AUTHOR_ID:22835063300 Michael D.
-22835063300------2-s2.0-35348904948
+9-s2.0-22835063300 Koplow M.D.
+Push Author-Paper: 22835063300------2-s2.0-35348904948
 Push Author
-AUTHOR_ID:23975094600 Jennifer A.
-23975094600------2-s2.0-35348904948
+9-s2.0-23975094600 Mangold J.A.
+Push Author-Paper: 23975094600------2-s2.0-35348904948
 Push Author
-AUTHOR_ID:22836187100 Stefanie L.
-22836187100------2-s2.0-35348904948
+9-s2.0-22836187100 Robinson S.L.
+Push Author-Paper: 22836187100------2-s2.0-35348904948
 Push Author
-AUTHOR_ID:22836336400 Matt
-22836336400------2-s2.0-35348904948
+9-s2.0-22836336400 Rosa M.
+Push Author-Paper: 22836336400------2-s2.0-35348904948
 Push Author
-AUTHOR_ID:55245220700 Mielas
-55245220700------2-s2.0-35348904948
+9-s2.0-55245220700 Schwartz M.
+Push Author-Paper: 55245220700------2-s2.0-35348904948
 Push Author
-AUTHOR_ID:22836300900 Christo
-22836300900------2-s2.0-35348904948
+9-s2.0-22836300900 Sims C.
+Push Author-Paper: 22836300900------2-s2.0-35348904948
 Push Author
-AUTHOR_ID:22836978300 Hanns
-22836978300------2-s2.0-35348904948
+9-s2.0-22836978300 Stoffregen H.
+Push Author-Paper: 22836978300------2-s2.0-35348904948
 Push Author
-AUTHOR_ID:57105437700 Andrew C.
-57105437700------2-s2.0-35348904948
+9-s2.0-57105437700 Waterbury A.C.
+Push Author-Paper: 57105437700------2-s2.0-35348904948
 Push Author
-AUTHOR_ID:8352966000 Eli S.
-8352966000------2-s2.0-35348904948
+9-s2.0-8352966000 Leland E.S.
+Push Author-Paper: 8352966000------2-s2.0-35348904948
 Push Author
-AUTHOR_ID:6602284987 Trevor A.
-6602284987------2-s2.0-35348904948
+9-s2.0-6602284987 Pering T.A.
+Push Author-Paper: 6602284987------2-s2.0-35348904948
 Push Author
-AUTHOR_ID:7404315700 Paul K.
-7404315700------2-s2.0-35348904948
+9-s2.0-7404315700 Wright P.K.
+Push Author-Paper: 7404315700------2-s2.0-35348904948
 Push Paper
 2-s2.0-35348904948 Wireless sensor networks for home health care
-2-s2.0-79956094375------2-s2.0-79956128579
-NOID_2-s2.0-79956128579------2-s2.0-79956128579
+Push citation: 2-s2.0-79956094375------2-s2.0-79956128579
+Push Author
+A._Barth Barth A.
+Push Author-Paper: A._Barth------2-s2.0-79956128579
+Push Author
+S._Wilson Wilson S.
+Push Author-Paper: S._Wilson------2-s2.0-79956128579
+Push Author
+M._Hanson Hanson M.
+Push Author-Paper: M._Hanson------2-s2.0-79956128579
+Push Author
+H._Powell Powell H.
+Push Author-Paper: H._Powell------2-s2.0-79956128579
+Push Author
+D._Unluer Unluer D.
+Push Author-Paper: D._Unluer------2-s2.0-79956128579
+Push Author
+J._Lach Lach J.
+Push Author-Paper: J._Lach------2-s2.0-79956128579
 Push Paper
 2-s2.0-79956128579 Body-coupled communication for body sensor networks
-2-s2.0-79956094375------2-s2.0-79956129623
-NOID_2-s2.0-79956129623------2-s2.0-79956129623
+Push citation: 2-s2.0-79956094375------2-s2.0-79956129623
+Push Author-Paper: NOAUTHOR_2-s2.0-79956129623------2-s2.0-79956129623
 Push Paper
-{'prism:coverDate': '2011-05-29', 'prism:publicationName': 'Bluecore', 'eid': '2-s2.0-79956129623'}
-2-s2.0-79956094375------2-s2.0-79956156603
-NOID_2-s2.0-79956156603------2-s2.0-79956156603
+{'coverDate': '2011-05-29', 'publicationName': 'Bluecore', 'eid': '2-s2.0-79956129623'}
+Push citation: 2-s2.0-79956094375------2-s2.0-79956156603
+Push Author-Paper: NOAUTHOR_2-s2.0-79956156603------2-s2.0-79956156603
 Push Paper
-{'prism:coverDate': '2011-05-29', 'prism:publicationName': 'Body Sensor Networks', 'eid': '2-s2.0-79956156603'}
-2-s2.0-79956094375------2-s2.0-33751532866
-NOID_2-s2.0-33751532866------2-s2.0-33751532866
+{'coverDate': '2011-05-29', 'publicationName': 'Body Sensor Networks', 'eid': '2-s2.0-79956156603'}
+Push citation: 2-s2.0-79956094375------2-s2.0-33751532866
+Push Author
+J.T._Cacioppo Cacioppo J.T.
+Push Author-Paper: J.T._Cacioppo------2-s2.0-33751532866
 Push Paper
 2-s2.0-33751532866 Introduction: Emotion and health
-2-s2.0-79956094375------2-s2.0-72949118964
+Push citation: 2-s2.0-79956094375------2-s2.0-72949118964
 Push Author
-AUTHOR_ID:35304507100 Huasong
-35304507100------2-s2.0-72949118964
+9-s2.0-35304507100 Cao H.
+Push Author-Paper: 35304507100------2-s2.0-72949118964
 Push Author
-AUTHOR_ID:7102336029 Victor
-7102336029------2-s2.0-72949118964
+9-s2.0-7102336029 Leung V.
+Push Author-Paper: 7102336029------2-s2.0-72949118964
 Push Author
-AUTHOR_ID:35304574800 Cupid
-35304574800------2-s2.0-72949118964
+9-s2.0-35304574800 Chow C.
+Push Author-Paper: 35304574800------2-s2.0-72949118964
 Push Author
-AUTHOR_ID:14040289400 Henry Chan Bun
-14040289400------2-s2.0-72949118964
+9-s2.0-14040289400 Chan H.C.B.
+Push Author-Paper: 14040289400------2-s2.0-72949118964
 Push Paper
 2-s2.0-72949118964 Enabling technologies for wireless body area networks: A survey and outlook
-2-s2.0-79956094375------2-s2.0-79956144863
-NOID_2-s2.0-79956144863------2-s2.0-79956144863
+Push citation: 2-s2.0-79956094375------2-s2.0-79956144863
+Push Author
+H._Cao Cao H.
+Push Author-Paper: H._Cao------2-s2.0-79956144863
+Push Author
+S._Gonzalez-Valenzuela Gonzalez-Valenzuela S.
+Push Author-Paper: S._Gonzalez-Valenzuela------2-s2.0-79956144863
+Push Author
+V._Leung Leung V.
+Push Author-Paper: V._Leung------2-s2.0-79956144863
 Push Paper
 2-s2.0-79956144863 Employing IEEE 802.15.4 for quality of service provisioning in wireless body area sensor networks
-2-s2.0-79956094375------2-s2.0-0004097037
-NOID_2-s2.0-0004097037------2-s2.0-0004097037
+Push citation: 2-s2.0-79956094375------2-s2.0-0004097037
+Push Author
+W._Cobb Cobb W.
+Push Author-Paper: W._Cobb------2-s2.0-0004097037
 Push Paper
-{'authors': [], 'prism:coverDate': '1983-09-03', 'prism:publicationName': 'Recommendations for the Practice of Clinical Neurophysiology', 'eid': '2-s2.0-0004097037'}
-2-s2.0-79956094375------2-s2.0-77949708520
+{'authors': [{'initials': 'W.', 'surname': 'Cobb', 'indexed-name': 'Cobb W.', 'eid': 'W._Cobb'}], 'publicationName': 'Recommendations for the Practice of Clinical Neurophysiology', 'coverDate': '1983-09-03', 'eid': '2-s2.0-0004097037'}
+Push citation: 2-s2.0-79956094375------2-s2.0-77949708520
 Push Author
-AUTHOR_ID:7006360842 J. M.
-7006360842------2-s2.0-77949708520
+9-s2.0-7006360842 Corchado J.M.
+Push Author-Paper: 7006360842------2-s2.0-77949708520
 Push Author
-AUTHOR_ID:8899577600 Javier
-8899577600------2-s2.0-77949708520
+9-s2.0-8899577600 Bajo J.
+Push Author-Paper: 8899577600------2-s2.0-77949708520
 Push Author
-AUTHOR_ID:23006588400 Dante Israel
-23006588400------2-s2.0-77949708520
+9-s2.0-23006588400 Tapia D.I.
+Push Author-Paper: 23006588400------2-s2.0-77949708520
 Push Author
-AUTHOR_ID:7202760099 Ajith
-7202760099------2-s2.0-77949708520
+9-s2.0-7202760099 Abraham A.
+Push Author-Paper: 7202760099------2-s2.0-77949708520
 Push Paper
 2-s2.0-77949708520 Using heterogeneous wireless sensor networks in a telemonitoring system for healthcare
-2-s2.0-79956094375------2-s2.0-79956150694
-NOID_2-s2.0-79956150694------2-s2.0-79956150694
+Push citation: 2-s2.0-79956094375------2-s2.0-79956150694
+Push Author
+D._Curtis Curtis D.
+Push Author-Paper: D._Curtis------2-s2.0-79956150694
+Push Author
+E._Shih Shih E.
+Push Author-Paper: E._Shih------2-s2.0-79956150694
+Push Author
+J._Waterman Waterman J.
+Push Author-Paper: J._Waterman------2-s2.0-79956150694
+Push Author
+J._Guttag Guttag J.
+Push Author-Paper: J._Guttag------2-s2.0-79956150694
+Push Author
+J._Bailey Bailey J.
+Push Author-Paper: J._Bailey------2-s2.0-79956150694
 Push Paper
 2-s2.0-79956150694 Physiological signal monitoring in the waiting areas of an emergency room
-2-s2.0-79956094375------2-s2.0-18844402855
+Push citation: 2-s2.0-79956094375------2-s2.0-18844402855
 Push Author
-AUTHOR_ID:8557437200 Tijs
-8557437200------2-s2.0-18844402855
+9-s2.0-8557437200 Van Dam T.
+Push Author-Paper: 8557437200------2-s2.0-18844402855
 Push Author
-AUTHOR_ID:6603694142 Koen G.
-6603694142------2-s2.0-18844402855
+9-s2.0-6603694142 Langendoen K.G.
+Push Author-Paper: 6603694142------2-s2.0-18844402855
 Push Paper
 2-s2.0-18844402855 An adaptive energy-efficient MAC protocol for wireless sensor networks
-2-s2.0-79956094375------2-s2.0-37349079844
+Push citation: 2-s2.0-79956094375------2-s2.0-37349079844
 Push Author
-AUTHOR_ID:23093392800 Chinar
-23093392800------2-s2.0-37349079844
+9-s2.0-23093392800 Dara C.
+Push Author-Paper: 23093392800------2-s2.0-37349079844
 Push Author
-AUTHOR_ID:6602908705 Laura
-6602908705------2-s2.0-37349079844
+9-s2.0-6602908705 Monetta L.
+Push Author-Paper: 6602908705------2-s2.0-37349079844
 Push Author
-AUTHOR_ID:7006101128 Marc D.
-7006101128------2-s2.0-37349079844
+9-s2.0-7006101128 Pell M.D.
+Push Author-Paper: 7006101128------2-s2.0-37349079844
 Push Paper
 2-s2.0-37349079844 Vocal emotion processing in Parkinson's disease: Reduced sensitivity to negative emotions
-2-s2.0-79956094375------2-s2.0-35748957804
+Push citation: 2-s2.0-79956094375------2-s2.0-35748957804
 Push Author
-AUTHOR_ID:12239551400 Magy Seif
-12239551400------2-s2.0-35748957804
+9-s2.0-12239551400 El-Nasr M.S.
+Push Author-Paper: 12239551400------2-s2.0-35748957804
 Push Author
-AUTHOR_ID:22954842600 Athanasios V.
-22954842600------2-s2.0-35748957804
+9-s2.0-22954842600 Vasilakos A.V.
+Push Author-Paper: 22954842600------2-s2.0-35748957804
 Push Paper
 2-s2.0-35748957804 DigitalBeing - using the environment as an expressive medium for dance
-2-s2.0-79956094375------2-s2.0-43949100645
+Push citation: 2-s2.0-79956094375------2-s2.0-43949100645
 Push Author
-AUTHOR_ID:8536461600 Elisabetta
-8536461600------2-s2.0-43949100645
+9-s2.0-8536461600 Farella E.
+Push Author-Paper: 8536461600------2-s2.0-43949100645
 Push Author
-AUTHOR_ID:6603885165 Augusto
-6603885165------2-s2.0-43949100645
+9-s2.0-6603885165 Pieracci A.
+Push Author-Paper: 6603885165------2-s2.0-43949100645
 Push Author
-AUTHOR_ID:35556997000 Luca
-35556997000------2-s2.0-43949100645
+9-s2.0-35556997000 Benini L.
+Push Author-Paper: 35556997000------2-s2.0-43949100645
 Push Author
-AUTHOR_ID:7003942049 Laura
-7003942049------2-s2.0-43949100645
+9-s2.0-7003942049 Rocchi L.
+Push Author-Paper: 7003942049------2-s2.0-43949100645
 Push Author
-AUTHOR_ID:7003693404 Andrea
-7003693404------2-s2.0-43949100645
+9-s2.0-7003693404 Acquaviva A.
+Push Author-Paper: 7003693404------2-s2.0-43949100645
 Push Paper
 2-s2.0-43949100645 Interfacing human and computer with wireless body area sensor networks: The WiMoCA solution
-2-s2.0-79956094375------2-s2.0-33646456047
+Push citation: 2-s2.0-79956094375------2-s2.0-33646456047
 Push Author
-AUTHOR_ID:8960509400 Emad A.
-8960509400------2-s2.0-33646456047
+9-s2.0-8960509400 Felemban E.A.
+Push Author-Paper: 8960509400------2-s2.0-33646456047
 Push Author
-AUTHOR_ID:7410144399 Changgun
-7410144399------2-s2.0-33646456047
+9-s2.0-7410144399 Lee C.
+Push Author-Paper: 7410144399------2-s2.0-33646456047
 Push Author
-AUTHOR_ID:8960509100 Eylem
-8960509100------2-s2.0-33646456047
+9-s2.0-8960509100 Ekici E.
+Push Author-Paper: 8960509100------2-s2.0-33646456047
 Push Paper
 2-s2.0-33646456047 MMSPEED: Multipath Multi-SPEED Protocol for QoS guarantee of reliability and timeliness in wireless sensor networks
-2-s2.0-79956094375------2-s2.0-77949681594
+Push citation: 2-s2.0-79956094375------2-s2.0-77949681594
 Push Author
-AUTHOR_ID:16174999700 Anthony
-16174999700------2-s2.0-77949681594
+9-s2.0-16174999700 Fleury A.
+Push Author-Paper: 16174999700------2-s2.0-77949681594
 Push Author
-AUTHOR_ID:55903527500 Michel
-55903527500------2-s2.0-77949681594
+9-s2.0-55903527500 Vacher M.
+Push Author-Paper: 55903527500------2-s2.0-77949681594
 Push Author
-AUTHOR_ID:6602517182 Norbert
-6602517182------2-s2.0-77949681594
+9-s2.0-6602517182 Noury N.
+Push Author-Paper: 6602517182------2-s2.0-77949681594
 Push Paper
 2-s2.0-77949681594 SVM-based multimodal classification of activities of daily living in health smart homes: Sensors, algorithms, and first experimental results
-2-s2.0-79956094375------2-s2.0-39549117996
+Push citation: 2-s2.0-79956094375------2-s2.0-39549117996
 Push Author
-AUTHOR_ID:15842868500 Tia
-15842868500------2-s2.0-39549117996
+9-s2.0-15842868500 Gao T.
+Push Author-Paper: 15842868500------2-s2.0-39549117996
 Push Author
-AUTHOR_ID:17435351100 Tammara
-17435351100------2-s2.0-39549117996
+9-s2.0-17435351100 Massey T.
+Push Author-Paper: 17435351100------2-s2.0-39549117996
 Push Author
-AUTHOR_ID:17435557900 Leo
-17435557900------2-s2.0-39549117996
+9-s2.0-17435557900 Selavo L.
+Push Author-Paper: 17435557900------2-s2.0-39549117996
 Push Author
-AUTHOR_ID:56240695200 David I.
-56240695200------2-s2.0-39549117996
+9-s2.0-56240695200 Crawford D.I.
+Push Author-Paper: 56240695200------2-s2.0-39549117996
 Push Author
-AUTHOR_ID:9040511600 Borrong
-9040511600------2-s2.0-39549117996
+9-s2.0-9040511600 Chen B.
+Push Author-Paper: 9040511600------2-s2.0-39549117996
 Push Author
-AUTHOR_ID:8888135900 Konrad
-8888135900------2-s2.0-39549117996
+9-s2.0-8888135900 Lorincz K.
+Push Author-Paper: 8888135900------2-s2.0-39549117996
 Push Author
-AUTHOR_ID:9039418800 Victor
-9039418800------2-s2.0-39549117996
+9-s2.0-9039418800 Shnayder V.
+Push Author-Paper: 9039418800------2-s2.0-39549117996
 Push Author
-AUTHOR_ID:16174736600 Logan K.
-16174736600------2-s2.0-39549117996
+9-s2.0-16174736600 Hauenstein L.K.
+Push Author-Paper: 16174736600------2-s2.0-39549117996
 Push Author
-AUTHOR_ID:12753412000 Foad
-12753412000------2-s2.0-39549117996
+9-s2.0-12753412000 Dabiri F.
+Push Author-Paper: 12753412000------2-s2.0-39549117996
 Push Author
-AUTHOR_ID:23569515900 Jing
-23569515900------2-s2.0-39549117996
+9-s2.0-23569515900 Jeng J.
+Push Author-Paper: 23569515900------2-s2.0-39549117996
 Push Author
-AUTHOR_ID:6603141908 Arjun S.
-6603141908------2-s2.0-39549117996
+9-s2.0-6603141908 Chanmugam A.S.
+Push Author-Paper: 6603141908------2-s2.0-39549117996
 Push Author
-AUTHOR_ID:55456560000 David M.
-55456560000------2-s2.0-39549117996
+9-s2.0-55456560000 White D.M.
+Push Author-Paper: 55456560000------2-s2.0-39549117996
 Push Author
-AUTHOR_ID:35596897200 Majid
-35596897200------2-s2.0-39549117996
+9-s2.0-35596897200 Sarrafzadeh M.
+Push Author-Paper: 35596897200------2-s2.0-39549117996
 Push Author
-AUTHOR_ID:7202401743 Matt
-7202401743------2-s2.0-39549117996
+9-s2.0-7202401743 Welsh M.
+Push Author-Paper: 7202401743------2-s2.0-39549117996
 Push Paper
 2-s2.0-39549117996 The advanced health and disaster aid network: A light-weight wireless medical system for tiage
-2-s2.0-79956094375------2-s2.0-77949698020
+Push citation: 2-s2.0-79956094375------2-s2.0-77949698020
 Push Author
-AUTHOR_ID:24470943700 Hassan
-24470943700------2-s2.0-77949698020
+9-s2.0-24470943700 Ghasemzadeh H.
+Push Author-Paper: 24470943700------2-s2.0-77949698020
 Push Author
-AUTHOR_ID:56231451200 Roozbeh
-56231451200------2-s2.0-77949698020
+9-s2.0-56231451200 Jafari R.
+Push Author-Paper: 56231451200------2-s2.0-77949698020
 Push Author
-AUTHOR_ID:6603723328 Balakrishnan
-6603723328------2-s2.0-77949698020
+9-s2.0-6603723328 Prabhakaran B.
+Push Author-Paper: 6603723328------2-s2.0-77949698020
 Push Paper
 2-s2.0-77949698020 A body sensor network with electromyogram and inertial sensors: Multimodal interpretation of muscular activities
-2-s2.0-79956094375------2-s2.0-4544361141
+Push citation: 2-s2.0-79956094375------2-s2.0-4544361141
 Push Author
-AUTHOR_ID:55225102600 Haisong
-55225102600------2-s2.0-4544361141
+9-s2.0-55225102600 Gu H.
+Push Author-Paper: 55225102600------2-s2.0-4544361141
 Push Author
-AUTHOR_ID:18935108400 Qiang
-18935108400------2-s2.0-4544361141
+9-s2.0-18935108400 Ji Q.
+Push Author-Paper: 18935108400------2-s2.0-4544361141
 Push Paper
 2-s2.0-4544361141 An automated face reader for fatigue detection
-2-s2.0-79956094375------2-s2.0-77956257864
-NOID_2-s2.0-77956257864------2-s2.0-77956257864
+Push citation: 2-s2.0-79956094375------2-s2.0-77956257864
+Push Author
+P.S._Hall Hall P.S.
+Push Author-Paper: P.S._Hall------2-s2.0-77956257864
+Push Author
+Y._Hao Hao Y.
+Push Author-Paper: Y._Hao------2-s2.0-77956257864
 Push Paper
-{'authors': [], 'prism:coverDate': '2006-09-09', 'prism:publicationName': 'Antennas and Propagation for Bodycentric Wireless Communications', 'eid': '2-s2.0-77956257864'}
-2-s2.0-79956094375------2-s2.0-21644474051
+{'authors': [{'initials': 'P.S.', 'surname': 'Hall', 'indexed-name': 'Hall P.S.', 'eid': 'P.S._Hall'}, {'initials': 'Y.', 'surname': 'Hao', 'indexed-name': 'Hao Y.', 'eid': 'Y._Hao'}], 'publicationName': 'Antennas and Propagation for Bodycentric Wireless Communications', 'coverDate': '2006-09-09', 'eid': '2-s2.0-77956257864'}
+Push citation: 2-s2.0-79956094375------2-s2.0-21644474051
 Push Author
-AUTHOR_ID:7202424024 Jennifer A.
-7202424024------2-s2.0-21644474051
+9-s2.0-7202424024 Healey J.A.
+Push Author-Paper: 7202424024------2-s2.0-21644474051
 Push Author
-AUTHOR_ID:7005583409 Rosalind W.
-7005583409------2-s2.0-21644474051
+9-s2.0-7005583409 Picard R.W.
+Push Author-Paper: 7005583409------2-s2.0-21644474051
 Push Paper
 2-s2.0-21644474051 Detecting stress during real-world driving tasks using physiological sensors
-2-s2.0-79956094375------2-s2.0-79956121025
-NOID_2-s2.0-79956121025------2-s2.0-79956121025
+Push citation: 2-s2.0-79956094375------2-s2.0-79956121025
+Push Author
+A._Hoiydi Hoiydi A.
+Push Author-Paper: A._Hoiydi------2-s2.0-79956121025
+Push Author
+J._Decotignie Decotignie J.
+Push Author-Paper: J._Decotignie------2-s2.0-79956121025
+Push Author
+C._Enz Enz C.
+Push Author-Paper: C._Enz------2-s2.0-79956121025
+Push Author
+E._Roux Roux E.
+Push Author-Paper: E._Roux------2-s2.0-79956121025
 Push Paper
 2-s2.0-79956121025 WiseMAC: An ultra low power MAC protocol for the wisenet wireless sensor networks
-2-s2.0-79956094375------2-s2.0-79956127019
-NOID_2-s2.0-79956127019------2-s2.0-79956127019
+Push citation: 2-s2.0-79956094375------2-s2.0-79956127019
+Push Author
+R.W._Hoyt Hoyt R.W.
+Push Author-Paper: R.W._Hoyt------2-s2.0-79956127019
 Push Paper
-{'authors': [], 'prism:coverDate': '2011-05-29', 'prism:publicationName': 'SPARNET-Spartan Sensor Network to Improve Medical and Situational Awareness of Foot Soldiers during Field Training', 'eid': '2-s2.0-79956127019'}
-2-s2.0-79956094375------2-s2.0-79956092810
-NOID_2-s2.0-79956092810------2-s2.0-79956092810
+{'authors': [{'initials': 'R.W.', 'surname': 'Hoyt', 'indexed-name': 'Hoyt R.W.', 'eid': 'R.W._Hoyt'}], 'publicationName': 'SPARNET-Spartan Sensor Network to Improve Medical and Situational Awareness of Foot Soldiers during Field Training', 'coverDate': '2011-05-29', 'eid': '2-s2.0-79956127019'}
+Push citation: 2-s2.0-79956094375------2-s2.0-79956092810
+Push Author-Paper: NOAUTHOR_2-s2.0-79956092810------2-s2.0-79956092810
 Push Paper
-{'prism:coverDate': '2011-05-29', 'prism:publicationName': 'IEEE 802.15 Task Group 6 (BSN)', 'eid': '2-s2.0-79956092810'}
-2-s2.0-79956094375------2-s2.0-38849094515
+{'coverDate': '2011-05-29', 'publicationName': 'IEEE 802.15 Task Group 6 (BSN)', 'eid': '2-s2.0-79956092810'}
+Push citation: 2-s2.0-79956094375------2-s2.0-38849094515
 Push Author
-AUTHOR_ID:23485668200 Iiro
-23485668200------2-s2.0-38849094515
+9-s2.0-23485668200 Jantunen I.
+Push Author-Paper: 23485668200------2-s2.0-38849094515
 Push Author
-AUTHOR_ID:56254351200 Hannu S.
-56254351200------2-s2.0-38849094515
+9-s2.0-56254351200 Laine H.S.
+Push Author-Paper: 56254351200------2-s2.0-38849094515
 Push Author
-AUTHOR_ID:7801589825 Pertti
-7801589825------2-s2.0-38849094515
+9-s2.0-7801589825 Huuskonen P.
+Push Author-Paper: 7801589825------2-s2.0-38849094515
 Push Author
-AUTHOR_ID:6602671916 Dirk
-6602671916------2-s2.0-38849094515
+9-s2.0-6602671916 Trossen D.
+Push Author-Paper: 6602671916------2-s2.0-38849094515
 Push Author
-AUTHOR_ID:7005782693 Vladimir
-7005782693------2-s2.0-38849094515
+9-s2.0-7005782693 Ermolov V.
+Push Author-Paper: 7005782693------2-s2.0-38849094515
 Push Paper
 2-s2.0-38849094515 Smart sensor architecture for mobile-terminal-centric ambient intelligence
-2-s2.0-79956094375------2-s2.0-79952658261
-NOID_2-s2.0-79952658261------2-s2.0-79952658261
+Push citation: 2-s2.0-79956094375------2-s2.0-79952658261
+Push Author
+S._Jiang Jiang S.
+Push Author-Paper: S._Jiang------2-s2.0-79952658261
+Push Author
+Y._Cao Cao Y.
+Push Author-Paper: Y._Cao------2-s2.0-79952658261
+Push Author
+S._Lyengar Lyengar S.
+Push Author-Paper: S._Lyengar------2-s2.0-79952658261
+Push Author
+P._Kuryloski Kuryloski P.
+Push Author-Paper: P._Kuryloski------2-s2.0-79952658261
+Push Author
+R._Jafari Jafari R.
+Push Author-Paper: R._Jafari------2-s2.0-79952658261
+Push Author
+Y._Xue Xue Y.
+Push Author-Paper: Y._Xue------2-s2.0-79952658261
+Push Author
+R._Bajcsy Bajcsy R.
+Push Author-Paper: R._Bajcsy------2-s2.0-79952658261
+Push Author
+S._Wicker Wicker S.
+Push Author-Paper: S._Wicker------2-s2.0-79952658261
 Push Paper
 2-s2.0-79952658261 CareNet: An integrated wireless sensor networking environment for remote healthcare
-2-s2.0-79956094375------2-s2.0-34447309715
+Push citation: 2-s2.0-79956094375------2-s2.0-34447309715
 Push Author
-AUTHOR_ID:24776227500 André
-24776227500------2-s2.0-34447309715
+9-s2.0-24776227500 Kurs A.
+Push Author-Paper: 24776227500------2-s2.0-34447309715
 Push Author
-AUTHOR_ID:8854208000 Aristeidis
-8854208000------2-s2.0-34447309715
+9-s2.0-8854208000 Karalis A.
+Push Author-Paper: 8854208000------2-s2.0-34447309715
 Push Author
-AUTHOR_ID:34572643000 Robert
-34572643000------2-s2.0-34447309715
+9-s2.0-34572643000 Moffatt R.
+Push Author-Paper: 34572643000------2-s2.0-34447309715
 Push Author
-AUTHOR_ID:36046746000 John D.
-36046746000------2-s2.0-34447309715
+9-s2.0-36046746000 Joannopoulos J.D.
+Push Author-Paper: 36046746000------2-s2.0-34447309715
 Push Author
-AUTHOR_ID:7402666808 Peter H.
-7402666808------2-s2.0-34447309715
+9-s2.0-7402666808 Fisher P.H.
+Push Author-Paper: 7402666808------2-s2.0-34447309715
 Push Author
-AUTHOR_ID:7004342424 Marin
-7004342424------2-s2.0-34447309715
+9-s2.0-7004342424 Soljačić M.
+Push Author-Paper: 7004342424------2-s2.0-34447309715
 Push Paper
 2-s2.0-34447309715 Wireless power transfer via strongly coupled magnetic resonances
-2-s2.0-79956094375------2-s2.0-77954801910
+Push citation: 2-s2.0-79956094375------2-s2.0-77954801910
 Push Author
-AUTHOR_ID:36801891600 Chinfeng
-36801891600------2-s2.0-77954801910
+9-s2.0-36801891600 Lai C.
+Push Author-Paper: 36801891600------2-s2.0-77954801910
 Push Author
-AUTHOR_ID:8630348700 Ray Yueh Min
-8630348700------2-s2.0-77954801910
+9-s2.0-8630348700 Huang R.Y.M.
+Push Author-Paper: 8630348700------2-s2.0-77954801910
 Push Author
-AUTHOR_ID:34877529800 Jonghyuk
-34877529800------2-s2.0-77954801910
+9-s2.0-34877529800 Park J.
+Push Author-Paper: 34877529800------2-s2.0-77954801910
 Push Author
-AUTHOR_ID:7202973858 Hanchieh
-7202973858------2-s2.0-77954801910
+9-s2.0-7202973858 Chao H.
+Push Author-Paper: 7202973858------2-s2.0-77954801910
 Push Paper
 2-s2.0-77954801910 Adaptive body posture analysis for elderly-falling detection with multisensors
-2-s2.0-79956094375------2-s2.0-79956072769
-NOID_2-s2.0-79956072769------2-s2.0-79956072769
+Push citation: 2-s2.0-79956094375------2-s2.0-79956072769
+Push Author
+B._Latr Latr B.
+Push Author-Paper: B._Latr------2-s2.0-79956072769
+Push Author
+B._Braem Braem B.
+Push Author-Paper: B._Braem------2-s2.0-79956072769
+Push Author
+I._Moerman Moerman I.
+Push Author-Paper: I._Moerman------2-s2.0-79956072769
+Push Author
+C._Blondia Blondia C.
+Push Author-Paper: C._Blondia------2-s2.0-79956072769
+Push Author
+E._Reusens Reusens E.
+Push Author-Paper: E._Reusens------2-s2.0-79956072769
+Push Author
+W._Joseph Joseph W.
+Push Author-Paper: W._Joseph------2-s2.0-79956072769
+Push Author
+P._Demeester Demeester P.
+Push Author-Paper: P._Demeester------2-s2.0-79956072769
 Push Paper
 2-s2.0-79956072769 A low-delay protocol for multihop wireless body area networks
-2-s2.0-79956094375------2-s2.0-79956131206
-NOID_2-s2.0-79956131206------2-s2.0-79956131206
+Push citation: 2-s2.0-79956094375------2-s2.0-79956131206
+Push Author
+H._Li Li H.
+Push Author-Paper: H._Li------2-s2.0-79956131206
+Push Author
+J._Tan Tan J.
+Push Author-Paper: J._Tan------2-s2.0-79956131206
 Push Paper
 2-s2.0-79956131206 An ultra-low-power medium access control protocol for body sensor network
-2-s2.0-79956094375------2-s2.0-79956095088
-NOID_2-s2.0-79956095088------2-s2.0-79956095088
+Push citation: 2-s2.0-79956094375------2-s2.0-79956095088
+Push Author
+H._Li Li H.
+Push Author-Paper: H._Li------2-s2.0-79956095088
+Push Author
+J._Tan Tan J.
+Push Author-Paper: J._Tan------2-s2.0-79956095088
 Push Paper
 2-s2.0-79956095088 Heartbeat driven medium access control for body sensor networks
-2-s2.0-79956094375------2-s2.0-33746764996
+Push citation: 2-s2.0-79956094375------2-s2.0-33746764996
 Push Author
-AUTHOR_ID:7003572521 Aleksandar M.
-7003572521------2-s2.0-33746764996
+9-s2.0-7003572521 Milenković A.M.
+Push Author-Paper: 7003572521------2-s2.0-33746764996
 Push Author
-AUTHOR_ID:35100816100 Christian A.
-35100816100------2-s2.0-33746764996
+9-s2.0-35100816100 Otto C.A.
+Push Author-Paper: 35100816100------2-s2.0-33746764996
 Push Author
-AUTHOR_ID:6603887656 Emil S.
-6603887656------2-s2.0-33746764996
+9-s2.0-6603887656 Jovanov E.S.
+Push Author-Paper: 6603887656------2-s2.0-33746764996
 Push Paper
 2-s2.0-33746764996 Wireless sensor networks for personal health monitoring: Issues and an implementation
-2-s2.0-79956094375------2-s2.0-79956097716
-NOID_2-s2.0-79956097716------2-s2.0-79956097716
+Push citation: 2-s2.0-79956094375------2-s2.0-79956097716
+Push Author
+O._Omeni Omeni O.
+Push Author-Paper: O._Omeni------2-s2.0-79956097716
 Push Paper
 2-s2.0-79956097716 A perspective of the BSN MAC
-2-s2.0-79956094375------2-s2.0-77649107719
+Push citation: 2-s2.0-79956094375------2-s2.0-77649107719
 Push Author
-AUTHOR_ID:9739361500 Maulin D.
-9739361500------2-s2.0-77649107719
+9-s2.0-9739361500 Patel M.D.
+Push Author-Paper: 9739361500------2-s2.0-77649107719
 Push Author
-AUTHOR_ID:55742640800 Jianfeng
-55742640800------2-s2.0-77649107719
+9-s2.0-55742640800 Wang J.
+Push Author-Paper: 55742640800------2-s2.0-77649107719
 Push Paper
 2-s2.0-77649107719 Applications, challenges, and prospective in emerging body area networking technologies
-2-s2.0-79956094375------2-s2.0-3042581199
+Push citation: 2-s2.0-79956094375------2-s2.0-3042581199
 Push Author
-AUTHOR_ID:7102755925 Alex Sandy
-7102755925------2-s2.0-3042581199
+9-s2.0-7102755925 Pentland A.S.
+Push Author-Paper: 7102755925------2-s2.0-3042581199
 Push Paper
 2-s2.0-3042581199 Healthwear: Medical Technology becomes wearable
-2-s2.0-79956094375------2-s2.0-44349112701
-NOID_2-s2.0-44349112701------2-s2.0-44349112701
+Push citation: 2-s2.0-79956094375------2-s2.0-44349112701
+Push Author
+R.W._Picard Picard R.W.
+Push Author-Paper: R.W._Picard------2-s2.0-44349112701
 Push Paper
 2-s2.0-44349112701 Affective medicine: Technology with emotional intelligence
-2-s2.0-79956094375------2-s2.0-26444451023
+Push citation: 2-s2.0-79956094375------2-s2.0-26444451023
 Push Author
-AUTHOR_ID:6505846011 Joseph
-6505846011------2-s2.0-26444451023
+9-s2.0-6505846011 Polastre J.
+Push Author-Paper: 6505846011------2-s2.0-26444451023
 Push Author
-AUTHOR_ID:55851946806 Jason C.
-55851946806------2-s2.0-26444451023
+9-s2.0-55851946806 Hill J.C.
+Push Author-Paper: 55851946806------2-s2.0-26444451023
 Push Author
-AUTHOR_ID:7004874505 David E.
-7004874505------2-s2.0-26444451023
+9-s2.0-7004874505 Culler D.E.
+Push Author-Paper: 7004874505------2-s2.0-26444451023
 Push Paper
 2-s2.0-26444451023 Versatile low power media access for wireless sensor networks
-2-s2.0-79956094375------2-s2.0-2342603700
-NOID_2-s2.0-2342603700------2-s2.0-2342603700
+Push citation: 2-s2.0-79956094375------2-s2.0-2342603700
+Push Author
+V._Rajendran Rajendran V.
+Push Author-Paper: V._Rajendran------2-s2.0-2342603700
+Push Author
+K._Obraczka Obraczka K.
+Push Author-Paper: K._Obraczka------2-s2.0-2342603700
+Push Author
+J.J._Garcia-Luna-Aceves Garcia-Luna-Aceves J.J.
+Push Author-Paper: J.J._Garcia-Luna-Aceves------2-s2.0-2342603700
 Push Paper
 2-s2.0-2342603700 Energy-efficient, collision-free medium access control for wireless sensor networks
 Done references

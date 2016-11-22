@@ -42,6 +42,12 @@ class ScopusApiLib:
         coredata = self.utility.filter(resp['coredata'], cfields)
         profile.update(coredata)
         profile = self.utility.flattenDict(profile)
+        keys = list(profile.keys())
+        for k in keys:
+            if 'preferred-name' in k:
+                profile[k.split('_')[1]] = profile.pop(k)
+        if 'given-name' in profile:
+            profile['given-name'] = self.processFirstName(profile['given-name'])
         return profile
 
     #returns array of author papers eids
@@ -75,10 +81,26 @@ class ScopusApiLib:
         coredata = resp['coredata']
         if resp['authors']:
             authors = resp['authors']['author']
-            authors = [a['@auid'] for a in authors]
-            authors = [a for a in authors if a!='']
-            coredata['authors'] = authors
+            auids = self.processAuthorList(authors)
+            coredata['authors'] = auids
+        coredata = self.utility.removePrefix(coredata)
         return coredata
+
+    def processFirstName(self, name):
+        return name.split()[0]
+
+    def processAuthorList(self, arr):
+        auids = []
+        for a in arr:
+            if '@auid' in a and a['@auid'] != '':
+                auids.append(a['@auid'])
+            else: 
+                #no scopus id, just use name as id
+                res = self.utility.filter(a, ['ce:indexed-name', 'ce:initials', 'ce:surname', 'ce:given-name'])
+                res = self.utility.removePrefix(res)
+                res['eid'] = res['initials'] + '_' + res['surname']
+                auids.append(res)
+        return auids
 
     # returns an array of papers that the paper with the given eid cites
     def getPaperReferences(self, eid):
@@ -90,13 +112,7 @@ class ScopusApiLib:
             ref_dict['authors'] = None
             if raw['author-list'] and raw['author-list']['author']:
                 auth_list = raw['author-list']['author']
-                auids = []
-                for a in auth_list:
-                    if '@auid' in a:
-                        auids.append(a['@auid'])
-                    else: 
-                        #no scopus id, just use name as id
-                        auids.append('no-id_' + a['ce:initials'] + '_' + a['ce:surname'])
+                auids = self.processAuthorList(auth_list)
                 ref_dict['authors'] = auids
 
             ref_dict['srceid'] = eid
@@ -104,7 +120,6 @@ class ScopusApiLib:
             ref_arr.append(ref_dict)
 
         return ref_arr
-
 
     #makes a jsonObj pretty
     def prettifyJson(self, jsonObj):
@@ -129,32 +144,31 @@ class Utility:
         dictfilt = lambda x, y: dict([ (i,x[i]) for i in x if i in set(y) ])
         return dictfilt(d, keys)
 
-    def removePrefix (self, d):
+    def removePrefix (self, d, sep=':'):
         rem = []
         for key, value in d.items():
-            if len(key.split(':')) > 1:
+            if len(key.split(sep)) > 1:
                 rem.append(key)
         for k in rem:
-            newkey = k.split(':')[0]
-            d[newkey] = d[k].pop()
+            newkey = k.split(sep)[1]
+            d[newkey] = d.pop(k)
         return d
 
 # all the SQL code to insert/update is here
 class DbInterface:
     def __init_(self):
         self.utility = Utility()
-        return
 
     #enters a citation record into database
     def pushCitation(self, srceid, targeid):
-        print(srceid + "------" + targeid)
+        print('Push citation: ' + srceid + "------" + targeid)
         return
 
     #enters an author record into database
     def pushAuthor(self, record_dict):
         print('Push Author')
-        if 'preferred-name_given-name' in record_dict:
-            print(record_dict['dc:identifier'] + ' ' + record_dict['preferred-name_given-name'])
+        if 'surname' in record_dict:
+            print(record_dict['eid'] + ' ' + record_dict['surname'] + ' ' + record_dict['initials'])
         else:
             print(record_dict)
         return
@@ -162,14 +176,14 @@ class DbInterface:
     # enters a paper record
     def pushPaper(self, record_dict):
         print('Push Paper')
-        if 'dc:title' in record_dict:
-            print(record_dict['eid'] + ' ' + record_dict['dc:title'])
+        if 'title' in record_dict:
+            print(record_dict['eid'] + ' ' + record_dict['title'])
         else:
             print(record_dict)
         return
 
-    def pushAuthorPaper(self, authid, eid):
-        print(authid + "------" + eid)
+    def pushAuthorPaper(self, authid, eid, type='normal'):
+        print('Push Author-Paper: ' + authid + "------" + eid)
         return
 
 
@@ -211,23 +225,32 @@ class ApiToDB:
             print('Done references')
 
     # given author id, puts only an author record in db
-    def storeAuthorOnly(self, auth_id):
-        author = self.sApi.getAuthorMetrics(auth_id)
+    def storeAuthorOnly(self, auth, atype='get'):
+        author = None
+        if atype != 'get':
+            author = auth
+        else:
+            author = self.sApi.getAuthorMetrics(auth)
         self.dbi.pushAuthor(author)
         return author
 
-    # given author id and paper eid, stores the paper in db, as well as author-paper relation
+
+    # given paper eid, stores the paper in db, as well as author-paper relation
     def storePapersOnly(self, eid):
         paperDict = self.sApi.getPaperInfo(eid)
         count = 0
         if 'authors' in paperDict:
             for authid in paperDict['authors']:
-                self.storeAuthorOnly(authid)
-                self.dbi.pushAuthorPaper(authid, eid)
+                if isinstance(authid, dict):
+                    self.storeAuthorOnly(authid, 'local')
+                    self.dbi.pushAuthorPaper(authid['eid'], eid)
+                else:
+                    self.storeAuthorOnly(authid)
+                    self.dbi.pushAuthorPaper(authid, eid)
                 count += 1
 
         if count is 0:
-            self.dbi.pushAuthorPaper('NOID_' + eid, eid)
+            self.dbi.pushAuthorPaper('NOAUTHOR_' + eid, eid)
 
         self.dbi.pushPaper(paperDict)
         return paperDict
