@@ -103,8 +103,10 @@ class ScopusApiLib:
         return auids
 
     # returns an array of papers that the paper with the given eid cites
-    def getPaperReferences(self, eid):
+    def getPaperReferences(self, eid, refCount = -1):
         url = 'https://api.elsevier.com/content/abstract/eid/' + str(eid) + '?&view=REF'
+        if refCount is not -1:
+            url += '&refcount=' + str(refCount)
         resp = self.reqs.getJson(url)['abstracts-retrieval-response']['references']['reference']
         ref_arr = []
         for raw in resp:
@@ -144,7 +146,8 @@ class Utility:
         dictfilt = lambda x, y: dict([ (i,x[i]) for i in x if i in set(y) ])
         return dictfilt(d, keys)
 
-    def removePrefix (self, d, sep=':'):
+    def removePrefix (self, origDict, sep=':'):
+        d = dict(origDict)
         rem = []
         for key, value in d.items():
             if len(key.split(sep)) > 1:
@@ -154,14 +157,60 @@ class Utility:
             d[newkey] = d.pop(k)
         return d
 
+    def addPrefixToKeys(self, dOrig, prefix):
+        d = dict(dOrig)
+        keys = list(d.keys())
+        for key in keys:
+            d[prefix+key] = d.pop(key) 
+        return d
+
+    #stack overflow code
+    def merge_dicts(self, *dict_args):
+        '''
+        Given any number of dicts, shallow copy and merge into a new dict,
+        precedence goes to key value pairs in latter dicts.
+        '''
+        result = {}
+        for dictionary in dict_args:
+            result.update(dictionary)
+        return dict(result)
+
+    def changeKeyString(self, d, change, toThis):
+        keys = list(d.keys())
+        for key in keys:
+            newKey = key.replace(change, toThis)
+            d[newKey] = d.pop(key)
+
 # all the SQL code to insert/update is here
 class DbInterface:
-    def __init_(self):
+    def __init__(self):
         self.utility = Utility()
+        self.scops = ScopusApiLib()
+        #self.sql = 
 
+    def pushToS1(self, srcPaperDict, targPaperDict, srcAuthor, targAuthor):
+
+        srcPaperDict = self.utility.addPrefixToKeys(srcPaperDict, 'src_paper_')
+        targPaperDict = self.utility.addPrefixToKeys(targPaperDict, 'targ_paper_')
+        srcAuthor = self.utility.addPrefixToKeys(srcAuthor, 'src_author_')
+        targAuthor = self.utility.addPrefixToKeys(targAuthor, 'targ_author_')
+
+        aggDict = self.utility.merge_dicts(srcPaperDict, targPaperDict, srcAuthor, targAuthor)
+        self.utility.changeKeyString(aggDict, '-', '_')
+        self.utility.changeKeyString(aggDict, '@', '')
+        print(self.scops.prettifyJson(aggDict))
+        print('\n')
+
+    #OLD CODE DO NOT USE
     #enters a citation record into database
-    def pushCitation(self, srceid, targeid):
-        print('Push citation: ' + srceid + "------" + targeid)
+    def pushCitation(self, srceid, targeid, src_ttl, targ_ttl):
+        t1 = None
+        t2 = None
+        if src_ttl:
+            t1 = src_ttl[:20]
+        if targ_ttl:
+            t2 = targ_ttl[:20]
+        print('Push citation: ' + str(t1) + "------" + str(t2))
         return
 
     #enters an author record into database
@@ -182,8 +231,11 @@ class DbInterface:
             print(record_dict)
         return
 
-    def pushAuthorPaper(self, authid, eid, type='normal'):
-        print('Push Author-Paper: ' + authid + "------" + eid)
+    def pushAuthorPaper(self, authid, eid, author_name, paper_name):
+        ttl = None
+        if paper_name:
+            ttl = paper_name[:20]
+        print('Push Author-Paper: ' + str(author_name) + "------" + str(ttl))
         return
 
 
@@ -194,34 +246,97 @@ class ApiToDB:
     def __init__(self):
         self.dbi = DbInterface()
         self.sApi = ScopusApiLib()
+        self.utility = Utility()
 
     # this should be the only method that the client interacts with
-    def storeAuthorMain(self, auth_id, start_index=0, pap_num=100, cite_num=100):
+    def storeAuthorMain(self, auth_id, start_index=0, pap_num=100, cite_num=100, refCount=-1):
         # Puts the main author record
-        print('Storing author ' + str(auth_id))
-        author = self.storeAuthorOnly(auth_id)
+        print('Running script on author: ' + str(auth_id))
+        
         # Puts the authors papers
         print('Getting author papers')
-        papers = self.sApi.getAuthorPapers(author['dc:identifier'], start=start_index, num=pap_num)
+        papers = self.sApi.getAuthorPapers(auth_id, start=start_index, num=pap_num)
         for eid in papers:
             print('Beginning processing for paper: ' + eid)
-            print('Storing into database...')
-            self.storePapersOnly(eid)
-            references = self.sApi.getPaperReferences(eid)
+            #main_title = self.storePapersOnly(eid)
+            references = self.sApi.getPaperReferences(eid, refCount=refCount)
             citedbys = self.sApi.getCitingPapers(eid, num=cite_num)
 
             # Puts the citing papers of the authors papers, and those respective authors
             print('Handling citing papers...')
             for citing in citedbys:
-                self.storeCitation(citing, eid)
-                self.storePapersOnly(citing)
+                self.storeToStage1(citing, eid)
             print('Done citing papers.')
 
             # Puts the cited papers of the authors papers, and those respective authors
             print('Handling references...')
             for ref in references:
-                self.storeCitation(eid, ref['eid'])
-                self.storePapersOnly(ref['eid'])
+                refid = ref['eid']
+                self.storeToStage1(eid, refid)
+            print('Done references')
+
+
+    def storeToStage1(self, srcpapid, targpapid):
+        srcPaperDict = self.sApi.getPaperInfo(srcpapid)
+        targPaperDict = self.sApi.getPaperInfo(targpapid)
+        srcAuthors = self.getAuthorsFromPaper(srcPaperDict)
+        targAuthors = self.getAuthorsFromPaper(targPaperDict)
+
+        for srcAuth in srcAuthors:
+            for targAuth in targAuthors:
+                self.dbi.pushToS1(srcPaperDict, targPaperDict, srcAuth, targAuth)
+
+    def getAuthorsFromPaper(self, origPaperDict):
+        paperDict = dict(origPaperDict)
+
+        author_arr = []
+        if 'authors' in paperDict:
+            for authid in paperDict['authors']:
+                if isinstance(authid, dict):
+                    author_arr.append(authid)
+                else:
+                    author_info = self.getAuthorInfo(authid)
+                    author_arr.append(author_info)
+            origPaperDict.pop('authors')
+        return author_arr
+
+    def getAuthorInfo(self, auth_id):
+        author = self.sApi.getAuthorMetrics(auth_id)
+        return author
+
+
+
+
+
+    ### OLD CODE NOT USED BELOW
+    # this should be the only method that the client interacts with
+    def storeAuthorMainOLD(self, auth_id, start_index=0, pap_num=100, cite_num=100, refCount=-1):
+        # Puts the main author record
+        print('Storing author ' + str(auth_id))
+        author = self.storeAuthorOnly(auth_id)
+        # Puts the authors papers
+        print('Getting author papers')
+        papers = self.sApi.getAuthorPapers(auth_id, start=start_index, num=pap_num)
+        for eid in papers:
+            print('Beginning processing for paper: ' + eid)
+            print('Storing into database...')
+            main_title = self.storePapersOnly(eid)
+            references = self.sApi.getPaperReferences(eid, refCount=refCount)
+            getPaperReferences(eid)
+            citedbys = self.sApi.getCitingPapers(eid, num=cite_num)
+
+            # Puts the citing papers of the authors papers, and those respective authors
+            print('Handling citing papers...')
+            for citing in citedbys:
+                citing_title = self.storePapersOnly(citing)
+                self.storeCitation(citing, eid, citing_title, main_title)
+            print('Done citing papers.')
+
+            # Puts the cited papers of the authors papers, and those respective authors
+            print('Handling references...')
+            for ref in references:
+                ref_title = self.storePapersOnly(ref['eid'])
+                self.storeCitation(eid, ref['eid'], main_title, ref_title)
             print('Done references')
 
     # given author id, puts only an author record in db
@@ -232,32 +347,41 @@ class ApiToDB:
         else:
             author = self.sApi.getAuthorMetrics(auth)
         self.dbi.pushAuthor(author)
-        return author
+
+        if 'surname' in author and 'initials' in author:
+            return author['initials'] + ' ' + author['surname']
+        elif 'surname' in author:
+            return author['surname']
+        else:
+            return None
 
 
     # given paper eid, stores the paper in db, as well as author-paper relation
     def storePapersOnly(self, eid):
         paperDict = self.sApi.getPaperInfo(eid)
+        self.dbi.pushPaper(paperDict)
         count = 0
+        title = None
+        if 'title' in paperDict:
+            title = paperDict['title']
         if 'authors' in paperDict:
             for authid in paperDict['authors']:
                 if isinstance(authid, dict):
-                    self.storeAuthorOnly(authid, 'local')
-                    self.dbi.pushAuthorPaper(authid['eid'], eid)
+                    auth_name = self.storeAuthorOnly(authid, 'local')
+                    self.dbi.pushAuthorPaper(authid['eid'], eid, auth_name, title)
                 else:
-                    self.storeAuthorOnly(authid)
-                    self.dbi.pushAuthorPaper(authid, eid)
+                    auth_name = self.storeAuthorOnly(authid)
+                    self.dbi.pushAuthorPaper(authid, eid, auth_name, title)
                 count += 1
 
         if count is 0:
-            self.dbi.pushAuthorPaper('NOAUTHOR_' + eid, eid)
+            self.dbi.pushAuthorPaper('NOAUTHOR_' + eid, eid, None, title)
+        return title
 
-        self.dbi.pushPaper(paperDict)
-        return paperDict
 
     # given the src/targ eids, stores the citation relation into db
-    def storeCitation(self, src_eid, targ_eid):
-        self.dbi.pushCitation(src_eid, targ_eid)
+    def storeCitation(self, src_eid, targ_eid, src_ttl, targ_ttl):
+        self.dbi.pushCitation(src_eid, targ_eid, src_ttl, targ_ttl)
 
 
 
