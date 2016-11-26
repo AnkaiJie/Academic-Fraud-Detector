@@ -2,7 +2,7 @@
 create table citations_s1 (
     src_author_citation_count varchar(15),
     src_author_cited_by_count varchar(15),
-    src_author_dcidentifier varchar(50),
+    src_author_dc_identifier varchar(50),
     src_author_document_count varchar(15),
     src_author_eid varchar(50),
     src_author_given_name varchar(200),
@@ -17,7 +17,7 @@ create table citations_s1 (
     src_paper_title varchar(1000),
     targ_author_citation_count varchar(15),
     targ_author_cited_by_count varchar(15),
-    targ_author_dcidentifier varchar(50),
+    targ_author_dc_identifier varchar(50),
     targ_author_document_count varchar(15),
     targ_author_eid varchar(50),
     targ_author_given_name varchar(200),
@@ -31,4 +31,5 @@ create table citations_s1 (
     targ_paper_publicationName varchar(1000),
     targ_paper_title varchar(1000)
 );
-
+ALTER TABLE citations_s1 
+ADD PRIMARY KEY (`src_author_dc_identifier`, `src_paper_eid`, `targ_author_dc_identifier`,`targ_paper_eid`); 

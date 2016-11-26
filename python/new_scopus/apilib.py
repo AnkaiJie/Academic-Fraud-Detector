@@ -1,8 +1,8 @@
-from credentials import API_KEY
+from credentials import API_KEY, DBNAME, USER, PASSWORD, HOST
 import requests
 import json
 import sys
-
+import pymysql
 
 class reqWrapper:
     def __init__(self, headers):
@@ -198,8 +198,31 @@ class DbInterface:
         aggDict = self.utility.merge_dicts(srcPaperDict, targPaperDict, srcAuthor, targAuthor)
         self.utility.changeKeyString(aggDict, '-', '_')
         self.utility.changeKeyString(aggDict, '@', '')
-        print(self.scops.prettifyJson(aggDict))
-        print('\n')
+        self.utility.changeKeyString(aggDict, ':', '_')
+
+        print(self.toString(aggDict))
+        self.pushDict('citations_s1', aggDict)
+
+    def toString(self, aggDict):
+        srcp = aggDict['src_paper_title']
+        targp = aggDict['targ_paper_title']
+        srca = aggDict['src_author_indexed_name']
+        targa = aggDict['targ_author_indexed_name']
+        return 'Source: ' + str(srca) + ' / ' + str(srcp) + ' ------------- ' + 'Target: ' + str(targa) + ' / ' + str(targp)
+
+    def pushDict(self, table, d):
+        conn = pymysql.connect(HOST, USER, PASSWORD, DBNAME)
+        cur = conn.cursor()
+
+        keys = d.keys()
+        vals = d.values()
+        vals = ['"' + v + '"' for v in vals]
+        command = "REPLACE INTO %s (%s) VALUES(%s)" % (
+            table, ",".join(keys), ",".join(vals))
+        cur.execute(command)
+        conn.commit()
+        cur.close()
+        conn.close()
 
     #OLD CODE DO NOT USE
     #enters a citation record into database
@@ -266,14 +289,23 @@ class ApiToDB:
             print('Handling citing papers...')
             for citing in citedbys:
                 self.storeToStage1(citing, eid)
+                self.storePaperReferences(citing, refCount=refCount)
             print('Done citing papers.')
 
             # Puts the cited papers of the authors papers, and those respective authors
             print('Handling references...')
+            #Repeated code from storePaperReferences for clarity
             for ref in references:
                 refid = ref['eid']
                 self.storeToStage1(eid, refid)
+                self.storePaperReferences(refid, refCount=refCount)
             print('Done references')
+
+    def storePaperReferences(self, eid, refCount=-1):
+        references = self.sApi.getPaperReferences(eid, refCount=refCount)
+        for ref in references:
+            refid = ref['eid']
+            self.storeToStage1(eid, refid)
 
 
     def storeToStage1(self, srcpapid, targpapid):
@@ -303,9 +335,6 @@ class ApiToDB:
     def getAuthorInfo(self, auth_id):
         author = self.sApi.getAuthorMetrics(auth_id)
         return author
-
-
-
 
 
     ### OLD CODE NOT USED BELOW
