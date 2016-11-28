@@ -46,7 +46,7 @@ class ScopusApiLib:
         for k in keys:
             if 'preferred-name' in k:
                 profile[k.split('_')[1]] = profile.pop(k)
-        if 'given-name' in profile:
+        if 'given-name' in profile and profile['given-name'] is not None:
             profile['given-name'] = self.processFirstName(profile['given-name'])
         return profile
 
@@ -181,6 +181,12 @@ class Utility:
             newKey = key.replace(change, toThis)
             d[newKey] = d.pop(key)
 
+    def removeNone(self, d):
+        keys = list(d.keys())
+        for key in keys:
+            if d[key] is None:
+                d.pop(key)
+
 # all the SQL code to insert/update is here
 class DbInterface:
     def __init__(self):
@@ -196,6 +202,7 @@ class DbInterface:
         targAuthor = self.utility.addPrefixToKeys(targAuthor, 'targ_author_')
 
         aggDict = self.utility.merge_dicts(srcPaperDict, targPaperDict, srcAuthor, targAuthor)
+        self.utility.removeNone(aggDict)
         self.utility.changeKeyString(aggDict, '-', '_')
         self.utility.changeKeyString(aggDict, '@', '')
         self.utility.changeKeyString(aggDict, ':', '_')
@@ -204,19 +211,27 @@ class DbInterface:
         self.pushDict('citations_s1', aggDict)
 
     def toString(self, aggDict):
-        srcp = aggDict['src_paper_title']
-        targp = aggDict['targ_paper_title']
-        srca = aggDict['src_author_indexed_name']
-        targa = aggDict['targ_author_indexed_name']
+        srcp = None
+        targp = None
+        srca = None
+        targa = None
+        if 'src_paper_title' in aggDict:
+            srcp = aggDict['src_paper_title']
+        if 'targ_paper_title' in aggDict:
+            targp = aggDict['targ_paper_title']
+        if 'src_author_indexed_name' in aggDict:
+            srca = aggDict['src_author_indexed_name']
+        if 'targ_author_indexed_name' in aggDict:
+            targa = aggDict['targ_author_indexed_name']
         return 'Source: ' + str(srca) + ' / ' + str(srcp) + ' ------------- ' + 'Target: ' + str(targa) + ' / ' + str(targp)
 
     def pushDict(self, table, d):
-        conn = pymysql.connect(HOST, USER, PASSWORD, DBNAME)
+        conn = pymysql.connect(HOST, USER, PASSWORD, DBNAME, charset='utf8')
         cur = conn.cursor()
 
         keys = d.keys()
         vals = d.values()
-        vals = ['"' + v + '"' for v in vals]
+        vals = ['"' + v + '"' for v in vals if v is not None]
         command = "REPLACE INTO %s (%s) VALUES(%s)" % (
             table, ",".join(keys), ",".join(vals))
         cur.execute(command)
