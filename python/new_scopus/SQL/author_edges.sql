@@ -81,31 +81,20 @@ create table author_edges as select
     group by src_author_id, src_author_eid, targ_author_id, targ_author_eid;
 
 
-drop table if exists author_overcites;
-create table author_overcites as
-    select initial.targ_author_id, initial.targ_paper_eid, initial.src_author_id,
-    initial.src_paper_eid, overs.overcites as overcites
-    from (select targ_author_id, targ_paper_eid, src_author_id,
-        src_paper_eid from citations_s2) as initial
+
+drop table author_overcites;
+    create table author_overcites as 
+    select initial.targ_author_id, initial.targ_paper_eid, initial.src_paper_eid, 
+    count(src_author_id) as author_num, overs.overcites
+    from 
+    (select targ_author_id, targ_paper_eid,
+        src_paper_eid from citations_s2
+        where targ_author_id !=''
+        group by targ_author_id, targ_paper_eid,
+        src_paper_eid) initial
     left join (select src_author_id, src_paper_eid, targ_author_id,
         count(*) as overcites from citations_s2
-        group by src_author_id, src_paper_eid, targ_author_id) as overs
-    on initial.src_author_id = overs.src_author_id
-        and initial.src_paper_eid = overs.src_paper_eid
-    group by initial.targ_author_id, initial.targ_paper_eid, initial.src_author_id,
-    initial.src_paper_eid, overs.overcites 
-
-
-drop table if exists author_overcites_noauth;
-create table author_overcites_noauth as
-    select initial.targ_author_id, initial.targ_paper_eid, count(initial.src_author_id) as num_citers,
-    initial.src_paper_eid, overs.overcites as overcites
-    from (select targ_author_id, targ_paper_eid, src_author_id,
-        src_paper_eid from citations_s2) as initial
-    left join (select src_author_id, src_paper_eid, targ_author_id,
-        count(*) as overcites from citations_s2
-        group by src_author_id, src_paper_eid, targ_author_id) as overs
-    on initial.src_author_id = overs.src_author_id
-        and initial.src_paper_eid = overs.src_paper_eid
-    group by initial.targ_author_id, initial.targ_paper_eid,
-    initial.src_paper_eid, overs.overcites 
+        where targ_author_id!=''
+        group by src_author_id, src_paper_eid, targ_author_id) overs 
+    on initial.targ_author_id = overs.targ_author_id and initial.src_paper_eid = overs.src_paper_eid
+    group by initial.targ_author_id, initial.src_paper_eid, initial.targ_paper_eid, overs.overcites
