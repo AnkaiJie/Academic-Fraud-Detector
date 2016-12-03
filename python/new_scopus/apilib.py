@@ -81,8 +81,8 @@ class ScopusApiLib:
         coredata = resp['coredata']
         if resp['authors']:
             authors = resp['authors']['author']
-            auids = self.processAuthorList(authors)
-            coredata['authors'] = auids
+            auinfos = self.processAuthorList(authors)
+            coredata['authors'] = auinfos
         coredata = self.utility.removePrefix(coredata)
         return coredata
 
@@ -93,12 +93,16 @@ class ScopusApiLib:
         auids = []
         for a in arr:
             if '@auid' in a and a['@auid'] != '':
-                auids.append(a['@auid'])
+                res = self.utility.filter(a, ['@auid', 'ce:indexed-name', 'ce:initials', 'ce:surname', 'ce:given-name'])
+                res = self.utility.removePrefix(res)
+                self.utility.replaceKey(res, '@auid', 'dc:identifier')
+                res['dc:identifier'] = 'AUTHOR_ID:' + res['dc:identifier']
+                auids.append(res)
             else: 
                 #no scopus id, just use name as id
                 res = self.utility.filter(a, ['ce:indexed-name', 'ce:initials', 'ce:surname', 'ce:given-name'])
                 res = self.utility.removePrefix(res)
-                res['eid'] = res['initials'] + '_' + res['surname']
+                res['dc:identifier'] = 'AUTHOR_ID:' + res['initials'] + '_' + res['surname']
                 auids.append(res)
         return auids
 
@@ -181,6 +185,9 @@ class Utility:
             newKey = key.replace(change, toThis)
             d[newKey] = d.pop(key)
 
+    def replaceKey(self, d, change, toThis):
+        d[toThis] = d.pop(change)
+
     def removeNone(self, d):
         keys = list(d.keys())
         for key in keys:
@@ -239,43 +246,6 @@ class DbInterface:
         cur.close()
         conn.close()
 
-    #OLD CODE DO NOT USE
-    #enters a citation record into database
-    def pushCitation(self, srceid, targeid, src_ttl, targ_ttl):
-        t1 = None
-        t2 = None
-        if src_ttl:
-            t1 = src_ttl[:20]
-        if targ_ttl:
-            t2 = targ_ttl[:20]
-        print('Push citation: ' + str(t1) + "------" + str(t2))
-        return
-
-    #enters an author record into database
-    def pushAuthor(self, record_dict):
-        print('Push Author')
-        if 'surname' in record_dict:
-            print(record_dict['eid'] + ' ' + record_dict['surname'] + ' ' + record_dict['initials'])
-        else:
-            print(record_dict)
-        return
-
-    # enters a paper record
-    def pushPaper(self, record_dict):
-        print('Push Paper')
-        if 'title' in record_dict:
-            print(record_dict['eid'] + ' ' + record_dict['title'])
-        else:
-            print(record_dict)
-        return
-
-    def pushAuthorPaper(self, authid, eid, author_name, paper_name):
-        ttl = None
-        if paper_name:
-            ttl = paper_name[:20]
-        print('Push Author-Paper: ' + str(author_name) + "------" + str(ttl))
-        return
-
 
 # all the API return value parsing should be placed here
 # any text/key processing is done here
@@ -326,8 +296,8 @@ class ApiToDB:
     def storeToStage1(self, srcpapid, targpapid):
         srcPaperDict = self.sApi.getPaperInfo(srcpapid)
         targPaperDict = self.sApi.getPaperInfo(targpapid)
-        srcAuthors = self.getAuthorsFromPaper(srcPaperDict)
-        targAuthors = self.getAuthorsFromPaper(targPaperDict)
+        srcAuthors = srcPaperDict.pop('authors')
+        targAuthors = targPaperDict.pop('authors')
 
         for srcAuth in srcAuthors:
             for targAuth in targAuthors:
@@ -352,89 +322,14 @@ class ApiToDB:
         return author
 
 
-    ### OLD CODE NOT USED BELOW
-    # this should be the only method that the client interacts with
-    def storeAuthorMainOLD(self, auth_id, start_index=0, pap_num=100, cite_num=100, refCount=-1):
-        # Puts the main author record
-        print('Storing author ' + str(auth_id))
-        author = self.storeAuthorOnly(auth_id)
-        # Puts the authors papers
-        print('Getting author papers')
-        papers = self.sApi.getAuthorPapers(auth_id, start=start_index, num=pap_num)
-        for eid in papers:
-            print('Beginning processing for paper: ' + eid)
-            print('Storing into database...')
-            main_title = self.storePapersOnly(eid)
-            references = self.sApi.getPaperReferences(eid, refCount=refCount)
-            getPaperReferences(eid)
-            citedbys = self.sApi.getCitingPapers(eid, num=cite_num)
-
-            # Puts the citing papers of the authors papers, and those respective authors
-            print('Handling citing papers...')
-            for citing in citedbys:
-                citing_title = self.storePapersOnly(citing)
-                self.storeCitation(citing, eid, citing_title, main_title)
-            print('Done citing papers.')
-
-            # Puts the cited papers of the authors papers, and those respective authors
-            print('Handling references...')
-            for ref in references:
-                ref_title = self.storePapersOnly(ref['eid'])
-                self.storeCitation(eid, ref['eid'], main_title, ref_title)
-            print('Done references')
-
-    # given author id, puts only an author record in db
-    def storeAuthorOnly(self, auth, atype='get'):
-        author = None
-        if atype != 'get':
-            author = auth
-        else:
-            author = self.sApi.getAuthorMetrics(auth)
-        self.dbi.pushAuthor(author)
-
-        if 'surname' in author and 'initials' in author:
-            return author['initials'] + ' ' + author['surname']
-        elif 'surname' in author:
-            return author['surname']
-        else:
-            return None
 
 
-    # given paper eid, stores the paper in db, as well as author-paper relation
-    def storePapersOnly(self, eid):
-        paperDict = self.sApi.getPaperInfo(eid)
-        self.dbi.pushPaper(paperDict)
-        count = 0
-        title = None
-        if 'title' in paperDict:
-            title = paperDict['title']
-        if 'authors' in paperDict:
-            for authid in paperDict['authors']:
-                if isinstance(authid, dict):
-                    auth_name = self.storeAuthorOnly(authid, 'local')
-                    self.dbi.pushAuthorPaper(authid['eid'], eid, auth_name, title)
-                else:
-                    auth_name = self.storeAuthorOnly(authid)
-                    self.dbi.pushAuthorPaper(authid, eid, auth_name, title)
-                count += 1
-
-        if count is 0:
-            self.dbi.pushAuthorPaper('NOAUTHOR_' + eid, eid, None, title)
-        return title
-
-
-    # given the src/targ eids, stores the citation relation into db
-    def storeCitation(self, src_eid, targ_eid, src_ttl, targ_ttl):
-        self.dbi.pushCitation(src_eid, targ_eid, src_ttl, targ_ttl)
-
-
-
-#sal = ScopusApiLib()
+# sal = ScopusApiLib()
 #k = sal.getAuthorMetrics(22954842600)
 #k= sal.getAuthorPapers("AUTHOR_ID:22954842600", 0, 2)
 #k = sal.getCitingPapers('2-s2.0-79956094375')
 #k = sal.getPaperReferences('2-s2.0-79956094375')
-#k = sal.getPaperInfo('2-s2.0-79956094375')
+# k = sal.getPaperInfo('2-s2.0-79956094375')
 # print(sal.prettifyJson(k))
 # k = sal.getPaperInfo('2-s2.0-84992381851')
 # print(sal.prettifyJson(k))
