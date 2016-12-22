@@ -1,0 +1,14 @@
+Running script on author: 22954842600
+Getting author papers
+Beginning processing for paper: 2-s2.0-84861817602
+Handling citing papers...
+Source: Ghiyasvand M. / An O(mnlog U) time algorithm for estimating the maximum cost of adjusting an infeasible network ------------- Target: Wang X. / A survey of green mobile networks: Opportunities and challenges
+Source: Ghiyasvand M. / An O(mnlog U) time algorithm for estimating the maximum cost of adjusting an infeasible network ------------- Target: Vasilakos A.V. / A survey of green mobile networks: Opportunities and challenges
+Source: Ghiyasvand M. / An O(mnlog U) time algorithm for estimating the maximum cost of adjusting an infeasible network ------------- Target: Chen M. / A survey of green mobile networks: Opportunities and challenges
+Source: Ghiyasvand M. / An O(mnlog U) time algorithm for estimating the maximum cost of adjusting an infeasible network ------------- Target: Liu Y. / A survey of green mobile networks: Opportunities and challenges
+Source: Ghiyasvand M. / An O(mnlog U) time algorithm for estimating the maximum cost of adjusting an infeasible network ------------- Target: Kwon T.T. / A survey of green mobile networks: Opportunities and challenges
+Source: Ghiyasvand M. / An O(mnlog U) time algorithm for estimating the maximum cost of adjusting an infeasible network ------------- Target: Ahuja R.K. / None
+Source: Ghiyasvand M. / An O(mnlog U) time algorithm for estimating the maximum cost of adjusting an infeasible network ------------- Target: Magnanti T.L. / None
+Source: Ghiyasvand M. / An O(mnlog U) time algorithm for estimating the maximum cost of adjusting an infeasible network ------------- Target: Orlin J.B. / None
+Source: Ghiyasvand M. / An O(mnlog U) time algorithm for estimating the maximum cost of adjusting an infeasible network ------------- Target: Busch C. / Approximating congestion + dilation in networks via "quality of routing" games
+REPLACE INTO citations_s1 (src_author_initials,src_paper_publicationName,src_paper_title,targ_author_given_name,src_paper_coverDate,src_author_surname,targ_author_surname,src_paper_eid,src_author_indexed_name,targ_paper_publicationName,targ_paper_coverDate,src_author_dc_identifier,src_author_given_name,targ_author_indexed_name,targ_paper_eid,targ_paper_title,targ_author_initials,targ_author_dc_identifier) VALUES("M.","Telecommunication Systems","An O(mnlog U) time algorithm for estimating the maximum cost of adjusting an infeasible network","Costas","2016-12-01","Ghiyasvand","Busch","2-s2.0-84960467622","Ghiyasvand M.","IEEE Transactions on Computers","2012-08-10","AUTHOR_ID:13104152900","Mehdi","Busch C.","2-s2.0-84855470604","Approximating congestion + dilation in networks via "quality of routing" games","C.","AUTHOR_ID:7101767150")

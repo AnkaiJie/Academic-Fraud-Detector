@@ -185,6 +185,11 @@ class Utility:
             newKey = key.replace(change, toThis)
             d[newKey] = d.pop(key)
 
+    def changeValueString(self, d, change, toThis):
+        for key, val in d.items():
+            if change in val:
+                d[key] = val.replace(change, toThis)
+
     def replaceKey(self, d, change, toThis):
         d[toThis] = d.pop(change)
 
@@ -213,6 +218,7 @@ class DbInterface:
         self.utility.changeKeyString(aggDict, '-', '_')
         self.utility.changeKeyString(aggDict, '@', '')
         self.utility.changeKeyString(aggDict, ':', '_')
+        self.utility.changeValueString(aggDict, '"', '\\"')
 
         print(self.toString(aggDict))
         self.pushDict('citations_s1', aggDict)
@@ -241,7 +247,11 @@ class DbInterface:
         vals = ['"' + v + '"' for v in vals if v is not None]
         command = "REPLACE INTO %s (%s) VALUES(%s)" % (
             table, ",".join(keys), ",".join(vals))
-        cur.execute(command)
+        try:
+            cur.execute(command)
+        except:
+            print(command)
+            raise
         conn.commit()
         cur.close()
         conn.close()
