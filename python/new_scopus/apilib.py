@@ -296,8 +296,12 @@ class ApiToDB:
     def storeToStage1(self, srcpapid, targpapid):
         srcPaperDict = self.sApi.getPaperInfo(srcpapid)
         targPaperDict = self.sApi.getPaperInfo(targpapid)
-        srcAuthors = srcPaperDict.pop('authors')
-        targAuthors = targPaperDict.pop('authors')
+        srcAuthors = [{'indexed_name': None}]
+        targAuthors = [{'indexed_name': None}]
+        if 'authors' in srcPaperDict:
+            srcAuthors = srcPaperDict.pop('authors')
+        if 'authors' in targPaperDict:
+            targAuthors = targPaperDict.pop('authors')
 
         for srcAuth in srcAuthors:
             for targAuth in targAuthors:
