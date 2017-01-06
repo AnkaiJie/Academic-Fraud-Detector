@@ -77,7 +77,11 @@ class ScopusApiLib:
     def getPaperInfo(self, eid):
         url = 'https://api.elsevier.com/content/abstract/eid/' + str(eid) + '?&field=authors,coverDate,eid,title,publicationName'
         resp = self.reqs.getJson(url)
-        resp = resp["abstracts-retrieval-response"]
+        try:
+            resp = resp['abstracts-retrieval-response']
+        except:
+            print(resp)
+            raise
         coredata = resp['coredata']
         if resp['authors']:
             authors = resp['authors']['author']
@@ -102,7 +106,17 @@ class ScopusApiLib:
                 #no scopus id, just use name as id
                 res = self.utility.filter(a, ['ce:indexed-name', 'ce:initials', 'ce:surname', 'ce:given-name'])
                 res = self.utility.removePrefix(res)
-                res['dc:identifier'] = 'AUTHOR_ID:' + res['initials'] + '_' + res['surname']
+
+                newid = 'AUTHOR_ID:'
+                id_arr = []
+                if 'initials' in res:
+                    id_arr.append(res['initials'])
+                if 'surname' in res:
+                    id_arr.append(res['surname'])
+
+                newid += '_'.join(id_arr)
+                res['dc:identifier'] = newid
+
                 auids.append(res)
         return auids
 
@@ -111,9 +125,16 @@ class ScopusApiLib:
         url = 'https://api.elsevier.com/content/abstract/eid/' + str(eid) + '?&view=REF'
         if refCount is not -1:
             url += '&refcount=' + str(refCount)
-        resp = self.reqs.getJson(url)['abstracts-retrieval-response']['references']['reference']
+        
+        resp = self.reqs.getJson(url)
+        resp_body = resp['abstracts-retrieval-response']
+        if resp_body is None:
+            return None
+        else:
+            resp_body = resp_body['references']['reference']
+
         ref_arr = []
-        for raw in resp:
+        for raw in resp_body:
             ref_dict = {}
             ref_dict['authors'] = None
             if raw['author-list'] and raw['author-list']['author']:
@@ -185,6 +206,11 @@ class Utility:
             newKey = key.replace(change, toThis)
             d[newKey] = d.pop(key)
 
+    def changeValueString(self, d, change, toThis):
+        for key, val in d.items():
+            if change in val:
+                d[key] = val.replace(change, toThis)
+
     def replaceKey(self, d, change, toThis):
         d[toThis] = d.pop(change)
 
@@ -213,6 +239,7 @@ class DbInterface:
         self.utility.changeKeyString(aggDict, '-', '_')
         self.utility.changeKeyString(aggDict, '@', '')
         self.utility.changeKeyString(aggDict, ':', '_')
+        self.utility.changeValueString(aggDict, '"', '\\"')
 
         print(self.toString(aggDict))
         self.pushDict('citations_s1', aggDict)
@@ -241,7 +268,11 @@ class DbInterface:
         vals = ['"' + v + '"' for v in vals if v is not None]
         command = "REPLACE INTO %s (%s) VALUES(%s)" % (
             table, ",".join(keys), ",".join(vals))
-        cur.execute(command)
+        try:
+            cur.execute(command)
+        except:
+            print(command)
+            raise
         conn.commit()
         cur.close()
         conn.close()
@@ -267,10 +298,13 @@ class ApiToDB:
         for eid in papers:
             print('Beginning processing for paper: ' + eid)
             #main_title = self.storePapersOnly(eid)
-            #references = self.sApi.getPaperReferences(eid, refCount=refCount)
+            # references = self.sApi.getPaperReferences(eid, refCount=refCount)
+            # if references is None:
+            #     print('No Data on References')
+            #     references = []
             citedbys = self.sApi.getCitingPapers(eid, num=cite_num)
 
-            # Puts the citing papers of the authors papers, and those respective authors
+            #Puts the citing papers of the authors papers, and those respective authors
             print('Handling citing papers...')
             for citing in citedbys:
                 self.storeToStage1(citing, eid)
@@ -296,8 +330,12 @@ class ApiToDB:
     def storeToStage1(self, srcpapid, targpapid):
         srcPaperDict = self.sApi.getPaperInfo(srcpapid)
         targPaperDict = self.sApi.getPaperInfo(targpapid)
-        srcAuthors = srcPaperDict.pop('authors')
-        targAuthors = targPaperDict.pop('authors')
+        srcAuthors = [{'indexed_name': None}]
+        targAuthors = [{'indexed_name': None}]
+        if 'authors' in srcPaperDict:
+            srcAuthors = srcPaperDict.pop('authors')
+        if 'authors' in targPaperDict:
+            targAuthors = targPaperDict.pop('authors')
 
         for srcAuth in srcAuthors:
             for targAuth in targAuthors:
@@ -324,15 +362,3 @@ class ApiToDB:
 
 
 
-# sal = ScopusApiLib()
-#k = sal.getAuthorMetrics(22954842600)
-#k= sal.getAuthorPapers("AUTHOR_ID:22954842600", 0, 2)
-#k = sal.getCitingPapers('2-s2.0-79956094375')
-#k = sal.getPaperReferences('2-s2.0-79956094375')
-# k = sal.getPaperInfo('2-s2.0-79956094375')
-# print(sal.prettifyJson(k))
-# k = sal.getPaperInfo('2-s2.0-84992381851')
-# print(sal.prettifyJson(k))
-
-# atd = ApiToDB()
-# atd.storeAuthorMain(22954842600, 0,1,5)
