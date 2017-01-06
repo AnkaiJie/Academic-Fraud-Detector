@@ -1,0 +1,174 @@
+Running script on author: 22954842600
+Getting author papers
+Beginning processing for paper: 2-s2.0-79956094375
+Handling citing papers...
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Chen M. / Body area networks: A survey
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Gonzalez S. / Body area networks: A survey
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Vasilakos A. / Body area networks: A survey
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Cao H. / Body area networks: A survey
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Leung V.C.M. / Body area networks: A survey
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Chen M. / Body area networks: A survey
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Gonzalez S. / Body area networks: A survey
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Vasilakos A. / Body area networks: A survey
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Cao H. / Body area networks: A survey
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Leung V.C.M. / Body area networks: A survey
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Seyedi M. / A survey on intrabody communications for body area network applications
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Kibret B. / A survey on intrabody communications for body area network applications
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Lai D.T.H. / A survey on intrabody communications for body area network applications
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Faulkner M. / A survey on intrabody communications for body area network applications
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Seyedi M. / A survey on intrabody communications for body area network applications
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Kibret B. / A survey on intrabody communications for body area network applications
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Lai D.T.H. / A survey on intrabody communications for body area network applications
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Faulkner M. / A survey on intrabody communications for body area network applications
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Movassaghi S. / Wireless body area networks: A survey
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Abolhasan M. / Wireless body area networks: A survey
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Lipman J. / Wireless body area networks: A survey
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Smith D. / Wireless body area networks: A survey
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Jamalipour A. / Wireless body area networks: A survey
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Movassaghi S. / Wireless body area networks: A survey
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Abolhasan M. / Wireless body area networks: A survey
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Lipman J. / Wireless body area networks: A survey
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Smith D. / Wireless body area networks: A survey
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Jamalipour A. / Wireless body area networks: A survey
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Chen M. / Body area networks: A survey
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Gonzalez S. / Body area networks: A survey
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Vasilakos A. / Body area networks: A survey
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Cao H. / Body area networks: A survey
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Leung V.C.M. / Body area networks: A survey
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Chen M. / Body area networks: A survey
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Gonzalez S. / Body area networks: A survey
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Vasilakos A. / Body area networks: A survey
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Cao H. / Body area networks: A survey
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Leung V.C.M. / Body area networks: A survey
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Zhang Z. / ECG-cryptography and authentication in body area networks
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Wang H. / ECG-cryptography and authentication in body area networks
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Vasilakos A.V. / ECG-cryptography and authentication in body area networks
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Fang H. / ECG-cryptography and authentication in body area networks
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Zhang Z. / ECG-cryptography and authentication in body area networks
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Wang H. / ECG-cryptography and authentication in body area networks
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Vasilakos A.V. / ECG-cryptography and authentication in body area networks
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Fang H. / ECG-cryptography and authentication in body area networks
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Fortino G. / Enabling effective programming and flexible management of efficient body sensor network applications
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Giannantonio R. / Enabling effective programming and flexible management of efficient body sensor network applications
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Gravina R. / Enabling effective programming and flexible management of efficient body sensor network applications
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Kuryloski P. / Enabling effective programming and flexible management of efficient body sensor network applications
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Jafari R. / Enabling effective programming and flexible management of efficient body sensor network applications
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Fortino G. / Enabling effective programming and flexible management of efficient body sensor network applications
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Giannantonio R. / Enabling effective programming and flexible management of efficient body sensor network applications
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Gravina R. / Enabling effective programming and flexible management of efficient body sensor network applications
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Kuryloski P. / Enabling effective programming and flexible management of efficient body sensor network applications
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Jafari R. / Enabling effective programming and flexible management of efficient body sensor network applications
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Halford T.R. / Energy-Efficient Group Key Agreement for Wireless Networks
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Courtade T.A. / Energy-Efficient Group Key Agreement for Wireless Networks
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Chugg K.M. / Energy-Efficient Group Key Agreement for Wireless Networks
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Li X. / Energy-Efficient Group Key Agreement for Wireless Networks
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Thatte G. / Energy-Efficient Group Key Agreement for Wireless Networks
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Halford T.R. / Energy-Efficient Group Key Agreement for Wireless Networks
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Courtade T.A. / Energy-Efficient Group Key Agreement for Wireless Networks
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Chugg K.M. / Energy-Efficient Group Key Agreement for Wireless Networks
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Li X. / Energy-Efficient Group Key Agreement for Wireless Networks
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Thatte G. / Energy-Efficient Group Key Agreement for Wireless Networks
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Sarvabhatla M. / A secure and robust dynamic ID-based mutual authentication scheme with smart card using elliptic curve cryptography
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Vorugunti C.S. / A secure and robust dynamic ID-based mutual authentication scheme with smart card using elliptic curve cryptography
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Sarvabhatla M. / A secure and robust dynamic ID-based mutual authentication scheme with smart card using elliptic curve cryptography
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Vorugunti C.S. / A secure and robust dynamic ID-based mutual authentication scheme with smart card using elliptic curve cryptography
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Li M. / Group device pairing based secure sensor association and key management for body area networks
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Yu S. / Group device pairing based secure sensor association and key management for body area networks
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Lou W. / Group device pairing based secure sensor association and key management for body area networks
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Li M. / Group device pairing based secure sensor association and key management for body area networks
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Yu S. / Group device pairing based secure sensor association and key management for body area networks
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Lou W. / Group device pairing based secure sensor association and key management for body area networks
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Mehmood Z. / An efficient key agreement with rekeying for secured body sensor networks
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Nizamuddin / An efficient key agreement with rekeying for secured body sensor networks
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Ashraf Ch. S. / An efficient key agreement with rekeying for secured body sensor networks
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Nasar W. / An efficient key agreement with rekeying for secured body sensor networks
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Ghani A. / An efficient key agreement with rekeying for secured body sensor networks
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Mehmood Z. / An efficient key agreement with rekeying for secured body sensor networks
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Nizamuddin / An efficient key agreement with rekeying for secured body sensor networks
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Ashraf Ch. S. / An efficient key agreement with rekeying for secured body sensor networks
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Nasar W. / An efficient key agreement with rekeying for secured body sensor networks
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Ghani A. / An efficient key agreement with rekeying for secured body sensor networks
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Sangari A.S. / Public key cryptosystem based security in wireless body area network
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Manickam J.M.L. / Public key cryptosystem based security in wireless body area network
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Sangari A.S. / Public key cryptosystem based security in wireless body area network
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Manickam J.M.L. / Public key cryptosystem based security in wireless body area network
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Li M. / Data security and privacy in wireless body area networks
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Lou W. / Data security and privacy in wireless body area networks
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Ren K. / Data security and privacy in wireless body area networks
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Li M. / Data security and privacy in wireless body area networks
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Lou W. / Data security and privacy in wireless body area networks
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Ren K. / Data security and privacy in wireless body area networks
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Ramli S.N. / Surveying the Wireless Body Area Network in the realm of wireless communication
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Ahmad R. / Surveying the Wireless Body Area Network in the realm of wireless communication
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Ramli S.N. / Surveying the Wireless Body Area Network in the realm of wireless communication
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Ahmad R. / Surveying the Wireless Body Area Network in the realm of wireless communication
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Tan C.C. / IBE-lite: A lightweight identity-based cryptography for body sensor networks
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Wang H. / IBE-lite: A lightweight identity-based cryptography for body sensor networks
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Zhong S. / IBE-lite: A lightweight identity-based cryptography for body sensor networks
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Li Q. / IBE-lite: A lightweight identity-based cryptography for body sensor networks
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Tan C.C. / IBE-lite: A lightweight identity-based cryptography for body sensor networks
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Wang H. / IBE-lite: A lightweight identity-based cryptography for body sensor networks
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Zhong S. / IBE-lite: A lightweight identity-based cryptography for body sensor networks
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Li Q. / IBE-lite: A lightweight identity-based cryptography for body sensor networks
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Hu K. / An improved ID-based group key agreement protocol
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Xue J. / An improved ID-based group key agreement protocol
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Hu C. / An improved ID-based group key agreement protocol
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Ma R. / An improved ID-based group key agreement protocol
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Li Z. / An improved ID-based group key agreement protocol
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Hu K. / An improved ID-based group key agreement protocol
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Xue J. / An improved ID-based group key agreement protocol
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Hu C. / An improved ID-based group key agreement protocol
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Ma R. / An improved ID-based group key agreement protocol
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Li Z. / An improved ID-based group key agreement protocol
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Al-Riyami S.S. / Certificateless public key cryptography
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Paterson K.G. / Certificateless public key cryptography
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Al-Riyami S.S. / Certificateless public key cryptography
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Paterson K.G. / Certificateless public key cryptography
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Liu J. / Certificateless remote anonymous authentication schemes for wirelessbody area networks
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Zhang Z. / Certificateless remote anonymous authentication schemes for wirelessbody area networks
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Chen X. / Certificateless remote anonymous authentication schemes for wirelessbody area networks
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Kwak K.S. / Certificateless remote anonymous authentication schemes for wirelessbody area networks
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Liu J. / Certificateless remote anonymous authentication schemes for wirelessbody area networks
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Zhang Z. / Certificateless remote anonymous authentication schemes for wirelessbody area networks
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Chen X. / Certificateless remote anonymous authentication schemes for wirelessbody area networks
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Kwak K.S. / Certificateless remote anonymous authentication schemes for wirelessbody area networks
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: He D. / Certificateless public auditing scheme for cloud-assisted wireless body area networks
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Zeadally S. / Certificateless public auditing scheme for cloud-assisted wireless body area networks
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Wu L. / Certificateless public auditing scheme for cloud-assisted wireless body area networks
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: He D. / Certificateless public auditing scheme for cloud-assisted wireless body area networks
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Zeadally S. / Certificateless public auditing scheme for cloud-assisted wireless body area networks
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Wu L. / Certificateless public auditing scheme for cloud-assisted wireless body area networks
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Xiong H. / Revocable and Scalable Certificateless Remote Authentication Protocol with Anonymity for Wireless Body Area Networks
+Source: Shen J. / Certificateless authentication protocol for wireless body area network ------------- Target: Qin Z. / Revocable and Scalable Certificateless Remote Authentication Protocol with Anonymity for Wireless Body Area Networks
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Xiong H. / Revocable and Scalable Certificateless Remote Authentication Protocol with Anonymity for Wireless Body Area Networks
+Source: Chang S. / Certificateless authentication protocol for wireless body area network ------------- Target: Qin Z. / Revocable and Scalable Certificateless Remote Authentication Protocol with Anonymity for Wireless Body Area Networks
+Source: Omala A.A. / An Efficient Remote Authentication Scheme for Wireless Body Area Network ------------- Target: Chen M. / Body area networks: A survey
+Source: Omala A.A. / An Efficient Remote Authentication Scheme for Wireless Body Area Network ------------- Target: Gonzalez S. / Body area networks: A survey
+Source: Omala A.A. / An Efficient Remote Authentication Scheme for Wireless Body Area Network ------------- Target: Vasilakos A. / Body area networks: A survey
+Source: Omala A.A. / An Efficient Remote Authentication Scheme for Wireless Body Area Network ------------- Target: Cao H. / Body area networks: A survey
+Source: Omala A.A. / An Efficient Remote Authentication Scheme for Wireless Body Area Network ------------- Target: Leung V.C.M. / Body area networks: A survey
+Source: Kibiwott K.P. / An Efficient Remote Authentication Scheme for Wireless Body Area Network ------------- Target: Chen M. / Body area networks: A survey
+Source: Kibiwott K.P. / An Efficient Remote Authentication Scheme for Wireless Body Area Network ------------- Target: Gonzalez S. / Body area networks: A survey
+Source: Kibiwott K.P. / An Efficient Remote Authentication Scheme for Wireless Body Area Network ------------- Target: Vasilakos A. / Body area networks: A survey
+Source: Kibiwott K.P. / An Efficient Remote Authentication Scheme for Wireless Body Area Network ------------- Target: Cao H. / Body area networks: A survey
+Source: Kibiwott K.P. / An Efficient Remote Authentication Scheme for Wireless Body Area Network ------------- Target: Leung V.C.M. / Body area networks: A survey
+Source: Li F. / An Efficient Remote Authentication Scheme for Wireless Body Area Network ------------- Target: Chen M. / Body area networks: A survey
+Source: Li F. / An Efficient Remote Authentication Scheme for Wireless Body Area Network ------------- Target: Gonzalez S. / Body area networks: A survey
+Source: Li F. / An Efficient Remote Authentication Scheme for Wireless Body Area Network ------------- Target: Vasilakos A. / Body area networks: A survey
+Source: Li F. / An Efficient Remote Authentication Scheme for Wireless Body Area Network ------------- Target: Cao H. / Body area networks: A survey
+Source: Li F. / An Efficient Remote Authentication Scheme for Wireless Body Area Network ------------- Target: Leung V.C.M. / Body area networks: A survey
+Source: Omala A.A. / An Efficient Remote Authentication Scheme for Wireless Body Area Network ------------- Target: Abi-Char P.E. / A fast and secure elliptic curve based authenticated key agreement protocol for low power mobile communications
+Source: Omala A.A. / An Efficient Remote Authentication Scheme for Wireless Body Area Network ------------- Target: Mhamed A. / A fast and secure elliptic curve based authenticated key agreement protocol for low power mobile communications
+Source: Omala A.A. / An Efficient Remote Authentication Scheme for Wireless Body Area Network ------------- Target: El-Hassan B. / A fast and secure elliptic curve based authenticated key agreement protocol for low power mobile communications
+Source: Kibiwott K.P. / An Efficient Remote Authentication Scheme for Wireless Body Area Network ------------- Target: Abi-Char P.E. / A fast and secure elliptic curve based authenticated key agreement protocol for low power mobile communications
+Source: Kibiwott K.P. / An Efficient Remote Authentication Scheme for Wireless Body Area Network ------------- Target: Mhamed A. / A fast and secure elliptic curve based authenticated key agreement protocol for low power mobile communications
+Source: Kibiwott K.P. / An Efficient Remote Authentication Scheme for Wireless Body Area Network ------------- Target: El-Hassan B. / A fast and secure elliptic curve based authenticated key agreement protocol for low power mobile communications
+Source: Li F. / An Efficient Remote Authentication Scheme for Wireless Body Area Network ------------- Target: Abi-Char P.E. / A fast and secure elliptic curve based authenticated key agreement protocol for low power mobile communications
+Source: Li F. / An Efficient Remote Authentication Scheme for Wireless Body Area Network ------------- Target: Mhamed A. / A fast and secure elliptic curve based authenticated key agreement protocol for low power mobile communications
+Source: Li F. / An Efficient Remote Authentication Scheme for Wireless Body Area Network ------------- Target: El-Hassan B. / A fast and secure elliptic curve based authenticated key agreement protocol for low power mobile communications
+Source: Omala A.A. / An Efficient Remote Authentication Scheme for Wireless Body Area Network ------------- Target: Akyildiz I.F. / Sankarasubramaniam
+Source: Omala A.A. / An Efficient Remote Authentication Scheme for Wireless Body Area Network ------------- Target: Su W. / Sankarasubramaniam
+Source: Kibiwott K.P. / An Efficient Remote Authentication Scheme for Wireless Body Area Network ------------- Target: Akyildiz I.F. / Sankarasubramaniam
+Source: Kibiwott K.P. / An Efficient Remote Authentication Scheme for Wireless Body Area Network ------------- Target: Su W. / Sankarasubramaniam
+Source: Li F. / An Efficient Remote Authentication Scheme for Wireless Body Area Network ------------- Target: Akyildiz I.F. / Sankarasubramaniam
+Source: Li F. / An Efficient Remote Authentication Scheme for Wireless Body Area Network ------------- Target: Su W. / Sankarasubramaniam

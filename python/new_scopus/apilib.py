@@ -267,7 +267,7 @@ class ApiToDB:
         for eid in papers:
             print('Beginning processing for paper: ' + eid)
             #main_title = self.storePapersOnly(eid)
-            references = self.sApi.getPaperReferences(eid, refCount=refCount)
+            #references = self.sApi.getPaperReferences(eid, refCount=refCount)
             citedbys = self.sApi.getCitingPapers(eid, num=cite_num)
 
             # Puts the citing papers of the authors papers, and those respective authors
@@ -277,14 +277,14 @@ class ApiToDB:
                 self.storePaperReferences(citing, refCount=refCount)
             print('Done citing papers.')
 
-            # Puts the cited papers of the authors papers, and those respective authors
-            print('Handling references...')
-            #Repeated code from storePaperReferences for clarity
-            for ref in references:
-                refid = ref['eid']
-                self.storeToStage1(eid, refid)
-                self.storePaperReferences(refid, refCount=refCount)
-            print('Done references')
+            # # Puts the cited papers of the authors papers, and those respective authors
+            # print('Handling references...')
+            # #Repeated code from storePaperReferences for clarity
+            # for ref in references:
+            #     refid = ref['eid']
+            #     self.storeToStage1(eid, refid)
+            #     self.storePaperReferences(refid, refCount=refCount)
+            # print('Done references')
 
     def storePaperReferences(self, eid, refCount=-1):
         references = self.sApi.getPaperReferences(eid, refCount=refCount)
