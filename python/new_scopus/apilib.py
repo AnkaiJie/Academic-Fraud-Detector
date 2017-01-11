@@ -71,7 +71,6 @@ class ScopusApiLib:
         #eid = '2-s2.0-79956094375'
         url ='https://api.elsevier.com/content/search/scopus?query=refeid(' + str(eid) + ')&field=eid,title&start=0&count=' + str(num)
         resp = self.reqs.getJson(url)
-        print(resp)
         resp = resp['search-results']['entry']
         return [pap['eid'] for pap in resp]
 
@@ -129,7 +128,6 @@ class ScopusApiLib:
             url += '&refcount=' + str(refCount)
         
         resp = self.reqs.getJson(url)
-        print(resp)
         resp_body = resp['abstracts-retrieval-response']
         if resp_body is None:
             return None
@@ -145,8 +143,10 @@ class ScopusApiLib:
                 auids = self.processAuthorList(auth_list)
                 ref_dict['authors'] = auids
 
-            ref_dict['srceid'] = eid
+            #ref_dict['srceid'] = eid
             ref_dict['eid'] = raw['scopus-eid']
+            if 'sourcetitle' in raw:
+                ref_dict['publicationName'] = raw['sourcetitle']
             ref_arr.append(ref_dict)
         return ref_arr
 
@@ -251,8 +251,12 @@ class DbInterface:
         targp = None
         srca = None
         targa = None
+        if 'src_paper_eid' in aggDict:
+            srcp = aggDict['src_paper_eid']
         if 'src_paper_title' in aggDict:
             srcp = aggDict['src_paper_title']
+        if 'targ_paper_eid' in aggDict:
+            targp = aggDict['targ_paper_eid']
         if 'targ_paper_title' in aggDict:
             targp = aggDict['targ_paper_title']
         if 'src_author_indexed_name' in aggDict:
@@ -311,8 +315,10 @@ class ApiToDB:
             ccount = 1
             for citing in citedbys:
                 print('Citing paper number: ' + str(ccount))
-                self.storeToStage1(citing, eid)
-                self.storePaperReferences(citing, refCount=refCount)
+                thisPaperDict = self.sApi.getPaperInfo(eid) #do this here to avoid duplicate api calls
+                citePaperDict = self.sApi.getPaperInfo(citing)
+                self.storeCiting(citePaperDict, thisPaperDict)
+                self.storePaperReferences(citing, citePaperDict, refCount=refCount)
                 ccount += 1
             print('Done citing papers.')
 
@@ -325,16 +331,23 @@ class ApiToDB:
             #     self.storePaperReferences(refid, refCount=refCount)
             # print('Done references')
 
-    def storePaperReferences(self, eid, refCount=-1):
+    def storePaperReferences(self, eid, srcPaperDict, refCount=-1):
         references = self.sApi.getPaperReferences(eid, refCount=refCount)
-        for ref in references:
-            refid = ref['eid']
-            self.storeToStage1(eid, refid)
+        srcPaperDict = self.sApi.getPaperInfo(eid)
+        srcAuthors = [{'indexed_name': None}]
+        if 'authors' in srcPaperDict:
+            srcAuthors = srcPaperDict.pop('authors')
 
+        for targPaperDict in references:
+            targAuthors = [{'indexed_name': None}]
+            if 'authors' in targPaperDict:
+                targAuthors = targPaperDict.pop('authors')
 
-    def storeToStage1(self, srcpapid, targpapid):
-        srcPaperDict = self.sApi.getPaperInfo(srcpapid)
-        targPaperDict = self.sApi.getPaperInfo(targpapid)
+            for srcAuth in srcAuthors:
+                for targAuth in targAuthors:
+                    self.dbi.pushToS1(srcPaperDict, targPaperDict, srcAuth, targAuth)
+
+    def storeCiting(self, srcPaperDict, targPaperDict):
         srcAuthors = [{'indexed_name': None}]
         targAuthors = [{'indexed_name': None}]
         if 'authors' in srcPaperDict:
@@ -345,6 +358,21 @@ class ApiToDB:
         for srcAuth in srcAuthors:
             for targAuth in targAuthors:
                 self.dbi.pushToS1(srcPaperDict, targPaperDict, srcAuth, targAuth)
+
+
+    # def storeToStage1(self, srcpapid, targpapid):
+    #     srcPaperDict = self.sApi.getPaperInfo(srcpapid)
+    #     targPaperDict = self.sApi.getPaperInfo(targpapid)
+    #     srcAuthors = [{'indexed_name': None}]
+    #     targAuthors = [{'indexed_name': None}]
+    #     if 'authors' in srcPaperDict:
+    #         srcAuthors = srcPaperDict.pop('authors')
+    #     if 'authors' in targPaperDict:
+    #         targAuthors = targPaperDict.pop('authors')
+
+    #     for srcAuth in srcAuthors:
+    #         for targAuth in targAuthors:
+    #             self.dbi.pushToS1(srcPaperDict, targPaperDict, srcAuth, targAuth)
 
     def getAuthorsFromPaper(self, origPaperDict):
         paperDict = dict(origPaperDict)

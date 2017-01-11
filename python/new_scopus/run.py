@@ -6,5 +6,4 @@ from apilib import ApiToDB
 # print(sal.prettifyJson(k))
 
 atd = ApiToDB()
-atd.storeAuthorMain(22954842600, start_index=0, pap_num=100, cite_num=100)
-
+atd.storeAuthorMain(22954842600, start_index=0, pap_num=1, cite_num=1, refCount=5)
