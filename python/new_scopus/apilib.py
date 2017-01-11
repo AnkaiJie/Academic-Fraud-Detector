@@ -70,7 +70,9 @@ class ScopusApiLib:
     def getCitingPapers(self, eid, num=100):
         #eid = '2-s2.0-79956094375'
         url ='https://api.elsevier.com/content/search/scopus?query=refeid(' + str(eid) + ')&field=eid,title&start=0&count=' + str(num)
-        resp = self.reqs.getJson(url)['search-results']['entry']
+        resp = self.reqs.getJson(url)
+        print(resp)
+        resp = resp['search-results']['entry']
         return [pap['eid'] for pap in resp]
 
     #returns basic info about a paper with the given eid
@@ -127,6 +129,7 @@ class ScopusApiLib:
             url += '&refcount=' + str(refCount)
         
         resp = self.reqs.getJson(url)
+        print(resp)
         resp_body = resp['abstracts-retrieval-response']
         if resp_body is None:
             return None
@@ -145,7 +148,6 @@ class ScopusApiLib:
             ref_dict['srceid'] = eid
             ref_dict['eid'] = raw['scopus-eid']
             ref_arr.append(ref_dict)
-
         return ref_arr
 
     #makes a jsonObj pretty
@@ -306,9 +308,12 @@ class ApiToDB:
 
             #Puts the citing papers of the authors papers, and those respective authors
             print('Handling citing papers...')
+            ccount = 1
             for citing in citedbys:
+                print('Citing paper number: ' + str(ccount))
                 self.storeToStage1(citing, eid)
                 self.storePaperReferences(citing, refCount=refCount)
+                ccount += 1
             print('Done citing papers.')
 
             # # Puts the cited papers of the authors papers, and those respective authors
@@ -358,7 +363,3 @@ class ApiToDB:
     def getAuthorInfo(self, auth_id):
         author = self.sApi.getAuthorMetrics(auth_id)
         return author
-
-
-
-
