@@ -335,12 +335,12 @@ class ApiToDB:
         references = self.sApi.getPaperReferences(eid, refCount=refCount)
         srcPaperDict = self.sApi.getPaperInfo(eid)
         srcAuthors = [{'indexed_name': None}]
-        if 'authors' in srcPaperDict:
+        if 'authors' in srcPaperDict and srcPaperDict['authors'] is not None:
             srcAuthors = srcPaperDict.pop('authors')
 
         for targPaperDict in references:
             targAuthors = [{'indexed_name': None}]
-            if 'authors' in targPaperDict:
+            if 'authors' in targPaperDict and targPaperDict['authors'] is not None:
                 targAuthors = targPaperDict.pop('authors')
 
             for srcAuth in srcAuthors:
