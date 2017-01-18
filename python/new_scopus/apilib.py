@@ -79,9 +79,12 @@ class ScopusApiLib:
         url = 'https://api.elsevier.com/content/abstract/eid/' + str(eid) + '?&field=authors,coverDate,eid,title,publicationName'
         resp = self.reqs.getJson(url)
         try:
+            if 'service-error' in resp:
+                return None
             resp = resp['abstracts-retrieval-response']
         except:
             print(resp)
+            print(url)
             raise
         coredata = resp['coredata']
         if resp['authors']:
@@ -333,7 +336,6 @@ class ApiToDB:
 
     def storePaperReferences(self, eid, srcPaperDict, refCount=-1):
         references = self.sApi.getPaperReferences(eid, refCount=refCount)
-        srcPaperDict = self.sApi.getPaperInfo(eid)
         srcAuthors = [{'indexed_name': None}]
         if 'authors' in srcPaperDict:
             srcAuthors = srcPaperDict.pop('authors')
