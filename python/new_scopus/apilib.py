@@ -312,14 +312,18 @@ class ApiToDB:
             #     print('No Data on References')
             #     references = []
             citedbys = self.sApi.getCitingPapers(eid, num=cite_num)
+            thisPaperDict = self.sApi.getPaperInfo(eid) #do this here to avoid duplicate api calls
 
             #Puts the citing papers of the authors papers, and those respective authors
             print('Handling citing papers...')
-            ccount = 1
+
+            ccount = start_index
             for citing in citedbys:
-                print('Citing paper number: ' + str(ccount))
-                thisPaperDict = self.sApi.getPaperInfo(eid) #do this here to avoid duplicate api calls
+                print('Citing paper index number: ' + str(ccount))
                 citePaperDict = self.sApi.getPaperInfo(citing)
+                if citePaperDict is None:
+                    print("NONE CITING PAPER")
+                    continue
                 self.storeCiting(citePaperDict, thisPaperDict)
                 self.storePaperReferences(citing, citePaperDict, refCount=refCount)
                 ccount += 1
