@@ -317,7 +317,7 @@ class ApiToDB:
             #Puts the citing papers of the authors papers, and those respective authors
             print('Handling citing papers...')
 
-            ccount = start_index
+            ccount = 1
             for citing in citedbys:
                 print('Citing paper index number: ' + str(ccount))
                 citePaperDict = self.sApi.getPaperInfo(citing)
