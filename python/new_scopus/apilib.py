@@ -254,19 +254,21 @@ class DbInterface:
         targp = None
         srca = None
         targa = None
+        srce = None
+        targe = None
         if 'src_paper_eid' in aggDict:
-            srcp = aggDict['src_paper_eid']
+            srce = aggDict['src_paper_eid']
         if 'src_paper_title' in aggDict:
             srcp = aggDict['src_paper_title']
         if 'targ_paper_eid' in aggDict:
-            targp = aggDict['targ_paper_eid']
+            targe = aggDict['targ_paper_eid']
         if 'targ_paper_title' in aggDict:
             targp = aggDict['targ_paper_title']
         if 'src_author_indexed_name' in aggDict:
             srca = aggDict['src_author_indexed_name']
         if 'targ_author_indexed_name' in aggDict:
             targa = aggDict['targ_author_indexed_name']
-        return 'Source: ' + str(srca) + ' / ' + str(srcp) + ' ------------- ' + 'Target: ' + str(targa) + ' / ' + str(targp)
+        return 'Source: ' + str(srca) +' / ' + str(srce) + ' / ' + str(srcp) + ' ------------- ' + 'Target: ' + str(targa) +' / ' + str(targe) + ' / ' + str(targp)
 
     def pushDict(self, table, d):
         conn = pymysql.connect(HOST, USER, PASSWORD, DBNAME, charset='utf8')
@@ -324,8 +326,8 @@ class ApiToDB:
                 if citePaperDict is None:
                     print("NONE CITING PAPER")
                     continue
-                self.storeCiting(citePaperDict, thisPaperDict)
-                self.storePaperReferences(citing, citePaperDict, refCount=refCount)
+                self.storeCiting(dict(citePaperDict), dict(thisPaperDict))
+                self.storePaperReferences(citing, dict(citePaperDict), refCount=refCount)
                 ccount += 1
             print('Done citing papers.')
 
@@ -344,6 +346,7 @@ class ApiToDB:
         if 'authors' in srcPaperDict and srcPaperDict['authors'] is not None:
             srcAuthors = srcPaperDict.pop('authors')
 
+        print(srcAuthors)
         for targPaperDict in references:
             targAuthors = [{'indexed_name': None}]
             if 'authors' in targPaperDict and targPaperDict['authors'] is not None:
