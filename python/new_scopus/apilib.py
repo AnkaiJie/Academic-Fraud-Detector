@@ -80,6 +80,7 @@ class ScopusApiLib:
         resp = self.reqs.getJson(url)
         try:
             if 'service-error' in resp:
+                print("SERVICE ERROR Citing")
                 return None
             resp = resp['abstracts-retrieval-response']
         except:
@@ -131,7 +132,15 @@ class ScopusApiLib:
             url += '&refcount=' + str(refCount)
         
         resp = self.reqs.getJson(url)
-        resp_body = resp['abstracts-retrieval-response']
+        try:
+            if 'service-error' in resp:
+                print("SERVICE ERROR References")
+                return None
+            resp_body = resp['abstracts-retrieval-response']
+        except:
+            print(resp)
+            print(url)
+            raise
         if resp_body is None:
             return None
         else:
@@ -342,6 +351,8 @@ class ApiToDB:
 
     def storePaperReferences(self, eid, srcPaperDict, refCount=-1):
         references = self.sApi.getPaperReferences(eid, refCount=refCount)
+        if references is None:
+            return
         srcAuthors = [{'indexed_name': None}]
         if 'authors' in srcPaperDict and srcPaperDict['authors'] is not None:
             srcAuthors = srcPaperDict.pop('authors')
