@@ -357,7 +357,6 @@ class ApiToDB:
         if 'authors' in srcPaperDict and srcPaperDict['authors'] is not None:
             srcAuthors = srcPaperDict.pop('authors')
 
-        print(srcAuthors)
         for targPaperDict in references:
             targAuthors = [{'indexed_name': None}]
             if 'authors' in targPaperDict and targPaperDict['authors'] is not None:
