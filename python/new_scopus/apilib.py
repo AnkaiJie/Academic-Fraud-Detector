@@ -3,6 +3,7 @@ import requests
 import json
 import sys
 import pymysql
+import time
 
 class reqWrapper:
     def __init__(self, headers):
@@ -80,8 +81,11 @@ class ScopusApiLib:
         resp = self.reqs.getJson(url)
         try:
             if 'service-error' in resp:
-                print("SERVICE ERROR Citing")
-                return None
+                time.sleep(3)
+                resp = self.reqs.getJson(url)
+                if 'service-error' in resp:
+                    print("SERVICE ERROR Citing")
+                    return None
             resp = resp['abstracts-retrieval-response']
         except:
             print(resp)
@@ -134,8 +138,11 @@ class ScopusApiLib:
         resp = self.reqs.getJson(url)
         try:
             if 'service-error' in resp:
-                print("SERVICE ERROR References")
-                return None
+                time.sleep(3)
+                resp = self.reqs.getJson(url)
+                if 'service-error' in resp:
+                    print("SERVICE ERROR References")
+                    return None
             resp_body = resp['abstracts-retrieval-response']
         except:
             print(resp)
@@ -324,6 +331,9 @@ class ApiToDB:
             #     references = []
             citedbys = self.sApi.getCitingPapers(eid, num=cite_num)
             thisPaperDict = self.sApi.getPaperInfo(eid) #do this here to avoid duplicate api calls
+            if thisPaperDict is None:
+                print("NONE MAIN PAPER")
+                continue
 
             #Puts the citing papers of the authors papers, and those respective authors
             print('Handling citing papers...')
