@@ -3,6 +3,7 @@ import requests
 import json
 import time
 import pymysql
+import time
 
 class reqWrapper:
     def __init__(self, headers):
@@ -84,7 +85,11 @@ class ScopusApiLib:
         resp = self.reqs.getJson(url)
         try:
             if 'service-error' in resp:
-                return None
+                time.sleep(3)
+                resp = self.reqs.getJson(url)
+                if 'service-error' in resp:
+                    print("SERVICE ERROR Citing")
+                    return None
             resp = resp['abstracts-retrieval-response']
         except:
             print(resp)
@@ -143,13 +148,20 @@ class ScopusApiLib:
         ref_arr = []
         while(True):
             time.sleep(0.2)
+            print(req_url)
             resp = self.reqs.getJson(req_url)
+            resp_body = {}
             try:
                 resp_body = resp['abstracts-retrieval-response']
-            except KeyError as e:
-                if resp['service-error']['status']['statusText'] == "'startref' or 'refcount' parameter missing or invalid":
+            except Exception as e:
+                if 'service-error' in resp and resp['service-error']['status']['statusText'] == "'startref' or 'refcount' parameter missing or invalid":
                     break
                 else:
+                    time.sleep(2)
+                    resp = self.reqs.getJson(url)
+                    if 'service-error' in resp:
+                        print("SERVICE ERROR References")
+                        return None
                     print(url)
                     print(resp)
                     raise
@@ -344,6 +356,9 @@ class ApiToDB:
             #     references = []
             citedbys = self.sApi.getCitingPapers(eid, num=cite_num)
             thisPaperDict = self.sApi.getPaperInfo(eid) #do this here to avoid duplicate api calls
+            if thisPaperDict is None:
+                print("NONE MAIN PAPER")
+                continue
 
             #Puts the citing papers of the authors papers, and those respective authors
             print('Handling citing papers...')
@@ -371,6 +386,8 @@ class ApiToDB:
 
     def storePaperReferences(self, eid, srcPaperDict, refCount=-1):
         references = self.sApi.getPaperReferences(eid, refCount=refCount)
+        if references is None:
+            return
         srcAuthors = [{'indexed_name': None}]
         if 'authors' in srcPaperDict and srcPaperDict['authors'] is not None:
             srcAuthors = srcPaperDict.pop('authors')
