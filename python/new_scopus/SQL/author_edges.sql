@@ -81,20 +81,3 @@ create table author_edges as select
     group by src_author_id, src_author_eid, targ_author_id, targ_author_eid;
 
 
-
-drop table author_overcites;
-    create table author_overcites as 
-    select initial.targ_author_id, initial.targ_paper_eid, initial.src_paper_eid, 
-    count(src_author_id) as author_num, overs.overcites
-    from 
-    (select targ_author_id, targ_paper_eid,
-        src_paper_eid from citations_s2
-        where targ_author_id !=''
-        group by targ_author_id, targ_paper_eid,
-        src_paper_eid) initial
-    left join (select src_author_id, src_paper_eid, targ_author_id,
-        count(*) as overcites from citations_s2
-        where targ_author_id!=''
-        group by src_author_id, src_paper_eid, targ_author_id) overs 
-    on initial.targ_author_id = overs.targ_author_id and initial.src_paper_eid = overs.src_paper_eid
-    group by initial.targ_author_id, initial.src_paper_eid, initial.targ_paper_eid, overs.overcites

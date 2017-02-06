@@ -1,7 +1,7 @@
 from credentials import API_KEY, DBNAME, USER, PASSWORD, HOST
 import requests
 import json
-import sys
+import time
 import pymysql
 
 class reqWrapper:
@@ -71,8 +71,12 @@ class ScopusApiLib:
         #eid = '2-s2.0-79956094375'
         url ='https://api.elsevier.com/content/search/scopus?query=refeid(' + str(eid) + ')&field=eid,title&start=0&count=' + str(num)
         resp = self.reqs.getJson(url)
+
         resp = resp['search-results']['entry']
-        return [pap['eid'] for pap in resp]
+        if 'error' in resp[0] and resp[0]['error'] == 'Result set was empty':
+            return []
+        paps = [pap['eid'] for pap in resp]
+        return paps
 
     #returns basic info about a paper with the given eid
     def getPaperInfo(self, eid):
@@ -127,30 +131,55 @@ class ScopusApiLib:
     # returns an array of papers that the paper with the given eid cites
     def getPaperReferences(self, eid, refCount = -1):
         url = 'https://api.elsevier.com/content/abstract/eid/' + str(eid) + '?&view=REF'
+        req_url = url
+        start = 1
+        custom_count = False
         if refCount is not -1:
-            url += '&refcount=' + str(refCount)
-        
-        resp = self.reqs.getJson(url)
-        resp_body = resp['abstracts-retrieval-response']
-        if resp_body is None:
-            return None
+            req_url += '&refcount=' + str(refCount)
+            custom_count = True
         else:
-            resp_body = resp_body['references']['reference']
-
+            req_url += '&start='+ str(start) + '&refcount=40'
+        
         ref_arr = []
-        for raw in resp_body:
-            ref_dict = {}
-            ref_dict['authors'] = None
-            if raw['author-list'] and raw['author-list']['author']:
-                auth_list = raw['author-list']['author']
-                auids = self.processAuthorList(auth_list)
-                ref_dict['authors'] = auids
+        while(True):
+            time.sleep(0.2)
+            resp = self.reqs.getJson(req_url)
+            try:
+                resp_body = resp['abstracts-retrieval-response']
+            except KeyError as e:
+                if resp['service-error']['status']['statusText'] == "'startref' or 'refcount' parameter missing or invalid":
+                    break
+                else:
+                    print(url)
+                    print(resp)
+                    raise
 
-            #ref_dict['srceid'] = eid
-            ref_dict['eid'] = raw['scopus-eid']
-            if 'sourcetitle' in raw:
-                ref_dict['publicationName'] = raw['sourcetitle']
-            ref_arr.append(ref_dict)
+            if resp_body is None:
+                return None
+            else:
+                resp_body = resp_body['references']['reference']
+
+            current_refs = []
+            for raw in resp_body:
+                ref_dict = {}
+                ref_dict['authors'] = None
+                if raw['author-list'] and raw['author-list']['author']:
+                    auth_list = raw['author-list']['author']
+                    auids = self.processAuthorList(auth_list)
+                    ref_dict['authors'] = auids
+
+                #ref_dict['srceid'] = eid
+                ref_dict['eid'] = raw['scopus-eid']
+                if 'sourcetitle' in raw:
+                    ref_dict['publicationName'] = raw['sourcetitle']
+                current_refs.append(ref_dict)
+
+            ref_arr += current_refs
+            start += 40
+            req_url = url + '&start='+ str(start) + '&refcount=40'
+            if custom_count:
+                break
+
         return ref_arr
 
     #makes a jsonObj pretty
@@ -346,7 +375,6 @@ class ApiToDB:
         if 'authors' in srcPaperDict and srcPaperDict['authors'] is not None:
             srcAuthors = srcPaperDict.pop('authors')
 
-        print(srcAuthors)
         for targPaperDict in references:
             targAuthors = [{'indexed_name': None}]
             if 'authors' in targPaperDict and targPaperDict['authors'] is not None:
