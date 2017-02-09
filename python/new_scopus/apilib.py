@@ -89,7 +89,7 @@ class ScopusApiLib:
                 resp = self.reqs.getJson(url)
                 if 'service-error' in resp:
                     print("SERVICE ERROR Citing")
-                    return None
+                    raise
             resp = resp['abstracts-retrieval-response']
         except:
             print(resp)
