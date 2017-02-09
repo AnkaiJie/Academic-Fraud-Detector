@@ -148,7 +148,6 @@ class ScopusApiLib:
         ref_arr = []
         while(True):
             time.sleep(0.2)
-            print(req_url)
             resp = self.reqs.getJson(req_url)
             resp_body = {}
             try:
@@ -161,10 +160,11 @@ class ScopusApiLib:
                     resp = self.reqs.getJson(url)
                     if 'service-error' in resp:
                         print("SERVICE ERROR References")
-                        return None
-                    print(url)
-                    print(resp)
-                    raise
+                        print(url)
+                        print(resp)
+                        raise
+                    else:
+                        resp_body = resp['abstracts-retrieval-response']
 
             if resp_body is None:
                 return None
