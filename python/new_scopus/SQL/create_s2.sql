@@ -1,35 +1,25 @@
     
 drop table if exists citations_s2;
 create table citations_s2 as select
-    cast(src_author_citation_count as unsigned) as src_author_citation_count,
-    cast(src_author_cited_by_count as unsigned) as src_author_cited_by_count,
     substring(src_author_dc_identifier, 11) as src_author_id,
-    cast(src_author_document_count as unsigned) as src_author_document_count,
-    src_author_eid,
     src_author_given_name,
     src_author_indexed_name,
     src_author_initials,
-    cast(src_author_publication_range_start as unsigned) as src_author_publication_range_start,
-    cast(src_author_publication_range_end as unsigned) as src_author_publication_range_end,
     src_author_surname,
     DATE(src_paper_coverDate) as src_paper_coverDate,
     src_paper_eid,
     src_paper_publicationName,
     src_paper_title,
-    cast(targ_author_citation_count as unsigned) as targ_author_citation_count,
-    cast(targ_author_cited_by_count as unsigned) as targ_author_cited_by_count,
     substring(targ_author_dc_identifier, 11) as targ_author_id,
-    cast(targ_author_document_count as unsigned) as targ_author_document_count,
-    targ_author_eid,
     targ_author_given_name,
     targ_author_indexed_name,
     targ_author_initials,
-    cast(targ_author_publication_range_start as unsigned) as targ_author_publication_range_start,
-    cast(targ_author_publication_range_end as unsigned) as targ_author_publication_range_end,
     targ_author_surname,
     DATE(targ_paper_coverDate) as targ_paper_coverDate,
     targ_paper_eid,
     targ_paper_publicationName,
     targ_paper_title
-from citations_s1;
+from citations_s1
+where src_author_dc_identifier != "" and
+targ_author_dc_identifier != "";
 

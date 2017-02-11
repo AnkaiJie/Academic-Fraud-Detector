@@ -25,6 +25,7 @@ drop table author_overcites;
 
 
 /* New code - remove targ_paper_eid because it just causes repeats in table columns */
+create table author_overcites as
 select inter.targ_author_id, inter.src_paper_eid, inter.author_num, count(inter.targ_paper_eid) as overcites from 
 (select targ_author_id, targ_paper_eid, src_paper_eid, 
     count(src_author_id) as author_num from citations_s2
