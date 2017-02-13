@@ -285,6 +285,7 @@ class DbInterface:
         self.utility.changeKeyString(aggDict, '-', '_')
         self.utility.changeKeyString(aggDict, '@', '')
         self.utility.changeKeyString(aggDict, ':', '_')
+        self.utility.changeValueString(aggDict, '\\', '')
         self.utility.changeValueString(aggDict, '"', '\\"')
 
         print(self.toString(aggDict))
