@@ -25,6 +25,7 @@ drop table author_overcites;
 
 
 /* New code - remove targ_paper_eid because it just causes repeats in table columns */
+drop table author_overcites;
 create table author_overcites as
 select inter.targ_author_id, inter.src_paper_eid, inter.author_num, count(inter.targ_paper_eid) as overcites from 
 (select targ_author_id, targ_paper_eid, src_paper_eid, 
@@ -32,3 +33,5 @@ select inter.targ_author_id, inter.src_paper_eid, inter.author_num, count(inter.
     group by targ_author_id, targ_paper_eid, src_paper_eid) as inter
 group by targ_author_id, src_paper_eid, author_num
 
+
+select * from author_overcites where targ_author_id='' order by overcites desc;

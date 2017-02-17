@@ -68,14 +68,17 @@ class ScopusApiLib:
         return eid_arr
 
     # returns an array of papers that cite the paper with the given eid    
-    def getCitingPapers(self, eid, num=100):
+    def getCitingPapers(self, eid, num=100, sort_order="date"):
         #eid = '2-s2.0-79956094375'
-        url ='https://api.elsevier.com/content/search/scopus?query=refeid(' + str(eid) + ')&field=eid,title&start=0&count=' + str(num)
+        url ='https://api.elsevier.com/content/search/scopus?query=refeid(' + str(eid) + ')&field=eid&start=0&count=' + str(num)
+        if sort_order == "citations":
+            url ='https://api.elsevier.com/content/search/scopus?query=refeid(' + str(eid) + ')&field=eid&start=0&sort=+citedby-count&count=' + str(num)
         resp = self.reqs.getJson(url)
 
         resp = resp['search-results']['entry']
         if 'error' in resp[0] and resp[0]['error'] == 'Result set was empty':
             return []
+        #print(resp)
         paps = [pap['eid'] for pap in resp]
         return paps
 
@@ -149,6 +152,7 @@ class ScopusApiLib:
         while(True):
             time.sleep(0.2)
             resp = self.reqs.getJson(req_url)
+            print(resp)
             resp_body = {}
             try:
                 resp_body = resp['abstracts-retrieval-response']
@@ -289,7 +293,7 @@ class DbInterface:
         self.utility.changeValueString(aggDict, '"', '\\"')
 
         print(self.toString(aggDict))
-        self.pushDict('citations_s1', aggDict)
+        self.pushDict('test_citations', aggDict)
 
     def toString(self, aggDict):
         srcp = None
@@ -355,7 +359,7 @@ class ApiToDB:
             # if references is None:
             #     print('No Data on References')
             #     references = []
-            citedbys = self.sApi.getCitingPapers(eid, num=cite_num)
+            citedbys = self.sApi.getCitingPapers(eid, num=cite_num, sort_order="citations")
             thisPaperDict = self.sApi.getPaperInfo(eid) #do this here to avoid duplicate api calls
             if thisPaperDict is None:
                 print("NONE MAIN PAPER")

@@ -1,11 +1,11 @@
 from apilib import *
 
 # sal = ScopusApiLib()
-# k = sal.getPaperReferences('2-s2.0-84949209479')
+# k = sal.getPaperReferences('2-s2.0-79952854696', refCount=1)
 # print(len(k))
 # print(sal.prettifyJson(k))
 
 
 
 atd = ApiToDB()
-atd.storeAuthorMain(7006619672, start_index=23, pap_num=33, cite_num=100)
+atd.storeAuthorMain(22954842600, start_index=0, pap_num=20, cite_num=20)
